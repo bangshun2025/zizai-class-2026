@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 2026 学年课表介绍（幼小衔接·一整年）</title>
+<style>
+  :root {
+    --warm-bg: #fdf8f0;
+    --card-bg: #ffffff;
+    --text: #3d3226;
+    --text-light: #6b5e4f;
+    --accent: #d4843a;
+    --accent-soft: #f6e7d8;
+    --green: #6b8f5e;
+    --green-soft: #e8f0e2;
+    --border: #e8dccf;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    background: var(--warm-bg);
+    color: var(--text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 0 32px;
+  }
+  .header .icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+  }
+  .header .subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--text-light);
+  }
+
+  /* Hero intro */
+  .hero {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.9;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 36px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-soft);
+  }
+
+  /* Highlight block */
+  .highlight {
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    color: var(--accent);
+    line-height: 1.8;
+  }
+  .highlight em {
+    font-style: normal;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* Phase labels */
+  .phase-row {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .phase-tag {
+    flex: 1;
+    min-width: 200px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    font-size: 15px;
+  }
+  .phase-tag strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .phase-tag.fall strong { color: var(--accent); }
+  .phase-tag.spring strong { color: var(--green); }
+
+  /* Daily schedule card */
+  .schedule-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .schedule-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    align-items: stretch;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time {
+    flex: 0 0 130px;
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    background: #fef9f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .schedule-body {
+    flex: 1;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .schedule-body .what {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .schedule-body .why {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* Course grid */
+  .course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  @media (max-width: 500px) {
+    .course-grid { grid-template-columns: 1fr; }
+  }
+  .course-item {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+  }
+  .course-item .icon { font-size: 24px; margin-bottom: 6px; }
+  .course-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .course-item p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* Semester comparison table */
+  .semester-table {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .semester-table .row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+  .semester-table .row:last-child { border-bottom: none; }
+  .semester-table .cell {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .semester-table .cell.label {
+    flex: 0 0 80px;
+    font-weight: 700;
+    background: #fef9f3;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .semester-table .header-row .cell {
+    font-weight: 700;
+    font-size: 14px;
+    background: var(--accent-soft);
+  }
+  .semester-table .header-row .cell.label {
+    background: var(--accent-soft);
+  }
+
+  /* Growth steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    font-size: 15px;
+  }
+  .step .arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .step .label { font-weight: 600; }
+  .step .to {
+    color: var(--text-light);
+    margin-left: 6px;
+  }
+
+  /* Closing */
+  .closing {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin: 36px 0 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.9;
+    border: 2px solid var(--accent-soft);
+  }
+  .closing strong {
+    color: var(--accent);
+    font-size: 18px;
+    display: block;
+    margin: 8px 0;
+  }
+  .closing .final {
+    margin-top: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    color: #b8a894;
+    padding: 20px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="icon">🌱</div>
+    <h1>自在班 2026 学年课表介绍</h1>
+    <div class="subtitle">幼小衔接 · 一整年</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    自在班，是给明年 9 月要上小学的孩子（5–6 岁）准备的幼小衔接班。<br><br>
+    这份介绍，想跟各位家长把一件事讲清楚：<strong>把孩子交给自在班这一年，孩子每天在做什么、一年以后会变成什么样。</strong>
+  </div>
+
+  <!-- 家长最担心 -->
+  <h2>家长最担心的那件事，我们先接住</h2>
+  <p>家长最关心的那件事，我们清楚——明年 9 月孩子要上小学了，<strong>跟得上吗？</strong></p>
+  <p style="color:var(--text-light); margin-top:8px;">认字、算数、写字、敢不敢举手、坐不坐得住……</p>
+  <div class="highlight">
+    我们的答案很明确：<em>跟得上</em>。<br>
+    靠的不是提前抢跑、也不是照搬小学课本，而是让孩子在真实的生活里，把认字、算数、写字、表达、习惯这些本事一样一样长出来。等孩子上小学，是<strong>带着能力走进去</strong>的，不是被推着进去的。
+  </div>
+
+  <!-- 一年的地图 -->
+  <h2>这不是「一天的课表」，是「一年的地图」</h2>
+  <p>先说一个最容易看错的地方：这张表看着像一天的安排，其实它是<strong>2026 年秋天到 2027 年春天、一整学年</strong>的浓缩。</p>
+  <p style="color:var(--text-light); margin-top:8px;">同一门课，开学时和学年末做的事完全不一样——它一直在往上走。</p>
+  <div class="phase-row">
+    <div class="phase-tag fall">
+      <strong>🍂 上学期（2026 秋）· 先扎根</strong>
+      把作息、规矩、生活自理、学习习惯立起来。
+    </div>
+    <div class="phase-tag spring">
+      <strong>🌿 下学期（2027 春）· 往外长</strong>
+      做项目、做公益、亲手做点小生意，冲刺幼小衔接。
+    </div>
+  </div>
+
+  <!-- 孩子的一天 -->
+  <h2>孩子的一天，是这样过的</h2>
+  <div class="schedule-card">
+    <div class="schedule-row">
+      <div class="schedule-time">早上入园<br>08:00–09:00</div>
+      <div class="schedule-body">
+        <div class="what">自己整理书包、吃元气早餐、和老师聊几句</div>
+        <div class="why">从「家里的随意」慢慢切换到「上学的节奏」，先把心安顿下来</div>
+      </div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">上午·主课<br>09:00–11:30</div>
+      <div class="schedule-body">
+        <div class="what">晨读、升国旗、军体课、出门研学、做项目、体能、种养课</div>
+        <div class="why">一天里精神最好的时候，安排最需要精气神的「重头课」——长规矩、长体力，也学会和小伙伴一起把一件事做完</div>
+      </div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">中午·静下来<br>11:30–14:30</div>
+      <div class="schedule-body">
+        <div class="what">好好吃饭、安心午睡</div>
+        <div class="why">这不只是午休。吃好、睡好，本身就是一种生活能力</div>
+      </div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">下午·练基本功<br>14:30–17:00</div>
+      <div class="schedule-body">
+        <div class="what">看主题短片、练写字、练表达、玩数学、研学预备</div>
+        <div class="why">下午偏安静，练的是写字、说话、算数这些上小学要用的底子</div>
+      </div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">离园 + 回家<br>17:00 起 / 晚上</div>
+      <div class="schedule-body">
+        <div class="what">收拾东西回家；在家继续生活习惯、作业习惯</div>
+        <div class="why">白天学的本事带回家用，家里和班里接上，孩子才真的养成习惯</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 每门课的变化 -->
+  <h2>一年下来，每门课孩子会有什么变化</h2>
+  <p>这是我们最想让家长看到的一页：每门课都不是上一次就完，而是一整年一点点往上走。下面用平实的话，说说一年后大概能看到什么。</p>
+  <div class="course-grid">
+    <div class="course-item">
+      <div class="icon">✍️</div>
+      <h4>写字（控笔）</h4>
+      <p>从握不稳笔，到能一笔一画写出自己的名字。以后写作业，孩子不会因为写字吃力而怕写、抵触。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🔢</div>
+      <h4>数学（数理启蒙）</h4>
+      <p>从掰手指数数，到去超市自己看价签、算找零。买东西、分东西、算算赚没赚，孩子用得上。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🗣️</div>
+      <h4>说话（自信表达）</h4>
+      <p>从磕磕巴巴，到能把一件事有头有尾讲清楚，还敢站起来给大家介绍自己做的东西。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🛡️</div>
+      <h4>军体课</h4>
+      <p>学会几招保护自己（防霸凌），也敢挑战自己（索降、过障碍）——练的是勇气，不是吃苦。摔了、怕了，能自己稳住、再来一次。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">📖</div>
+      <h4>晨读（明心）</h4>
+      <p>每天读一点，认字一点点攒起来；更要紧的是，被比下去、被拒绝、失败的时候，心里不容易塌，容易缓过来。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🚌</div>
+      <h4>市内研学</h4>
+      <p>上学期逛超市、认生活；下学期去福利院、烈士陵园，开始懂得心疼别人、愿意为别人做点事。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🐣</div>
+      <h4>种养与户外（PBL 三生课）</h4>
+      <p>从抓鱼、拔花生、钓鱼、柴火烤红薯，到自己种菜、养鸡。孩子会明白，饭桌上的东西是怎么来的。每年还会爬六座山。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">💰</div>
+      <h4>小生意（项目探究）</h4>
+      <p>做冰糖葫芦、薯条、凉粉，亲手卖给真实顾客，自己收钱、找零、算账，再拿一部分做公益。让孩子完整地做成一件事。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🎬</div>
+      <h4>主题短片（放映厅）</h4>
+      <p>一年里，从爱自己、爱爸妈，到爱家、爱国，一周一个主题，慢慢看进心里。</p>
+    </div>
+    <div class="course-item">
+      <div class="icon">🏃</div>
+      <h4>体能 / 跳绳</h4>
+      <p>定个小目标，练、突破、记下来。孩子会亲眼看到——「我从不会到会，是一点点练出来的」。</p>
+    </div>
+  </div>
+
+  <!-- 上下学期对比 -->
+  <h2>上下两学期，同一门课怎么往上走</h2>
+  <div class="semester-table">
+    <div class="row header-row">
+      <div class="cell label">课</div>
+      <div class="cell">🍂 上学期（先扎根）</div>
+      <div class="cell">🌿 下学期（往外长）</div>
+    </div>
+    <div class="row">
+      <div class="cell label">晨读</div>
+      <div class="cell">心里的抗挫力、三观的小故事</div>
+      <div class="cell">接着读，加上千字文</div>
+    </div>
+    <div class="row">
+      <div class="cell label">数学</div>
+      <div class="cell">生活里的数：买东西、分类、比多少</div>
+      <div class="cell">项目里的数：成本、数量、赚了多少、怎么分</div>
+    </div>
+    <div class="row">
+      <div class="cell label">表达</div>
+      <div class="cell">把生活里的事说清楚</div>
+      <div class="cell">讲自己做项目的过程、上台介绍、复盘</div>
+    </div>
+    <div class="row">
+      <div class="cell label">军体</div>
+      <div class="cell">荣誉、责任、坚持、摔了再起来</div>
+      <div class="cell">纪律、防霸凌、保护自己、索降进阶</div>
+    </div>
+    <div class="row">
+      <div class="cell label">研学</div>
+      <div class="cell">逛商超，认识生活</div>
+      <div class="cell">去福利院、烈士陵园、希望小学，认识社会</div>
+    </div>
+    <div class="row">
+      <div class="cell label">种养</div>
+      <div class="cell">种菜、养鸡，天天照看</div>
+      <div class="cell">采摘、钓鱼，把收成拿去卖</div>
+    </div>
+    <div class="row">
+      <div class="cell label">小生意</div>
+      <div class="cell">冰糖葫芦、薯条，先试着做</div>
+      <div class="cell">凉粉、绿色蔬果，投入—做—卖—分钱</div>
+    </div>
+    <div class="row">
+      <div class="cell label">家庭</div>
+      <div class="cell">自理、做家务、做早餐</div>
+      <div class="cell">把学习和作业习惯接上</div>
+    </div>
+  </div>
+
+  <!-- 一年走完 -->
+  <h2>一年走完，孩子会站到哪一步</h2>
+  <p style="margin-bottom:16px;">我们看重的，不是「孩子上了几门课」，而是这一年孩子往前挪了几步：</p>
+  <div class="steps">
+    <div class="step">
+      <div class="arrow">1</div>
+      <div><span class="label">被照顾的孩子</span> <span class="to">→ 心里有安全感，知道自己是被爱的</span></div>
+    </div>
+    <div class="step">
+      <div class="arrow">2</div>
+      <div><span class="label">能照顾自己的孩子</span> <span class="to">→ 自己的事自己来，作息、习惯稳了</span></div>
+    </div>
+    <div class="step">
+      <div class="arrow">3</div>
+      <div><span class="label">能帮别人的孩子</span> <span class="to">→ 愿意为家里、为同学、为别人做一点事</span></div>
+    </div>
+    <div class="step">
+      <div class="arrow">4</div>
+      <div><span class="label">能做成事的孩子</span> <span class="to">→ 一个真实的小项目，能从头跟到尾</span></div>
+    </div>
+  </div>
+
+  <!-- 最后 -->
+  <div class="closing">
+    说到底，我们不是帮孩子「提前把小学念完」。<br><br>
+    我们想用这一整年真实的生活，养出一个<br>
+    <strong>「会照顾自己、敢动手做事、心里装着别人、也相信『我自己能行』」</strong><br>
+    的孩子。<br><br>
+    认字、算数、写字这些，会在过程里一样样长出来——但那只是顺带。<br>
+    真正想给孩子的，是一份<strong>走到哪儿都丢不掉的底气</strong>。<br><br>
+    <div class="final">上小学，只是这份底气的第一次亮相。</div>
+  </div>
+
+  <div class="footer">🌱 自在班 · 2026 学年</div>
+
+</div>
+</body>
+</html>
