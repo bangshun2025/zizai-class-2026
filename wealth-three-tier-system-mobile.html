@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>财富结构三层体系</title>
+<style>
+  :root{
+    --bg:#0a0a0a; --bg2:#0f0e0a;
+    --fg:#f0eee8; --dim:#b0adb0; --muted:#605e62; --faint:#2a282c;
+    --accent:#d4a24e; --accent2:#b8862e;
+    --sans:'PingFang SC',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','Menlo',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{background:var(--bg);-webkit-font-smoothing:antialiased}
+  body{
+    font-family:var(--sans);color:var(--fg);background:var(--bg);
+    max-width:520px;margin:0 auto;padding:0 0 60px;
+  }
+
+  .card{
+    margin:0 16px 24px;padding:32px 24px;border-radius:18px;
+    background:linear-gradient(170deg,var(--bg2),var(--bg));
+    border:1px solid var(--faint);
+    position:relative;overflow:hidden;
+  }
+  .card::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(60% 40% at 50% 30%,rgba(212,162,78,.06),transparent 75%);
+  }
+  .card>*{position:relative;z-index:1}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:12px}
+  .hl{color:var(--accent);font-weight:700}
+  .dim{color:var(--muted)}
+
+  .cover{padding:56px 24px 52px;text-align:center}
+  .cover .cv-icon{font-size:36px;color:var(--accent);margin-bottom:16px}
+  .cover h1{font-size:34px;font-weight:800;line-height:1.18;letter-spacing:-.02em}
+  .cover .rule{height:1px;width:80px;margin:24px auto;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+  .cover .cv-sub{font-size:15px;color:var(--dim);letter-spacing:.04em}
+
+  .statement{text-align:center}
+  .statement h2{font-size:28px;font-weight:800;line-height:1.25;letter-spacing:-.02em}
+  .statement .st-sub{font-size:14px;color:var(--dim);margin-top:16px;line-height:1.7}
+
+  .cards .cd-grid{display:flex;flex-direction:column;gap:14px}
+  .cards .cd-item{border:1px solid var(--faint);border-radius:14px;padding:24px 20px;
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0))}
+  .cards .cd-item.hot{border-color:rgba(212,162,78,.35);background:rgba(212,162,78,.08)}
+  .cards .cd-no{font-family:var(--mono);font-size:38px;font-weight:700;color:var(--accent);line-height:1}
+  .cards .cd-t{font-size:20px;font-weight:700;margin:10px 0 6px}
+  .cards .cd-d{font-size:14px;color:var(--dim);line-height:1.55}
+
+  .compare{padding:28px 20px}
+  .compare .cp-h{font-size:20px;font-weight:700;margin-bottom:20px}
+  .compare .cp-row{display:flex;flex-direction:column;gap:8px}
+  .compare .cp-it{display:flex;align-items:center;gap:10px;font-size:14px;padding:6px 0}
+  .compare .cp-it+.cp-it{border-top:1px solid var(--faint)}
+  .compare .cp-l{color:var(--dim);flex:0 0 80px}
+  .compare .cp-v{flex:1}
+  .compare .cp-mk{color:var(--accent);flex:none}
+  .compare .cp-verdict{font-size:18px;font-weight:600;text-align:center;margin-top:22px}
+  .compare .cp-verdict .hl{color:var(--accent)}
+
+  .hero{text-align:center;padding:44px 24px}
+  .hero h2{font-size:30px;font-weight:800;line-height:1.2;letter-spacing:-.02em}
+  .hero .mk{color:var(--accent);position:relative}
+  .hero .hero-sub{font-size:14px;color:var(--dim);margin-top:22px;line-height:1.7}
+
+  .split .sp-row{display:flex;flex-direction:column;gap:16px}
+  .split .sp-box{border:1px solid var(--faint);border-radius:14px;
+    padding:20px;text-align:center;font-size:15px;font-weight:600;
+    background:rgba(255,255,255,.02)}
+  .split .sp-box.hot{border:1.5px dashed rgba(212,162,78,.4);color:var(--accent);
+    background:rgba(212,162,78,.08)}
+  .split .sp-arrow{text-align:center;color:var(--accent);font-size:24px}
+  .split .sp-cap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;text-align:center;margin-top:4px}
+  .split .sp-cap.t{color:var(--accent);opacity:.7}
+  .split .sp-cap.bt{color:var(--faint)}
+
+  .principle{text-align:center}
+  .principle h2{font-size:26px;font-weight:800;line-height:1.25}
+  .principle .pr-rule{height:1px;width:60px;margin:22px auto;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+  .principle .pr-pair{display:flex;flex-direction:column;gap:14px}
+  .principle .pr-p{padding:16px}
+  .principle .pr-t{font-size:17px;font-weight:700}
+  .principle .pr-t.dim{color:var(--dim)}
+  .principle .pr-t.hl{color:var(--accent)}
+  .principle .pr-d{font-size:13px;color:var(--dim);margin-top:4px;letter-spacing:.04em}
+
+  .pyramid .py-stack{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .pyramid .py-tier{display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 20px;border-radius:12px;width:100%;
+    border:1px solid var(--faint);background:rgba(255,255,255,.02)}
+  .pyramid .py-tier.hot{border-color:rgba(212,162,78,.35);background:rgba(212,162,78,.06)}
+  .pyramid .py-k{font-size:16px;font-weight:700}
+  .pyramid .py-tier.hot .py-k{color:var(--accent)}
+  .pyramid .py-v{font-size:12px;color:var(--dim)}
+
+  .numlist .nl-h{font-size:20px;font-weight:800;text-align:center;margin-bottom:20px}
+  .numlist .nl-item{display:flex;gap:16px;padding:14px 0}
+  .numlist .nl-item+.nl-item{border-top:1px solid var(--faint)}
+  .numlist .nl-no{font-family:var(--mono);font-size:42px;font-weight:700;
+    color:var(--accent);line-height:1;flex:none;width:48px;text-align:right}
+  .numlist .nl-t{font-size:17px;font-weight:700;margin-bottom:4px}
+  .numlist .nl-d{font-size:13px;color:var(--dim);line-height:1.5}
+
+  .timeline .tl-track{display:flex;flex-direction:column;gap:0;position:relative}
+  .timeline .tl-item{display:flex;gap:16px;padding:18px 0;align-items:flex-start}
+  .timeline .tl-item+.tl-item{border-top:1px solid var(--faint)}
+  .timeline .tl-dot{width:12px;height:12px;border-radius:50%;border:3px solid var(--muted);
+    flex:none;margin-top:4px}
+  .timeline .tl-item.hot .tl-dot{border-color:var(--accent);background:var(--accent)}
+  .timeline .tl-yr{font-family:var(--mono);font-size:12px;color:var(--accent);
+    letter-spacing:.08em;font-weight:700;margin-bottom:2px}
+  .timeline .tl-t{font-size:17px;font-weight:700}
+  .timeline .tl-d{font-size:13px;color:var(--dim);margin-top:2px;line-height:1.5}
+
+  .venn .vn-diag{display:flex;flex-direction:column;gap:10px;align-items:center}
+  .venn .vn-c{padding:20px;border-radius:16px;width:100%;text-align:center;
+    font-size:16px;font-weight:600}
+  .venn .vn-c.l{border:2px solid var(--muted)}
+  .venn .vn-c.r{border:2px solid rgba(212,162,78,.4);background:rgba(212,162,78,.06)}
+  .venn .vn-c.r span{color:var(--accent)}
+  .venn .vn-x{text-align:center;font-size:16px;font-weight:800;line-height:1.5;
+    padding:14px;color:var(--accent)}
+
+  .steps .sp-flow{display:flex;flex-direction:column;gap:10px}
+  .steps .fl-node{display:flex;gap:14px;align-items:center;padding:16px;
+    border:1px solid var(--faint);border-radius:14px;background:rgba(255,255,255,.01)}
+  .steps .fl-node.hot{border-color:rgba(212,162,78,.35);background:rgba(212,162,78,.06)}
+  .steps .fl-no{width:44px;height:44px;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;font-family:var(--mono);
+    font-size:22px;font-weight:700;color:var(--accent);flex:none;
+    border:2px solid rgba(212,162,78,.35);background:rgba(212,162,78,.08)}
+  .steps .fl-node.hot .fl-no{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+  .steps .fl-t{font-size:16px;font-weight:700;margin-bottom:2px}
+  .steps .fl-node.hot .fl-t{color:var(--accent)}
+  .steps .fl-d{font-size:13px;color:var(--dim);line-height:1.45}
+  .steps .fl-arr{text-align:center;color:var(--accent);font-size:22px;padding:2px 0}
+
+  .quote{border-left:5px solid var(--accent);padding:24px 0 24px 22px;margin:0}
+  .quote .q-t{font-size:18px;font-weight:700;line-height:1.6;letter-spacing:-.01em}
+  .quote .q-sub{font-size:13px;color:var(--dim);margin-top:14px;line-height:1.6}
+  .quote .q-by{font-family:var(--mono);font-size:11px;color:var(--faint);
+    letter-spacing:.14em;text-transform:uppercase;margin-top:10px}
+
+  .outro{text-align:center;padding:48px 24px 56px}
+  .outro .ot-q{font-size:22px;font-weight:700;line-height:1.5}
+  .outro .ot-thx{font-family:var(--mono);font-size:11px;color:var(--faint);
+    letter-spacing:.18em;text-transform:uppercase;margin-top:20px}
+
+  .pageno{font-family:var(--mono);font-size:10px;color:var(--faint);
+    letter-spacing:.14em;text-align:right;margin-top:18px}
+
+  h2{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  p{font-size:14px;color:var(--dim);line-height:1.7}
+
+  .header-bar{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,var(--bg),rgba(10,10,10,.8));
+    backdrop-filter:blur(12px);padding:16px 20px 12px;border-bottom:1px solid var(--faint)}
+  .header-bar .hb-title{font-size:15px;font-weight:700;letter-spacing:.02em}
+  .header-bar .hb-sub{font-size:10px;font-family:var(--mono);
+    color:var(--accent);opacity:.6;letter-spacing:.16em;text-transform:uppercase;margin-top:2px}
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="hb-title">财富结构三层体系</div>
+  <div class="hb-sub">生命算法 · 财富解码</div>
+</div>
+
+<!-- 01 cover -->
+<div class="card cover">
+  <div class="eyebrow">生命算法 · 财富解码</div>
+  <h1>财富结构<br>三层体系</h1>
+  <div class="rule"></div>
+  <div class="cv-sub">格法 · 局法 · 财官法 完整整理</div>
+  <div class="pageno">01 / 16</div>
+</div>
+
+<!-- 02 statement -->
+<div class="card statement">
+  <div class="eyebrow">核心结论</div>
+  <h2>不是<span class="hl">小中大</span>，<br>是<span class="hl">三种</span>不同的<span class="hl">财富结构</span></h2>
+  <div class="st-sub">财官法、局法、格法——每一种内部还要分大小、真假、清浊、成败、回流与可持续性</div>
+  <div class="pageno">02 / 16</div>
+</div>
+
+<!-- 03 cards -->
+<div class="card cards">
+  <div class="eyebrow">三种结构 · 最短句</div>
+  <div class="cd-grid">
+    <div class="cd-item">
+      <div class="cd-no">01</div>
+      <div class="cd-t">财官法</div>
+      <div class="cd-d">个人做工换钱 · 能力、职位、客户、劳动</div>
+    </div>
+    <div class="cd-item">
+      <div class="cd-no">02</div>
+      <div class="cd-t">局法</div>
+      <div class="cd-d">把需求做成盘来聚钱 · 产品化、公司化、平台化</div>
+    </div>
+    <div class="cd-item hot">
+      <div class="cd-no">03</div>
+      <div class="cd-t">格法</div>
+      <div class="cd-d">站到系统位阶上承接资源 · 名分、权柄、资质、行业主线</div>
+    </div>
+  </div>
+  <div class="pageno">03 / 16</div>
+</div>
+
+<!-- 04 compare -->
+<div class="card compare">
+  <div class="eyebrow">本质区别</div>
+  <h2>四个维度对照</h2>
+  <div class="cp-row" style="margin-top:16px">
+    <div class="cp-it"><span class="cp-l">核心中心</span><span class="cp-v">个人 → 需求 → 系统</span><span class="cp-mk">◇</span></div>
+    <div class="cp-it"><span class="cp-l">本质问题</span><span class="cp-v">我如何得钱 → 我如何组盘 → 我如何占位</span><span class="cp-mk">◇</span></div>
+    <div class="cp-it"><span class="cp-l">财富逻辑</span><span class="cp-v">能力换钱 → 盘聚钱 → 位接资源</span><span class="cp-mk">◇</span></div>
+    <div class="cp-it"><span class="cp-l">最短句</span><span class="cp-v">靠人 → 靠盘 → 靠位</span><span class="cp-mk">◇</span></div>
+  </div>
+  <div class="cp-verdict">三种结构，<span class="hl">各自独立</span>，又<span class="hl">可以重叠</span></div>
+  <div class="pageno">04 / 16</div>
+</div>
+
+<!-- 05 hero -->
+<div class="card hero">
+  <h2><span class="mk">财官靠人</span>，<br>局靠盘，格靠位</h2>
+  <div class="hero-sub">财官法以个人为中心 · 局法以需求和盘面为中心 · 格法以上层系统位阶为中心</div>
+  <div class="pageno">05 / 16</div>
+</div>
+
+<!-- 06 split 财官法 -->
+<div class="card split">
+  <div class="eyebrow">第一种结构</div>
+  <h2>财官法</h2>
+  <p style="margin:12px 0 18px">以<span class="hl">个人</span>为中心，解决"我如何通过能力、职位、客户、劳动得钱"。不成格局时，日主直接取财官。</p>
+  <div class="sp-row">
+    <div class="sp-cap t">人间杂气</div>
+    <div class="sp-box hot">个人做工换钱</div>
+    <div class="sp-arrow">↓</div>
+    <div class="sp-box">工资 · 接单 · 咨询</div>
+    <div class="sp-cap bt">单点服务 · 直接变现</div>
+  </div>
+  <div class="pageno">06 / 16</div>
+</div>
+
+<!-- 07 principle 局法 -->
+<div class="card principle">
+  <div class="eyebrow">第二种结构</div>
+  <h2 style="margin-bottom:0">把<span class="hl">需求</span>做成<span class="hl">盘</span>来聚钱</h2>
+  <div class="pr-rule"></div>
+  <div class="pr-pair">
+    <div class="pr-p">
+      <div class="pr-t dim">核心问题</div>
+      <div class="pr-d">能否组织系统批量解决问题</div>
+    </div>
+    <div class="pr-p">
+      <div class="pr-t hl">财富逻辑</div>
+      <div class="pr-d">产品化 · 公司化 · 项目化 · 平台化</div>
+    </div>
+  </div>
+  <div class="pageno">07 / 16</div>
+</div>
+
+<!-- 08 pyramid 格法 -->
+<div class="card pyramid">
+  <div class="eyebrow">第三种结构</div>
+  <h2 style="text-align:center;margin-bottom:20px">格法：系统位阶层</h2>
+  <div class="py-stack">
+    <div class="py-tier hot">
+      <span class="py-k">顶层 · 承接权柄</span>
+      <span class="py-v">站到规则制定级核心位</span>
+    </div>
+    <div class="py-tier">
+      <span class="py-k">中层 · 系统位阶</span>
+      <span class="py-v">大公司核心岗 · 区域权威</span>
+    </div>
+    <div class="py-tier">
+      <span class="py-k">底层 · 名分资质</span>
+      <span class="py-v">小系统名分 · 头衔 · 行业准入</span>
+    </div>
+  </div>
+  <div class="pageno">08 / 16</div>
+</div>
+
+<!-- 09 numlist -->
+<div class="card numlist">
+  <div class="nl-h">每一种结构内部还要分大小</div>
+  <div class="nl-item">
+    <div class="nl-no">01</div>
+    <div>
+      <div class="nl-t">财官法的大小</div>
+      <div class="nl-d">小→工资/接单 · 中→高薪/稳定客户 · 大→顶级职业经理人</div>
+    </div>
+  </div>
+  <div class="nl-item">
+    <div class="nl-no">02</div>
+    <div>
+      <div class="nl-t">局法的大小</div>
+      <div class="nl-d">小→小项目/小门店 · 中→产品体系/区域市场 · 大→平台型业务</div>
+    </div>
+  </div>
+  <div class="nl-item">
+    <div class="nl-no">03</div>
+    <div>
+      <div class="nl-t">格法的大小</div>
+      <div class="nl-d">小→小系统名分 · 中→大公司核心岗 · 大→行业规则制定级</div>
+    </div>
+  </div>
+  <div class="pageno">09 / 16</div>
+</div>
+
+<!-- 10 timeline -->
+<div class="card timeline">
+  <div class="eyebrow">探索门原义</div>
+  <h2>天之主气 · 地之主气 · 人间杂气</h2>
+  <div class="tl-track" style="margin-top:16px">
+    <div class="tl-item hot">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-yr">格法 ★</div>
+        <div class="tl-t">天之主气</div>
+        <div class="tl-d">月令司令真神透干 · 名分、位阶、社会承认</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-yr">局法</div>
+        <div class="tl-t">地之主气</div>
+        <div class="tl-d">司令不透取透干 · 现实盘面、需求场</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-yr">财官法</div>
+        <div class="tl-t">人间杂气</div>
+        <div class="tl-d">不成格局时 · 日主直接取财官</div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">10 / 16</div>
+</div>
+
+<!-- 11 compare 大财官 vs 小中格 -->
+<div class="card compare">
+  <div class="eyebrow">关键区分</div>
+  <h2>大财官 vs 小中格</h2>
+  <div class="cp-row" style="margin-top:16px">
+    <div class="cp-it"><span class="cp-l">大财官</span><span class="cp-v">顶级职业经理人 · 明星专家</span><span class="cp-mk">—</span></div>
+    <div class="cp-it"><span class="cp-l">核心</span><span class="cp-v">"我值钱"，以个人能力和身价为中心</span><span class="cp-mk">—</span></div>
+    <div class="cp-it"><span class="cp-l">小中格</span><span class="cp-v">系统给的位置 · 名分和权柄</span><span class="cp-mk">◇</span></div>
+    <div class="cp-it"><span class="cp-l">核心</span><span class="cp-v">"我在位"，以承接系统主线为中心</span><span class="cp-mk">◇</span></div>
+  </div>
+  <div class="cp-verdict">私企看<span class="hl">业绩</span>，大系统看<span class="hl">位阶</span></div>
+  <div class="pageno">11 / 16</div>
+</div>
+
+<!-- 12 venn -->
+<div class="card venn">
+  <div class="eyebrow">重叠结构</div>
+  <h2 style="text-align:center;margin-bottom:20px">格 + 局：最完整的财富结构</h2>
+  <div class="vn-diag">
+    <div class="vn-c l"><span>局法 · 做成盘面</span></div>
+    <div class="vn-c r"><span>格法 · 系统位阶</span></div>
+    <div class="vn-x">格定位 · 局成盘 · 财官开口收款</div>
+  </div>
+  <div class="pageno">12 / 16</div>
+</div>
+
+<!-- 13 steps -->
+<div class="card steps">
+  <div class="eyebrow">重叠机制</div>
+  <h2 style="text-align:center;margin-bottom:20px">三者可以重叠，但主导机制不同</h2>
+  <div class="sp-flow">
+    <div class="fl-node">
+      <div class="fl-no">1</div>
+      <div>
+        <div class="fl-t">财官 + 局</div>
+        <div class="fl-d">个人技能变成产品系统</div>
+      </div>
+    </div>
+    <div class="fl-arr">↓</div>
+    <div class="fl-node">
+      <div class="fl-no">2</div>
+      <div>
+        <div class="fl-t">局 + 格</div>
+        <div class="fl-d">自己做盘是局，上层给位是格</div>
+      </div>
+    </div>
+    <div class="fl-arr">↓</div>
+    <div class="fl-node hot">
+      <div class="fl-no">3</div>
+      <div>
+        <div class="fl-t">格 + 局 + 财官</div>
+        <div class="fl-d">格定位 · 局成盘 · 财官开口收款</div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">13 / 16</div>
+</div>
+
+<!-- 14 quote -->
+<div class="card">
+  <div class="eyebrow">关键区分原则</div>
+  <div class="quote">
+    <div class="q-t">自己开公司不自动等于格——格看的是有没有<span class="hl">接到更大系统的主气</span></div>
+    <div class="q-sub">格法的核心判定标准：是否承接了上层系统的规则、名分、权柄或行业主线</div>
+    <div class="q-by">—— 格法严谨定义</div>
+  </div>
+  <div class="pageno">14 / 16</div>
+</div>
+
+<!-- 15 hero -->
+<div class="card hero">
+  <h2>识别你当下的<span class="mk">主导结构</span>，<br>找到<span class="mk">升级路径</span></h2>
+  <div class="hero-sub">财官→局→格不是唯一路径；你可以直接站格，也可以局中升格。关键是认准自己当前在哪一层，对应哪一套打法。</div>
+  <div class="pageno">15 / 16</div>
+</div>
+
+<!-- 16 outro -->
+<div class="card outro">
+  <div class="ot-q">财官靠人，局靠盘，格靠位<br>—— 三种结构，三套打法</div>
+  <div class="ot-thx">生命算法 · 财富结构三层体系</div>
+  <div class="pageno">16 / 16</div>
+</div>
+
+</body>
+</html>
