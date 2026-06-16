@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>财富结构三层体系 · 格法·局法·财官法</title>
+<style>
+  :root{
+    --bg:#0a0a0a; --bg-warm:#0d0b07;
+    --fg:#f5f5f7; --fg-dim:#a8a8b0; --muted:#7a7a85; --faint:#3a3a42;
+    --accent:#d4a24e; --accent-br:#ecc678;
+    --accent-50:rgba(212,162,78,.52); --accent-20:rgba(212,162,78,.16);
+    --accent-glow:rgba(212,162,78,.12);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Source Han Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;
+    font-feature-settings:"tnum","kern","liga","ss01";
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+  @media screen{
+    html,body{width:100vw;height:100vh;overflow:hidden;}
+    .deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;
+      transform-origin:center center;}
+    .slide{position:absolute;inset:0;display:none;}
+    .slide.active{display:flex;}
+    .slide.active .a{animation:rise .85s var(--ease) both;}
+    .slide.active .b{animation:blurin 1s var(--ease) both;}
+    .slide.active .br-bar{animation:barGrow 1.2s .45s var(--ease) both;}
+    .slide.active .cv-line{stroke-dasharray:1600;stroke-dashoffset:1600;animation:dash 1.6s .35s var(--ease) forwards;}
+    .slide.active .cv-area{opacity:0;animation:fadein .8s 1.4s var(--ease) forwards;}
+    .slide.active .cv-dot{opacity:0;animation:fadein .5s 1.7s var(--ease) forwards;}
+    .slide.active .dn-val{animation:donutFill 1.3s .3s var(--ease) both;}
+    .slide.active .dt-grid span.on{animation:dotPop .45s var(--ease) both;}
+    .slide.measuring{display:flex!important;}
+    .measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+    .measuring .br-bar,.measuring .cv-line,.measuring .cv-area,.measuring .cv-dot,
+    .measuring .dn-val,.measuring .dt-grid span.on{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important;}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @keyframes barGrow{from{width:0;}}
+  @keyframes dash{to{stroke-dashoffset:0;}}
+  @keyframes fadein{to{opacity:1;}}
+  @keyframes donutFill{from{stroke-dasharray:0 100;}}
+  @keyframes dotPop{from{transform:scale(.2);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+  @media print{
+    @page{size:338.7mm 190.5mm;margin:0;}
+    html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}
+    .deck{transform:none!important;position:static;width:1280px;}
+    .slide{position:relative;display:flex!important;width:1280px;height:720px;
+      page-break-after:always;break-after:page;overflow:hidden;}
+    .a,.b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+    .br-bar,.cv-line,.cv-area,.cv-dot,.dn-val,.dt-grid span.on{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important;}
+    .hud{display:none!important;}
+  }
+
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);
+    align-items:center;justify-content:center;overflow:hidden;
+    background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;
+    transform:translate(-50%,-50%);border-radius:50%;
+    border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+
+  .inner{position:relative;z-index:3;display:flex;flex-direction:column;
+    align-items:center;text-align:center;max-width:1140px;}
+  .brand{position:absolute;top:34px;right:46px;z-index:5;display:flex;align-items:center;gap:8px;
+    font-size:var(--t-micro);letter-spacing:.18em;color:var(--accent-50);opacity:.55;font-weight:500;}
+  .brand .tri{color:var(--accent);font-size:11px;}
+  .pageno{position:absolute;bottom:32px;right:46px;z-index:5;
+    font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.16em;color:var(--faint);}
+  .kicker{position:absolute;bottom:32px;left:46px;z-index:5;
+    font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+  .eyebrow{font-family:var(--mono);font-size:var(--t-eye);letter-spacing:.26em;
+    text-transform:uppercase;color:var(--accent-50);}
+  .hl{color:var(--accent);}
+  .dim{color:var(--muted);}
+  .rule{height:1px;width:120px;background:linear-gradient(90deg,transparent,var(--accent-50),transparent);}
+
+  /* 01 cover */
+  .lay-cover{gap:30px;}
+  .lay-cover .cv-tri{font-size:34px;color:var(--accent);}
+  .lay-cover h1{font-size:var(--t-hero);font-weight:800;line-height:1.12;letter-spacing:-.02em;}
+  .lay-cover .cv-sub{font-size:var(--t-sm);color:var(--fg-dim);letter-spacing:.04em;}
+
+  /* 02 statement */
+  .lay-statement{gap:38px;}
+  .lay-statement h2{font-size:var(--t-disp);font-weight:800;letter-spacing:-.03em;line-height:1.08;}
+  .lay-statement .st{color:var(--muted);position:relative;}
+  .lay-statement .st::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:5px;background:var(--muted);opacity:.55;border-radius:3px;}
+  .lay-statement .st-sub{font-size:var(--t-sm);color:var(--fg-dim);max-width:720px;line-height:1.75;}
+
+  /* 03 cards */
+  .lay-cards{gap:46px;width:1100px;max-width:none;}
+  .lay-cards .cd-row{display:flex;gap:32px;width:100%;}
+  .lay-cards .cd-card{flex:1;border:1px solid var(--faint);border-radius:18px;padding:40px 30px;
+    background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0));
+    display:flex;flex-direction:column;align-items:center;text-align:center;min-height:300px;}
+  .lay-cards .cd-card.hot{border-color:var(--accent-50);background:linear-gradient(180deg,var(--accent-20),rgba(255,255,255,0));}
+  .lay-cards .cd-no{font-family:var(--mono);font-size:52px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.03em;}
+  .lay-cards .cd-t{font-size:var(--t-body);font-weight:700;margin:16px 0 12px;}
+  .lay-cards .cd-d{font-size:var(--t-sm);color:var(--muted);line-height:1.55;}
+
+  /* 04 compare */
+  .lay-compare{gap:0;width:1160px;max-width:none;}
+  .lay-compare .eyebrow{margin-bottom:44px;}
+  .lay-compare .cp-row{display:flex;align-items:stretch;justify-content:center;width:100%;}
+  .lay-compare .cp-col{flex:1;display:flex;flex-direction:column;}
+  .lay-compare .cp-col.l{align-items:flex-end;text-align:right;padding-right:62px;opacity:.5;}
+  .lay-compare .cp-col.r{align-items:flex-start;text-align:left;padding-left:62px;}
+  .lay-compare .cp-div{width:1px;align-self:center;height:220px;flex:none;
+    background:linear-gradient(to bottom,transparent,var(--faint) 20%,var(--muted) 50%,var(--faint) 80%,transparent);}
+  .lay-compare .cp-lab{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+  .lay-compare .cp-col.r .cp-lab{color:var(--accent-50);}
+  .lay-compare .cp-h{font-size:var(--t-sec);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;}
+  .lay-compare .cp-list{display:flex;flex-direction:column;gap:15px;}
+  .lay-compare .cp-it{font-size:var(--t-sm);display:flex;align-items:center;gap:12px;}
+  .lay-compare .cp-col.l .cp-it{flex-direction:row-reverse;color:var(--muted);}
+  .lay-compare .cp-mk{flex-shrink:0;font-size:15px;font-weight:700;}
+  .lay-compare .cp-col.l .cp-mk{color:var(--faint);} .lay-compare .cp-col.r .cp-mk{color:var(--accent);}
+  .lay-compare .cp-verdict{margin-top:48px;font-size:var(--t-sec);font-weight:600;letter-spacing:-.01em;}
+
+  /* 05 hero */
+  .lay-hero h2{font-size:var(--t-hero);font-weight:800;line-height:1.14;letter-spacing:-.025em;}
+  .lay-hero .mk{color:var(--accent);position:relative;}
+  .lay-hero .mk::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;}
+  .lay-hero .hr-sub{font-size:var(--t-sm);color:var(--muted);margin-top:32px;max-width:640px;line-height:1.7;}
+
+  /* 06 split */
+  .lay-split{flex-direction:row;gap:96px;max-width:1160px;text-align:initial;}
+  .lay-split .sp-text{flex:0 0 430px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}
+  .lay-split .sp-text .eyebrow{margin-bottom:18px;}
+  .lay-split .sp-text h2{font-size:var(--t-title);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:26px;}
+  .lay-split .sp-text p{font-size:var(--t-sm);color:var(--muted);line-height:1.95;max-width:410px;}
+  .lay-split .sp-visual{flex:0 0 340px;display:flex;flex-direction:column;gap:13px;}
+  .lay-split .sp-cap{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.18em;text-transform:uppercase;text-align:center;}
+  .lay-split .sp-cap.t{color:var(--accent-50);} .lay-split .sp-cap.bt{color:var(--faint);}
+  .lay-split .sp-box{min-height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-size:var(--t-sm);font-weight:600;border:1px solid var(--faint);color:var(--muted);background:rgba(255,255,255,.02);padding:12px 20px;text-align:center;}
+  .lay-split .sp-box.hot{border:1.5px dashed var(--accent-50);color:var(--accent);background:var(--accent-20);}
+  .lay-split .sp-arrow{text-align:center;color:var(--accent);font-size:22px;line-height:1;}
+
+  /* 07 principle */
+  .lay-principle h2{font-size:var(--t-hero);font-weight:800;line-height:1.12;letter-spacing:-.025em;}
+  .lay-principle .rule{margin:34px 0 30px;}
+  .lay-principle .pr-pair{display:flex;gap:56px;}
+  .lay-principle .pr-p{display:flex;flex-direction:column;gap:6px;}
+  .lay-principle .pr-t{font-size:var(--t-body);font-weight:700;}
+  .lay-principle .pr-d{font-size:var(--t-eye);color:var(--muted);letter-spacing:.08em;}
+  .lay-principle .pr-sep{width:1px;background:var(--faint);}
+
+  /* 08 quote */
+  .lay-quote{max-width:880px;}
+  .lay-quote .q-mark{font-size:64px;color:var(--accent-50);font-family:var(--serif);line-height:.6;margin-bottom:30px;}
+  .lay-quote h2{font-size:var(--t-sec);font-weight:700;line-height:1.5;letter-spacing:-.01em;}
+  .lay-quote .q-sub{font-size:var(--t-sm);color:var(--muted);margin-top:30px;letter-spacing:.02em;}
+  .lay-quote .q-by{font-family:var(--mono);font-size:var(--t-eye);color:var(--faint);letter-spacing:.16em;text-transform:uppercase;margin-top:18px;}
+
+  /* 09 numlist */
+  .lay-numlist{width:780px;align-items:stretch;text-align:initial;}
+  .lay-numlist h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:36px;}
+  .lay-numlist .nl-row{display:flex;align-items:center;gap:32px;padding:17px 0;}
+  .lay-numlist .nl-row+.nl-row{border-top:1px solid var(--faint);}
+  .lay-numlist .nl-no{flex:0 0 86px;text-align:right;font-family:var(--mono);font-size:58px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.04em;}
+  .lay-numlist .nl-t{font-size:var(--t-body);font-weight:700;margin-bottom:5px;}
+  .lay-numlist .nl-d{font-size:var(--t-sm);color:var(--muted);}
+
+  /* 10 timeline */
+  .lay-timeline{gap:14px;width:1100px;max-width:1100px;}
+  .lay-timeline .eyebrow{margin-bottom:6px;}
+  .lay-timeline h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:54px;}
+  .lay-timeline .tl-track{position:relative;display:flex;justify-content:space-between;width:100%;padding-top:0;}
+  .lay-timeline .tl-track::before{content:"";position:absolute;left:2%;right:2%;top:7px;height:2px;
+    background:linear-gradient(90deg,var(--faint),var(--accent-50));}
+  .lay-timeline .tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;flex:1;position:relative;}
+  .lay-timeline .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--muted);z-index:1;}
+  .lay-timeline .tl-item.hot .tl-dot{border-color:var(--accent);background:var(--accent);box-shadow:0 0 14px var(--accent-50);}
+  .lay-timeline .tl-yr{font-family:var(--mono);font-size:var(--t-eye);color:var(--accent);letter-spacing:.1em;margin-top:10px;font-weight:700;}
+  .lay-timeline .tl-t{font-size:22px;font-weight:700;}
+  .lay-timeline .tl-item.hot .tl-t{color:var(--accent);}
+  .lay-timeline .tl-d{font-size:var(--t-eye);color:var(--muted);max-width:170px;line-height:1.5;}
+
+  /* 12 venn */
+  .lay-venn{gap:14px;}
+  .lay-venn .eyebrow{margin-bottom:6px;}
+  .lay-venn h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:38px;}
+  .lay-venn .vn-wrap{position:relative;display:flex;justify-content:center;align-items:center;height:330px;}
+  .lay-venn .vn-c{width:320px;height:320px;border-radius:50%;display:flex;align-items:center;flex:none;}
+  .lay-venn .vn-c.l{border:2px solid var(--muted);justify-content:flex-start;padding-left:54px;margin-right:-78px;}
+  .lay-venn .vn-c.r{border:2px solid var(--accent-50);background:var(--accent-20);justify-content:flex-end;padding-right:54px;margin-left:-78px;}
+  .lay-venn .vn-c span{font-size:24px;font-weight:700;max-width:130px;line-height:1.4;}
+  .lay-venn .vn-c.r span{color:var(--accent);text-align:right;}
+  .lay-venn .vn-x{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    text-align:center;font-size:var(--t-sm);font-weight:800;line-height:1.45;z-index:2;}
+
+  /* 13 steps */
+  .lay-steps{gap:14px;width:1080px;max-width:1080px;}
+  .lay-steps .eyebrow{margin-bottom:6px;}
+  .lay-steps h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:48px;}
+  .lay-steps .sp-flow{display:flex;align-items:center;justify-content:center;gap:26px;width:100%;}
+  .lay-steps .fl-node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;flex:1;max-width:250px;}
+  .lay-steps .fl-no{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);
+    border:2px solid var(--accent-50);background:var(--accent-20);}
+  .lay-steps .fl-node.hot .fl-no{background:var(--accent);color:var(--bg);border-color:var(--accent);box-shadow:0 0 18px var(--accent-glow);}
+  .lay-steps .fl-t{font-size:24px;font-weight:700;margin-top:6px;}
+  .lay-steps .fl-node.hot .fl-t{color:var(--accent);}
+  .lay-steps .fl-d{font-size:var(--t-eye);color:var(--muted);line-height:1.5;}
+  .lay-steps .fl-arr{font-size:34px;color:var(--accent-50);flex:none;padding-bottom:54px;}
+
+  /* 11 pyramid */
+  .lay-pyramid{gap:14px;}
+  .lay-pyramid .eyebrow{margin-bottom:6px;}
+  .lay-pyramid h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:42px;}
+  .lay-pyramid .py-stack{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .lay-pyramid .py-tier{display:flex;align-items:center;justify-content:space-between;gap:30px;
+    height:76px;padding:0 34px;border-radius:12px;
+    border:1px solid var(--faint);background:rgba(255,255,255,.03);}
+  .lay-pyramid .w1{width:680px;} .lay-pyramid .w2{width:520px;} .lay-pyramid .w3{width:380px;}
+  .lay-pyramid .py-tier.hot{border-color:var(--accent-50);background:var(--accent-20);}
+  .lay-pyramid .py-k{font-size:24px;font-weight:700;white-space:nowrap;}
+  .lay-pyramid .py-tier.hot .py-k{color:var(--accent);}
+  .lay-pyramid .py-v{font-size:var(--t-eye);color:var(--muted);white-space:nowrap;}
+
+  /* 12 outro */
+  .lay-outro .ot-q{font-size:var(--t-sec);font-weight:700;line-height:1.4;letter-spacing:-.01em;}
+  .lay-outro .ot-tri{font-size:40px;color:var(--accent);margin:48px 0 16px;}
+  .lay-outro .ot-bn{font-size:var(--t-body);font-weight:700;letter-spacing:.04em;}
+  .lay-outro .ot-thx{font-family:var(--mono);font-size:var(--t-micro);color:var(--faint);letter-spacing:.2em;text-transform:uppercase;margin-top:14px;}
+
+  /* ── 左对齐变体(auto 专用 · 与 apple 构图区分)── */
+  body.left .inner{align-items:flex-start;text-align:left;}
+  body.left .lay-cover{align-items:flex-start;text-align:left;}
+  body.left .lay-statement{align-items:flex-start;text-align:left;}
+  body.left .lay-hero{align-items:flex-start;text-align:left;}
+  body.left .lay-principle{align-items:flex-start;text-align:left;}
+  body.left .lay-outro{align-items:flex-start;text-align:left;}
+  body.left .lay-quote{align-items:flex-start;text-align:left;max-width:940px;
+    border-left:6px solid var(--accent-50);padding-left:46px;}
+  body.left .lay-quote .q-mark{display:none;}
+  body.left .lay-numlist h2{text-align:left;}
+  body.left .slide::before{left:auto;right:-340px;}
+
+  /* 编辑模式 */
+  body.editing [contenteditable="true"]{outline:1px dashed var(--accent-50);outline-offset:4px;cursor:text;
+    padding:4px 8px;margin:-4px -8px;border-radius:4px;transition:outline .15s;}
+  body.editing [contenteditable="true"]:hover{outline-color:var(--accent);}
+  body.editing [contenteditable="true"]:focus{outline:2px solid var(--accent);outline-offset:6px;background:var(--accent-20);}
+  body.editing .m-c,body.editing .sp-box,body.editing .ic-item,[draggable="true"]{cursor:grab;transition:transform .15s var(--ease),box-shadow .15s var(--ease);}
+  body.editing .m-c:hover,body.editing .sp-box:hover,body.editing .ic-item:hover,[draggable="true"]:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .drag-over{outline:2px dashed var(--accent)!important;outline-offset:4px;}
+  .dragging{opacity:.45;transform:scale(.96);}
+
+  /* 进度点 */
+  .deck-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:6;}
+  .deck-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);cursor:pointer;transition:all .25s;}
+  .deck-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+</style>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body class="left">
+<div class="deck">
+
+  <!-- 01 · cover -->
+  <section class="slide" id="s1">
+    <div class="inner lay-cover">
+      <div class="eyebrow a">生命算法 · 财富解码</div>
+      <h1 class="a" style="animation-delay:.15s">财富结构<br>三层体系</h1>
+      <div class="rule a" style="animation-delay:.3s"></div>
+      <div class="cv-sub a" style="animation-delay:.4s">格法 · 局法 · 财官法 完整整理</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">01 / 16</div>
+  </section>
+
+  <!-- 02 · statement -->
+  <section class="slide" id="s2">
+    <div class="inner lay-statement">
+      <div class="eyebrow a">核心结论</div>
+      <h2 class="b" style="animation-delay:.1s">不是<span class="hl">小中大</span>,<br>是<span class="hl">三种</span>不同的<span class="hl">财富结构</span></h2>
+      <div class="st-sub a" style="animation-delay:.4s">财官法、局法、格法——每一种内部还要分大小、真假、清浊、成败、回流与可持续性</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">02 / 16</div>
+  </section>
+
+  <!-- 03 · cards-3 -->
+  <section class="slide" id="s3">
+    <div class="inner lay-cards">
+      <div class="eyebrow a">三种结构 · 最短句</div>
+      <div class="cd-row">
+        <div class="cd-card a" style="animation-delay:.15s">
+          <div class="cd-no">01</div>
+          <div class="cd-t">财官法</div>
+          <div class="cd-d">个人做工换钱<br>能力、职位、客户、劳动</div>
+        </div>
+        <div class="cd-card a" style="animation-delay:.27s">
+          <div class="cd-no">02</div>
+          <div class="cd-t">局法</div>
+          <div class="cd-d">把需求做成盘来聚钱<br>产品化、公司化、平台化</div>
+        </div>
+        <div class="cd-card hot a" style="animation-delay:.39s">
+          <div class="cd-no">03</div>
+          <div class="cd-t">格法</div>
+          <div class="cd-d">站到系统位阶上承接资源<br>名分、权柄、资质、行业主线</div>
+        </div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">03 / 16</div>
+  </section>
+
+  <!-- 04 · compare · 核心对照表 -->
+  <section class="slide" id="s4">
+    <div class="inner lay-compare">
+      <div class="eyebrow a">本质区别</div>
+      <div class="cp-row b" style="animation-delay:.15s">
+        <div class="cp-col l">
+          <div class="cp-lab">维度</div><div class="cp-h">四个维度</div>
+          <div class="cp-list">
+            <div class="cp-it">核心中心<span class="cp-mk">—</span></div>
+            <div class="cp-it">本质问题<span class="cp-mk">—</span></div>
+            <div class="cp-it">财富逻辑<span class="cp-mk">—</span></div>
+            <div class="cp-it">最短句<span class="cp-mk">—</span></div>
+          </div>
+        </div>
+        <div class="cp-div"></div>
+        <div class="cp-col r">
+          <div class="cp-lab">对应</div><div class="cp-h">财官 · 局 · 格</div>
+          <div class="cp-list">
+            <div class="cp-it"><span class="cp-mk">◇</span>个人 → 需求 → 系统</div>
+            <div class="cp-it"><span class="cp-mk">◇</span>我如何得钱 → 我如何组盘 → 我如何占位</div>
+            <div class="cp-it"><span class="cp-mk">◇</span>能力换钱 → 盘聚钱 → 位接资源</div>
+            <div class="cp-it"><span class="cp-mk">◇</span>靠人 → 靠盘 → 靠位</div>
+          </div>
+        </div>
+      </div>
+      <div class="cp-verdict a" style="animation-delay:.45s">三种结构，<span class="hl">各自独立</span>，又<span class="hl">可以重叠</span></div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">04 / 16</div>
+  </section>
+
+  <!-- 05 · hero · 核心定句 -->
+  <section class="slide" id="s5">
+    <div class="inner lay-hero">
+      <h2 class="a"><span class="mk">财官靠人</span>，<br>局靠盘，格靠位</h2>
+      <div class="hr-sub a" style="animation-delay:.38s">财官法以个人为中心 · 局法以需求和盘面为中心 · 格法以上层系统位阶为中心</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">05 / 16</div>
+  </section>
+
+  <!-- 06 · split · 财官法 -->
+  <section class="slide" id="s6">
+    <div class="inner lay-split">
+      <div class="sp-text">
+        <div class="eyebrow a">第一种结构</div>
+        <h2 class="a" style="animation-delay:.1s">财官法</h2>
+        <p class="a" style="animation-delay:.2s">以<span class="hl">个人</span>为中心<br>解决"我如何通过能力、职位、<br>客户、劳动得钱"<br>不成格局时，日主直接取财官</p>
+      </div>
+      <div class="sp-visual b" style="animation-delay:.25s">
+        <div class="sp-cap t">人间杂气</div>
+        <div class="sp-box hot">个人做工换钱</div>
+        <div class="sp-arrow">↓</div>
+        <div class="sp-box">工资 · 接单 · 咨询</div>
+        <div class="sp-cap bt">单点服务 · 直接变现</div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">06 / 16</div>
+  </section>
+
+  <!-- 07 · principle · 局法 -->
+  <section class="slide" id="s7">
+    <div class="inner lay-principle">
+      <h2 class="a">把<span class="hl">需求</span>做成<span class="hl">盘</span>来聚钱</h2>
+      <div class="rule a" style="animation-delay:.3s;width:80px;"></div>
+      <div class="pr-pair a" style="animation-delay:.42s">
+        <div class="pr-p"><div class="pr-t dim">核心问题</div><div class="pr-d">能否组织系统批量解决问题</div></div>
+        <div class="pr-sep"></div>
+        <div class="pr-p"><div class="pr-t hl">财富逻辑</div><div class="pr-d">产品化 · 公司化 · 项目化 · 平台化</div></div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">07 / 16</div>
+  </section>
+
+  <!-- 08 · pyramid · 格法定义 -->
+  <section class="slide" id="s8">
+    <div class="inner lay-pyramid">
+      <div class="eyebrow a">第三种结构</div>
+      <h2 class="a" style="animation-delay:.1s">格法：系统位阶层</h2>
+      <div class="py-stack">
+        <div class="py-tier w3 hot a" style="animation-delay:.34s"><span class="py-k">顶层 · 承接权柄</span><span class="py-v">站到规则制定级核心位</span></div>
+        <div class="py-tier w2 a" style="animation-delay:.22s"><span class="py-k">中层 · 系统位阶</span><span class="py-v">大公司核心岗 · 区域权威</span></div>
+        <div class="py-tier w1 a" style="animation-delay:.1s"><span class="py-k">底层 · 名分资质</span><span class="py-v">小系统名分 · 头衔 · 行业准入</span></div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">08 / 16</div>
+  </section>
+
+  <!-- 09 · numlist · 三者内部各有大小 -->
+  <section class="slide" id="s9">
+    <div class="inner lay-numlist">
+      <h2 class="a">每一种结构内部还要分大小</h2>
+      <div class="nl-row a" style="animation-delay:.12s">
+        <div class="nl-no">01</div><div class="nl-tx"><div class="nl-t">财官法的大小</div><div class="nl-d">小→工资/接单 · 中→高薪/稳定客户 · 大→顶级职业经理人</div></div>
+      </div>
+      <div class="nl-row a" style="animation-delay:.24s">
+        <div class="nl-no">02</div><div class="nl-tx"><div class="nl-t">局法的大小</div><div class="nl-d">小→小项目/小门店 · 中→产品体系/区域市场 · 大→平台型业务</div></div>
+      </div>
+      <div class="nl-row a" style="animation-delay:.36s">
+        <div class="nl-no">03</div><div class="nl-tx"><div class="nl-t">格法的大小</div><div class="nl-d">小→小系统名分 · 中→大公司核心岗 · 大→行业规则制定级</div></div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">09 / 16</div>
+  </section>
+
+  <!-- 10 · timeline · 探索门原义 -->
+  <section class="slide" id="s10">
+    <div class="inner lay-timeline">
+      <div class="eyebrow a">探索门原义</div>
+      <h2 class="a" style="animation-delay:.1s">天之主气 · 地之主气 · 人间杂气</h2>
+      <div class="tl-track b" style="animation-delay:.2s">
+        <div class="tl-item hot">
+          <div class="tl-dot"></div><div class="tl-yr">格法 ★</div>
+          <div class="tl-t">天之主气</div>
+          <div class="tl-d">月令司令真神透干<br>名分 · 位阶 · 社会承认</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div><div class="tl-yr">局法</div>
+          <div class="tl-t">地之主气</div>
+          <div class="tl-d">司令不透取透干<br>现实盘面 · 需求场</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div><div class="tl-yr">财官法</div>
+          <div class="tl-t">人间杂气</div>
+          <div class="tl-d">不成格局时<br>日主直接取财官</div>
+        </div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">10 / 16</div>
+  </section>
+
+  <!-- 11 · compare · 大财官 vs 小中格 -->
+  <section class="slide" id="s11">
+    <div class="inner lay-compare">
+      <div class="eyebrow a">关键区分</div>
+      <div class="cp-row b" style="animation-delay:.15s">
+        <div class="cp-col l">
+          <div class="cp-lab">大财官</div><div class="cp-h">"我值钱"</div>
+          <div class="cp-list">
+            <div class="cp-it">顶级职业经理人<span class="cp-mk">—</span></div>
+            <div class="cp-it">明星专家<span class="cp-mk">—</span></div>
+            <div class="cp-it">以个人能力和身价为中心<span class="cp-mk">—</span></div>
+          </div>
+        </div>
+        <div class="cp-div"></div>
+        <div class="cp-col r">
+          <div class="cp-lab">小中格</div><div class="cp-h">"我在位"</div>
+          <div class="cp-list">
+            <div class="cp-it"><span class="cp-mk">◇</span>系统给的位置</div>
+            <div class="cp-it"><span class="cp-mk">◇</span>名分和权柄</div>
+            <div class="cp-it"><span class="cp-mk">◇</span>以承接系统主线为中心</div>
+          </div>
+        </div>
+      </div>
+      <div class="cp-verdict a" style="animation-delay:.45s">私企看<span class="hl">业绩</span>，大系统看<span class="hl">位阶</span></div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">11 / 16</div>
+  </section>
+
+  <!-- 12 · venn · 格+局协同 -->
+  <section class="slide" id="s12">
+    <div class="inner lay-venn">
+      <div class="eyebrow a">重叠结构</div>
+      <h2 class="a" style="animation-delay:.1s">格 + 局：最完整的财富结构</h2>
+      <div class="vn-wrap b" style="animation-delay:.2s">
+        <div class="vn-c l"><span>局法<br>做成盘面</span></div>
+        <div class="vn-c r"><span>格法<br>系统位阶</span></div>
+        <div class="vn-x">格定位<br>局成盘<br>财官开口收款</div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">12 / 16</div>
+  </section>
+
+  <!-- 13 · steps · 三种重叠机制 -->
+  <section class="slide" id="s13">
+    <div class="inner lay-steps">
+      <div class="eyebrow a">重叠机制</div>
+      <h2 class="a" style="animation-delay:.1s">三者可以重叠，但主导机制不同</h2>
+      <div class="sp-flow b" style="animation-delay:.2s">
+        <div class="fl-node"><div class="fl-no">1</div><div class="fl-t">财官+局</div><div class="fl-d">个人技能<br>变成产品系统</div></div>
+        <div class="fl-arr">→</div>
+        <div class="fl-node"><div class="fl-no">2</div><div class="fl-t">局+格</div><div class="fl-d">自己做盘是局<br>上层给位是格</div></div>
+        <div class="fl-arr">→</div>
+        <div class="fl-node hot"><div class="fl-no">3</div><div class="fl-t">格+局+财官</div><div class="fl-d">格定位 · 局成盘<br>财官开口收款</div></div>
+      </div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">13 / 16</div>
+  </section>
+
+  <!-- 14 · quote · 关键区分原则 -->
+  <section class="slide" id="s14">
+    <div class="inner lay-quote">
+      <div class="q-mark b">&ldquo;</div>
+      <h2 class="a" style="animation-delay:.1s">自己开公司不自动等于格——<br>格看的是有没有<span class="hl">接到更大系统的主气</span></h2>
+      <div class="q-sub a" style="animation-delay:.35s">格法的核心判定标准：是否承接了上层系统的规则、名分、权柄或行业主线</div>
+      <div class="q-by a" style="animation-delay:.45s">—— 格法严谨定义</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">14 / 16</div>
+  </section>
+
+  <!-- 15 · hero · 行动号召 -->
+  <section class="slide" id="s15">
+    <div class="inner lay-hero">
+      <h2 class="a">识别你当下的<span class="mk">主导结构</span>,<br>找到<span class="mk">升级路径</span></h2>
+      <div class="hr-sub a" style="animation-delay:.38s">财官→局→格不是唯一路径；你可以直接站格，也可以局中升格。关键是认准自己当前在哪一层，对应哪一套打法。</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">15 / 16</div>
+  </section>
+
+  <!-- 16 · outro -->
+  <section class="slide" id="s16">
+    <div class="inner lay-outro">
+      <div class="ot-q a">财官靠人，局靠盘，格靠位<br>—— 三种结构，三套打法</div>
+      <div class="ot-thx a" style="animation-delay:.52s">生命算法 · 财富结构三层体系</div>
+    </div>
+    <div class="kicker">财富结构</div><div class="pageno">16 / 16</div>
+  </section>
+
+</div>
+
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;
+  font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">
+  ← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0, editing=false, guardTimer=null;
+const hud=document.getElementById('hud');
+
+function show(n){
+  cur=(n+slides.length)%slides.length;
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.querySelectorAll('.deck-dots i').forEach((d,k)=>d.classList.toggle('on',k===cur));
+  clearTimeout(guardTimer);
+  guardTimer=setTimeout(()=>guard(slides[cur]),60);
+}
+
+async function guard(slide){
+  if(!slide) return;
+  const box=slide.querySelector(':scope > .inner, :scope > .sbody, :scope > .mg');
+  if(!box || box.dataset.guarded) return;
+  const hidden=!slide.classList.contains('active');
+  if(hidden){ slide.classList.add('measuring'); }
+  else{ try{ await Promise.allSettled(
+      (slide.getAnimations?slide.getAnimations({subtree:true}):[]).map(a=>a.finished));
+    }catch(e){} }
+  if(box.dataset.guarded){ if(hidden)slide.classList.remove('measuring'); return; }
+  box.style.transform='';
+  if(box.classList.contains('inner')){
+    const s=slide.getBoundingClientRect(), r=box.getBoundingClientRect();
+    if(r.width>0&&r.height>0){
+      const m=20*(s.width/1280);
+      const k=Math.min(1,(s.width-2*m)/r.width,(s.height-2*m)/r.height);
+      if(k<0.999){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='center center';}
+      box.dataset.guarded='1';
+    }
+  }else{
+    const cw=box.clientWidth, ch=box.clientHeight, sw=box.scrollWidth, sh=box.scrollHeight;
+    if(cw>0&&ch>0){
+      const k=Math.min(1, cw/Math.max(sw,cw), ch/Math.max(sh,ch));
+      if(k<0.992){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='top left';}
+      box.dataset.guarded='1';
+    }
+  }
+  if(hidden) slide.classList.remove('measuring');
+}
+addEventListener('beforeprint',()=>{slides.forEach(s=>guard(s));});
+
+function fit(){const d=document.querySelector('.deck');
+  const k=Math.min(innerWidth/1280,innerHeight/720);
+  d.style.transform=`translate(-50%,-50%) scale(${k})`;}
+
+const INLINE=new Set(['SPAN','BR','B','I','EM','STRONG','A','CODE','SUB','SUP','MARK','SMALL']);
+function isEditableBlock(el){
+  if(!el.textContent||!el.textContent.trim()) return false;
+  if(['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName)) return false;
+  if(el.children.length===0) return !['BR','HR','IMG','INPUT'].includes(el.tagName);
+  return [...el.children].every(c=>INLINE.has(c.tagName));
+}
+function setEdit(on){
+  editing=on;document.body.classList.toggle('editing',on);
+  document.querySelectorAll('.slide').forEach(s=>{
+    s.querySelectorAll('*').forEach(el=>{
+      if(!isEditableBlock(el)) return;
+      if(on) el.setAttribute('contenteditable','true');
+      else el.removeAttribute('contenteditable');
+    });
+  });
+  document.querySelectorAll('.m-c,.sp-box,.ic-item,[class*="drag-me"]').forEach(el=>{
+    el.draggable=on;
+    if(on){el.addEventListener('dragstart',dragStart);el.addEventListener('dragover',dragOver);el.addEventListener('drop',dropBlock);el.addEventListener('dragend',dragEnd);}
+    else{el.removeEventListener('dragstart',dragStart);el.removeEventListener('dragover',dragOver);el.removeEventListener('drop',dropBlock);el.removeEventListener('dragend',dragEnd);el.classList.remove('drag-over','dragging');}
+  });
+  hud.textContent = on ? '编辑中:点击文字修改 · 拖拽图块重排 · Esc 退出 · ⌘S 下载副本'
+                       : '← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF';
+  hud.style.color = on ? 'var(--accent)' : '#555';
+}
+let dragSrc=null;
+function dragStart(e){dragSrc=this;this.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain','');}
+function dragOver(e){e.preventDefault();if(this===dragSrc)return;this.classList.add('drag-over');e.dataTransfer.dropEffect='move';}
+function dragEnd(e){this.classList.remove('dragging');document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over'));}
+function dropBlock(e){
+  e.preventDefault();this.classList.remove('drag-over');
+  if(!dragSrc||dragSrc===this) return;
+  const parent=dragSrc.parentNode;
+  if(parent!==this.parentNode&&(!dragSrc.matches('.m-c')||!this.matches('.m-c'))&&(!dragSrc.matches('.sp-box')||!this.matches('.sp-box'))&&(!dragSrc.matches('.ic-item')||!this.matches('.ic-item'))) return;
+  const siblings=[...parent.children].filter(c=>c!==dragSrc);
+  const idx=siblings.indexOf(this);
+  if(idx===-1) parent.insertBefore(dragSrc,this);
+  else{const next=siblings[idx+1]||null;parent.insertBefore(dragSrc,next);}
+  dragSrc.classList.remove('dragging');
+}
+function saveCopy(){
+  const wasEdit=editing; if(wasEdit) setEdit(false);
+  document.querySelectorAll('[data-guarded]').forEach(el=>el.removeAttribute('data-guarded'));
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+  a.download=(document.title||'deck').replace(/[\/\:]/g,'-')+'.html';
+  a.click(); URL.revokeObjectURL(a.href);
+  if(wasEdit) setEdit(true);
+}
+async function exportPPTX(){
+  if(typeof html2canvas==='undefined'){alert('html2canvas 加载中,请稍后再试');return;}
+  hud.textContent='正在生成 PPTX (1/'+slides.length+')...';hud.style.color='var(--accent)';
+  const pptx=new PptxGenJS();pptx.defineLayout({name:'SLIDE',width:13.333,height:7.5});
+  for(let i=0;i<slides.length;i++){
+    hud.textContent='正在生成 PPTX ('+(i+1)+'/'+slides.length+')...';
+    const prev=cur;show(i);
+    const slide=slides[i];
+    slide.classList.add('measuring');
+    await new Promise(r=>setTimeout(r,400));
+    try{
+      const bg=getComputedStyle(slide).backgroundColor||'#fafafa';
+      const canvas=await html2canvas(slide,{width:1280,height:720,scale:2,backgroundColor:bg==='rgba(0,0,0,0)'?'#fafafa':bg,useCORS:true,logging:false});
+      const dataUrl=canvas.toDataURL('image/png');
+      const sld=pptx.addSlide();
+      sld.addImage({data:dataUrl,x:0,y:0,w:13.333,h:7.5});
+    }catch(e){console.error('Slide '+(i+1)+' error:',e);}
+    slide.classList.remove('measuring');
+  }
+  await pptx.writeFile({fileName:(document.title||'deck').replace(/[\/\:]/g,'-')+'.pptx'});
+  show(cur);hud.textContent='PPTX 已下载 ✓';hud.style.color='#555';
+  setTimeout(()=>{hud.textContent=editing?'编辑中:点击文字修改 · 拖拽图块重排 · Esc 退出 · ⌘S 下载副本':'← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF';hud.style.color=editing?'var(--accent)':'#555';},2500);
+}
+addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveCopy();return;}
+  if(editing){ if(e.key==='Escape'){setEdit(false);} return; }
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key.toLowerCase()==='e'){setEdit(true);}
+  else if(e.key.toLowerCase()==='f'){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+    else document.exitFullscreen();}
+  else if(e.key.toLowerCase()==='p'){exportPPTX();}
+});
+addEventListener('click',e=>{ if(!editing) show(cur+1); });
+document.querySelectorAll('.dt-grid').forEach(g=>{
+  const on=Math.max(0,Math.min(100,parseInt(g.dataset.on)||0));
+  for(let i=0;i<100;i++){const sp=document.createElement('span');
+    if(i<on){sp.className='on';sp.style.animationDelay=(0.3+i*0.012)+'s';}
+    g.appendChild(sp);}
+});
+(function(){const dk=document.querySelector('.deck'); if(!dk)return;
+  const dd=document.createElement('div'); dd.className='deck-dots';
+  slides.forEach((_,k)=>{const i=document.createElement('i');
+    i.addEventListener('click',e=>{e.stopPropagation();show(k);}); dd.appendChild(i);});
+  dk.appendChild(dd);})();
+show(0); fit(); addEventListener('resize',fit);
+window.__goto=show; window.__setEdit=setEdit;
+</script>
+</body>
+</html>
