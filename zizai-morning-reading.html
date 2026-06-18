@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>明心晨读·心理免疫课程介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}.hud{display:none!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;}
+  .brand,.kicker,.pageno{display:none!important;}
+  body.magazine .slide{background:var(--bg);}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno{display:none!important;}
+  body.magazine #hud{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  body.magazine .m-foot{position:absolute;bottom:32px;left:84px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  /* m-cards */
+  body.magazine .m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%;}
+  body.magazine .m-c{border:1px solid var(--faint);padding:28px 22px;min-height:210px;background:var(--card,#fff);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+  body.magazine .m-c.hot{border-color:var(--accent);}
+  body.magazine .m-c .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);}
+  body.magazine .m-c .n{font-size:38px;font-weight:300;margin:8px 0 6px;letter-spacing:-.02em;}
+  body.magazine .m-c.hot .n{color:var(--accent);}
+  body.magazine .m-c .t{font-size:19px;font-weight:600;margin:8px 0 8px;}
+  body.magazine .m-c .d{font-size:13px;color:var(--muted);line-height:1.6;}
+
+  /* lay-numlist */
+  .lay-numlist{width:860px;align-items:stretch;text-align:initial;}
+  .lay-numlist h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:28px;}
+  .lay-numlist .nl-row{display:flex;align-items:flex-start;gap:22px;padding:13px 0;}
+  .lay-numlist .nl-row+.nl-row{border-top:1px solid var(--faint);}
+  .lay-numlist .nl-no{flex:0 0 66px;text-align:right;font-family:var(--mono);font-size:44px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.04em;}
+  .lay-numlist .nl-t{font-size:var(--t-sm);font-weight:700;margin-bottom:3px;}
+  .lay-numlist .nl-d{font-size:var(--t-eye);color:var(--muted);line-height:1.6;}
+  body.magazine .lay-numlist .nl-t{font-family:var(--serif);font-size:22px;}
+
+  /* lay-split */
+  .lay-split{flex-direction:row;gap:70px;max-width:1100px;text-align:initial;align-items:center;}
+  .lay-split .sp-text{flex:0 0 400px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}
+  .lay-split .sp-text .eyebrow{margin-bottom:12px;}
+  .lay-split .sp-text h2{font-size:var(--t-title);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:20px;}
+  .lay-split .sp-text p{font-size:var(--t-eye);color:var(--muted);line-height:1.9;max-width:370px;}
+  .lay-split .sp-visual{flex:0 0 380px;display:flex;flex-direction:column;gap:10px;}
+  .lay-split .sp-cap{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.18em;text-transform:uppercase;text-align:center;color:var(--accent-50);}
+  .lay-split .sp-box{min-height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:600;border:1px solid var(--faint);color:var(--muted);background:var(--bg-warm);padding:10px 16px;text-align:center;}
+  .lay-split .sp-box.hot{border:1.5px solid var(--accent-50);color:var(--accent);background:var(--accent-20);}
+  .lay-split .sp-arrow{text-align:center;color:var(--accent);font-size:20px;line-height:1;}
+  .eyebrow{font-family:var(--mono);font-size:var(--t-eye);letter-spacing:.26em;text-transform:uppercase;color:var(--accent-50);}
+  body.magazine .lay-split .sp-text h2{font-family:var(--serif);font-weight:400;}
+
+  /* timeline */
+  .lay-timeline{gap:14px;width:1060px;max-width:1060px;}
+  .lay-timeline .eyebrow{margin-bottom:6px;}
+  .lay-timeline h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:44px;}
+  .lay-timeline .tl-track{position:relative;display:flex;justify-content:space-between;width:100%;}
+  .lay-timeline .tl-track::before{content:"";position:absolute;left:3%;right:3%;top:7px;height:2px;background:linear-gradient(90deg,var(--faint),var(--accent-50));}
+  .lay-timeline .tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;flex:1;position:relative;}
+  .lay-timeline .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--muted);z-index:1;}
+  .lay-timeline .tl-item.hot .tl-dot{border-color:var(--accent);background:var(--accent);}
+  .lay-timeline .tl-yr{font-family:var(--mono);font-size:var(--t-eye);color:var(--accent);letter-spacing:.1em;margin-top:10px;font-weight:700;}
+  .lay-timeline .tl-t{font-size:19px;font-weight:700;font-family:var(--serif);}
+  .lay-timeline .tl-item.hot .tl-t{color:var(--accent);}
+  .lay-timeline .tl-d{font-size:12px;color:var(--muted);max-width:148px;line-height:1.5;}
+
+  /* steps */
+  .lay-steps{gap:14px;width:1060px;max-width:1060px;}
+  .lay-steps .eyebrow{margin-bottom:6px;}
+  .lay-steps h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:40px;}
+  .lay-steps .sp-flow{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;}
+  .lay-steps .fl-node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;flex:1;max-width:180px;}
+  .lay-steps .fl-no{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent);border:2px solid var(--accent-50);background:var(--accent-20);}
+  .lay-steps .fl-node.hot .fl-no{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+  .lay-steps .fl-t{font-size:18px;font-weight:700;margin-top:5px;font-family:var(--serif);}
+  .lay-steps .fl-node.hot .fl-t{color:var(--accent);}
+  .lay-steps .fl-d{font-size:12px;color:var(--muted);line-height:1.5;}
+  .lay-steps .fl-arr{font-size:22px;color:var(--accent-50);flex:none;padding-bottom:40px;}
+
+  /* hero */
+  .lay-hero h2{font-size:var(--t-hero);font-weight:400;font-family:var(--serif);line-height:1.14;letter-spacing:-.02em;}
+  .lay-hero .mk{color:var(--accent);position:relative;}
+  .lay-hero .mk::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;}
+  .lay-hero .hr-sub{font-size:var(--t-sm);color:var(--muted);margin-top:30px;max-width:680px;line-height:1.7;}
+
+  /* quote */
+  body.magazine .m-pq{font-size:var(--t-sec);font-weight:400;color:var(--fg);border-left:2px solid var(--accent);padding-left:28px;max-width:760px;line-height:1.5;text-align:left;}
+  body.magazine .m-by{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--muted);margin-top:16px;text-align:left;}
+
+  /* big number banner */
+  .mg-big{font-size:var(--t-num);font-weight:200;color:var(--accent);line-height:1;letter-spacing:-.04em;margin:8px 0;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck">
+
+<!-- ══ 1. Cover ══ -->
+<section class="slide" id="s1"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>明心晨读</span></div>
+  <div class="mg-con" style="gap:32px;">
+    <div class="m-eye a">每天清晨 15 分钟</div>
+    <h1 class="a" style="animation-delay:.12s">明心晨读<br>心理免疫课程</h1>
+    <div class="m-rule a" style="animation-delay:.28s"></div>
+    <div class="m-sub a" style="animation-delay:.38s">不是普通晨读，不是让孩子背文章——<br>是提前给孩子装一套面对评价、比较、拒绝、失败时<br>可以脱口而出的认知防御系统</div>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 2. Hero · 钩子 ══ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>一个关键问题</span></div>
+  <div class="mg-con lay-hero">
+    <div class="m-eye a">请你想一想</div>
+    <h2 class="b" style="animation-delay:.1s">当孩子第一次<br>被人<span class="mk">嘲笑</span>时，<br>ta 脑子里第一个<br>蹦出来的是什么？</h2>
+    <div class="hr-sub a" style="animation-delay:.4s">不是等孩子受伤了再安慰。<br>而是在攻击发生之前，先把防御系统装进去。</div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 3. Steps · 五大秘密总览 ══ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课程内核</span></div>
+  <div class="mg-con lay-steps">
+    <div class="m-eye a">五大心理免疫秘密</div>
+    <h2 class="a">给孩子一套可以脱口而出的认知武器</h2>
+    <div class="sp-flow b">
+      <div class="fl-node"><div class="fl-no">1</div><div class="fl-t">独一无二</div><div class="fl-d">防御评价<br>「别人说你不好看」</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">2</div><div class="fl-t">一直在变化</div><div class="fl-d">防御否定<br>「你怎么什么都不会」</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">3</div><div class="fl-t">每个人都有界限</div><div class="fl-d">防御压迫<br>「你必须跟我玩」</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">4</div><div class="fl-t">事≠人</div><div class="fl-d">防御自攻<br>「我做得差=我这个人差」</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node hot"><div class="fl-no">5</div><div class="fl-t">成功三要素</div><div class="fl-d">防御归因错误<br>「都是我的错/别人的错」</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 4. Cards · 前三条详解 ══ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>秘密详解 · 上</span></div>
+  <div class="mg-con">
+    <div class="m-eye a">秘密 1–3</div>
+    <h1 style="font-size:var(--t-title);font-weight:800;margin:22px 0 38px;" class="a">帮孩子挡住最早的三类攻击</h1>
+    <div class="m-cards">
+      <div class="m-c a" style="animation-delay:.12s">
+        <div class="l">秘密一</div><div class="n">独一无二</div>
+        <div class="t">没有人跟我一模一样</div>
+        <div class="d">别人可以说我的衣服不好看、玩具不好玩、我做得不够好——<br>但那只是他的看法。每个人的审美、喜好、节奏天生不同。</div>
+      </div>
+      <div class="m-c a" style="animation-delay:.24s">
+        <div class="l">秘密二</div><div class="n">一直变化</div>
+        <div class="t">我现在不会≠永远都不会</div>
+        <div class="d">刚出生不会走路、不会说话、不会用筷子——现在全会了。所有事情一直在变化。「现在不会」经过学习，未来一定也可以。</div>
+      </div>
+      <div class="m-c a" style="animation-delay:.36s">
+        <div class="l">秘密三</div><div class="n">界限</div>
+        <div class="t">我可以说「不」，别人也可以</div>
+        <div class="d">我想安静时被不断打扰会烦躁——别人被我打扰时也会不高兴。我可以说不，别人也可以说不。这是正常的。</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 5. Split · 这不是普通晨读 ══ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课程本质</span></div>
+  <div class="mg-con lay-split">
+    <div class="sp-text">
+      <div class="eyebrow a">你以为的晨读 vs 心理免疫晨读</div>
+      <h2 class="a" style="animation-delay:.1s">目标不是<br>「读熟」</h2>
+      <p class="a" style="animation-delay:.2s">普通晨读的目标是把文章背下来。心理免疫晨读的目标是——孩子在真实冲突里，能把读过的话脱口而出。</p>
+    </div>
+    <div class="sp-visual b" style="animation-delay:.25s">
+      <div class="sp-cap">普通晨读</div>
+      <div class="sp-box">读熟 → 背下来 → 结束<br>跟真实生活没有关系</div>
+      <div class="sp-arrow" style="color:var(--accent)">↓ 升级</div>
+      <div class="sp-box hot">心理免疫晨读</div>
+      <div class="sp-box hot">读熟 → 老师解释 → 案例互动<br>→ 角色扮演 → 真实冲突中调用</div>
+      <div class="sp-box hot">孩子能讲出来 · 背出来<br>演出来 · 用出来 · 脱口而出</div>
+      <div class="sp-cap">从「会读」到「会用」</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 6. Numlist · 五大设计动机 ══ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>为什么需要</span></div>
+  <div class="mg-con lay-numlist">
+    <h2 class="a">为什么需要心理免疫课程？</h2>
+    <div class="nl-row a" style="animation-delay:.08s"><div class="nl-no">1</div><div class="nl-tx"><div class="nl-t">提前建立面对评价的认知防线</div><div class="nl-d">孩子最早遭遇的心理攻击，往往不是大事，而是别人随口一句「你的玩具真幼稚」「你看别人多厉害」。让孩子知道：别人怎么评价，不等于我是谁。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.16s"><div class="nl-no">2</div><div class="nl-tx"><div class="nl-t">面对「不会」和「失败」时不崩塌</div><div class="nl-d">不会跳绳、不会写字、不会合作……如果孩子把「现在不会」理解成「我永远不行」，ta 就会退缩。让孩子知道：所有事情一直在变化。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.24s"><div class="nl-no">3</div><div class="nl-tx"><div class="nl-t">建立清楚的边界感</div><div class="nl-d">「你必须跟我玩」「把你的玩具给我」——很多社交矛盾源于边界模糊。让孩子知道：我有我的界限，别人也有别人的界限。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.32s"><div class="nl-no">4</div><div class="nl-tx"><div class="nl-t">把「事」和「人」分开</div><div class="nl-d">这次没做好 ≠ 我不好。一次失败 ≠ 我这个人失败。这是五条秘密里最关键的一条——直接对治低自尊的核心成因。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.40s"><div class="nl-no">5</div><div class="nl-tx"><div class="nl-t">拥有更完整的归因能力</div><div class="nl-d">成功 = 自己的努力 + 他人的支持 + 老天的配合。孩子不会轻易陷入「都是我的错」或「都怪别人」的死循环。</div></div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 7. Timeline · 推进节奏 ══ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>教学方式</span></div>
+  <div class="mg-con lay-timeline">
+    <div class="m-eye a">不是学完就丢——是不断叠加复现</div>
+    <h2 class="a">五大秘密的推进节奏</h2>
+    <div class="tl-track b">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第1阶段</div><div class="tl-t">秘密1</div><div class="tl-d">重点推进<br>读熟·讲清·演练</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第2阶段</div><div class="tl-t">秘密2</div><div class="tl-d">重点推进<br>+秘密1 复现</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第3阶段</div><div class="tl-t">秘密3</div><div class="tl-d">重点推进<br>+秘密1·2 复现</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第4阶段</div><div class="tl-t">秘密4</div><div class="tl-d">重点推进<br>+前3条复现</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第5阶段</div><div class="tl-t">秘密5</div><div class="tl-d">重点推进<br>+前4条复现</div></div>
+      <div class="tl-item hot"><div class="tl-dot"></div><div class="tl-yr">后期</div><div class="tl-t">五篇循环</div><div class="tl-d">晨读+复现<br>+真实冲突调用</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 8. Cards · 后两条详解 ══ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>秘密详解 · 下</span></div>
+  <div class="mg-con">
+    <div class="m-eye a">秘密 4–5</div>
+    <h1 style="font-size:var(--t-title);font-weight:800;margin:22px 0 38px;" class="a">最关键的两条心理防线</h1>
+    <div class="m-cards">
+      <div class="m-c hot a" style="animation-delay:.12s">
+        <div class="l">秘密四 · 最核心</div><div class="n">事≠人</div>
+        <div class="t">事情不好，不代表人不好</div>
+        <div class="d">妈妈烧菜咸了，但她仍然爱着我。<br>爸爸忘了答应的事，但他仍然在为家努力。<br>一次做错 ≠ 我这个人差。<br>一次失败 ≠ 我这个人失败。</div>
+      </div>
+      <div class="m-c a" style="animation-delay:.24s">
+        <div class="l">秘密五 · 最不寻常</div><div class="n">三要素</div>
+        <div class="t">成功需要三方碰在一起</div>
+        <div class="d">自己的努力 + 他人的支持 + 老天的配合。成功时不自傲，失败时不气馁。「老天」给孩子的真实含义是：世界上有我控制不了的那部分。</div>
+      </div>
+      <div class="m-c a" style="animation-delay:.36s">
+        <div class="l">不是「教品德」</div><div class="n">是建结构</div>
+        <div class="t">结构建好，孩子自己推导</div>
+        <div class="d">这五条不是随意选的，是按孩子被攻击的年龄顺序排列的。结构一旦建好，孩子在所有具体场景里都能自己推导出合适的反应。</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 9. Split · 家长配合 ══ -->
+<section class="slide" id="s9"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>家校配合</span></div>
+  <div class="mg-con lay-split">
+    <div class="sp-text">
+      <div class="eyebrow a">你比晨读更重要</div>
+      <h2 class="a" style="animation-delay:.1s">光靠晨读<br>不够</h2>
+      <p class="a" style="animation-delay:.2s">孩子不会记住你教过的道理，但会记住你做过的反应。15分钟晨读给ta一套语言，你的日常反应让这套语言有血有肉。</p>
+    </div>
+    <div class="sp-visual b" style="animation-delay:.25s">
+      <div class="sp-cap">❌ 孩子在学校念</div>
+      <div class="sp-box">「每个人都是独一无二的」</div>
+      <div class="sp-arrow" style="color:var(--accent)">你在家却说</div>
+      <div class="sp-box hot">「你看人家小明多厉害」</div>
+      <div class="sp-arrow" style="font-size:18px;color:var(--accent-50)">信息在孩子脑子里打架</div>
+      <div class="sp-cap">孩子信行为——也就是你做的</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 10. Quote · 金句 ══ -->
+<section class="slide" id="s10"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课堂里的示范</span></div>
+  <div class="mg-con" style="gap:0;align-items:flex-start;text-align:left;max-width:820px;">
+    <div class="m-eye a">老师在孩子面前这样做</div>
+    <div class="m-pq a" style="animation-delay:.2s;margin-top:28px;font-size:24px;line-height:1.55;max-width:860px;">
+      上课讲错了一个字——<br>老师当场说：<br>「这个字我讲错了，<br>但不代表我不是好老师。<br>谢谢你指出来，我重新讲。」<br><br>准备好溯溪活动，结果下大雨——<br>老师对孩子们说：<br>「这是老天的意外，没办法。<br>换个玩法，<br>在教室里搭帐篷讲故事。」<br><br>孩子亲眼看到：<br>错了一次，人可以不变。<br>计划被打乱，可以不崩溃。<br><br>15分钟晨读给ta一套语言，<br><span class="m-em">老师每一天的示范，让这套语言活过来。</span>
+    </div>
+    <div class="m-by a" style="animation-delay:.4s">—— 自在班 · 写给家长</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 11. Hero · 号召 ══ -->
+<section class="slide" id="s11"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课程初心</span></div>
+  <div class="mg-con lay-hero">
+    <h2 class="a">不是等受伤了<br>再<span class="mk">安慰</span>——<br>是提前筑好<br><span class="mk">防线</span></h2>
+    <div class="hr-sub a" style="animation-delay:.38s">每天清晨 15 分钟，五大秘密反复念、反复练、反复用。<br>一年后，孩子面对评价、拒绝、失败和冲突时——<br>ta 脑子里先蹦出来的不是眼泪，是答案。</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 12. Outro ══ -->
+<section class="slide" id="s12"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>明心晨读</span></div>
+  <div class="mg-con" style="gap:32px;">
+    <div class="m-eye a">每天清晨 15 分钟</div>
+    <h1 class="a" style="animation-delay:.12s">给孩子一套<br>脱口而出的<br>心理免疫系统</h1>
+    <div class="m-rule a" style="animation-delay:.28s"></div>
+    <div class="m-sub a" style="animation-delay:.38s">被嘲笑时先想到的是答案，不是眼泪。<br>被拒绝时先想到的是理解，不是崩塌。<br>失败时先想到的是「再来一次」，不是「我就是不行」。</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+</div>
+
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;
+  font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">
+  ← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0, editing=false, guardTimer=null;
+const hud=document.getElementById('hud');
+
+function show(n){
+  cur=(n+slides.length)%slides.length;
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.querySelectorAll('.m-dots i').forEach((d,k)=>d.classList.toggle('on',k===cur));
+  clearTimeout(guardTimer);
+  guardTimer=setTimeout(()=>guard(slides[cur]),60);
+}
+
+async function guard(slide){
+  if(!slide) return;
+  const box=slide.querySelector(':scope > .mg');
+  if(!box || box.dataset.guarded) return;
+  const hidden=!slide.classList.contains('active');
+  if(hidden){ slide.classList.add('measuring'); }
+  else{ try{ await Promise.allSettled(
+      (slide.getAnimations?slide.getAnimations({subtree:true}):[]).map(a=>a.finished));
+    }catch(e){} }
+  if(box.dataset.guarded){ if(hidden)slide.classList.remove('measuring'); return; }
+  box.style.transform='';
+  const cw=box.clientWidth, ch=box.clientHeight, sw=box.scrollWidth, sh=box.scrollHeight;
+  if(cw>0&&ch>0){
+    const k=Math.min(1, cw/Math.max(sw,cw), ch/Math.max(sh,ch));
+    if(k<0.992){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='center center';}
+    box.dataset.guarded='1';
+  }
+  if(hidden) slide.classList.remove('measuring');
+}
+addEventListener('beforeprint',()=>{slides.forEach(s=>guard(s));});
+
+function fit(){const d=document.querySelector('.deck');
+  const k=Math.min(innerWidth/1280,innerHeight/720);
+  d.style.transform=`translate(-50%,-50%) scale(${k})`;}
+
+const INLINE=new Set(['SPAN','BR','B','I','EM','STRONG','A','CODE','SUB','SUP','MARK','SMALL']);
+function isEditableBlock(el){
+  if(!el.textContent||!el.textContent.trim()) return false;
+  if(['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName)) return false;
+  if(el.children.length===0) return !['BR','HR','IMG','INPUT'].includes(el.tagName);
+  return [...el.children].every(c=>INLINE.has(c.tagName));
+}
+function setEdit(on){
+  editing=on;document.body.classList.toggle('editing',on);
+  document.querySelectorAll('.slide').forEach(s=>{
+    s.querySelectorAll('*').forEach(el=>{
+      if(!isEditableBlock(el)) return;
+      if(on) el.setAttribute('contenteditable','true');
+      else el.removeAttribute('contenteditable');
+    });
+  });
+  hud.textContent = on ? '编辑中:点击文字修改 · Esc 退出 · ⌘S 下载副本'
+                       : '← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF';
+  hud.style.color = on ? 'var(--accent)' : '#555';
+}
+
+function saveCopy(){
+  const wasEdit=editing; if(wasEdit) setEdit(false);
+  document.querySelectorAll('[data-guarded]').forEach(el=>el.removeAttribute('data-guarded'));
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+  a.download=(document.title||'deck').replace(/[\/\:]/g,'-')+'.html';
+  a.click(); URL.revokeObjectURL(a.href);
+  if(wasEdit) setEdit(true);
+}
+
+addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveCopy();return;}
+  if(editing){ if(e.key==='Escape'){setEdit(false);} return; }
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key.toLowerCase()==='e'){setEdit(true);}
+  else if(e.key.toLowerCase()==='f'){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+    else document.exitFullscreen();}
+});
+addEventListener('click',e=>{ if(!editing) show(cur+1); });
+show(0); fit(); addEventListener('resize',fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>商业公益项目·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}.hud{display:none!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+  .brand,.kicker,.pageno{display:none!important;}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno,body.magazine .deck-dots{display:none!important;}
+  body.magazine #hud{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:36px;font-weight:400;letter-spacing:-.012em;margin-bottom:14px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:15px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 12px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:36px;color:var(--accent);opacity:.5;margin-bottom:10px;}
+  body.magazine .m-st .st-t{font-size:18px;font-weight:600;margin-bottom:6px;}
+  body.magazine .m-st .st-d{font-size:13px;color:var(--muted);line-height:1.6;}
+  body.magazine .m-st .arrow{display:block;font-size:20px;color:var(--faint);position:absolute;right:-18px;top:14px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:10px;max-width:860px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:20px;padding:10px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 48px;font-family:var(--mono);font-size:28px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:15px;color:var(--fg);line-height:1.65;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ═══════ 1. COVER ═══════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>商业公益项目</span><span class="r">01 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">COMMERCIAL CHARITY PROJECT</div>
+    <h1>商业公益<br>项目</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">不是"让孩子学做生意"<br>而是让孩子通过自己的双手和努力<br>走完投资→制作→售卖→回馈社会的完整闭环</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 2. 课程定义 ═══════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>课程定义</span><span class="r">02 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">POSITIONING</div>
+    <h1 class="a" style="font-size:34px;margin-top:8px;line-height:1.3">以冰糖葫芦、鸡蛋仔、绿色蔬果为载体<br>走完<span class="m-em">投资→制作→售卖→利润分配</span>完整商业闭环</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:230px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">三大产品线</span>
+      <p>
+      🍡 <strong>冰糖葫芦</strong> 核心深化项目<br>
+        技能型，需持续练习和造型升级<br>
+      🧇 <strong>鸡蛋仔</strong> 设备辅助项目<br>
+        投资教育的起点<br>
+      🥬 <strong>绿色蔬果</strong> 常态化项目<br>
+        自种有机蔬菜，每周保证产出
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">利润分配：三部分</span>
+      <p>
+      <strong style="color:var(--accent);font-size:17px">① 运转资金</strong><br>
+      留作下一轮采购与再投入<br>
+      <strong style="color:var(--accent);font-size:17px">② 自己与家人</strong><br>
+      劳动回报，体验"我能赚钱"<br>
+      <strong style="color:var(--accent);font-size:17px">③ 捐给福利院</strong><br>
+      公益回馈——"赚钱不是为了自己，<br>而是为了帮助更多人"
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 3. 五大设计动机 ═══════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">03 / 08</span></div>
+  <div style="position:absolute;left:84px;top:62px"><div class="m-eye a">WHY THIS COURSE</div><h1 class="a" style="font-size:36px;margin-top:6px">为什么要做商业公益项目？</h1></div>
+  <div class="m-nums" style="position:absolute;left:150px;top:180px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>售卖是整个学期的串联枢纽</strong>——种菜的菜拿来卖，冰糖葫芦鸡蛋仔拿去卖，卖了的钱回到福利院。数理课的计算、表达课的能力，全部在售卖中体现。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>孩子需要「成事」的完整体验</strong>——大部分教育只停留在"学知识"，缺少从头到尾干成一件事的经历。成事构建（准备→过程→结果→复盘→迭代）是人生底层能力。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>公益精神需要行动载体</strong>——福利院激发了善心，但善心需要行动来兑现。「通过自己的努力去帮助别人」——不是找爸妈要钱，而是自己赚来的。</div></div>
+    <div class="m-nr a" style="animation-delay:.22s"><div class="no">04</div><div class="tx"><strong>不求多但求精，做成技能</strong>——搞2-3样不断产出去卖，一个学期做成技能，孩子可以说"我可以做出来卖"。复读的孩子可以升级做指导。</div></div>
+    <div class="m-nr a" style="animation-delay:.28s"><div class="no">05</div><div class="tx"><strong>真实场景解决「为什么要学」</strong>——为什么学数学？因为要算账算利润。为什么学表达？因为要吆喝说服客人。为什么学控笔？因为要写价格牌记账。每一门课都在售卖中找到了真实回答。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 4. 成事构建五步法 ═══════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>底层逻辑</span><span class="r">04 / 08</span></div>
+  <div style="position:absolute;left:84px;top:62px"><div class="m-eye a">THE 5-STEP FRAMEWORK</div><h1 class="a" style="font-size:36px;margin-top:6px">「成事构建」五步法</h1><p class="a" style="font-size:15px;color:var(--muted);margin-top:6px">不是教孩子"赚钱"，而是教孩子如何把一件事从头到尾干成——这是所有能力的母能力</p></div>
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:250px">
+    <div class="m-st a" style="animation-delay:.04s">
+      <div class="st-n">01</div>
+      <div class="st-t">准备</div>
+      <div class="st-d">选品·投资·采购<br>技能学习<br>回家说服爸妈"借钱投资"</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.14s">
+      <div class="st-n">02</div>
+      <div class="st-t">过程</div>
+      <div class="st-d">制作·包装<br>布展·售卖<br>吆喝介绍沟通收钱找零</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.24s">
+      <div class="st-n">03</div>
+      <div class="st-t">结果</div>
+      <div class="st-d">收入统计<br>成本核算·利润计算<br>什么最好卖？客户怎么说？</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.34s">
+      <div class="st-n">04</div>
+      <div class="st-t">复盘</div>
+      <div class="st-d">什么做得好？<br>什么做得不好？<br>下次怎么做能更好？</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.44s">
+      <div class="st-n">05</div>
+      <div class="st-t">迭代</div>
+      <div class="st-d">调整配方·造型·价格<br>每一轮都比上一轮更好<br>失败→总结→改进→再试</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 5. 冰糖葫芦 + 鸡蛋仔 ═══════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>产品线详解 ①</span><span class="r">05 / 08</span></div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:140px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">核心项目</span>
+      <h2>🍡 冰糖葫芦</h2>
+      <p>
+      <strong style="color:var(--accent)">为什么选它？</strong><br>
+      · 大众喜欢，好卖<br>
+      · 水果健康，家长愿买<br>
+      · 造型可不断升级——从基础到花样<br>
+        三个月持续精进<br>
+      · 现做现卖，不会化糖<br><br>
+      <strong style="color:var(--accent)">核心风险：果糖很烫</strong><br>
+      → 必须佩戴防烫手套<br><br>
+      <strong style="color:var(--accent)">分工设计：</strong><br>
+      弱能力孩子只体验不独立操作<br>
+      明年能力提升后再上
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">辅助项目</span>
+      <h2>🧇 鸡蛋仔</h2>
+      <p>
+      <strong style="color:var(--accent)">为什么选它？</strong><br>
+      · 鸡蛋面糊为主，健康好吃<br>
+      · 口味多样——巧克力/抹茶/草莓<br>
+      · 孩子全程参与感强<br>
+      · 操作比冰糖葫芦安全<br><br>
+      <strong style="color:var(--accent)">投资教育起点：</strong><br>
+      1. 调研成本：机子200-300元<br>
+      2. 家长分摊投资，每人二三十块<br>
+      3. 孩子回家"借钱投资"<br>
+      4. 回收成本 → 计算利润<br>
+      → 第一次体验完整商业逻辑
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 6. 绿色蔬果 + 投资教育 ═══════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>产品线详解 ②</span><span class="r">06 / 08</span></div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:140px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">常态化项目</span>
+      <h2>🥬 绿色蔬果</h2>
+      <p>
+      <strong style="color:var(--accent)">核心优势</strong><br>
+      · 进货成本为零——自己种的菜<br>
+      · 与三生课无缝衔接<br>
+        种菜→护理→采摘→售卖→完整闭环<br>
+      · 每周去基地收菜→保证每周出摊<br>
+      · 赚的比其他产品多<br><br>
+      <strong style="color:var(--accent)">展示板设计</strong><br>
+      · 选开荒照片约10张<br>
+      · 配文字："我们自己种的，<br>
+        不打药的有机蔬菜"<br>
+      · 加福利院照片——让买菜的人知道<br>
+        这不只是卖菜，是公益行动
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">表达课融入</span>
+      <h2>投资教育的<br>完整设计</h2>
+      <p>
+      <strong style="color:var(--accent)">说服演练：</strong><br>
+      怎么说服爸妈投资？<br>
+      为什么选这个项目？<br><br>
+      <strong style="color:var(--accent)">商业计划：</strong><br>
+      需要多少钱？能赚多少？<br>
+      风险是什么？<br><br>
+      <strong style="color:var(--accent)">汇报展示：</strong><br>
+      投资回报结果汇报<br>
+      赚了钱的去向说明<br><br>
+      <span style="color:var(--accent)">——表达课不再是"学说话"，<br>
+      而是真刀真枪的沟通能力</span>
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 7. 价值总结 ═══════ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span>价值总结</span><span class="r">07 / 08</span></div>
+  <div style="position:absolute;left:84px;top:62px;right:84px">
+    <div class="m-eye a">WHAT YOUR CHILD WILL GAIN</div>
+    <h1 class="a" style="font-size:36px;margin-top:6px">孩子将获得什么？</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:170px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">能力层</span>
+      <p>
+      <strong style="color:var(--accent)">「成事」的底层能力</strong><br>
+      准备→过程→结果→复盘→迭代<br>
+      迁移到学习、工作、人生的每一个场景<br><br>
+      <strong style="color:var(--accent)">真实场景中的应用能力</strong><br>
+      数学·表达·控笔·协作<br>
+      每一门课都在售卖中找到了真实意义<br><br>
+      <strong style="color:var(--accent)">商业思维启蒙</strong><br>
+      成本·利润·投资·资金流转<br>
+      不是"学做生意"，是理解世界的运转
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">品格层</span>
+      <p>
+      <strong style="color:var(--accent)">利他的价值观</strong><br>
+      赚钱不是为了自己<br>
+      而是为了帮助更多人<br>
+      通过自己的努力去回馈社会<br><br>
+      <strong style="color:var(--accent)">成长型思维</strong><br>
+      失败→总结→改进→再试<br>
+      每一轮都比上一轮更好<br><br>
+      <strong style="color:var(--accent)">自信心与自我效能感</strong><br>
+      「我可以做出来卖」<br>
+      「我可以干成一件事」
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 8. OUTRO ═══════ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span>商业公益项目</span><span class="r">08 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">COMMERCIAL CHARITY PROJECT</div>
+    <h1 style="font-size:64px">赚钱，<br>是为了<span class="m-em">帮助</span>更多人</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="max-width:600px">
+      让孩子在真实的商业场景中<br>
+      长出成事的能力和利他的品格
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>

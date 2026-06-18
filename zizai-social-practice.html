@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>市内研学课·社会实践篇·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}.hud{display:none!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+  .brand,.kicker,.pageno{display:none!important;}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno,body.magazine .deck-dots{display:none!important;}
+  body.magazine #hud{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  body.magazine .m-foot{position:absolute;bottom:32px;left:84px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  body.magazine .m-c{border:1px solid var(--faint);padding:30px 26px;min-height:220px;background:var(--card,#fff);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+  body.magazine .m-c.hot{border-color:var(--accent);}
+  body.magazine .m-c .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);}
+  body.magazine .m-c .n{font-size:42px;font-weight:300;margin:10px 0 6px;letter-spacing:-.02em;}
+  body.magazine .m-c.hot .n{color:var(--accent);}
+  body.magazine .m-c .t{font-size:20px;font-weight:600;margin:10px 0 8px;}
+  body.magazine .m-c .d{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:36px;font-weight:400;letter-spacing:-.012em;margin-bottom:14px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:15px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:10px;max-width:860px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:20px;padding:10px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 48px;font-family:var(--mono);font-size:28px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:15px;color:var(--fg);line-height:1.65;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 12px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:36px;color:var(--accent);opacity:.5;margin-bottom:10px;}
+  body.magazine .m-st .st-t{font-size:18px;font-weight:600;margin-bottom:6px;}
+  body.magazine .m-st .st-d{font-size:13px;color:var(--muted);line-height:1.6;}
+  body.magazine .m-st .arrow{display:block;font-size:20px;color:var(--faint);position:absolute;right:-18px;top:14px;}
+
+  body.magazine .m-tl{display:flex;flex-direction:column;gap:0;max-width:900px;width:100%;position:relative;padding-left:40px;}
+  body.magazine .m-tl::before{content:"";position:absolute;left:17px;top:4px;bottom:4px;width:1px;background:var(--accent-20);}
+  body.magazine .m-ti{position:relative;padding:4px 0 4px 28px;}
+  body.magazine .m-ti::before{content:"";position:absolute;left:-27px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
+  body.magazine .m-ti .ti-n{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:1px;}
+  body.magazine .m-ti .ti-t{font-size:14px;font-weight:600;margin-bottom:1px;}
+  body.magazine .m-ti .ti-d{font-size:12px;color:var(--muted);line-height:1.45;}
+
+  body.magazine .m-hero{text-align:center;max-width:780px;}
+  body.magazine .m-hero h1{font-size:60px!important;line-height:1.15;margin-bottom:18px;}
+  body.magazine .m-hero .m-sub{font-size:var(--t-sm);margin-top:14px;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ════════════════ 1. COVER ════════════════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>市内研学课</span><span class="r">01 / 12</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">SOCIAL PRACTICE</div>
+    <h1>社会实践篇</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">让孩子在真实社会中<br>看见世界的多面，找到成长的力量</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 2. 衔接 ════════════════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>两门研学课的关系</span><span class="r">02 / 12</span></div>
+  <div class="mg-con a">
+    <div class="m-eye">FROM AWARENESS TO ACTION</div>
+    <h1 style="font-size:56px">从「认识世界」<br>到「<span class="m-em">改变世界</span>」</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="text-align:left;max-width:720px">
+      <strong style="color:var(--accent)">生活实践篇</strong>（第一学期·每周二上午）<br>
+      在超市、菜市、厨房中认识世界如何运转——<span style="color:var(--muted)">爱自己→爱家人→爱国家→为集体付出→年节应用</span><br><br>
+      <strong style="color:var(--accent)">社会实践篇</strong>（第二学期·每周二上午）<br>
+      在福利院、陵园、小学中看见社会的多面——<span style="color:var(--muted)">从「小我」走向「大我」</span><br><br>
+      两门课共用同一个时段，形成完整的<span style="color:var(--accent)">「认知→情感→行动」教育闭环</span>
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 3. 课程定义 ════════════════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>课程定义</span><span class="r">03 / 12</span></div>
+  <div style="position:absolute;left:84px;top:150px"><div class="m-eye a">市内研学课·社会实践篇</div><h1 class="a" style="font-size:48px;margin-top:14px">不是简单的「春游」或「外出活动」</h1></div>
+  <div class="m-cards" style="position:absolute;left:84px;right:84px;top:330px">
+    <div class="m-c a" style="animation-delay:.12s"><div class="l">核 心</div><div class="t">在「看见」中成长</div><div class="d">看见福利院孩子的处境<br>看见烈士先辈的牺牲<br>看见山区孩子的艰苦</div></div>
+    <div class="m-c a" style="animation-delay:.24s"><div class="l">主 线</div><div class="t">三条立志线</div><div class="d">善心线→学习线→志向线<br>从「我要为世界付出」<br>到「我要成为那样的人」</div></div>
+    <div class="m-c hot a" style="animation-delay:.36s"><div class="l">目 标</div><div class="t">从「小我」到「大我」</div><div class="d">同理心·社会责任感<br>学习动力·对比认知<br>行动力·品格基底</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 4. 三条立志线 ════════════════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>底层逻辑</span><span class="r">04 / 12</span></div>
+  <div style="position:absolute;left:84px;top:120px"><div class="m-eye a">THE THREE ASPIRATION LINES</div><h1 class="a" style="font-size:48px;margin-top:14px">公益研学的三条立志线</h1></div>
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:340px">
+    <div class="m-st a" style="animation-delay:.1s">
+      <div class="st-n">01</div>
+      <div class="st-t">善心线</div>
+      <div class="st-d">我要为世界付出<br>福利院→公益行动<br>激发同理心与善心</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.25s">
+      <div class="st-n">02</div>
+      <div class="st-t">学习线</div>
+      <div class="st-d">我要学习<br>希望小学→读书的意义<br>从「要我学」到「我要学」</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.4s">
+      <div class="st-n">03</div>
+      <div class="st-t">志向线</div>
+      <div class="st-d">我要成为那样的人<br>高科技→立志→毕业营<br>知识越丰富，能帮助的人越多</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 5. 教育逻辑链 ════════════════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>教育逻辑链</span><span class="r">05 / 12</span></div>
+  <div style="position:absolute;left:84px;top:68px"><div class="m-eye a">THE COMPLETE LOGIC CHAIN</div><h1 class="a" style="font-size:38px;margin-top:8px">从「我很幸福」到「我要成为那样的人」</h1></div>
+  <div class="m-tl" style="position:absolute;left:190px;top:205px">
+    <div class="m-ti a" style="animation-delay:.04s"><div class="ti-n">STEP 1</div><div class="ti-t">我很幸福</div><div class="ti-d">对比福利院孩子 → 看见自己拥有的远比自己意识到的多</div></div>
+    <div class="m-ti a" style="animation-delay:.1s"><div class="ti-n">STEP 2</div><div class="ti-t">幸福不是理所当然的</div><div class="ti-d">烈士陵园 → 有人用生命换来了我们的和平</div></div>
+    <div class="m-ti a" style="animation-delay:.16s"><div class="ti-n">STEP 3</div><div class="ti-t">有人在艰苦中仍在努力学习</div><div class="ti-d">希望小学 → 同龄人在怎样艰苦的条件下求学</div></div>
+    <div class="m-ti a" style="animation-delay:.22s"><div class="ti-n">STEP 4</div><div class="ti-t">我即将进入的小学条件多好</div><div class="ti-d">小学参观 → 对比之后更加珍惜</div></div>
+    <div class="m-ti a" style="animation-delay:.28s"><div class="ti-n">STEP 5</div><div class="ti-t">我有能力也有责任为世界做点什么</div><div class="ti-d">公益行动 + 售卖 → 把爱心转化为行动</div></div>
+    <div class="m-ti a" style="animation-delay:.34s"><div class="ti-n">STEP 6</div><div class="ti-t">知识越丰富，能帮助的人越多</div><div class="ti-d">集体课视频 + 高科技参观 → 学习动力被真正点燃</div></div>
+    <div class="m-ti a" style="animation-delay:.4s"><div class="ti-n">STEP 7</div><div class="ti-t">我要成为那样有力量的人</div><div class="ti-d">毕业营 → 立志成为能帮助世界的人</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 6. 福利院 ════════════════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>主题一 · 儿童福利院（5次，核心主线）</span><span class="r">06 / 12</span></div>
+  <div style="position:absolute;left:84px;top:66px;right:84px">
+    <div class="m-eye a">CORE THEME · 贯穿第二学期 · 每月一次</div>
+    <h1 class="a" style="font-size:38px;margin-top:8px">善心的起点：不是表演，是行动</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:228px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">五次递进</span>
+      <h2>从「了解」到「交付」</h2>
+      <p>
+      <strong style="color:var(--accent)">第一次</strong> 了解：福利院是什么？<br>
+      <strong style="color:var(--accent)">第二次</strong> 准备：我们可以为他们做什么？<br>
+      <strong style="color:var(--accent)">第三次</strong> 行动：打扫卫生、陪伴互动<br>
+      <strong style="color:var(--accent)">第四次</strong> 交付：把练就的能力和赚到的钱做最终交付<br>
+      <strong style="color:var(--accent)">第五次</strong> 告别：完整收尾一段关系</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">从家庭到社会</span>
+      <h2>「我幸福，也希望<br>人家像我一样幸福」</h2>
+      <p>为爱的人付出（像爸妈为家里做事不付钱）<br>
+      → 我也是家的一份子<br>
+      → 除了家里，还有很多人需要帮助<br>
+      → 不向父母要钱，通过自己的努力<br><br>
+      <strong style="color:var(--accent)">变废为宝 × 福利院</strong><br>
+      变废为宝的东西送给福利院的孩子——<br>
+      「这不是废的，在不同的人眼中就是宝贝」<br>
+      这也是对他们的一种祝福</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 7. 烈士陵园 ════════════════ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span>主题二 · 烈士陵园</span><span class="r">07 / 12</span></div>
+  <div style="position:absolute;left:84px;top:76px;right:84px">
+    <div class="m-eye a">HONORING THE FALLEN</div>
+    <h1 class="a" style="font-size:40px;margin-top:10px">从同理心到感恩与敬畏</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:258px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1;max-width:480px">
+      <span class="tag">情感升华的关键节点</span>
+      <h2>在福利院体验基础上<br>理解「牺牲」与「保护」</h2>
+      <p>福利院让孩子看到弱势群体需要帮助<br>→ 烈士陵园让孩子理解：<br><strong style="color:var(--accent)">有人为了保护这些人，牺牲了生命</strong><br><br>
+      活动设计：行前视频铺垫 → 庄严献花默哀<br>→ 听老师讲述烈士故事 → 回来后分享感受</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1;padding-left:30px;max-width:480px">
+      <span class="tag">三重课程串联</span>
+      <h2>让抽象的价值<br>有了具体的载体</h2>
+      <p>❶ 串联<strong>军体课</strong>：为什么要学军体？<br>　→ 有人用生命换来了和平<br><br>
+      ❷ 串联<strong>集体课视频</strong>：看加沙战乱<br>　→ 对比中国的安全来之不易<br><br>
+      ❸ 串联<strong>表达课</strong>：回来后分享<br>　「今天你看到了什么？想到了什么？」</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 8. 希望小学 ════════════════ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span>主题三 · 希望小学</span><span class="r">08 / 12</span></div>
+  <div style="position:absolute;left:84px;top:76px;right:84px">
+    <div class="m-eye a">LEARNING MOTIVATION</div>
+    <h1 class="a" style="font-size:40px;margin-top:10px">学习动力的深层激发</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:258px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1;max-width:480px">
+      <span class="tag">对比认知的力量</span>
+      <h2>「你不要以为橡皮<br>好像就简单」</h2>
+      <p>看到同龄人在怎样艰苦的条件下求学<br>
+      → 反观自己的学习条件多么优越<br><br>
+      对读书、写字、文具、学习机会的态度<br>
+      会发生<strong style="color:var(--accent)">根本性转变</strong><br>
+      不再觉得学习是「被逼的」<br>
+      → 而是<strong>「我拥有的宝贵机会」</strong></p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1;padding-left:30px;max-width:480px">
+      <span class="tag">精心的时间节奏</span>
+      <h2>两次对比<br>叠加出最强效果</h2>
+      <p><strong style="color:var(--accent)">希望小学在前</strong>：先感受别人的学习艰苦<br>
+      <strong style="color:var(--accent)">小学参观在后</strong>：再看自己即将上的小学<br><br>
+      → 对比更强烈，珍惜感更深<br><br>
+      家长可以配合：回家后问问孩子——<br>
+      「今天你看到了什么？你有什么感觉？」</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 9. 小学参观+毕业营 ════════════════ -->
+<section class="slide" id="s9"><div class="mg">
+  <div class="m-hd"><span>主题四&五 · 小学参观 + 毕业营</span><span class="r">09 / 12</span></div>
+  <div style="position:absolute;left:84px;top:76px;right:84px">
+    <div class="m-eye a">VISION & PURPOSE</div>
+    <h1 class="a" style="font-size:40px;margin-top:10px">从「我要上学」到「我要成为那样的人」</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:258px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1;max-width:480px">
+      <span class="tag">幼小衔接的社会化预备</span>
+      <h2>小学参观</h2>
+      <p>小学不仅是知识学习场所<br>更是一个<strong>社会化环境</strong><br><br>
+      规则、纪律、集体生活、陌生同伴——<br>在进入小学前就充分体验<br><br>
+      配合前面的福利院、希望小学体验<br>
+      → 孩子对「上学」的理解<br>已经远远超越了「去学知识」</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1;padding-left:30px;max-width:480px">
+      <span class="tag">志向线的终点</span>
+      <h2>高科技参观<br>+ 毕业营</h2>
+      <p>看火箭发射、科学家故事<br>
+      → 理解知识的力量<br><br>
+      <strong style="color:var(--accent)">「你的能量够大、知识够丰富的时候，<br>才能够帮助这个世界。」</strong><br><br>
+      → 所以要学知识。<br>能量够大、知识够丰富的时候<br>才能够帮助这个世界。</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 10. 五大动机 ════════════════ -->
+<section class="slide" id="s10"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">10 / 12</span></div>
+  <div style="position:absolute;left:84px;top:70px"><div class="m-eye a">WHY THIS COURSE</div><h1 class="a" style="font-size:40px;margin-top:8px">五大设计动机</h1></div>
+  <div class="m-nums" style="position:absolute;left:190px;top:210px;max-width:900px">
+    <div class="m-nr a" style="animation-delay:.06s"><div class="no">01</div><div class="tx"><strong>从「小我」走向「大我」——整学年的教育暗线</strong><br>上学期完成「爱自己→爱家人→爱班级」的内圈构建。本学期把爱的半径向外扩展——爱社会、爱国家、爱世界。</div></div>
+    <div class="m-nr a" style="animation-delay:.12s"><div class="no">02</div><div class="tx"><strong>公益精神的真实种子——不是表演，是行动</strong><br>连续五次福利院之行，从了解→准备→行动→交付→告别，完整经历一个公益项目的全流程。</div></div>
+    <div class="m-nr a" style="animation-delay:.18s"><div class="no">03</div><div class="tx"><strong>学习动力的深层激发——从「要我学」到「我要学」</strong><br>两次对比体验叠加（希望小学+小学参观），对学习的态度发生根本性转变。</div></div>
+    <div class="m-nr a" style="animation-delay:.24s"><div class="no">04</div><div class="tx"><strong>幼小衔接的社会化预备</strong><br>通过参观小学、体验不同社会场景，社会适应能力在进入小学前就已充分锻炼。</div></div>
+    <div class="m-nr a" style="animation-delay:.3s"><div class="no">05</div><div class="tx"><strong>所有课程的「实践出口」</strong><br>售卖是重头——种菜的要拿来卖，冰糖葫芦要拿去卖，卖了又回到福利院。数理课、表达课全部跟这些挂钩。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ════════════════ 11. 价值总结 ════════════════ -->
+<section class="slide" id="s11"><div class="mg">
+  <div class="m-hd"><span>最大的价值</span><span class="r">11 / 12</span></div>
+  <div class="m-hero a" style="margin-top:-20px">
+    <div class="m-eye">THE BIGGEST VALUE</div>
+    <h1>见过世界的孩子<br>成长的力量<span class="m-em">不一样</span></h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="text-align:left;max-width:640px;font-size:17px">
+      一个见过福利院孩子处境的孩子，会懂得<strong style="color:var(--accent)">珍惜</strong>——他拥有的不是理所当然。<br><br>
+      一个在烈士陵园默哀过的孩子，会对和平与守护有<strong style="color:var(--accent)">真实的感知</strong>。<br><br>
+      一个见过山区孩子在艰苦条件下求学的孩子，会把写作业看作<strong style="color:var(--accent)">一种幸运</strong>而不是负担。<br><br>
+      一个用自己赚的钱帮助过别人的孩子，会知道<strong style="color:var(--accent)">知识的力量</strong>可以改变世界。<br><br>
+      这就是社会实践篇要带给孩子的——<br>
+      <strong>不是认识了几个场所，记住了一些名词，<br>而是获得了一整套看待自己、看待他人、看待世界的方式。</strong>
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+<!-- ════════════════ 12. OUTRO ════════════════ -->
+<section class="slide" id="s12"><div class="mg">
+  <div class="m-hd"><span>市内研学课</span><span class="r">12 / 12</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">THANK YOU</div>
+    <h1 style="font-size:60px">知识不在书本里<br>在<span class="m-em">社会</span>里</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">生活实践篇 → 认识世界如何运转<br>社会实践篇 → 在认识世界的基础上，学会爱这个世界</p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>

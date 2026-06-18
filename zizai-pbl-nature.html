@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PBL自然三生课·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}.hud{display:none!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+  .inner{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1140px;}
+  .brand,.kicker,.pageno{display:none!important;}
+  .eyebrow{font-family:var(--mono);font-size:var(--t-eye);letter-spacing:.26em;text-transform:uppercase;color:var(--accent-50);}.hl{color:var(--accent);}.dim{color:var(--muted);}
+  .rule{height:1px;width:120px;background:linear-gradient(90deg,transparent,var(--accent-50),transparent);}
+
+  /* ══ magazine chrome ══ */
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno,body.magazine .deck-dots{display:none!important;}
+  body.magazine #hud{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  body.magazine .m-foot{position:absolute;bottom:32px;left:84px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  /* ══ magazine cards ══ */
+  body.magazine .m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%;}
+  body.magazine .m-c{border:1px solid var(--faint);padding:30px 26px;min-height:220px;background:var(--card,#fff);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+  body.magazine .m-c.hot{border-color:var(--accent);}
+  body.magazine .m-c .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);}
+  body.magazine .m-c .n{font-size:42px;font-weight:300;margin:10px 0 6px;letter-spacing:-.02em;}
+  body.magazine .m-c.hot .n{color:var(--accent);}
+  body.magazine .m-c .t{font-size:20px;font-weight:600;margin:10px 0 8px;}
+  body.magazine .m-c .d{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* ══ numlist (magazine) ══ */
+  .lay-numlist{width:860px;align-items:stretch;text-align:initial;}
+  .lay-numlist h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:32px;}
+  .lay-numlist .nl-row{display:flex;align-items:flex-start;gap:28px;padding:15px 0;}
+  .lay-numlist .nl-row+.nl-row{border-top:1px solid var(--faint);}
+  .lay-numlist .nl-no{flex:0 0 72px;text-align:right;font-family:var(--mono);font-size:50px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.04em;}
+  .lay-numlist .nl-t{font-size:var(--t-sm);font-weight:700;margin-bottom:4px;}
+  .lay-numlist .nl-d{font-size:var(--t-eye);color:var(--muted);line-height:1.6;}
+  body.magazine .lay-numlist .nl-t{font-family:var(--serif);font-size:22px;}
+
+  /* ══ split ══ */
+  .lay-split{flex-direction:row;gap:80px;max-width:1100px;text-align:initial;align-items:center;}
+  .lay-split .sp-text{flex:0 0 420px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}
+  .lay-split .sp-text .eyebrow{margin-bottom:14px;}
+  .lay-split .sp-text h2{font-size:var(--t-title);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:20px;}
+  .lay-split .sp-text p{font-size:var(--t-eye);color:var(--muted);line-height:1.9;max-width:390px;}
+  .lay-split .sp-visual{flex:0 0 360px;display:flex;flex-direction:column;gap:10px;}
+  .lay-split .sp-cap{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.18em;text-transform:uppercase;text-align:center;color:var(--accent-50);}
+  .lay-split .sp-box{min-height:90px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:600;border:1px solid var(--faint);color:var(--muted);background:var(--bg-warm);padding:10px 18px;text-align:center;}
+  .lay-split .sp-box.hot{border:1.5px solid var(--accent-50);color:var(--accent);background:var(--accent-20);}
+  .lay-split .sp-arrow{text-align:center;color:var(--accent);font-size:20px;line-height:1;}
+  body.magazine .lay-split .sp-text h2{font-family:var(--serif);font-weight:400;}
+
+  /* ══ timeline ══ */
+  .lay-timeline{gap:14px;width:1060px;max-width:1060px;}
+  .lay-timeline .eyebrow{margin-bottom:6px;}
+  .lay-timeline h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:48px;}
+  .lay-timeline .tl-track{position:relative;display:flex;justify-content:space-between;width:100%;}
+  .lay-timeline .tl-track::before{content:"";position:absolute;left:3%;right:3%;top:7px;height:2px;background:linear-gradient(90deg,var(--faint),var(--accent-50));}
+  .lay-timeline .tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;flex:1;position:relative;}
+  .lay-timeline .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--muted);z-index:1;}
+  .lay-timeline .tl-item.hot .tl-dot{border-color:var(--accent);background:var(--accent);}
+  .lay-timeline .tl-yr{font-family:var(--mono);font-size:var(--t-eye);color:var(--accent);letter-spacing:.1em;margin-top:10px;font-weight:700;}
+  .lay-timeline .tl-t{font-size:20px;font-weight:700;font-family:var(--serif);}
+  .lay-timeline .tl-item.hot .tl-t{color:var(--accent);}
+  .lay-timeline .tl-d{font-size:12px;color:var(--muted);max-width:150px;line-height:1.5;}
+
+  /* ══ steps ══ */
+  .lay-steps{gap:14px;width:1060px;max-width:1060px;}
+  .lay-steps .eyebrow{margin-bottom:6px;}
+  .lay-steps h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:44px;}
+  .lay-steps .sp-flow{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;}
+  .lay-steps .fl-node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;flex:1;max-width:210px;}
+  .lay-steps .fl-no{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:24px;font-weight:700;color:var(--accent);border:2px solid var(--accent-50);background:var(--accent-20);}
+  .lay-steps .fl-node.hot .fl-no{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+  .lay-steps .fl-t{font-size:20px;font-weight:700;margin-top:5px;font-family:var(--serif);}
+  .lay-steps .fl-node.hot .fl-t{color:var(--accent);}
+  .lay-steps .fl-d{font-size:var(--t-eye);color:var(--muted);line-height:1.5;}
+  .lay-steps .fl-arr{font-size:26px;color:var(--accent-50);flex:none;padding-bottom:46px;}
+
+  /* ══ hero ══ */
+  .lay-hero h2{font-size:var(--t-hero);font-weight:400;font-family:var(--serif);line-height:1.14;letter-spacing:-.02em;}
+  .lay-hero .mk{color:var(--accent);position:relative;}
+  .lay-hero .mk::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;}
+  .lay-hero .hr-sub{font-size:var(--t-sm);color:var(--muted);margin-top:32px;max-width:680px;line-height:1.7;}
+
+  /* ══ quote ══ */
+  body.magazine .m-pq{font-size:var(--t-sec);font-weight:400;color:var(--fg);border-left:2px solid var(--accent);padding-left:30px;max-width:760px;line-height:1.5;text-align:left;}
+  body.magazine .m-by{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--muted);margin-top:18px;text-align:left;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck">
+
+<!-- ══ 1. Cover ══ -->
+<section class="slide" id="s1"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>核心实践课</span></div>
+  <div class="mg-con" style="gap:32px;">
+    <div class="m-eye a">一年制成长系统</div>
+    <h1 class="a" style="animation-delay:.12s">PBL<br>自然三生课</h1>
+    <div class="m-rule a" style="animation-delay:.28s"></div>
+    <div class="m-sub a" style="animation-delay:.38s">把知识接回土地、身体与生活——<br>以全年种菜为主线，贯通生存、生活、生命的综合实践课程</div>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 2. Hero · 钩子 ══ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>一个真相</span></div>
+  <div class="mg-con lay-hero">
+    <div class="m-eye a">现代孩子最缺什么</div>
+    <h2 class="b" style="animation-delay:.1s">孩子缺的不是<span class="mk">知识</span><br>是<span class="mk">常识</span></h2>
+    <div class="hr-sub a" style="animation-delay:.4s">知道「植物会生长」，却没长期看过一棵菜从种子到采摘。<br>知识悬浮在空中，常识才能让孩子在真实世界里站稳。</div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 3. Steps · 三生是什么 ══ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课程定义</span></div>
+  <div class="mg-con lay-steps">
+    <div class="m-eye a">课程核心</div>
+    <h2 class="a">三生：生存 · 生活 · 生命</h2>
+    <div class="sp-flow b">
+      <div class="fl-node"><div class="fl-no">1</div><div class="fl-t">生存</div><div class="fl-d">种菜做饭采摘售卖<br>在真实世界活下去</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">2</div><div class="fl-t">生活</div><div class="fl-d">分工合作共享食物<br>把日子过出温度</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node hot"><div class="fl-no">3</div><div class="fl-t">生命</div><div class="fl-d">为什么做·为谁做<br>劳动滋养自己和家人</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 4. Cards · 三层详解 ══ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>三层递进</span></div>
+  <div class="mg-con">
+    <div class="m-eye a">从生存到生命</div>
+    <h1 style="font-size:var(--t-title);font-weight:800;margin:24px 0 42px;" class="a">三生课在培养什么？</h1>
+    <div class="m-cards">
+      <div class="m-c a" style="animation-delay:.12s"><div class="l">底层</div><div class="n">生存</div><div class="t">真实能力</div><div class="d">开荒播种、浇水维护<br>采摘售卖、使用工具<br>在真实世界活下去</div></div>
+      <div class="m-c a" style="animation-delay:.24s"><div class="l">中层</div><div class="n">生活</div><div class="t">集体共建</div><div class="d">分工协作、整理工具<br>共享美食、照顾环境<br>把日子过得有温度</div></div>
+      <div class="m-c hot a" style="animation-delay:.36s"><div class="l">顶层</div><div class="n">生命</div><div class="t">价值实现</div><div class="d">劳动滋养自己和家人<br>能力服务集体和他人<br>从小我走向大我</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 5. Split · 固定基地 ══ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>场地设计</span></div>
+  <div class="mg-con lay-split">
+    <div class="sp-text">
+      <div class="eyebrow a">为什么必须固定</div>
+      <h2 class="a" style="animation-delay:.1s">固定基地<br>才有关系</h2>
+      <p class="a" style="animation-delay:.2s">如果每次换地方，孩子得到的是体验；长期回同一个地方，孩子得到的是关系——土地的变化、季节的变化、自己劳动成果的变化。</p>
+    </div>
+    <div class="sp-visual b" style="animation-delay:.25s">
+      <div class="sp-cap">每次换地方</div>
+      <div class="sp-box">走马观花<br>一次体验，没有记忆</div>
+      <div class="sp-arrow" style="color:var(--accent)">→ 升级</div>
+      <div class="sp-box hot">固定基地 · 长期关系</div>
+      <div class="sp-box hot">持续看见变化<br>理解生长收藏的完整循环</div>
+      <div class="sp-cap">四季轮回 · 年复一年</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 6. Numlist · 种菜6大优势 ══ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>课程主线</span></div>
+  <div class="mg-con lay-numlist">
+    <h2 class="a">为什么以种菜为全年主线</h2>
+    <div class="nl-row a" style="animation-delay:.08s"><div class="nl-no">01</div><div class="nl-tx"><div class="nl-t">季节性明显</div><div class="nl-d">不同季节种不同的菜。孩子会知道：不是自己想种什么就能种什么，而是季节、土地、天气决定什么能长。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.16s"><div class="nl-no">02</div><div class="nl-tx"><div class="nl-t">反馈周期适中</div><div class="nl-d">几个星期就能看到变化和收获。既需要等待，又不会等到孩子失去感受。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.24s"><div class="nl-no">03</div><div class="nl-tx"><div class="nl-t">劳动感强</div><div class="nl-d">从开荒到播种，从浇水到采摘——孩子会知道一口菜背后有土地、工具、汗水和时间。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.32s"><div class="nl-no">04</div><div class="nl-tx"><div class="nl-t">可持续记录</div><div class="nl-d">可以量高度、数叶片、记日期、做对比、看变化，天然连接数理启蒙。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.40s"><div class="nl-no">05</div><div class="nl-tx"><div class="nl-t">可以真实流转</div><div class="nl-d">种出来的菜可以摘回来基地做饭、带回家庭、拿到外面售卖。</div></div></div>
+    <div class="nl-row a" style="animation-delay:.48s"><div class="nl-no">06</div><div class="nl-tx"><div class="nl-t">连接生命价值</div><div class="nl-d">孩子会看到：自己的劳动可以滋养自己、家人和别人，也可以转化成商业和公益价值。</div></div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 7. Timeline · 学年旅程 ══ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>学年结构</span></div>
+  <div class="mg-con lay-timeline">
+    <div class="m-eye a">一学年的完整旅程</div>
+    <h2 class="a">第一学期开荒，第二学期深化</h2>
+    <div class="tl-track b">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">9月</div><div class="tl-t">开荒</div><div class="tl-d">熟悉基地<br>认识工具</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">10月</div><div class="tl-t">播种</div><div class="tl-d">亲手种下<br>第一颗种子</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">11–12月</div><div class="tl-t">维护·观察</div><div class="tl-d">浇水除虫<br>记录生长</div></div>
+      <div class="tl-item hot"><div class="tl-dot"></div><div class="tl-yr">1–2月</div><div class="tl-t">采摘·售卖</div><div class="tl-d">基地做饭<br>带回家庭</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">3–4月</div><div class="tl-t">深化·数理</div><div class="tl-d">测量分类<br>对比分析</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">5–6月</div><div class="tl-t">价值转化</div><div class="tl-d">公益售卖<br>完整闭环</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 8. Cards · 孩子收获 ══ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>成长收获</span></div>
+  <div class="mg-con">
+    <div class="m-eye a">家长最关心的</div>
+    <h1 style="font-size:var(--t-title);font-weight:800;margin:24px 0 42px;" class="a">孩子会变成什么样？</h1>
+    <div class="m-cards">
+      <div class="m-c a" style="animation-delay:.12s"><div class="l">收获一</div><div class="n">生存力</div><div class="t">能照顾自己</div><div class="d">会用工具、能做饭敢售卖<br>在真实世界做成事<br>「我自己能行」</div></div>
+      <div class="m-c a" style="animation-delay:.24s"><div class="l">收获二</div><div class="n">生活力</div><div class="t">能融入集体</div><div class="d">能分工、会协作<br>懂得照顾环境和他人<br>「我愿意为大家做」</div></div>
+      <div class="m-c hot a" style="animation-delay:.36s"><div class="l">收获三</div><div class="n">生命力</div><div class="t">能找到价值</div><div class="d">劳动滋养家人<br>能力服务他人<br>「学习是为了帮助别人」</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 9. Split · 不是苦修 ══ -->
+<section class="slide" id="s9"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>破除误解</span></div>
+  <div class="mg-con lay-split">
+    <div class="sp-text">
+      <div class="eyebrow a">你以为的 vs 实际的</div>
+      <h2 class="a" style="animation-delay:.1s">不是苦修<br>是真实生活</h2>
+      <p class="a" style="animation-delay:.2s">三生课不让孩子觉得劳动只有苦。辛苦之后有收获，等待之后有惊喜，劳动之后有美味——这才是生活的全部面貌。</p>
+    </div>
+    <div class="sp-visual b" style="animation-delay:.25s">
+      <div class="sp-cap">你以为的</div>
+      <div class="sp-box">只有种菜干活<br>劳动等于吃苦</div>
+      <div class="sp-arrow" style="color:var(--accent)">× 不是</div>
+      <div class="sp-box hot">实际的 · 有苦有乐</div>
+      <div class="sp-box hot">种菜 + 养鸡 + 窑红薯<br>钓鱼 + 竹筒饭 + 水上项目</div>
+      <div class="sp-cap">好玩 · 好吃 · 学到东西</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 10. Quote · 金句 ══ -->
+<section class="slide" id="s10"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>教育初心</span></div>
+  <div class="mg-con" style="gap:0;align-items:flex-start;text-align:left;max-width:800px;">
+    <div class="m-eye a">写在最后</div>
+    <div class="m-pq a" style="animation-delay:.2s;margin-top:34px;">
+      我们想给孩子的，<br>不是提前把小学念完——<br>而是带着<span class="m-em">能力</span>、<span class="m-em">规矩</span>、<span class="m-em">会表达</span>，<br>还有那股「<span class="m-em">我自己能行</span>」的劲儿，<br>自己走进小学。
+    </div>
+    <div class="m-by a" style="animation-delay:.4s">—— 自在班 · 写给家长</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 11. Hero · 行动号召 ══ -->
+<section class="slide" id="s11"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>行动号召</span></div>
+  <div class="mg-con lay-hero">
+    <h2 class="a"><span class="mk">三生课</span><br>给孩子一双接得住土地的脚</h2>
+    <div class="hr-sub a" style="animation-delay:.38s">一年后，他不是被推进小学的——<br>是带着能力自己走进去的。</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ══ 12. Outro · 收束 ══ -->
+<section class="slide" id="s12"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>自然三生课</span></div>
+  <div class="mg-con" style="gap:32px;">
+    <h1 class="a" style="animation-delay:.12s">把知识接回土地<br>把能力种进身体</h1>
+    <div class="m-rule a" style="animation-delay:.28s"></div>
+    <div class="m-sub a" style="animation-delay:.38s">PBL 自然三生课 · 自在班核心实践课程 · 2026 学年</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+</div>
+
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;
+  font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">
+  ← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0, editing=false, guardTimer=null;
+const hud=document.getElementById('hud');
+
+function show(n){
+  cur=(n+slides.length)%slides.length;
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.querySelectorAll('.m-dots i').forEach((d,k)=>d.classList.toggle('on',k===cur));
+  clearTimeout(guardTimer);
+  guardTimer=setTimeout(()=>guard(slides[cur]),60);
+}
+
+async function guard(slide){
+  if(!slide) return;
+  const box=slide.querySelector(':scope > .inner, :scope > .mg');
+  if(!box || box.dataset.guarded) return;
+  const hidden=!slide.classList.contains('active');
+  if(hidden){ slide.classList.add('measuring'); }
+  else{ try{ await Promise.allSettled(
+      (slide.getAnimations?slide.getAnimations({subtree:true}):[]).map(a=>a.finished));
+    }catch(e){} }
+  if(box.dataset.guarded){ if(hidden)slide.classList.remove('measuring'); return; }
+  box.style.transform='';
+  const cw=box.clientWidth, ch=box.clientHeight, sw=box.scrollWidth, sh=box.scrollHeight;
+  if(cw>0&&ch>0){
+    const k=Math.min(1, cw/Math.max(sw,cw), ch/Math.max(sh,ch));
+    if(k<0.992){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='center center';}
+    box.dataset.guarded='1';
+  }
+  if(hidden) slide.classList.remove('measuring');
+}
+addEventListener('beforeprint',()=>{slides.forEach(s=>guard(s));});
+
+function fit(){const d=document.querySelector('.deck');
+  const k=Math.min(innerWidth/1280,innerHeight/720);
+  d.style.transform=`translate(-50%,-50%) scale(${k})`;}
+
+const INLINE=new Set(['SPAN','BR','B','I','EM','STRONG','A','CODE','SUB','SUP','MARK','SMALL']);
+function isEditableBlock(el){
+  if(!el.textContent||!el.textContent.trim()) return false;
+  if(['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName)) return false;
+  if(el.children.length===0) return !['BR','HR','IMG','INPUT'].includes(el.tagName);
+  return [...el.children].every(c=>INLINE.has(c.tagName));
+}
+function setEdit(on){
+  editing=on;document.body.classList.toggle('editing',on);
+  document.querySelectorAll('.slide').forEach(s=>{
+    s.querySelectorAll('*').forEach(el=>{
+      if(!isEditableBlock(el)) return;
+      if(on) el.setAttribute('contenteditable','true');
+      else el.removeAttribute('contenteditable');
+    });
+  });
+  hud.textContent = on ? '编辑中:点击文字修改 · Esc 退出 · ⌘S 下载副本'
+                       : '← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF';
+  hud.style.color = on ? 'var(--accent)' : '#555';
+}
+
+function saveCopy(){
+  const wasEdit=editing; if(wasEdit) setEdit(false);
+  document.querySelectorAll('[data-guarded]').forEach(el=>el.removeAttribute('data-guarded'));
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+  a.download=(document.title||'deck').replace(/[\/\:]/g,'-')+'.html';
+  a.click(); URL.revokeObjectURL(a.href);
+  if(wasEdit) setEdit(true);
+}
+
+addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveCopy();return;}
+  if(editing){ if(e.key==='Escape'){setEdit(false);} return; }
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key.toLowerCase()==='e'){setEdit(true);}
+  else if(e.key.toLowerCase()==='f'){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+    else document.exitFullscreen();}
+});
+addEventListener('click',e=>{ if(!editing) show(cur+1); });
+show(0); fit(); addEventListener('resize',fit);
+</script>
+</body>
+</html>

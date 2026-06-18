@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>福利院公益项目·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno{display:none!important;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:32px;font-weight:400;letter-spacing:-.012em;margin-bottom:10px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:15px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 4px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:28px;color:var(--accent);opacity:.5;margin-bottom:8px;}
+  body.magazine .m-st .st-t{font-size:16px;font-weight:600;margin-bottom:4px;}
+  body.magazine .m-st .st-d{font-size:12px;color:var(--muted);line-height:1.6;}
+  body.magazine .m-st .arrow{display:block;font-size:18px;color:var(--faint);position:absolute;right:-14px;top:12px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:6px;max-width:860px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:16px;padding:6px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 40px;font-family:var(--mono);font-size:24px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:14px;color:var(--fg);line-height:1.6;}
+
+  body.magazine .m-cols{display:flex;gap:48px;max-width:1080px;width:100%;}
+  body.magazine .m-co{flex:1;text-align:left;}
+  body.magazine .m-co h2{font-size:28px;font-weight:400;margin-bottom:12px;}
+  body.magazine .m-co p{font-size:14px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-co .step-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;}
+  body.magazine .m-co .step-n{flex:0 0 28px;font-family:var(--mono);font-size:16px;color:var(--accent);text-align:right;line-height:1.7;}
+  body.magazine .m-co .step-t{font-size:14px;color:var(--fg);line-height:1.7;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ═══════ 1. COVER ═══════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>福利院公益项目</span><span class="r">01 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">CHARITY &amp; COMPASSION</div>
+    <h1>福利院<br>公益项目</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">从「我很幸福」到「我希望人家也像我一样幸福」<br>五个月，让善心从视觉冲击变成真实行动</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 2. 项目定义：五阶段闭环 ═══════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>项目定义</span><span class="r">02 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">WHAT IS THIS</div>
+    <h1 class="a" style="font-size:34px;margin-top:8px;line-height:1.3">不是一次性的参观活动<br>而是<span class="m-em">贯穿学期始终</span>的长线公益项目</h1>
+    <p class="a" style="font-size:15px;color:var(--muted);margin-top:4px">学期暗线「大我·大爱·善心」的第一个引爆点 | 三月到七月，每月一次，共五次</p>
+  </div>
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:230px">
+    <div class="m-st a" style="animation-delay:.04s">
+      <div class="st-n">01</div>
+      <div class="st-t">感受</div>
+      <div class="st-d">亲眼看到<br>福利院孩子的<br>真实生活</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.15s">
+      <div class="st-n">02</div>
+      <div class="st-t">触动</div>
+      <div class="st-d">自发产生<br>「我希望他们也<br>像我一样幸福」</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.26s">
+      <div class="st-n">03</div>
+      <div class="st-t">行动</div>
+      <div class="st-d">攒钱·做礼物<br>练技能·卖菜<br>准备服务</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.37s">
+      <div class="st-n">04</div>
+      <div class="st-t">交付</div>
+      <div class="st-d">带去所得款项<br>变废为宝作品<br>礼物与节目</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.48s">
+      <div class="st-n">05</div>
+      <div class="st-t">反思</div>
+      <div class="st-d">有头有尾的告别<br>回顾五个月<br>善心变成习惯</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 3. 四大设计动机 ═══════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">03 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">WHY THIS PROJECT</div><h1 class="a" style="font-size:36px;margin-top:6px">为什么要做福利院项目？</h1></div>
+  <div class="m-nums" style="position:absolute;left:150px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>学期暗线的第一爆发点</strong>——三条立志逻辑递进：福利院→「我要为世界付出」→ 希望小学→「我要学习」→ 毕业营北京→「我要成为那样的人」。福利院是整个学期的情感基石。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>三月春天 = 激活木能量的最佳时机</strong>——三月有雷锋日，契合公益主题。五行中福利院属「木」（同理心）＋「火」（奉献），春天生发善心的能量最足。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>真实的缘起与情感共鸣</strong>——老师之前接触过福利院的孩子后就想带班上孩子去。「我每次去估计都会哭」——老师自身的情感共鸣，是这个项目真实性的最好保证。</div></div>
+    <div class="m-nr a" style="animation-delay:.22s"><div class="no">04</div><div class="tx"><strong>不是「体验一次就走」的浅层公益</strong>——一月一次，共五次，从三月到七月。最后一次做交付和告别——「有头有尾」。五个月的时间，足够让善心从情绪变成习惯。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 4. 七步转化：小我→大我 ═══════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>底层逻辑</span><span class="r">04 / 08</span></div>
+  <div style="position:absolute;left:84px;top:56px"><div class="m-eye a">THE 7-STEP TRANSFORMATION</div><h1 class="a" style="font-size:34px;margin-top:6px">从小我到大的七步转化</h1></div>
+  <div style="position:absolute;left:120px;top:175px;right:120px">
+    <div class="m-steps" style="margin-bottom:10px">
+      <div class="m-st a" style="animation-delay:.04s"><div class="st-n">01</div><div class="st-t">为爱的人付出</div><div class="st-d">从家庭开始：爸妈为家里做事不付钱=为爱的人付出，我也是家的一份子</div><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.1s"><div class="st-n">02</div><div class="st-t">从家庭到社会</div><div class="st-d">除了家，还有很多可以帮助的人——福利院是转折的具象场景</div><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.16s"><div class="st-n">03</div><div class="st-t">我希望人家也幸福</div><div class="st-d">亲眼看到后的真实反应——不是被教育，是自发对比中升起的善意</div></div>
+    </div>
+    <div class="m-steps">
+      <div class="m-st a" style="animation-delay:.22s"><div class="st-n">04</div><div class="st-t">不满足于自己的欲望</div><div class="st-d">从小我消费欲望 → 大我付出渴望</div><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.28s"><div class="st-n">05</div><div class="st-t">通过自己的努力</div><div class="st-d">不向父母要钱——卖菜、冰糖葫芦、鸡蛋仔、公益拍卖，串联售卖体系</div><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.34s"><div class="st-n">06</div><div class="st-t">发挥物品的作用</div><div class="st-d">变废为宝作品送给福利院孩子——「这不是废的，在不同人眼中就是宝贝」</div><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.4s"><div class="st-n">07</div><div class="st-t">金钱能量正向流动</div><div class="st-d">发大愿赚钱帮助人 vs 小欲小望——动力和能量场完全不一样</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 5. 五大核心目标 ═══════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>核心目标</span><span class="r">05 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">CORE OBJECTIVES</div><h1 class="a" style="font-size:36px;margin-top:6px">五大核心目标（保底）</h1></div>
+  <div class="m-nums" style="position:absolute;left:150px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>同理心与感恩心</strong>——孩子能用自己的话说出「福利院的小朋友和我的不同」，并表达感恩。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>换位思考能力</strong>——能站在福利院孩子的角度思考「他们需要什么」，而不只是「我想给什么」。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>公益行动习惯</strong>——能主动参与为福利院准备礼物、服务的行动，而非被动执行。</div></div>
+    <div class="m-nr a" style="animation-delay:.22s"><div class="no">04</div><div class="tx"><strong>完整项目体验</strong>——经历从了解 → 准备 → 服务 → 交付的全过程，形成「成事」的完整心智模型。</div></div>
+    <div class="m-nr a" style="animation-delay:.28s"><div class="no">05</div><div class="tx"><strong>「有头有尾」的责任意识</strong>——理解「开始了就要做完」，在最后一次访问中完成交付和告别。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 6. 五次访问全景 ═══════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>五次访问规划</span><span class="r">06 / 08</span></div>
+  <div style="position:absolute;left:84px;top:56px"><div class="m-eye a">FIVE VISITS MARCH→JULY</div><h1 class="a" style="font-size:34px;margin-top:6px">五次访问全景规划</h1></div>
+  <div class="m-cols" style="position:absolute;left:84px;right:84px;top:170px">
+    <div class="m-co a" style="animation-delay:.04s">
+      <h2>第一次 <span style="color:var(--accent);font-weight:400">参观了解</span></h2>
+      <p style="font-size:13px;color:var(--faint);margin-bottom:4px">第3周 · 三月</p>
+      <p>亲眼看到福利院的真实环境<br>了解这里的孩子是谁、为什么在这里<br>知道「我们能做什么」<br><br><em style="color:var(--muted)">教学要点：不提前过度铺垫，让孩子自己去看去感受。不强迫感动，尊重每个孩子的节奏。</em></p>
+    </div>
+    <div class="m-co a" style="animation-delay:.15s">
+      <h2>第二次 <span style="color:var(--accent);font-weight:400">项目式服务</span></h2>
+      <p style="font-size:13px;color:var(--faint);margin-bottom:4px">清明后 · 四月</p>
+      <p>变废为宝作品 + 自制手工礼物<br>用零花钱买礼物<br>分小组设计游戏/表演节目<br>帮忙打扫卫生<br><br><em style="color:var(--muted)">从「感动」转化为「行动」</em></p>
+    </div>
+    <div class="m-co a" style="animation-delay:.26s">
+      <h2>第三~五次 <span style="color:var(--accent);font-weight:400">持续→交付</span></h2>
+      <p style="font-size:13px;color:var(--faint);margin-bottom:4px">五月 · 六月 · 七月</p>
+      <p><strong>第三次：</strong>带去售卖所得→购买物资<br><strong>第四次：</strong>更多自主设计服务内容<br><strong style="color:var(--accent)">第五次（最重要）：</strong><br>最终交付——全部款项+作品+礼物<br>有头有尾的告别<br>回顾整个学期的公益之路</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 7. 价值总结 ═══════ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span>价值总结</span><span class="r">07 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">WHAT YOUR CHILD WILL GAIN</div>
+    <h1 class="a" style="font-size:36px;margin-top:6px">孩子将获得什么？</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:175px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">能力层</span>
+      <p>
+      <strong style="color:var(--accent)">同理心与换位思考</strong><br>
+      不是被说教，而是亲眼看到后自发生出的能力——能站在他人角度思考「他需要什么」<br><br>
+      <strong style="color:var(--accent)">完整的项目执行力</strong><br>
+      感受→触动→行动→交付→反思——五个月走完一个完整项目的所有阶段<br><br>
+      <strong style="color:var(--accent)">表达与分享能力</strong><br>
+      能用结构化语言描述经历和感受，向他人讲述「我做了什么，为什么」
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">品格层</span>
+      <p>
+      <strong style="color:var(--accent)">从「小我」到「大我」的意识萌芽</strong><br>
+      「我想通过自己的努力帮助他们」——不是被安排，是内心生发的愿望<br><br>
+      <strong style="color:var(--accent)">感恩的底色</strong><br>
+      在对比中体会「我很幸福」，并把这份幸福转化为付出的动力<br><br>
+      <strong style="color:var(--accent)">「有头有尾」的责任感</strong><br>
+      开始了就要做完——最后一次的告别，是完整的句号，也是下一个起点的开始
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 8. OUTRO ═══════ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span>福利院公益项目</span><span class="r">08 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">CHARITY &amp; COMPASSION</div>
+    <h1 style="font-size:64px">我希望人家<br>也像我一样<span class="m-em">幸福</span></h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="max-width:600px">
+      让孩子在真实的对比中生长出善心<br>
+      用五个月的持续行动<br>
+      把感动变成习惯，把小我变成大我
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>

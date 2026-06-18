@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>先有爱才学得久·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}.hud{display:none!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+  .brand,.kicker,.pageno{display:none!important;}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno,body.magazine .deck-dots{display:none!important;}
+  body.magazine #hud{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:36px;font-weight:400;letter-spacing:-.012em;margin-bottom:14px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:15px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 12px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:36px;color:var(--accent);opacity:.5;margin-bottom:10px;}
+  body.magazine .m-st .st-t{font-size:18px;font-weight:600;margin-bottom:6px;}
+  body.magazine .m-st .st-d{font-size:13px;color:var(--muted);line-height:1.6;}
+  body.magazine .m-st .arrow{display:block;font-size:20px;color:var(--faint);position:absolute;right:-18px;top:14px;}
+
+  body.magazine .m-hero{text-align:center;max-width:780px;}
+  body.magazine .m-hero h1{font-size:60px!important;line-height:1.15;margin-bottom:18px;}
+  body.magazine .m-hero .m-sub{font-size:var(--t-sm);margin-top:14px;}
+
+  body.magazine .m-outro{text-align:center;max-width:780px;}
+  body.magazine .m-outro h1{font-size:72px!important;line-height:1.15;margin-bottom:18px;}
+  body.magazine .m-outro .m-sub{font-size:20px;color:var(--muted);line-height:1.8;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ═══════ 1. COVER ═══════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>自在班·精神内核</span><span class="r">01 / 06</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">SPIRITUAL CORE</div>
+    <h1>先有爱，<br>才学得久</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">自在班想给孩子的精神内核——<br>会爱自己与世界，会思辨地做事，会认真地学习</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 2. 核心动力：爱 ═══════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>核心动力</span><span class="r">02 / 06</span></div>
+  <div style="position:absolute;left:84px;top:66px;right:84px">
+    <div class="m-eye a">CORE DRIVING FORCE</div>
+    <h1 class="a" style="font-size:38px;margin-top:8px">学习与做事的根本动力，是<span class="m-em">爱</span></h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:190px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">为什么不是「要」</span>
+      <p>考好成绩、上好学校、找好工作——<br>靠「要」驱动，动力容易耗尽。<br>目标达成之日，就是动力消失之时。<br><br>而「<strong style="color:var(--accent)">爱</strong>」不同——<br>想为家人分担、想让国家更好<br>是源源不断的燃料。</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">三层递进</span>
+      <p>
+      <strong style="color:var(--accent);font-size:18px">爱自己</strong><br>
+      照顾身体、尊重感受、保护好自己<br><br>
+      <strong style="color:var(--accent);font-size:18px">爱家人</strong><br>
+      看见付出、感恩拥有、想要分担<br><br>
+      <strong style="color:var(--accent);font-size:18px">爱国家</strong><br>
+      为集体与社会付出——<br>动力升级，从「为我」到「为我们」
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 3. 做事三原则 + 认识真实世界 ═══════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>做事三原则 × 认识真实世界</span><span class="r">03 / 06</span></div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:130px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:.8">
+      <span class="tag">做事三原则</span>
+      <h2>思辨 · 灵活 · 三赢</h2>
+      <p>
+      <strong style="color:var(--accent);font-size:17px">思辨</strong>——不盲从，能独立思考<br>
+      <strong style="color:var(--accent);font-size:17px">灵活</strong>——不固执，能换角度方法<br>
+      <strong style="color:var(--accent);font-size:17px">三赢</strong>——不只顾自己，你好我好大家好
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1.2">
+      <span class="tag">课程承载：认识真实世界</span>
+      <h2>生活实践课 + 社会实践课<br>+ 主题放映厅</h2>
+      <p>世界并不和平——战争仍在发生。<br>世人有好人也有坏人——要能分辨。<br>不是所有孩子都和自己一样幸福——要珍惜、要付出。<br><br>
+      所以更要学会<span style="color:var(--accent)">爱自己</span>——保护自己、独立自强；<br>
+      也要<span style="color:var(--accent)">爱家人、爱国家</span>——为班集体及社会付出。</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 4. 跳绳课 + 变废为宝 ═══════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>跳绳课 × 变废为宝课</span><span class="r">04 / 06</span></div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:160px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">跳绳课的启示</span>
+      <h2>成功不易，<br>失败是常态</h2>
+      <p>突破记录之后往往是回调——<br>这不是失败，<br>而是为下一次突破做的休整。<br><br>孩子在自己的身体里<br><span style="color:var(--accent)">亲身体验</span>：<br>失败不可怕，它是过程的一部分。<br>这种体感，说教永远给不了。</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">变废为宝课的启示</span>
+      <h2>世上没有<br>废物</h2>
+      <p>换个环境，它就成了宝贝。<br>换一个人，它就成了宝贝。<br>换个视角，它就成了宝贝。<br><br>实在换不了？<br>也能靠自己的<span style="color:var(--accent)">创造</span>让它变成宝贝。<br><br>这不只是手工课，<br>这是<span style="color:var(--accent)">世界观</span>。</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 5. 三生课 + 财商商业 + 学习品质 ═══════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>三生课 · 财商商业课 · 学习品质</span><span class="r">05 / 06</span></div>
+  <div style="position:absolute;left:84px;top:52px;right:84px">
+    <div class="m-eye a">COURSE CARRIERS</div>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:110px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">三生课</span>
+      <h2>生存力 · 生活力 · 生命力</h2>
+      <p>能<strong style="color:var(--accent)">照顾自己</strong>是生存力<br>
+      能<strong style="color:var(--accent)">融入集体</strong>是生活力<br>
+      能<strong style="color:var(--accent)">找到价值</strong>是生命力<br><br>
+      种菜种树，学会尊重节奏与规律——<br>
+      付出不一定有收获，<br>
+      <span style="color:var(--accent)">做对才会有收获</span>。</p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">财商课 · 商业课</span>
+      <p>懂得「爱自己、爱家人、为社会付出」<br>的道理，只是第一步；<br>懂得<span style="color:var(--accent)">用行动去践行与感恩</span>，才算完整。<br><br>
+      <span class="tag" style="margin-top:12px">主题放映厅 · 数理启蒙 · 语言表达 · 学习习惯</span><br>要实现长远的爱，<br>就要像科学家一样学习知识——<br>
+      要有<span style="color:var(--accent)">认真、细心、严谨</span>的品质。</p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 6. OUTRO ═══════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>自在班·精神内核</span><span class="r">06 / 06</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">SPIRITUAL CORE</div>
+    <h1 style="font-size:72px">先有爱，<br>才学得久</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="max-width:640px">
+      会爱自己与世界<br>
+      会思辨地做事<br>
+      会认真地学习
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>

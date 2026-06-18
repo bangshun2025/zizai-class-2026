@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>主题放映厅·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .brand,body.magazine .kicker,body.magazine .pageno{display:none!important;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:30px;font-weight:400;letter-spacing:-.012em;margin-bottom:10px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:14px;color:var(--muted);line-height:1.8;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 4px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:26px;color:var(--accent);opacity:.5;margin-bottom:6px;}
+  body.magazine .m-st .st-t{font-size:15px;font-weight:600;margin-bottom:3px;}
+  body.magazine .m-st .st-d{font-size:12px;color:var(--muted);line-height:1.55;}
+  body.magazine .m-st .arrow{display:block;font-size:16px;color:var(--faint);position:absolute;right:-10px;top:10px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:6px;max-width:900px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:16px;padding:7px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 40px;font-family:var(--mono);font-size:24px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:14px;color:var(--fg);line-height:1.6;}
+
+  body.magazine .m-cols{display:flex;gap:48px;max-width:1080px;width:100%;}
+  body.magazine .m-co{flex:1;text-align:left;}
+  body.magazine .m-co h2{font-size:24px;font-weight:400;margin-bottom:10px;}
+  body.magazine .m-co p{font-size:14px;color:var(--muted);line-height:1.75;}
+
+  .m-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);padding:6px 14px;border:1px solid var(--accent-20);border-radius:24px;margin-bottom:8px;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ═══════ 1. COVER ═══════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>主题放映厅</span><span class="r">01 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">THEMED SCREENING ROOM</div>
+    <h1>主题<br>放映厅</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">第一学期「大我构建」的视觉认知中台<br>不是让孩子「看视频」，而是通过真实影像<br>打通认知——回答所有课程背后的「为什么」</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 2. 课程定义 ═══════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>课程定义</span><span class="r">02 / 08</span></div>
+  <div style="position:absolute;left:84px;top:58px;right:84px">
+    <div class="m-eye a">POSITIONING</div>
+    <h1 class="a" style="font-size:32px;margin-top:6px;line-height:1.35">通过精挑细选的影像，让孩子看见<br>一个<span class="m-em">更真实、更复杂、更多面</span>的世界</h1>
+    <p class="a" style="font-size:15px;color:var(--muted);margin-top:6px">有阳光也有阴暗 · 有美好也有苦难 · 有自己的需求也有他人的付出</p>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:235px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">放映厅做什么</span>
+      <p>
+      回答所有课程背后的<strong style="color:var(--accent)">「为什么」</strong><br>
+      · 为什么要爱自己、爱家人、爱国家？<br>
+      · 为什么升国旗要庄重？<br>
+      · 为什么军体课要严格？<br>
+      · 为什么要吃健康食物？<br>
+      · 为什么要做家务、练本领？
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">其他课程做什么</span>
+      <p>
+      让孩子去<strong style="color:var(--accent)">「怎么做」</strong><br>
+      · 晨读、军体课、生活研学<br>
+      · 社会实践、商业公益项目<br>
+      · 福利院研学、项目探究<br>
+      · 家务实践、健康饮食<br><br>
+      <span style="color:var(--accent)">放映厅打通认知 → 其他课程落地行动</span>
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 3. 六大设计动机·上 ═══════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">03 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">WHY THIS COURSE</div><h1 class="a" style="font-size:36px;margin-top:6px">六大设计动机（上）</h1></div>
+  <div class="m-nums" style="position:absolute;left:130px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>孩子被保护得太好，需要看见真实世界的多面性</strong>——现在的孩子大多默认「父母照顾我是应该的」「每天有饭吃是应该的」「世界本来就安全」。但真实世界有战争、贫穷、孤儿、牺牲。孩子不能永远只看见自己的需求。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>很多价值观只靠嘴巴讲，孩子不一定相信</strong>——老师讲「要爱国家」「要做家务」「要吃健康食物」太抽象。通过真实影像，孩子看见妈妈生育的付出、军人训练的辛苦、其他孩子吃不饱饭，才会真正理解：老师讲的不是空话。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>第一学期「大我构建」的视觉入口</strong>——构建线：爱自己 → 爱家人 → 爱国家 → 爱付出 → 看见阴暗中的光 → 愿意成为那道光。主题放映厅就是这条大我构建线的视觉启动器。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 4. 六大设计动机·下 ═══════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">04 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">WHY THIS COURSE</div><h1 class="a" style="font-size:36px;margin-top:6px">六大设计动机（下）</h1></div>
+  <div class="m-nums" style="position:absolute;left:130px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">04</div><div class="tx"><strong>给所有课程提供「认知授权」</strong>——军体课为什么严厉？因为真正的军人训练就是严格辛苦反复磨。家务为什么不能收费？因为家不是交易场，家是共同体。这些道理必须先通过影像建立画面和信任，后面的课程才更容易落地。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">05</div><div class="tx"><strong>打通家庭、课程与日常行为的连接</strong>——升国旗为什么庄重、晨读为什么认真、种菜为什么等待、做项目为什么有头有尾……所有这些日常行为，都需要放映厅先打通认知，形成完整的逻辑链。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">06</div><div class="tx"><strong>生活常识网络是第二目的</strong>——食物从哪里来、垃圾食品为什么不好、水电背后的系统……这些由晚间百科纪录片持续构建。放映厅主要承担的是<strong style="color:var(--accent)">价值观与大我构建</strong>的视觉输入，生活常识是第二目的。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 5. 底层逻辑 ═══════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>底层逻辑</span><span class="r">05 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">THE CORE LOGIC</div>
+    <h1 class="a" style="font-size:34px;margin-top:6px">从「被光照着的人」到「愿意发光的人」</h1>
+  </div>
+  <!-- 上半部分：七步转化 -->
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:175px">
+    <div class="m-st a" style="animation-delay:.04s">
+      <div class="st-n">01</div><div class="st-t">看见苦难</div>
+      <div class="st-d">战争·贫穷<br>疾病·孤儿<br>真实世界的阴暗面</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.1s">
+      <div class="st-n">02</div><div class="st-t">看见付出</div>
+      <div class="st-d">军人·科学家<br>父母·劳动者<br>守护者背后的代价</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.16s">
+      <div class="st-n">03</div><div class="st-t">看见自己</div>
+      <div class="st-d">拥有的并非<br>理所当然<br>对比中觉醒</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.22s">
+      <div class="st-n">04</div><div class="st-t">生出珍惜</div>
+      <div class="st-d">和平·食物<br>家庭·健康<br>不再视为「应该的」</div>
+      <span class="arrow">→</span>
+    </div>
+  </div>
+  <!-- 下半部分 -->
+  <div class="m-steps" style="position:absolute;left:156px;right:156px;top:345px">
+    <div class="m-st a" style="animation-delay:.28s">
+      <div class="st-n">05</div><div class="st-t">生出感恩</div>
+      <div class="st-d">父母不容易<br>和平不是白来的<br>幸福需要守护</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.34s">
+      <div class="st-n">06</div><div class="st-t">生出责任</div>
+      <div class="st-d">我也是家的一份子<br>我也想为世界<br>做一些事</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.4s">
+      <div class="st-n">07</div><div class="st-t">落到行动</div>
+      <div class="st-d">学知识·练身体<br>练本领·做家务<br>守规则·愿意付出</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 6. 三赢思维 + 爱的行动化 ═══════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>核心方法论</span><span class="r">06 / 08</span></div>
+  <div style="position:absolute;left:84px;top:58px;right:84px">
+    <div class="m-eye a">METHODOLOGY</div>
+    <h1 class="a" style="font-size:34px;margin-top:6px">三赢思维 × 爱的行动化</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:180px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">基础原则</span>
+      <h2>三赢思维</h2>
+      <p>
+      <strong>不是压抑自己，也不是单向牺牲</strong><br><br>
+      真正好的行动，是同时看见：<br>
+      · 我自己的需求<br>
+      · 他人的需求<br>
+      · 整体的需求<br><br>
+      用<strong style="color:var(--accent)">三赢的方式</strong>解决问题<br>
+      让我好、别人好、整体也好
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">最终目标</span>
+      <h2>爱的行动化</h2>
+      <p>
+      <strong>爱不是情绪，爱是行动</strong><br><br>
+      <span style="color:var(--accent)">爱自己</span> = 照顾身体 + 保护自己 + 练好本领<br>
+      <span style="color:var(--accent)">爱家人</span> = 看见父母付出 + 参与家庭责任<br>
+      <span style="color:var(--accent)">爱国家</span> = 珍惜和平 + 学知识 + 练身体 + 守规则<br>
+      <span style="color:var(--accent)">爱付出</span> = 看见他人需求 + 愿意行动
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 7. 价值总结 ═══════ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span>价值总结</span><span class="r">07 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">WHAT YOUR CHILD WILL GAIN</div>
+    <h1 class="a" style="font-size:36px;margin-top:6px">孩子将获得什么？</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:170px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">认知层</span>
+      <p>
+      <strong style="color:var(--accent)">看见真实世界的多面性</strong><br>
+      不再活在「被保护起来」的单一世界里，知道有阳光也有阴暗，有幸福也有苦难<br><br>
+      <strong style="color:var(--accent)">理解所有课程背后的「为什么」</strong><br>
+      不是被动服从规则，而是真正理解——为什么升国旗要庄重、为什么军体课要严格、为什么要做家务<br><br>
+      <strong style="color:var(--accent)">建立完整的世界观框架</strong><br>
+      看见父母、军人、科学家、劳动者背后的付出，理解和平、幸福和日常生活的来之不易
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">品格层</span>
+      <p>
+      <strong style="color:var(--accent)">从「小我」到「大我」的意识觉醒</strong><br>
+      从只关注「我想要什么」，慢慢走向「我也要照顾好自己、体谅父母、为国家学知识」<br><br>
+      <strong style="color:var(--accent)">三赢思维的习惯养成</strong><br>
+      同时看见自己、他人和整体的需求，用让我好、别人好、整体也好的方式行动<br><br>
+      <strong style="color:var(--accent)">从「知道」到「做到」的桥梁</strong><br>
+      爱不再是空泛的概念——爱自己是行动，爱家人是行动，爱国家是行动
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 8. OUTRO ═══════ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span>主题放映厅</span><span class="r">08 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">THEMED SCREENING ROOM</div>
+    <h1 style="font-size:60px">看见光<br>成为<span class="m-em">光</span></h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="max-width:600px">
+      让孩子通过真实影像看见世界<br>
+      从「被光照着的人」<br>
+      慢慢成为「愿意发光的人」
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>

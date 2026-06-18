@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>跳绳课·家长会介绍</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+
+  body.magazine .m-split{display:flex;width:100%;max-width:1080px;gap:60px;align-items:flex-start;justify-content:center;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:30px;font-weight:400;letter-spacing:-.012em;margin-bottom:8px;line-height:1.2;}
+  body.magazine .m-sp p{font-size:14px;color:var(--muted);line-height:1.75;}
+  body.magazine .m-sp .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:12px;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 4px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:24px;color:var(--accent);opacity:.5;margin-bottom:6px;}
+  body.magazine .m-st .st-t{font-size:15px;font-weight:600;margin-bottom:3px;}
+  body.magazine .m-st .st-d{font-size:12px;color:var(--muted);line-height:1.55;}
+  body.magazine .m-st .arrow{display:block;font-size:16px;color:var(--faint);position:absolute;right:-10px;top:10px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:6px;max-width:900px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:16px;padding:7px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 40px;font-family:var(--mono);font-size:24px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:14px;color:var(--fg);line-height:1.6;}
+
+  body.magazine .m-cols{display:flex;gap:48px;max-width:1080px;width:100%;}
+  body.magazine .m-co{flex:1;text-align:left;}
+  body.magazine .m-co h2{font-size:24px;font-weight:400;margin-bottom:10px;}
+  body.magazine .m-co p{font-size:13px;color:var(--muted);line-height:1.7;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck" id="deck">
+
+<!-- ═══════ 1. COVER ═══════ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span>跳绳课</span><span class="r">01 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">JUMP ROPE SYSTEM</div>
+    <h1>跳绳课</h1>
+    <div class="m-rule"></div>
+    <p class="m-sub">不只是「跳」——一根绳子，串起的是<br>孩子对成功与失败的认知、对坚持与放弃的选择<br>一个关于<span class="m-em">目标、努力、失败、突破、再突破</span>的完整人生缩影</p>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 2. 课程定义 ═══════ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span>课程定义</span><span class="r">02 / 08</span></div>
+  <div style="position:absolute;left:84px;top:58px;right:84px">
+    <div class="m-eye a">POSITIONING</div>
+    <h1 class="a" style="font-size:34px;margin-top:6px;line-height:1.3">将看似简单的跳绳动作<br>升维为<span class="m-em">品质培养</span>的核心载体</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:215px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">不是这样</span>
+      <p>
+      ✗ 只是一门体育课<br>
+      ✗ 只是「锻炼身体」<br>
+      ✗ 只是小学考试项目<br>
+      ✗ 只是每天跳一跳<br>
+      ✗ 跳得好就夸、跳不好就算
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">而是这样</span>
+      <p>
+      ✓ <strong style="color:var(--accent)">品质培养的核心载体</strong><br>
+        目标感·波动观·休整观·趋势观<br>
+      ✓ <strong style="color:var(--accent)">数据驱动的教学闭环</strong><br>
+        每次成绩记录→形成个人趋势图<br>
+      ✓ <strong style="color:var(--accent)">贯穿每日晨练+周三动态课</strong><br>
+        双轨训练，高频积累<br>
+      ✓ <strong style="color:var(--accent)">唯一每天都练的项目</strong><br>
+        品质内化需要重复＝需要高频场景
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 3. 六大动机·上 ═══════ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">03 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">WHY JUMP ROPE</div><h1 class="a" style="font-size:36px;margin-top:6px">六大设计动机（上）</h1></div>
+  <div class="m-nums" style="position:absolute;left:130px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>纯粹练跳绳天然枯燥——需要赋予教育价值</strong>——如果只练身体，就是一门普通体育课。但把跳绳当作教育载体，一个动作就能教孩子很多东西。设计核心不是「教跳绳」，而是<strong style="color:var(--accent)">借跳绳培养品质</strong>。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>幼小衔接的刚需技能</strong>——跳绳是小学体育必考项目。自在班孩子即将步入小学，跳绳技能和体能储备直接影响入学后的体育表现和自信心。提前打好基础，避免因跳绳落后影响整体自信。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>数据化教学的最佳载体</strong>——跳绳每次成绩都是明确数字。老师口头播报成绩（「恭喜你，今天160个」），记录每次数据，形成表格、曲线图、趋势图。<strong style="color:var(--accent)">数据全闭环，孩子自己看见成长。</strong></div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 4. 六大动机·下 ═══════ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span>设计动机</span><span class="r">04 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px"><div class="m-eye a">WHY JUMP ROPE</div><h1 class="a" style="font-size:36px;margin-top:6px">六大设计动机（下）</h1></div>
+  <div class="m-nums" style="position:absolute;left:130px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">04</div><div class="tx"><strong>品质培养的天然载体</strong>——跳绳有即时反馈（跳多少马上知道）、有波动现象（今天达标明天不达标）、有突破与回调（冲破记录后下降是「休整」不是「退步」）、有长期趋势（一学期整体向上）。<strong style="color:var(--accent)">这些特性让孩子在真实体验中理解人生底层规律</strong>，比任何说教都有效。</div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">05</div><div class="tx"><strong>每日高频训练的独特价值</strong>——跳绳是自在班唯一每天练的项目（晨练固定环节＋动态课加练）。高频＝数据积累快、进步可见、品质内化深。品质培养需要重复，重复需要高频场景——跳绳就是这个场景。</div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">06</div><div class="tx"><strong>为体能储备和综合素质打底</strong>——训练的不只是跳绳，更是协调性、耐力、节奏感、身体控制力、反应速度。这些是军体课、动态课、三生课等所有课程的<strong style="color:var(--accent)">体能基底</strong>。</div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 5. 双轨训练 + 五大品质信念 ═══════ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span>训练体系与品质信念</span><span class="r">05 / 08</span></div>
+  <div class="m-cols" style="position:absolute;left:84px;right:84px;top:110px">
+    <div class="m-co a" style="animation-delay:.1s;flex:1">
+      <span class="tag">双轨训练体系</span>
+      <h2 style="margin-top:12px">晨练 × 动态课</h2>
+      <p>
+      <strong style="color:var(--accent)">🌅 每日晨练（保底）</strong><br>
+      · 每天有基本训练量<br>
+      · 重在习惯养成和数据积累<br>
+      · 固定环节，雷打不动<br><br>
+      <strong style="color:var(--accent)">🎮 周三动态课（深化）</strong><br>
+      · 晨练时间不够的部分补足<br>
+      · 重在体能突破和技能升级<br>
+      · 能力分组灵活训练<br><br>
+      <span style="color:var(--accent)">高频基础 + 定期深化 = 最高效的进步路径</span>
+      </p>
+    </div>
+    <div class="m-co a" style="animation-delay:.2s;flex:1">
+      <span class="tag">五大品质信念</span>
+      <h2 style="margin-top:12px">跳绳最终要内化的信念</h2>
+      <p>
+      <strong style="color:var(--accent)">①</strong> 失败是正常的<br>
+        成功比较少，大部分时间都在努力<br>
+      <strong style="color:var(--accent)">②</strong> 努力很久才到极限<br>
+        突破不是轻松的事<br>
+      <strong style="color:var(--accent)">③</strong> 极限后回调不是失败<br>
+        是身体在「消化」上次的突破<br>
+      <strong style="color:var(--accent)">④</strong> 积蓄能量再突破<br>
+        休整之后，一定会再次上升<br>
+      <strong style="color:var(--accent)">⑤</strong> 长期趋势是向上的<br>
+        有起有伏，但整体在进步
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 6. AI数据闭环 ═══════ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span>AI数据闭环</span><span class="r">06 / 08</span></div>
+  <div style="position:absolute;left:84px;top:58px;right:84px">
+    <div class="m-eye a">DATA-DRIVEN TEACHING</div>
+    <h1 class="a" style="font-size:34px;margin-top:6px">数据记录 → 趋势分析 → 品质内化</h1>
+    <p class="a" style="font-size:15px;color:var(--muted);margin-top:4px">跳绳是最适合数据化记录的运动——每次成绩都是一个明确的数字</p>
+  </div>
+  <!-- 三步流程 -->
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:195px">
+    <div class="m-st a" style="animation-delay:.04s">
+      <div class="st-n">记录</div>
+      <div class="st-t" style="font-size:17px">每次成绩实时记录</div>
+      <div class="st-d">「陈妍希，一分钟连续跳，160个」<br>「突破记录！」<br>每次训练都有明确数据<br><br><em style="color:var(--muted)">即时反馈——跳了多少<br>断了几次，马上知道</em></div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.14s">
+      <div class="st-n">分析</div>
+      <div class="st-t" style="font-size:17px">形成个人趋势图</div>
+      <div class="st-d">· 每周数据汇总<br>· 个人成绩曲线图<br>· 长期趋势分析<br>· 突破记录标注</div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.24s">
+      <div class="st-n">内化</div>
+      <div class="st-t" style="font-size:17px">孩子看见规律</div>
+      <div class="st-d">· 「我的曲线整体向上走」<br>· 「回调是休整，不是退步」<br>· 「上次突破后果然又突破了」<br><br><em style="color:var(--muted)">孩子自己从数据中<br>发现人生规律</em></div>
+    </div>
+  </div>
+  <!-- 底部价值说明 -->
+  <div style="position:absolute;left:84px;right:84px;bottom:120px">
+    <div class="m-split">
+      <div class="m-sp a" style="animation-delay:.3s;text-align:center">
+        <p style="font-size:14px;color:var(--fg)">跳绳的独特优势：<strong style="color:var(--accent)">即时反馈、数据天然量化、高频重复、个人化明显、波动可见</strong><br>这些特性让孩子在真实体验中理解人生底层规律，比任何说教都有效</p>
+      </div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 7. 价值总结 ═══════ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span>价值总结</span><span class="r">07 / 08</span></div>
+  <div style="position:absolute;left:84px;top:60px;right:84px">
+    <div class="m-eye a">WHAT YOUR CHILD WILL GAIN</div>
+    <h1 class="a" style="font-size:36px;margin-top:6px">孩子将获得什么？</h1>
+  </div>
+  <div class="m-split" style="position:absolute;left:84px;right:84px;top:170px">
+    <div class="m-sp a" style="animation-delay:.1s;flex:1">
+      <span class="tag">能力层</span>
+      <p>
+      <strong style="color:var(--accent)">扎实的体能素质</strong><br>
+      协调性·耐力·节奏感·身体控制力<br>
+      幼小衔接体育考试的充分准备<br><br>
+      <strong style="color:var(--accent)">目标设定与执行能力</strong><br>
+      学会给自己定目标（「今天想跳多少」）<br>
+      体验努力→突破的完整过程<br><br>
+      <strong style="color:var(--accent)">数据解读能力</strong><br>
+      看自己的曲线图，分析趋势<br>
+      从数据中理解成长规律
+      </p>
+    </div>
+    <div class="m-sp a" style="animation-delay:.25s;flex:1">
+      <span class="tag">品格层</span>
+      <p>
+      <strong style="color:var(--accent)">健康的失败观</strong><br>
+      「失败是正常的，大部分时间都在努力」<br>
+      不怕绊倒，绊倒了站起来继续<br><br>
+      <strong style="color:var(--accent)">波动中的定力</strong><br>
+      「回调不是退步，是身体在消化突破」<br>
+      不因一时下降而自我否定<br><br>
+      <strong style="color:var(--accent)">长期主义的信念</strong><br>
+      「虽然有起有伏，但整体在进步」<br>
+      这份信念可以迁移到学习、工作、人生
+      </p>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+</div></section>
+
+<!-- ═══════ 8. OUTRO ═══════ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span>跳绳课</span><span class="r">08 / 08</span></div>
+  <div class="mg-con a" style="margin-top:40px">
+    <div class="m-eye">JUMP ROPE SYSTEM</div>
+    <h1 style="font-size:60px">每一次起跳<br>都是<span class="m-em">成长</span></h1>
+    <div class="m-rule"></div>
+    <p class="m-sub" style="max-width:600px">
+      一根绳子，串起失败与突破<br>
+      在波动中看见趋势<br>
+      在休整中积蓄下一次飞跃
+    </p>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const N=slides.length;
+  let idx=0;
+  function show(i){
+    slides.forEach((s,j)=>s.classList.toggle('active',j===i));
+    idx=i;
+  }
+  show(0);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();idx=Math.min(idx+1,N-1);show(idx);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();idx=Math.max(idx-1,0);show(idx);}
+  });
+  document.addEventListener('click',e=>{
+    if(e.clientX>window.innerWidth*.5){idx=Math.min(idx+1,N-1);}else{idx=Math.max(idx-1,0);}
+    show(idx);
+  });
+  function fit(){
+    const deck=document.getElementById('deck');
+    const sw=window.innerWidth,sh=window.innerHeight;
+    const scale=Math.min(sw/1280,sh/720);
+    deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+  }
+  window.addEventListener('resize',fit);
+  fit();
+})();
+</script>
+</body>
+</html>
