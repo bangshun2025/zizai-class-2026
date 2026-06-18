@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>自在班课程体系全景 · 关系链</title>
+<style>
+  :root{
+    --bg:#faf7f2; --bg-warm:#f4efe6;
+    --fg:#1b1410; --fg-dim:#5c4a3e; --muted:#8a7868; --faint:#d4ccc2;
+    --accent:#3d8c6e; --accent-br:#5aad8a;
+    --accent-50:rgba(61,140,110,.48); --accent-20:rgba(61,140,110,.14);
+    --accent-glow:rgba(61,140,110,.08);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Noto Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1); --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;font-feature-settings:"tnum","kern","liga","ss01";-webkit-font-smoothing:antialiased;}
+  @media screen{html,body{width:100vw;height:100vh;overflow:hidden;}.deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;}.slide{position:absolute;inset:0;display:none;}.slide.active{display:flex;}.slide.active .a{animation:rise .85s var(--ease) both;}.slide.active .b{animation:blurin 1s var(--ease) both;}.slide.measuring{display:flex!important;}.measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @media print{@page{size:338.7mm 190.5mm;margin:0;}html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}.deck{transform:none!important;position:static;width:1280px;}.slide{position:relative;display:flex!important;width:1280px;height:720px;page-break-after:always;break-after:page;overflow:hidden;}.a,.b{animation:none!important;opacity:1!important;}}
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+
+  body.magazine .slide{background:var(--bg);color:var(--fg);}
+  body.magazine .slide::before,body.magazine .slide::after{display:none;}
+  body.magazine .mg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-hd{position:absolute;top:42px;left:84px;right:84px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);}
+  body.magazine .m-hd .r{color:var(--fg);}
+  body.magazine .m-eye{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  body.magazine .mg h1{font-weight:400;letter-spacing:-.015em;color:var(--fg);font-size:var(--t-hero);line-height:1.12;margin:0;}
+  body.magazine .m-em{color:var(--accent);}
+  body.magazine .m-rule{height:1px;background:var(--faint);width:120px;margin:24px 0;}
+  body.magazine .m-sub{color:var(--muted);font-weight:400;font-size:var(--t-sm);line-height:1.7;max-width:640px;text-align:center;}
+  body.magazine .m-dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:7px;}
+  body.magazine .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);}
+  body.magazine .m-dots i.on{width:20px;border-radius:3px;background:var(--accent);}
+  body.magazine .m-foot{position:absolute;bottom:32px;left:84px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted);}
+  .mg-con{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1080px;width:100%;}
+  body.magazine .m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%;}
+  body.magazine .m-c{background:var(--card,#fff);border:1px solid var(--faint);padding:20px 18px;min-height:100px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  body.magazine .m-c.hot{border-color:var(--accent);}
+  body.magazine .m-c .c-l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);}
+  body.magazine .m-c .c-t{font-size:18px;font-weight:600;margin:6px 0;}
+  body.magazine .m-c .c-d{font-size:12px;color:var(--muted);line-height:1.55;}
+  body.magazine .m-c.hot .c-t{color:var(--accent);}
+
+  body.magazine .m-split{display:flex;gap:60px;width:100%;max-width:1080px;}
+  body.magazine .m-sp{flex:1;text-align:left;}
+  body.magazine .m-sp h2{font-size:28px;font-weight:400;margin-bottom:10px;}
+  body.magazine .m-sp p{font-size:14px;color:var(--muted);line-height:1.75;}
+
+  body.magazine .m-chain{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;max-width:1060px;}
+  body.magazine .m-ch{background:var(--card,#fff);border:1px solid var(--faint);padding:12px 16px;text-align:center;min-width:90px;}
+  body.magazine .m-ch .ch-t{font-size:15px;font-weight:600;}
+  body.magazine .m-ch .ch-d{font-size:11px;color:var(--muted);line-height:1.4;margin-top:4px;}
+  body.magazine .m-ch.hot{border-color:var(--accent);border-width:1.5px;}
+  body.magazine .m-ch.hot .ch-t{color:var(--accent);}
+  body.magazine .m-arr{font-size:20px;color:var(--accent-50);flex:none;}
+
+  body.magazine .m-steps{display:flex;gap:0;max-width:1080px;width:100%;align-items:flex-start;}
+  body.magazine .m-st{flex:1;text-align:center;position:relative;padding:0 6px;}
+  body.magazine .m-st .st-n{font-family:var(--mono);font-size:32px;color:var(--accent);opacity:.5;margin-bottom:6px;}
+  body.magazine .m-st .st-t{font-size:16px;font-weight:600;}
+  body.magazine .m-st .st-d{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px;}
+  body.magazine .m-st .arrow{display:block;font-size:18px;color:var(--faint);position:absolute;right:-12px;top:12px;}
+
+  body.magazine .m-nums{display:flex;flex-direction:column;gap:7px;max-width:940px;width:100%;}
+  body.magazine .m-nr{display:flex;align-items:flex-start;gap:16px;padding:7px 0;border-bottom:1px solid var(--faint);}
+  body.magazine .m-nr .no{flex:0 0 44px;font-family:var(--mono);font-size:26px;color:var(--accent);opacity:.6;text-align:right;line-height:1;}
+  body.magazine .m-nr .tx{font-size:14px;color:var(--fg);line-height:1.55;}
+  body.magazine .m-nr .tx em{color:var(--muted);font-style:normal;font-size:13px;}
+
+  body.magazine .m-icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 48px;width:100%;max-width:1040px;}
+  body.magazine .m-ic{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;}
+  body.magazine .m-ic .ic-ring{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--bg-warm);border:1px solid var(--faint);}
+  body.magazine .m-ic .ic-t{font-size:17px;font-weight:600;font-family:var(--serif);}
+  body.magazine .m-ic .ic-d{font-size:12px;color:var(--muted);line-height:1.5;}
+
+  body.magazine .m-timeline{display:flex;justify-content:space-between;max-width:1060px;width:100%;position:relative;}
+  body.magazine .m-timeline::before{content:"";position:absolute;left:3%;right:3%;top:7px;height:2px;background:linear-gradient(90deg,var(--faint),var(--accent-50));}
+  body.magazine .m-tl{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;}
+  body.magazine .m-tl .tl-dot{width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--muted);z-index:1;}
+  body.magazine .m-tl.hot .tl-dot{border-color:var(--accent);background:var(--accent);}
+  body.magazine .m-tl .tl-t{font-size:16px;font-weight:600;font-family:var(--serif);}
+  body.magazine .m-tl .tl-d{font-size:11px;color:var(--muted);max-width:120px;line-height:1.4;text-align:center;}
+
+  body.magazine .m-week{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;width:100%;max-width:1080px;}
+  body.magazine .m-wk{border:1px solid var(--faint);padding:16px 10px;background:var(--card);text-align:center;display:flex;flex-direction:column;gap:8px;min-height:220px;}
+  body.magazine .m-wk.hot{border-color:var(--accent-50);background:var(--accent-glow);}
+  body.magazine .m-wk .wk-l{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);}
+  body.magazine .m-wk .wk-t{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--accent);}
+  body.magazine .m-wk .wk-c{font-size:11px;color:var(--fg-dim);line-height:1.65;}
+  body.magazine .m-wk .wk-div{width:24px;height:1px;background:var(--faint);margin:4px auto;}
+</style>
+</head>
+<body class="magazine">
+<div class="deck">
+
+<!-- ═══ s1 COVER ═══ -->
+<section class="slide active" id="s1"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>幼小衔接</span></div>
+  <div class="mg-con" style="gap:28px;">
+    <div class="m-eye a">一年制成长系统</div>
+    <h1 class="a" style="animation-delay:.12s">自在班<br>课程体系全景</h1>
+    <div class="m-rule a" style="animation-delay:.28s"></div>
+    <div class="m-sub a" style="animation-delay:.38s">课程分类 × 关系链<br>不提前「卷」小学——用真实生活、真实项目、真实关系，<br>帮孩子完成从幼儿园到小学的完整过渡。</div>
+  </div>
+  <div class="m-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s2 核心理念 ═══ -->
+<section class="slide" id="s2"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>核心理念</span></div>
+  <div class="mg-con" style="gap:0;">
+    <div class="m-eye a">核心主张</div>
+    <div style="font-size:var(--t-disp);font-weight:400;letter-spacing:-.03em;line-height:1.08;text-align:center;margin:34px 0;" class="b">
+      不是提前<span class="m-em">小学化</span><br>是完整的<span class="m-em">入学准备</span>
+    </div>
+    <div class="m-rule a" style="animation-delay:.3s"></div>
+    <div class="m-sub a" style="animation-delay:.4s">普通幼小衔接把重点放在识字、拼音、计算、写字、做题——<br>但那只是小学适应的一部分。自在班把训练场放在真实生活中：<br>晨读中识字、购物中理解数学、项目复盘中训练表达、军体中建立规则。</div>
+  </div>
+  <div class="m-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s3 年度三大目标 ═══ -->
+<section class="slide" id="s3"><div class="mg">
+  <div class="m-hd"><span class="r">自在班课程体系</span><span>年度目标</span></div>
+  <div class="mg-con">
+    <div class="m-eye a">年度三大成长目标</div>
+    <h1 style="font-size:var(--t-title);font-weight:800;margin:24px 0 42px;" class="a">自在班培养什么？</h1>
+    <div class="m-cards">
+      <div class="m-c a" style="animation-delay:.12s"><div class="c-l">目标一</div><div class="c-t">5关 · 现实出口</div><div class="c-d">识字·数学·表达·书写·作业习惯<br>五关全过，顺利进入小学</div></div>
+      <div class="m-c hot a" style="animation-delay:.24s"><div class="c-l">目标二</div><div class="c-t">10项 · 能力底盘</div><div class="c-d">自理·规则·任务·物品管理<br>表达协作·抗挫·项目执行·复盘迭代</div></div>
+      <div class="m-c a" style="animation-delay:.36s"><div class="c-l">目标三</div><div class="c-t">内核 · 精神底盘</div><div class="c-d">自我价值感·心理免疫力<br>家庭责任感·大我意识</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s4 【新】课程分类总览 ═══ -->
+<section class="slide" id="s4"><div class="mg">
+  <div class="m-hd"><span class="r">课程分类</span><span>五大类别</span></div>
+  <div style="position:absolute;left:84px;top:58px"><div class="m-eye a">COURSE CATEGORIES</div><h1 class="a" style="font-size:36px;margin-top:6px">自在班课程五大类别</h1></div>
+  <div class="m-cards" style="position:absolute;left:84px;right:84px;top:165px;grid-template-columns:repeat(3,1fr);gap:18px;">
+    <div class="m-c a" style="animation-delay:.04s;min-height:150px">
+      <div class="c-l">认知品格类</div><div class="c-t">🧠 认知中台</div>
+      <div class="c-d">明心晨读 · 升国旗<br>主题放映厅<br><em style="color:var(--accent)">回答「为什么」</em></div>
+    </div>
+    <div class="m-c a" style="animation-delay:.1s;min-height:150px">
+      <div class="c-l">体能意志类</div><div class="c-t">💪 体能底座</div>
+      <div class="c-d">军体课 · 动态与游戏<br>跳绳（晨练/动态课）<br><em style="color:var(--accent)">练身体·练意志</em></div>
+    </div>
+    <div class="m-c a" style="animation-delay:.16s;min-height:150px">
+      <div class="c-l">学科准备类</div><div class="c-t">📐 技能工具</div>
+      <div class="c-d">数理启蒙 · 控笔书写<br>自信表达<br><em style="color:var(--accent)">学方法·练技能</em></div>
+    </div>
+    <div class="m-c hot a" style="animation-delay:.22s;min-height:150px">
+      <div class="c-l">实践项目类</div><div class="c-t">🌱 真实成事</div>
+      <div class="c-d">市内研学 · PBL自然三生<br>钓鱼 · 变废为宝<br>商业售卖 · 每年六山</div>
+    </div>
+    <div class="m-c a" style="animation-delay:.28s;min-height:150px"">
+      <div class="c-l">连接准备类</div><div class="c-t">🔗 衔接过渡</div>
+      <div class="c-d">研学预备 · 三生预备<br>自主探索<br><em style="color:var(--accent)">有准备的行动</em></div>
+    </div>
+    <div class="m-c a" style="animation-delay:.34s;min-height:150px;display:flex;align-items:center;justify-content:center;border-style:dashed;">
+      <div style="font-size:14px;color:var(--muted);line-height:1.8;">
+        认知→体能→技能→<br>实践→连接<br><span style="color:var(--accent)">五大类互相咬合<br>缺一不可</span>
+      </div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s5 【新】关系链一：五关 ← 课程 ═══ -->
+<section class="slide" id="s5"><div class="mg">
+  <div class="m-hd"><span class="r">关系链</span><span>幼小衔接五关</span></div>
+  <div style="position:absolute;left:84px;top:54px"><div class="m-eye a">CHAIN 1 — ACADEMIC READINESS</div><h1 class="a" style="font-size:34px;margin-top:6px">幼小衔接五关 ← 对应课程</h1></div>
+  <div class="m-nums" style="position:absolute;left:120px;top:175px">
+    <div class="m-nr a" style="animation-delay:.04s"><div class="no">01</div><div class="tx"><strong>识字关</strong> ← 明心晨读 · 千字文点读 · 心理免疫文 · 自主探索识字 · AI识字工具 · 研学场景真实文字<br><em>多路径并行，目标不是机械认字，是阅读理解的起点</em></div></div>
+    <div class="m-nr a" style="animation-delay:.1s"><div class="no">02</div><div class="tx"><strong>数学关</strong> ← 数理启蒙（周一上理论）→ 购物·价格标签·种植记录·售卖定价·成本计算·找零·利润分配（整周实践）<br><em>数学是理解生活的工具，不是纸面刷题</em></div></div>
+    <div class="m-nr a" style="animation-delay:.16s"><div class="no">03</div><div class="tx"><strong>表达关</strong> ← 自信表达课（教结构不教句子）→ 研学复盘·三生课观察·项目汇报·售卖介绍中反复练习<br><em>「看到了什么→做了什么→遇到什么问题→怎么解决→有什么收获」</em></div></div>
+    <div class="m-nr a" style="animation-delay:.22s"><div class="no">04</div><div class="tx"><strong>书写关</strong> ← 控笔书写课 → 坐姿·握姿·笔画·笔顺·数字书写·汉字书写·名字书写<br><em>每日必练肌肉记忆，为小学写字速度和稳定性打底</em></div></div>
+    <div class="m-nr a" style="animation-delay:.28s"><div class="no">05</div><div class="tx"><strong>作业习惯关</strong> ← 研学预备（设定任务）→ 三生预备（规划任务）→ 项目复盘（检查任务）→ 第二学期晚间学习习惯<br><em>什么是任务→如何开始→按步骤完成→检查→复盘→家长陪伴而非替代</em></div></div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s6 【新】关系链二：精神主线 ← 课程 ═══ -->
+<section class="slide" id="s6"><div class="mg">
+  <div class="m-hd"><span class="r">关系链</span><span>精神主线</span></div>
+  <div style="position:absolute;left:84px;top:50px"><div class="m-eye a">CHAIN 2 — THE SPIRITUAL ARC</div><h1 class="a" style="font-size:32px;margin-top:6px">爱的逐级扩展 ← 对应课程</h1></div>
+  <!-- 上排 4 steps -->
+  <div class="m-steps" style="position:absolute;left:84px;right:84px;top:165px">
+    <div class="m-st a" style="animation-delay:.04s">
+      <div class="st-n">爱自己</div>
+      <div class="st-d">心理免疫文<br>三观教育·跳绳<br>军体·自主探索<br><em>「我值得被爱<br>我现在不会<br>以后可以学会」</em></div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.12s">
+      <div class="st-n">爱家人</div>
+      <div class="st-d">家务·做早餐<br>生活实践研学<br>主题放映厅<br><em>「眼里有活<br>家人也需要我」</em></div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.2s">
+      <div class="st-n">爱国家</div>
+      <div class="st-d">升国旗·军体课<br>规则训练<br>主题放映厅<br><em>「我属于<br>更大的集体」</em></div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="m-st a" style="animation-delay:.28s">
+      <div class="st-n">爱付出</div>
+      <div class="st-d">福利院公益<br>商业售卖→利润分配<br>变废为宝→赠送<br><em>「赚钱是为了<br>帮助更多人」</em></div>
+    </div>
+  </div>
+  <!-- 下排：学期对应 -->
+  <div style="position:absolute;left:150px;right:150px;top:360px">
+    <div class="m-split" style="gap:40px">
+      <div class="m-sp a" style="animation-delay:.35s;text-align:center">
+        <span style="display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent-20);border-radius:20px;margin-bottom:8px;">第一学期 · 爱的根基期</span>
+        <p style="font-size:13px;text-align:center">爱自己 → 爱家人 → 爱国家 → 爱付出<br><em>从小我稳定，走向愿意付出</em></p>
+      </div>
+      <div class="m-sp a" style="animation-delay:.45s;text-align:center">
+        <span style="display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);padding:4px 12px;border:1px solid var(--accent);border-radius:20px;margin-bottom:8px;">第二学期 · 爱的社会化期</span>
+        <p style="font-size:13px;text-align:center">看见社会 → 产生同理心 → 发起行动 → 回馈社会<br><em>学习是为了帮助别人</em></p>
+      </div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s7 【新】关系链三：认知→行动 ═══ -->
+<section class="slide" id="s7"><div class="mg">
+  <div class="m-hd"><span class="r">关系链</span><span>认知→行动</span></div>
+  <div style="position:absolute;left:84px;top:50px"><div class="m-eye a">CHAIN 3 — FROM AWARENESS TO ACTION</div><h1 class="a" style="font-size:32px;margin-top:6px">从认知打通到真实成事</h1></div>
+  <div style="position:absolute;left:84px;right:84px;top:155px">
+    <!-- 认知层 -->
+    <div class="m-chain" style="margin-bottom:22px">
+      <div class="m-ch hot a" style="animation-delay:.04s"><div class="ch-t">主题放映厅</div><div class="ch-d">看见真实世界<br>打通「为什么」</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch a" style="animation-delay:.1s"><div class="ch-t">明心晨读</div><div class="ch-d">心理免疫<br>三观内化</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch a" style="animation-delay:.16s"><div class="ch-t">升国旗</div><div class="ch-d">集体荣誉感<br>国家认同</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch a" style="animation-delay:.22s"><div class="ch-t">军体课</div><div class="ch-d">保护自己<br>挑战自我</div></div>
+    </div>
+    <div style="text-align:center;color:var(--accent);font-size:16px;margin-bottom:18px;" class="a" style="animation-delay:.28s">↓ 认知授权：孩子理解了「为什么要做」→ 行动更有动力</div>
+    <!-- 行动层 -->
+    <div class="m-chain" style="margin-bottom:22px">
+      <div class="m-ch a" style="animation-delay:.32s"><div class="ch-t">研学预备</div><div class="ch-d">设定观察目标<br>准备问题清单</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch hot a" style="animation-delay:.38s"><div class="ch-t">市内研学</div><div class="ch-d">生活实践·社会实践<br>福利院五次访问</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch a" style="animation-delay:.44s"><div class="ch-t">三生预备</div><div class="ch-d">工具准备<br>数据回顾</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch hot a" style="animation-delay:.5s"><div class="ch-t">PBL自然三生</div><div class="ch-d">种菜·钓鱼·养鸡<br>每月一山</div></div>
+    </div>
+    <!-- 产出层 -->
+    <div class="m-chain">
+      <div class="m-ch a" style="animation-delay:.56s"><div class="ch-t">变废为宝</div><div class="ch-d">三重转化<br>公益拍卖</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch hot a" style="animation-delay:.6s"><div class="ch-t">商业售卖</div><div class="ch-d">投资→制作→售卖<br>→利润三部分分配</div></div>
+      <span class="m-arr">→</span>
+      <div class="m-ch a" style="animation-delay:.64s"><div class="ch-t">福利院捐赠</div><div class="ch-d">赚钱是为了<br>帮助更多人</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s8 五大能力关 ═══ -->
+<section class="slide" id="s8"><div class="mg">
+  <div class="m-hd"><span class="r">目标一</span><span>五大能力关</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:70px">
+    <h2 class="a" style="font-size:34px;font-weight:800;margin-bottom:20px">目标一详解：幼小衔接五关</h2>
+    <div class="m-nums">
+      <div class="m-nr a" style="animation-delay:.08s"><div class="no">01</div><div class="tx"><strong>识字关 — 多路径并行</strong><br><em>明心晨读 · 千字文 · 心理免疫文 · AI识字工具 · 研学场景真实文字。目标不是机械认字，而是建立阅读理解起点。</em></div></div>
+      <div class="m-nr a" style="animation-delay:.16s"><div class="no">02</div><div class="tx"><strong>数学关 — 真实场景中建立数感</strong><br><em>购物 · 价格标签 · 种植记录 · 售卖定价 · 成本计算 · 找零 · 利润分配。数学是理解生活的工具。</em></div></div>
+      <div class="m-nr a" style="animation-delay:.24s"><div class="no">03</div><div class="tx"><strong>表达关 — 教结构，不教背句子</strong><br><em>「看到了什么→做了什么→遇到什么问题→怎么解决→有什么收获」——在表达课、研学复盘、项目汇报中反复练习。</em></div></div>
+      <div class="m-nr a" style="animation-delay:.32s"><div class="no">04</div><div class="tx"><strong>书写关 — 控笔打底</strong><br><em>坐姿 · 握姿 · 控笔 · 笔画 · 笔顺 · 数字书写 · 汉字书写 · 名字书写。为小学写字速度和稳定性打基础。</em></div></div>
+      <div class="m-nr a" style="animation-delay:.40s"><div class="no">05</div><div class="tx"><strong>作业习惯关 — 提前建立任务意识</strong><br><em>什么是任务 · 如何开始 · 按步骤完成 · 检查 · 复盘。家长学习「陪伴而非替代」。</em></div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s9 六大维度过渡 ═══ -->
+<section class="slide" id="s9"><div class="mg">
+  <div class="m-hd"><span class="r">过渡维度</span><span>六大维度</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:80px">
+    <h2 class="a" style="font-size:34px;font-weight:800;margin-bottom:28px">六大维度的完整过渡</h2>
+    <div class="m-icon-grid">
+      <div class="m-ic a"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 34L34 14"/><path d="M20 14h14v14"/></svg></div><div class="ic-t">自由 → 规则</div><div class="ic-d">从随性生活走向有序的集体规则</div></div>
+      <div class="m-ic a" style="animation-delay:.1s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg></div><div class="ic-t">被照顾 → 自理</div><div class="ic-d">从依赖走向独立「我能照顾自己」</div></div>
+      <div class="m-ic a" style="animation-delay:.2s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M33 7l8 8-24 24-10 2 2-10z"/></svg></div><div class="ic-t">随性 → 结构化</div><div class="ic-d">学会有条理地观察、思考和表达</div></div>
+      <div class="m-ic a" style="animation-delay:.3s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M24 10C20 7 14 7 10 9v29c4-2 10-2 14 1 4-3 10-3 14-1V9c-4-2-10-2-14 1z"/></svg></div><div class="ic-t">自己 → 协作</div><div class="ic-d">从只管自己走向融入集体、与人合作</div></div>
+      <div class="m-ic a" style="animation-delay:.4s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M24 6l14 5v11c0 9-6 15-14 19-8-4-14-10-14-19V11z"/><path d="M17 23l5 5 9-10"/></svg></div><div class="ic-t">怕失败 → 能面对</div><div class="ic-d">建立心理免疫力，失败不会击穿TA</div></div>
+      <div class="m-ic a" style="animation-delay:.5s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M24 8l18 9-18 9L6 17z"/><path d="M10 24l14 7 14-7M10 31l14 7 14-7"/></svg></div><div class="ic-t">外部 → 内驱</div><div class="ic-d">从「你要我做」走向「我想成为更好的人」</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s10 两学期递进 ═══ -->
+<section class="slide" id="s10"><div class="mg">
+  <div class="m-hd"><span class="r">学期对比</span><span>两学期递进</span></div>
+  <div class="mg-con lay-split" style="position:absolute;left:84px;right:84px;top:110px;gap:80px;display:flex;flex-direction:row;align-items:center;max-width:1080px;">
+    <div style="flex:0 0 400px;text-align:right;">
+      <div class="m-eye a">学期对比</div>
+      <h2 class="a" style="animation-delay:.1s;font-size:48px;font-weight:400;line-height:1.15;margin:12px 0 16px;">两个学期<br>两次跃迁</h2>
+      <p class="a" style="animation-delay:.2s;font-size:14px;color:var(--muted);line-height:1.8;">第一学期在生活中学，第二学期在社会中学。从被爱到爱别人，从做事到成事。</p>
+    </div>
+    <div style="flex:0 0 360px;display:flex;flex-direction:column;gap:10px;" class="b" style="animation-delay:.25s">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent-50);text-align:center;">上学期 · 爱的根基期</div>
+      <div style="min-height:70px;border:1px solid var(--faint);padding:12px 16px;text-align:center;font-size:14px;color:var(--fg-dim);background:var(--bg-warm);">爱自己：自我价值扎根<br>爱家人：眼里有活，主动付出</div>
+      <div style="text-align:center;color:var(--accent);font-size:18px;">↓</div>
+      <div style="min-height:70px;border:1px solid var(--faint);padding:12px 16px;text-align:center;font-size:14px;color:var(--fg-dim);background:var(--bg-warm);">爱国家：升国旗·军体·规则<br>爱付出：从「我会了」到「我愿意」</div>
+      <div style="text-align:center;color:var(--accent);font-size:18px;">↓ 跃迁</div>
+      <div style="min-height:70px;border:1.5px solid var(--accent-50);padding:12px 16px;text-align:center;font-size:14px;color:var(--accent);background:var(--accent-20);">下学期 · 爱的社会化期</div>
+      <div style="min-height:70px;border:1.5px solid var(--accent-50);padding:12px 16px;text-align:center;font-size:14px;color:var(--accent);background:var(--accent-20);">看见社会→产生同理心<br>发起行动→做成项目→回馈社会</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent-50);text-align:center;">研学升级 · 项目闭环 · 动力升维</div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s11 学年精神主线 ═══ -->
+<section class="slide" id="s11"><div class="mg">
+  <div class="m-hd"><span class="r">精神主线</span><span>爱的扩展</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:100px">
+    <div class="m-eye a">一学年的精神主线</div>
+    <h2 class="a" style="font-size:32px;font-weight:800;margin:12px 0 36px;">爱的逐级扩展</h2>
+    <div class="m-steps">
+      <div class="m-st a"><div class="st-n">1</div><div class="st-t">爱自己</div><div class="st-d">心理免疫·三观教育<br>「我值得被爱」</div></div>
+      <div class="m-st a" style="animation-delay:.08s"><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.08s"><div class="st-n">2</div><div class="st-t">爱家人</div><div class="st-d">家务·做早餐·研学<br>「眼里有活」</div></div>
+      <div class="m-st a" style="animation-delay:.16s"><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.16s"><div class="st-n">3</div><div class="st-t">爱集体</div><div class="st-d">升国旗·军体·规则<br>「我属于更大的集体」</div></div>
+      <div class="m-st a" style="animation-delay:.24s"><span class="arrow">→</span></div>
+      <div class="m-st a" style="animation-delay:.24s"><div class="st-n">4</div><div class="st-t">为社会付出</div><div class="st-d">福利院·公益·售卖<br>「学习是为了帮助别人」</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s12 十大项目链 ═══ -->
+<section class="slide" id="s12"><div class="mg">
+  <div class="m-hd"><span class="r">项目链</span><span>成事闭环</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:80px">
+    <div class="m-eye a">十大真实项目</div>
+    <h2 class="a" style="font-size:32px;font-weight:800;margin:10px 0 40px;">从土地到社会的成事闭环</h2>
+    <div class="m-timeline">
+      <div class="m-tl a"><div class="tl-dot"></div><div class="tl-t">种植</div><div class="tl-d">观察生命·建立耐心</div></div>
+      <div class="m-tl a" style="animation-delay:.06s"><div class="tl-dot"></div><div class="tl-t">采摘</div><div class="tl-d">收获成果·理解劳动</div></div>
+      <div class="m-tl a" style="animation-delay:.12s"><div class="tl-dot"></div><div class="tl-t">钓鱼</div><div class="tl-d">专注等待·延迟满足</div></div>
+      <div class="m-tl a" style="animation-delay:.18s"><div class="tl-dot"></div><div class="tl-t">养鸡</div><div class="tl-d">责任照料·生命教育</div></div>
+      <div class="m-tl hot a" style="animation-delay:.24s"><div class="tl-dot"></div><div class="tl-t">冰凉粉</div><div class="tl-d">动手制作·成本核算</div></div>
+      <div class="m-tl hot a" style="animation-delay:.3s"><div class="tl-dot"></div><div class="tl-t">售卖</div><div class="tl-d">定价找零·沟通成交</div></div>
+      <div class="m-tl hot a" style="animation-delay:.36s"><div class="tl-dot"></div><div class="tl-t">公益回流</div><div class="tl-d">利润分配·回馈社会</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s13 每日课表 ═══ -->
+<section class="slide" id="s13"><div class="mg">
+  <div class="m-hd"><span class="r">每日课表</span><span>周一到周五</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:80px">
+    <h2 class="a" style="font-size:32px;font-weight:800;margin-bottom:32px;">周一到周五，每一天都有主题</h2>
+    <div class="m-week">
+      <div class="m-wk a" style="animation-delay:.06s"><div class="wk-l">周一</div><div class="wk-t">升旗日</div><div class="wk-c">明心晨读·升国旗🚩<br>军体课·数理启蒙<br>研学预备·自主探索</div></div>
+      <div class="m-wk hot a" style="animation-delay:.14s"><div class="wk-l">周二</div><div class="wk-t">研学日</div><div class="wk-c">市内研学·社会实践<br>福利院/植树<br>控笔书写·自主探索</div></div>
+      <div class="m-wk a" style="animation-delay:.22s"><div class="wk-l">周三</div><div class="wk-t">探究日</div><div class="wk-c">明心晨读·项目探究<br>动态&游戏·变废为宝<br>控笔书写·自主探索</div></div>
+      <div class="m-wk a" style="animation-delay:.30s"><div class="wk-l">周四</div><div class="wk-t">表达日</div><div class="wk-c">明心晨读·项目探究<br>动态&游戏·自信表达<br>三生预备·主题放映厅</div></div>
+      <div class="m-wk hot a" style="animation-delay:.38s"><div class="wk-l">周五</div><div class="wk-t">自然日</div><div class="wk-c">PBL自然三生<br>全天户外<br>菜地·钓鱼·养鸡<br>每月一山(3-5月)</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s14 能力底盘 ═══ -->
+<section class="slide" id="s14"><div class="mg">
+  <div class="m-hd"><span class="r">目标二</span><span>能力底盘</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:80px">
+    <h2 class="a" style="font-size:32px;font-weight:800;margin-bottom:28px;">目标二详解：生活自理与真实成事</h2>
+    <div class="m-icon-grid">
+      <div class="m-ic a"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg></div><div class="ic-t">生活自理</div><div class="ic-d">照顾自己→理解家庭<br>参与家务→自找家务做</div></div>
+      <div class="m-ic a" style="animation-delay:.1s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M24 6l14 5v11c0 9-6 15-14 19-8-4-14-10-14-19V11z"/></svg></div><div class="ic-t">规则意识</div><div class="ic-d">守时间·听任务<br>遵守集体规则</div></div>
+      <div class="m-ic a" style="animation-delay:.2s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="8" y="16" width="26" height="20" rx="3"/></svg></div><div class="ic-t">物品管理</div><div class="ic-d">整理书包·管理文具<br>对自己的东西负责</div></div>
+      <div class="m-ic a" style="animation-delay:.3s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 14h28M10 24h28M10 34h28"/></svg></div><div class="ic-t">表达协作</div><div class="ic-d">小组项目·角色分工<br>清晰表达想法</div></div>
+      <div class="m-ic a" style="animation-delay:.4s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M26 6L14 28h9l-2 14 13-22h-9z"/></svg></div><div class="ic-t">抗挫坚持</div><div class="ic-d">面对失败·再来一次<br>不轻易放弃</div></div>
+      <div class="m-ic a" style="animation-delay:.5s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 36l10-10 8 5L40 14"/><path d="M31 14h9v9"/></svg></div><div class="ic-t">复盘迭代</div><div class="ic-d">做完之后回头看<br>下次可以更好</div></div>
+    </div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s15 核心洞见 ═══ -->
+<section class="slide" id="s15"><div class="mg">
+  <div class="m-hd"><span class="r">核心洞见</span><span>学习动力</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:120px">
+    <h2 class="a" style="font-size:var(--t-hero);font-weight:400;letter-spacing:-.02em;line-height:1.14;">学习动力不是<span style="color:var(--accent);position:relative;">逼出来<span style="position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;"></span></span>的<br>是<span style="color:var(--accent);position:relative;">爱出来<span style="position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;"></span></span>的</h2>
+    <div class="m-sub a" style="animation-delay:.35s;margin-top:36px;">当孩子先知道「我是值得被爱的」，再看见「家人也需要我」，<br>最后发现「我的能力可以帮助别人」——学习就再也不是被动的任务，<br>而是「我想成为一个更好的人」的内在驱动。</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+<!-- ═══ s16 总结 ═══ -->
+<section class="slide" id="s16"><div class="mg">
+  <div class="m-hd"><span class="r">总结</span><span>一年收获</span></div>
+  <div class="mg-con" style="position:absolute;left:84px;right:84px;top:80px">
+    <div class="m-eye a">一年之后</div>
+    <h1 class="a" style="animation-delay:.12s;font-size:var(--t-title);">您的孩子将收获</h1>
+    <div class="m-cards" style="margin-top:20px;">
+      <div class="m-c a" style="animation-delay:.15s;min-height:120px"><div class="c-t">现实准备</div><div class="c-d">识字有底·数学有感觉<br>表达有结构·书写有基础<br>作业习惯已建立</div></div>
+      <div class="m-c a" style="animation-delay:.25s;min-height:120px"><div class="c-t">能力底气</div><div class="c-d">不是「被安排」<br>而是「我能做·我会做<br>我愿意做」</div></div>
+      <div class="m-c hot a" style="animation-delay:.35s;min-height:120px"><div class="c-t">精神内核</div><div class="c-d">自我价值稳固<br>眼里有家人·有集体<br>大我意识扎根</div></div>
+    </div>
+    <div class="m-sub a" style="animation-delay:.5s;margin-top:16px;">不是提前抢跑——用一整年，帮孩子稳稳地、有底气地、带着爱走进小学。</div>
+  </div>
+  <div class="m-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+  <div class="m-foot">生命算法体系</div>
+</div></section>
+
+</div>
+
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];let cur=0,editing=false;const hud=document.getElementById('hud');
+function show(n){cur=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===cur));document.querySelectorAll('.m-dots i').forEach((d,k)=>d.classList.toggle('on',k===cur));}
+addEventListener('beforeprint',()=>{});
+function fit(){const d=document.querySelector('.deck');const k=Math.min(innerWidth/1280,innerHeight/720);d.style.transform=`translate(-50%,-50%) scale(${k})`;}
+const INLINE=new Set(['SPAN','BR','B','I','EM','STRONG','A','CODE','SUB','SUP','MARK','SMALL']);
+function isEditableBlock(el){if(!el.textContent||!el.textContent.trim())return false;if(['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName))return false;if(el.children.length===0)return!['BR','HR','IMG','INPUT'].includes(el.tagName);return[...el.children].every(c=>INLINE.has(c.tagName));}
+function setEdit(on){editing=on;document.body.classList.toggle('editing',on);document.querySelectorAll('.slide').forEach(s=>{s.querySelectorAll('*').forEach(el=>{if(!isEditableBlock(el))return;if(on)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable');});});hud.textContent=on?'编辑中:点击文字修改 · Esc 退出 · ⌘S 下载副本':'← → 翻页 · F 全屏 · E 编辑 · ⌘P 导出 PDF';hud.style.color=on?'var(--accent)':'#555';}
+function saveCopy(){const wasEdit=editing;if(wasEdit)setEdit(false);document.querySelectorAll('[data-guarded]').forEach(el=>el.removeAttribute('data-guarded'));const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download=(document.title||'deck').replace(/[\/\:]/g,'-')+'.html';a.click();URL.revokeObjectURL(a.href);if(wasEdit)setEdit(true);}
+addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveCopy();return;}if(editing){if(e.key==='Escape'){setEdit(false);}return;}if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);else if(e.key.toLowerCase()==='e'){setEdit(true);}else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}});
+addEventListener('click',e=>{if(!editing)show(cur+1);});
+show(0);fit();addEventListener('resize',fit);
+</script>
+</body>
+</html>
