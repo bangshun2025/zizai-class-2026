@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>吴星宝生命图谱·个人成长数据资产系统</title>
+<style>
+  :root{
+    --bg:#0a0a0a; --bg-warm:#0d0d11;
+    --fg:#f5f5f7; --fg-dim:#a8a8b0; --muted:#7a7a85; --faint:#3a3a42;
+    --accent:#0a84ff; --accent-br:#64b5ff;
+    --accent-50:rgba(10,132,255,.52); --accent-20:rgba(10,132,255,.16);
+    --accent-glow:rgba(10,132,255,.12);
+    --t-micro:12px; --t-eye:14px; --t-sm:20px; --t-body:28px;
+    --t-sec:40px; --t-title:56px; --t-hero:80px; --t-disp:112px; --t-num:172px;
+    --sans:'PingFang SC','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'SF Mono','JetBrains Mono','Roboto Mono',monospace;
+    --serif:'EB Garamond','Source Han Serif SC',Georgia,serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;
+    font-feature-settings:"tnum","kern","liga","ss01";
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  @media screen{
+    html,body{width:100vw;height:100vh;overflow:hidden;}
+    .deck{position:absolute;left:50%;top:50%;width:1280px;height:720px;
+      transform-origin:center center;}
+    .slide{position:absolute;inset:0;display:none;}
+    .slide.active{display:flex;}
+    .slide.active .a{animation:rise .85s var(--ease) both;}
+    .slide.active .b{animation:blurin 1s var(--ease) both;}
+    .slide.active .br-bar{animation:barGrow 1.2s .45s var(--ease) both;}
+    .slide.active .cv-line{stroke-dasharray:1600;stroke-dashoffset:1600;animation:dash 1.6s .35s var(--ease) forwards;}
+    .slide.active .cv-area{opacity:0;animation:fadein .8s 1.4s var(--ease) forwards;}
+    .slide.active .cv-dot{opacity:0;animation:fadein .5s 1.7s var(--ease) forwards;}
+    .slide.active .dn-val{animation:donutFill 1.3s .3s var(--ease) both;}
+    .slide.active .dt-grid span.on{animation:dotPop .45s var(--ease) both;}
+    .slide.measuring{display:flex!important;}
+    .measuring .a,.measuring .b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+    .measuring .br-bar,.measuring .cv-line,.measuring .cv-area,.measuring .cv-dot,
+    .measuring .dn-val,.measuring .dt-grid span.on{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important;}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes blurin{from{opacity:0;filter:blur(10px);transform:scale(.97);}to{opacity:1;filter:blur(0);transform:scale(1);}}
+  @keyframes barGrow{from{width:0;}}
+  @keyframes dash{to{stroke-dashoffset:0;}}
+  @keyframes fadein{to{opacity:1;}}
+  @keyframes donutFill{from{stroke-dasharray:0 100;}}
+  @keyframes dotPop{from{transform:scale(.2);opacity:0;}to{transform:scale(1);opacity:1;}}
+  @media print{
+    @page{size:338.7mm 190.5mm;margin:0;}
+    html,body{width:1280px;height:auto;overflow:visible;background:var(--bg);}
+    .deck{transform:none!important;position:static;width:1280px;}
+    .slide{position:relative;display:flex!important;width:1280px;height:720px;
+      page-break-after:always;break-after:page;overflow:hidden;}
+    .a,.b{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+    .br-bar,.cv-line,.cv-area,.cv-dot,.dn-val,.dt-grid span.on{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important;}
+    .hud{display:none!important;}
+  }
+  .slide{width:1280px;height:720px;color:var(--fg);font-family:var(--sans);
+    align-items:center;justify-content:center;overflow:hidden;
+    background:radial-gradient(120% 120% at 50% 30%,var(--bg-warm),var(--bg) 60%);}
+  .slide::before{content:"";position:absolute;width:980px;height:980px;left:50%;top:50%;
+    transform:translate(-50%,-50%);border-radius:50%;
+    border:1px solid var(--accent-20);pointer-events:none;opacity:.6;}
+  .slide::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(50% 50% at 50% 42%,var(--accent-glow),transparent 70%);}
+  .inner{position:relative;z-index:3;display:flex;flex-direction:column;
+    align-items:center;text-align:center;max-width:1140px;}
+  .brand{position:absolute;top:34px;right:46px;z-index:5;display:flex;align-items:center;gap:8px;
+    font-size:var(--t-micro);letter-spacing:.18em;color:var(--accent-50);opacity:.55;font-weight:500;}
+  .brand .tri{color:var(--accent);font-size:11px;}
+  .pageno{position:absolute;bottom:32px;right:46px;z-index:5;
+    font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.16em;color:var(--faint);}
+  .kicker{position:absolute;bottom:32px;left:46px;z-index:5;
+    font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+  .eyebrow{font-family:var(--mono);font-size:var(--t-eye);letter-spacing:.26em;
+    text-transform:uppercase;color:var(--accent-50);}
+  .hl{color:var(--accent);}
+  .dim{color:var(--muted);}
+  .rule{height:1px;width:120px;background:linear-gradient(90deg,transparent,var(--accent-50),transparent);}
+
+  /* cover */
+  .lay-cover{gap:30px;}
+  .lay-cover .cv-tri{font-size:34px;color:var(--accent);}
+  .lay-cover h1{font-size:var(--t-hero);font-weight:800;line-height:1.12;letter-spacing:-.02em;}
+  .lay-cover .cv-sub{font-size:var(--t-sm);color:var(--fg-dim);letter-spacing:.04em;}
+
+  /* statement */
+  .lay-statement{gap:38px;}
+  .lay-statement h2{font-size:var(--t-disp);font-weight:800;letter-spacing:-.03em;line-height:1.08;}
+  .lay-statement .st{color:var(--muted);position:relative;}
+  .lay-statement .st::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:5px;background:var(--muted);opacity:.55;border-radius:3px;}
+  .lay-statement .st-sub{font-size:var(--t-sm);color:var(--fg-dim);max-width:720px;line-height:1.75;}
+
+  /* compare */
+  .lay-compare{gap:0;width:1160px;max-width:none;}
+  .lay-compare .eyebrow{margin-bottom:44px;}
+  .lay-compare .cp-row{display:flex;align-items:stretch;justify-content:center;width:100%;}
+  .lay-compare .cp-col{flex:1;display:flex;flex-direction:column;}
+  .lay-compare .cp-col.l{align-items:flex-end;text-align:right;padding-right:62px;opacity:.5;}
+  .lay-compare .cp-col.r{align-items:flex-start;text-align:left;padding-left:62px;}
+  .lay-compare .cp-div{width:1px;align-self:center;height:220px;flex:none;
+    background:linear-gradient(to bottom,transparent,var(--faint) 20%,var(--muted) 50%,var(--faint) 80%,transparent);}
+  .lay-compare .cp-lab{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+  .lay-compare .cp-col.r .cp-lab{color:var(--accent-50);}
+  .lay-compare .cp-h{font-size:var(--t-sec);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;}
+  .lay-compare .cp-list{display:flex;flex-direction:column;gap:15px;}
+  .lay-compare .cp-it{font-size:var(--t-sm);display:flex;align-items:center;gap:12px;}
+  .lay-compare .cp-col.l .cp-it{flex-direction:row-reverse;color:var(--muted);}
+  .lay-compare .cp-mk{flex-shrink:0;font-size:15px;font-weight:700;}
+  .lay-compare .cp-col.l .cp-mk{color:var(--faint);} .lay-compare .cp-col.r .cp-mk{color:var(--accent);}
+  .lay-compare .cp-verdict{margin-top:48px;font-size:var(--t-sec);font-weight:600;letter-spacing:-.01em;}
+
+  /* principle */
+  .lay-principle h2{font-size:var(--t-hero);font-weight:800;line-height:1.12;letter-spacing:-.025em;}
+  .lay-principle .rule{margin:34px 0 30px;}
+  .lay-principle .pr-pair{display:flex;gap:56px;}
+  .lay-principle .pr-p{display:flex;flex-direction:column;gap:6px;}
+  .lay-principle .pr-t{font-size:var(--t-body);font-weight:700;}
+  .lay-principle .pr-d{font-size:var(--t-eye);color:var(--muted);letter-spacing:.08em;}
+  .lay-principle .pr-sep{width:1px;background:var(--faint);}
+
+  /* steps */
+  .lay-steps{gap:14px;width:1080px;max-width:1080px;}
+  .lay-steps .eyebrow{margin-bottom:6px;}
+  .lay-steps h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:48px;}
+  .lay-steps .sp-flow{display:flex;align-items:center;justify-content:center;gap:26px;width:100%;}
+  .lay-steps .fl-node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;flex:1;max-width:250px;}
+  .lay-steps .fl-no{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);
+    border:2px solid var(--accent-50);background:var(--accent-20);}
+  .lay-steps .fl-node.hot .fl-no{background:var(--accent);color:var(--bg);border-color:var(--accent);box-shadow:0 0 18px var(--accent-glow);}
+  .lay-steps .fl-t{font-size:24px;font-weight:700;margin-top:6px;}
+  .lay-steps .fl-node.hot .fl-t{color:var(--accent);}
+  .lay-steps .fl-d{font-size:var(--t-eye);color:var(--muted);line-height:1.5;}
+  .lay-steps .fl-arr{font-size:34px;color:var(--accent-50);flex:none;padding-bottom:54px;}
+
+  /* pyramid */
+  .lay-pyramid{gap:14px;}
+  .lay-pyramid .eyebrow{margin-bottom:6px;}
+  .lay-pyramid h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:42px;}
+  .lay-pyramid .py-stack{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .lay-pyramid .py-tier{display:flex;align-items:center;justify-content:space-between;gap:30px;
+    height:76px;padding:0 34px;border-radius:12px;
+    border:1px solid var(--faint);background:rgba(255,255,255,.03);}
+  .lay-pyramid .w1{width:680px;} .lay-pyramid .w2{width:520px;} .lay-pyramid .w3{width:380px;}
+  .lay-pyramid .py-tier.hot{border-color:var(--accent-50);background:var(--accent-20);}
+  .lay-pyramid .py-k{font-size:24px;font-weight:700;white-space:nowrap;}
+  .lay-pyramid .py-tier.hot .py-k{color:var(--accent);}
+  .lay-pyramid .py-v{font-size:var(--t-eye);color:var(--muted);white-space:nowrap;}
+
+  /* split */
+  .lay-split{flex-direction:row;gap:96px;max-width:1160px;text-align:initial;}
+  .lay-split .sp-text{flex:0 0 430px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}
+  .lay-split .sp-text .eyebrow{margin-bottom:18px;}
+  .lay-split .sp-text h2{font-size:var(--t-title);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:26px;}
+  .lay-split .sp-text p{font-size:var(--t-sm);color:var(--muted);line-height:1.95;max-width:410px;}
+  .lay-split .sp-visual{flex:0 0 340px;display:flex;flex-direction:column;gap:13px;}
+  .lay-split .sp-cap{font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.18em;text-transform:uppercase;text-align:center;}
+  .lay-split .sp-cap.t{color:var(--accent-50);} .lay-split .sp-cap.bt{color:var(--faint);}
+  .lay-split .sp-box{min-height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-size:var(--t-sm);font-weight:600;border:1px solid var(--faint);color:var(--muted);background:rgba(255,255,255,.02);padding:12px 20px;text-align:center;}
+  .lay-split .sp-box.hot{border:1.5px dashed var(--accent-50);color:var(--accent);background:var(--accent-20);}
+  .lay-split .sp-arrow{text-align:center;color:var(--accent);font-size:22px;line-height:1;}
+
+  /* icons */
+  .lay-icons{gap:52px;width:1040px;max-width:1040px;}
+  .lay-icons h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;}
+  .lay-icons .ic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 56px;width:100%;}
+  .lay-icons .ic-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;}
+  .lay-icons .ic-ring{width:78px;height:78px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(closest-side,var(--accent-glow),transparent 95%),rgba(255,255,255,.025);
+    border:1px solid var(--accent-20);}
+  .lay-icons .ic-item svg{width:38px;height:38px;color:var(--accent);}
+  .lay-icons .ic-t{font-size:22px;font-weight:700;letter-spacing:-.01em;}
+  .lay-icons .ic-d{font-size:var(--t-eye);color:var(--muted);letter-spacing:.02em;line-height:1.5;}
+
+  /* timeline */
+  .lay-timeline{gap:14px;width:1100px;max-width:1100px;}
+  .lay-timeline .eyebrow{margin-bottom:6px;}
+  .lay-timeline h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:54px;}
+  .lay-timeline .tl-track{position:relative;display:flex;justify-content:space-between;width:100%;padding-top:0;}
+  .lay-timeline .tl-track::before{content:"";position:absolute;left:2%;right:2%;top:7px;height:2px;
+    background:linear-gradient(90deg,var(--faint),var(--accent-50));}
+  .lay-timeline .tl-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;flex:1;position:relative;}
+  .lay-timeline .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--muted);z-index:1;}
+  .lay-timeline .tl-item.hot .tl-dot{border-color:var(--accent);background:var(--accent);box-shadow:0 0 14px var(--accent-50);}
+  .lay-timeline .tl-yr{font-family:var(--mono);font-size:var(--t-eye);color:var(--accent);letter-spacing:.1em;margin-top:10px;font-weight:700;}
+  .lay-timeline .tl-t{font-size:22px;font-weight:700;}
+  .lay-timeline .tl-item.hot .tl-t{color:var(--accent);}
+  .lay-timeline .tl-d{font-size:var(--t-eye);color:var(--muted);max-width:170px;line-height:1.5;}
+
+  /* cards */
+  .lay-cards{gap:46px;width:1100px;max-width:none;}
+  .lay-cards .cd-row{display:flex;gap:32px;width:100%;}
+  .lay-cards .cd-card{flex:1;border:1px solid var(--faint);border-radius:18px;padding:40px 30px;
+    background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0));
+    display:flex;flex-direction:column;align-items:center;text-align:center;min-height:300px;}
+  .lay-cards .cd-card.hot{border-color:var(--accent-50);background:linear-gradient(180deg,var(--accent-20),rgba(255,255,255,0));}
+  .lay-cards .cd-no{font-family:var(--mono);font-size:52px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.03em;}
+  .lay-cards .cd-t{font-size:var(--t-body);font-weight:700;margin:16px 0 12px;}
+  .lay-cards .cd-d{font-size:var(--t-sm);color:var(--muted);line-height:1.55;}
+
+  /* numlist */
+  .lay-numlist{width:780px;align-items:stretch;text-align:initial;}
+  .lay-numlist h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:36px;}
+  .lay-numlist .nl-row{display:flex;align-items:center;gap:32px;padding:17px 0;}
+  .lay-numlist .nl-row+.nl-row{border-top:1px solid var(--faint);}
+  .lay-numlist .nl-no{flex:0 0 86px;text-align:right;font-family:var(--mono);font-size:58px;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.04em;}
+  .lay-numlist .nl-t{font-size:var(--t-body);font-weight:700;margin-bottom:5px;}
+  .lay-numlist .nl-d{font-size:var(--t-sm);color:var(--muted);}
+
+  /* bars */
+  .lay-bars{gap:12px;width:1020px;max-width:1020px;}
+  .lay-bars .eyebrow{margin-bottom:8px;}
+  .lay-bars h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:34px;}
+  .lay-bars .br-rows{display:flex;flex-direction:column;gap:30px;width:100%;}
+  .lay-bars .br-row{display:grid;grid-template-columns:190px 1fr 150px;align-items:center;gap:24px;}
+  .lay-bars .br-lab{font-size:var(--t-sm);font-weight:600;text-align:right;color:var(--fg-dim);}
+  .lay-bars .br-track{height:36px;border-radius:18px;background:rgba(255,255,255,.05);overflow:hidden;}
+  .lay-bars .br-bar{height:100%;border-radius:18px;
+    background:linear-gradient(90deg,var(--accent-50),var(--accent),var(--accent-br));
+    box-shadow:0 0 18px var(--accent-glow);}
+  .lay-bars .br-bar.dim{background:var(--faint);box-shadow:none;}
+  .lay-bars .br-val{font-size:var(--t-body);font-weight:800;color:var(--accent);font-feature-settings:"tnum";}
+  .lay-bars .br-val.dim{color:var(--muted);font-weight:600;}
+
+  /* dots */
+  .lay-dots{flex-direction:row;gap:90px;width:1040px;max-width:1040px;text-align:initial;align-items:center;}
+  .lay-dots .dt-side{display:flex;flex-direction:column;align-items:flex-start;flex:1;}
+  .lay-dots .dt-side .eyebrow{margin-bottom:16px;}
+  .lay-dots .dt-side h2{font-size:var(--t-sec);font-weight:800;letter-spacing:-.02em;margin-bottom:20px;}
+  .lay-dots .dt-cap{font-size:var(--t-sm);color:var(--muted);line-height:1.8;max-width:430px;}
+  .lay-dots .dt-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:13px;width:420px;flex:none;}
+  .lay-dots .dt-grid span{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .lay-dots .dt-grid span.on{background:var(--accent);box-shadow:0 0 8px var(--accent-glow);}
+
+  /* hero */
+  .lay-hero h2{font-size:var(--t-hero);font-weight:800;line-height:1.14;letter-spacing:-.025em;}
+  .lay-hero .mk{color:var(--accent);position:relative;}
+  .lay-hero .mk::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--accent);opacity:.55;border-radius:3px;}
+  .lay-hero .hr-sub{font-size:var(--t-sm);color:var(--muted);margin-top:32px;max-width:640px;line-height:1.7;}
+
+  /* bigstat */
+  .lay-bigstat .eyebrow{margin-bottom:26px;}
+  .lay-bigstat .bs-numwrap{display:flex;align-items:baseline;gap:14px;}
+  .lay-bigstat .bs-num{font-size:var(--t-num);font-weight:800;line-height:.9;letter-spacing:-.04em;
+    background:linear-gradient(180deg,var(--accent-br),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lay-bigstat .bs-unit{font-size:var(--t-sec);font-weight:600;color:var(--accent-50);}
+  .lay-bigstat .bs-sub{font-size:var(--t-body);font-weight:500;margin-top:30px;}
+  .lay-bigstat .rule{margin:34px 0 26px;}
+  .lay-bigstat .bs-cap{font-size:var(--t-sm);color:var(--muted);max-width:680px;line-height:1.7;}
+
+  /* quote */
+  .lay-quote{max-width:880px;}
+  .lay-quote .q-mark{font-size:64px;color:var(--accent-50);font-family:var(--serif);line-height:.6;margin-bottom:30px;}
+  .lay-quote h2{font-size:var(--t-sec);font-weight:700;line-height:1.5;letter-spacing:-.01em;}
+  .lay-quote .q-sub{font-size:var(--t-sm);color:var(--muted);margin-top:30px;letter-spacing:.02em;}
+  .lay-quote .q-by{font-family:var(--mono);font-size:var(--t-eye);color:var(--faint);letter-spacing:.16em;text-transform:uppercase;margin-top:18px;}
+
+  /* outro */
+  .lay-outro .ot-q{font-size:var(--t-sec);font-weight:700;line-height:1.4;letter-spacing:-.01em;}
+  .lay-outro .ot-tri{font-size:40px;color:var(--accent);margin:48px 0 16px;}
+  .lay-outro .ot-bn{font-size:var(--t-body);font-weight:700;letter-spacing:.04em;}
+  .lay-outro .ot-thx{font-family:var(--mono);font-size:var(--t-micro);color:var(--faint);letter-spacing:.2em;text-transform:uppercase;margin-top:14px;}
+
+  /* apple */
+  body.apple .lay-cover h1{font-size:96px;line-height:1.08;}
+  body.apple .lay-statement h2{font-size:124px;line-height:1.06;}
+  body.apple .lay-hero h2{font-size:96px;line-height:1.1;}
+  body.apple .lay-bigstat .bs-num{font-size:248px;}
+  body.apple .lay-bigstat .bs-unit{font-size:48px;}
+  body.apple .lay-quote h2{font-size:48px;line-height:1.45;}
+  body.apple .eyebrow{opacity:.85;}
+  body.apple .kicker{display:none;}
+  body.apple .lay-outro .ot-q{font-size:var(--t-title);}
+</style>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body class="apple">
+<div class="deck">
+
+<section class="slide" id="s1">
+  <div class="brand"></div>
+  <div class="inner lay-cover">
+    <div class="eyebrow a">PERSONAL GROWTH DATA SYSTEM</div>
+    <h1 class="a" style="animation-delay:.15s">吴星宝生命图谱<br>个人成长数据资产系统</h1>
+    <div class="rule a" style="animation-delay:.3s"></div>
+    <div class="cv-sub a" style="animation-delay:.4s">从小学学业数据到 AI 学伴军师的本地化成长操作系统</div>
+  </div>
+  <div class="kicker">COVER</div><div class="pageno">01 / 20</div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="brand"></div>
+  <div class="inner lay-statement">
+    <div class="eyebrow a">核心问题</div>
+    <h2 class="b" style="animation-delay:.1s">教育决策<br>不能靠<span class="hl">感觉</span></h2>
+    <div class="st-sub a" style="animation-delay:.4s">报班、选老师、课程取舍、学业复习、亲子沟通，都需要长期数据支撑</div>
+  </div>
+  <div class="kicker">HOOK</div><div class="pageno">02 / 20</div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="brand"></div>
+  <div class="inner lay-compare">
+    <div class="eyebrow a">两种做法</div>
+    <div class="cp-row b" style="animation-delay:.15s">
+      <div class="cp-col l"><div class="cp-lab">普通档案</div><div class="cp-h">学习档案</div>
+        <div class="cp-list"><div class="cp-it">记录过去成绩<span class="cp-mk">✕</span></div><div class="cp-it">只看学业单点<span class="cp-mk">✕</span></div><div class="cp-it">凭感觉判断<span class="cp-mk">✕</span></div><div class="cp-it">无法服务决策<span class="cp-mk">✕</span></div></div></div>
+      <div class="cp-div"></div>
+      <div class="cp-col r"><div class="cp-lab">这套系统</div><div class="cp-h">成长数据资产</div>
+        <div class="cp-list"><div class="cp-it"><span class="cp-mk">✓</span>持续记录+动态调参</div><div class="cp-it"><span class="cp-mk">✓</span>十五项成长维度</div><div class="cp-it"><span class="cp-mk">✓</span>AI分析+流年校验</div><div class="cp-it"><span class="cp-mk">✓</span>直接服务升学路径</div></div></div>
+    </div>
+    <div class="cp-verdict a" style="animation-delay:.45s">不只是记录过去，而是<span class="hl">服务未来每一步决策</span></div>
+  </div>
+  <div class="kicker">CONTRAST</div><div class="pageno">03 / 20</div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="brand"></div>
+  <div class="inner lay-principle">
+    <h2 class="a">生命图谱+数据+AI<br><span class="hl">成长操作系统</span></h2>
+    <div class="rule a" style="animation-delay:.3s;width:80px;"></div>
+    <div class="pr-pair a" style="animation-delay:.42s">
+      <div class="pr-p"><div class="pr-t dim">不是什么</div><div class="pr-d">不是学习档案·不是一次规划</div></div>
+      <div class="pr-sep"></div>
+      <div class="pr-p"><div class="pr-t hl">是什么</div><div class="pr-d">会进化的个人成长数据资产系统</div></div>
+    </div>
+  </div>
+  <div class="kicker">DEFINE</div><div class="pageno">04 / 20</div>
+</section>
+
+
+<section class="slide" id="s5">
+  <div class="brand"></div>
+  <div class="inner lay-steps">
+    <div class="eyebrow a">核心机制</div>
+    <h2 class="a" style="animation-delay:.1s">六环闭环运行</h2>
+    <div class="sp-flow b" style="animation-delay:.2s">
+      <div class="fl-node"><div class="fl-no">1</div><div class="fl-t">生命图谱</div><div class="fl-d">先天结构判断</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">2</div><div class="fl-t">数据采集</div><div class="fl-d">现实表现记录</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">3</div><div class="fl-t">AI分析</div><div class="fl-d">模式识别洞察</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">4</div><div class="fl-t">阶段校验</div><div class="fl-d">假设验证调参</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">5</div><div class="fl-t">教育调参</div><div class="fl-d">精准调整方向</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node hot"><div class="fl-no">6</div><div class="fl-t">持续沉淀</div><div class="fl-d">数据资产积累</div></div>
+    </div>
+  </div>
+  <div class="kicker">LOOP</div><div class="pageno">05 / 20</div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="brand"></div>
+  <div class="inner lay-pyramid">
+    <div class="eyebrow a">底层架构</div>
+    <h2 class="a" style="animation-delay:.1s">十五项成长构建</h2>
+    <div class="py-stack">
+      <div class="py-tier w3 hot a" style="animation-delay:.34s"><span class="py-k">五福人生</span><span class="py-v">系统最终指向</span></div>
+      <div class="py-tier w2 a" style="animation-delay:.22s"><span class="py-k">能力·决策·习惯·社交·项目</span><span class="py-v">能力成形与外化</span></div>
+      <div class="py-tier w1 a" style="animation-delay:.1s"><span class="py-k">算法图谱·三观·品德·身体·常识·知识</span><span class="py-v">底层根基与知识网络</span></div>
+    </div>
+  </div>
+  <div class="kicker">FRAMEWORK</div><div class="pageno">06 / 20</div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="brand"></div>
+  <div class="inner lay-split">
+    <div class="sp-text">
+      <div class="eyebrow a">数据架构</div>
+      <h2 class="a" style="animation-delay:.1s">两类资料库</h2>
+      <p class="a" style="animation-delay:.2s">原始资料做沉淀，<br>结构化索引做分析，<br>让每条记录<span class="hl">能调用、能复盘</span>。</p>
+    </div>
+    <div class="sp-visual b" style="animation-delay:.25s">
+      <div class="sp-cap t">原始资料库</div>
+      <div class="sp-box">课本·试卷·作业·错题</div>
+      <div class="sp-arrow">↓ AI 标签化</div>
+      <div class="sp-box hot">结构化索引库</div>
+      <div class="sp-cap bt">可分析·可调用·可复盘</div>
+    </div>
+  </div>
+  <div class="kicker">DATA</div><div class="pageno">07 / 20</div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="brand"></div>
+  <div class="inner lay-icons">
+    <h2 class="a">AI 的六项核心能力</h2>
+    <div class="ic-grid">
+      <div class="ic-item a" style="animation-delay:.1s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="6" width="24" height="36" rx="3"/><path d="M18 18h12M18 26h12M18 34h7"/></svg></div><div class="ic-t">资料整理</div><div class="ic-d">自动标签分类归档</div></div>
+      <div class="ic-item a" style="animation-delay:.18s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="11"/><path d="M30 30l10 10"/></svg></div><div class="ic-t">错题分析</div><div class="ic-d">识别错因模式规律</div></div>
+      <div class="ic-item a" style="animation-delay:.26s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 36l10-10 8 5L40 14"/><path d="M31 14h9v9"/></svg></div><div class="ic-t">项目规划</div><div class="ic-d">拆解任务设计路径</div></div>
+      <div class="ic-item a" style="animation-delay:.34s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="2.5" fill="currentColor" stroke="none"/></svg></div><div class="ic-t">能力识别</div><div class="ic-d">成长地图动态追踪</div></div>
+      <div class="ic-item a" style="animation-delay:.42s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l14 5v11c0 9-6 15-14 19-8-4-14-10-14-19V11z"/><path d="M17 23l5 5 9-10"/></svg></div><div class="ic-t">复盘报告</div><div class="ic-d">月度季度自动生成</div></div>
+      <div class="ic-item a" style="animation-delay:.5s"><div class="ic-ring"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M38 20a14 14 0 0 0-26-3M10 28a14 14 0 0 0 26 3"/><path d="M12 10v7h7M36 38v-7h-7"/></svg></div><div class="ic-t">持续迭代</div><div class="ic-d">数据越多判断越准</div></div>
+    </div>
+  </div>
+  <div class="kicker">AI</div><div class="pageno">08 / 20</div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="brand"></div>
+  <div class="inner lay-timeline">
+    <div class="eyebrow a">校验机制</div>
+    <h2 class="a" style="animation-delay:.1s">流年三道校验</h2>
+    <div class="tl-track b" style="animation-delay:.2s">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第一道</div><div class="tl-t">图谱给假设</div><div class="tl-d">先天结构推演潜能方向</div></div>
+      <div class="tl-item hot"><div class="tl-dot"></div><div class="tl-yr">第二道 ★</div><div class="tl-t">数据做验证</div><div class="tl-d">现实表现印证或修正</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">第三道</div><div class="tl-t">流年调节奏</div><div class="tl-d">阶段能量提示收放时机</div></div>
+    </div>
+  </div>
+  <div class="kicker">VERIFY</div><div class="pageno">09 / 20</div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="brand"></div>
+  <div class="inner lay-cards">
+    <div class="eyebrow a">分工设计</div>
+    <div class="cd-row">
+      <div class="cd-card a" style="animation-delay:.15s"><div class="cd-no">01</div><div class="cd-t">你搭系统</div><div class="cd-d">建框架·教会星宝妈·做流年判断</div></div>
+      <div class="cd-card hot a" style="animation-delay:.27s"><div class="cd-no">02</div><div class="cd-t">星宝妈维护</div><div class="cd-d">日常记录·观察反馈·教育调参</div></div>
+      <div class="cd-card a" style="animation-delay:.39s"><div class="cd-no">03</div><div class="cd-t">AI+星宝</div><div class="cd-d">AI分析辅助·星宝逐步接管</div></div>
+    </div>
+  </div>
+  <div class="kicker">ROLES</div><div class="pageno">10 / 20</div>
+</section>
+
+
+<section class="slide" id="s11">
+  <div class="brand"></div>
+  <div class="inner lay-timeline">
+    <div class="eyebrow a">成长路径</div>
+    <h2 class="a" style="animation-delay:.1s">星宝阶段路径</h2>
+    <div class="tl-track b" style="animation-delay:.2s">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">三年级</div><div class="tl-t">项目探究</div><div class="tl-d">建立数据采集基线</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">四年级</div><div class="tl-t">AI做项目</div><div class="tl-d">学会用AI辅助输出</div></div>
+      <div class="tl-item hot"><div class="tl-dot"></div><div class="tl-yr">五年级 ★</div><div class="tl-t">AI解学习</div><div class="tl-d">错题分析·精准复习</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-yr">初一</div><div class="tl-t">搭建学习系统</div><div class="tl-d">自主调用AI学伴</div></div>
+    </div>
+  </div>
+  <div class="kicker">PATH</div><div class="pageno">11 / 20</div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="brand"></div>
+  <div class="inner lay-steps">
+    <div class="eyebrow a">节奏设计</div>
+    <h2 class="a" style="animation-delay:.1s">运行节奏</h2>
+    <div class="sp-flow b" style="animation-delay:.2s">
+      <div class="fl-node"><div class="fl-no">1</div><div class="fl-t">前三月</div><div class="fl-d">建立数据基线</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">2</div><div class="fl-t">每月</div><div class="fl-d">五类数据记录</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node"><div class="fl-no">3</div><div class="fl-t">每季</div><div class="fl-d">一张决策调参表</div></div>
+      <div class="fl-arr">→</div>
+      <div class="fl-node hot"><div class="fl-no">4</div><div class="fl-t">每年</div><div class="fl-d">成长报告·路径校准</div></div>
+    </div>
+  </div>
+  <div class="kicker">RHYTHM</div><div class="pageno">12 / 20</div>
+</section>
+
+<section class="slide" id="s13">
+  <div class="brand"></div>
+  <div class="inner lay-numlist">
+    <h2 class="a">对星宝妈的核心价值</h2>
+    <div class="nl-row a" style="animation-delay:.12s"><div class="nl-no">01</div><div class="nl-tx"><div class="nl-t">报班更有依据</div><div class="nl-d">数据判断哪门课真有效、哪门课真耗电</div></div></div>
+    <div class="nl-row a" style="animation-delay:.24s"><div class="nl-no">02</div><div class="nl-tx"><div class="nl-t">老师选择精准</div><div class="nl-d">谁能讲清为什么、谁能帮星宝收束</div></div></div>
+    <div class="nl-row a" style="animation-delay:.36s"><div class="nl-no">03</div><div class="nl-tx"><div class="nl-t">课程取舍冷静</div><div class="nl-d">保留·减少·暂停·替换·转化·低频，分类清晰</div></div></div>
+    <div class="nl-row a" style="animation-delay:.48s"><div class="nl-no">04</div><div class="nl-tx"><div class="nl-t">亲子沟通少内耗</div><div class="nl-d">回到事实和数据，不再凭感觉互相指责</div></div></div>
+  </div>
+  <div class="kicker">VALUE</div><div class="pageno">13 / 20</div>
+</section>
+
+<section class="slide" id="s14">
+  <div class="brand"></div>
+  <div class="inner lay-cards">
+    <div class="eyebrow a">长期价值</div>
+    <div class="cd-row">
+      <div class="cd-card a" style="animation-delay:.15s"><div class="cd-no">01</div><div class="cd-t">自我说明书</div><div class="cd-d">怎么学最快·什么老师适合·如何恢复精力</div></div>
+      <div class="cd-card a" style="animation-delay:.27s"><div class="cd-no">02</div><div class="cd-t">能力地图</div><div class="cd-d">学习力·项目力·表达力·AI使用力的成长轨迹</div></div>
+      <div class="cd-card hot a" style="animation-delay:.39s"><div class="cd-no">03</div><div class="cd-t">数字资产</div><div class="cd-d">项目作品链·学业档案·AI可调用的个人知识库</div></div>
+    </div>
+  </div>
+  <div class="kicker">FUTURE</div><div class="pageno">14 / 20</div>
+</section>
+
+<section class="slide" id="s15">
+  <div class="brand"></div>
+  <div class="inner lay-bars">
+    <div class="eyebrow a">升学对比</div>
+    <h2 class="a" style="animation-delay:.1s">没有系统 vs 有系统</h2>
+    <div class="br-rows b" style="animation-delay:.2s">
+      <div class="br-row"><div class="br-lab">小升初准备</div><div class="br-track"><div class="br-bar dim" style="width:88%"></div></div><div class="br-val dim">靠焦虑突击</div></div>
+      <div class="br-row"><div class="br-lab">有系统后</div><div class="br-track"><div class="br-bar" style="width:22%"></div></div><div class="br-val">两年数据支撑</div></div>
+    </div>
+    <div class="br-rows b" style="animation-delay:.2s;margin-top:6px;">
+      <div class="br-row"><div class="br-lab">中考选科</div><div class="br-track"><div class="br-bar dim" style="width:92%"></div></div><div class="br-val dim">凭感觉选</div></div>
+      <div class="br-row"><div class="br-lab">有系统后</div><div class="br-track"><div class="br-bar" style="width:16%"></div></div><div class="br-val">五年能力数据判断</div></div>
+    </div>
+  </div>
+  <div class="kicker">CONTRAST</div><div class="pageno">15 / 20</div>
+</section>
+
+</div>
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;
+  font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">
+  ← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF</div>
+
+<section class="slide" id="s16">
+  <div class="brand"></div>
+  <div class="inner lay-dots">
+    <div class="dt-side">
+      <div class="eyebrow a">最终成果</div>
+      <h2 class="a" style="animation-delay:.1s">九类成果沉淀</h2>
+      <p class="dt-cap a" style="animation-delay:.2s">月档案·季表·年报·能力图谱·课程老师档案·升学档案·项目档案·自我说明书·学业数字资产</p>
+    </div>
+    <div class="dt-grid b" data-on="90"></div>
+  </div>
+  <div class="kicker">OUTPUT</div><div class="pageno">16 / 20</div>
+</section>
+
+<section class="slide" id="s17">
+  <div class="brand"></div>
+  <div class="inner lay-hero">
+    <h2 class="a"><span class="mk">现在</span>就开始，<br>两年后直接服务小升初</h2>
+    <div class="hr-sub a" style="animation-delay:.38s">三年级开始沉淀数据，AI越发展，数据越值钱。越早启动，越早受益。</div>
+  </div>
+  <div class="kicker">NOW</div><div class="pageno">17 / 20</div>
+</section>
+
+<section class="slide" id="s18">
+  <div class="brand"></div>
+  <div class="inner lay-bigstat">
+    <div class="eyebrow a">最小可运行版本</div>
+    <div class="bs-numwrap b" style="animation-delay:.1s"><span class="bs-num">3</span><span class="bs-unit">个月</span></div>
+    <div class="bs-sub a" style="animation-delay:.35s">每月<span class="hl">五类数据</span>·每条<span class="hl">六字段</span>·每季一张决策表</div>
+    <div class="rule a" style="animation-delay:.5s;width:340px;"></div>
+    <div class="bs-cap a" style="animation-delay:.6s">先跑三个月建立基线，不需要一步到位，跑起来就是胜利。</div>
+  </div>
+  <div class="kicker">MVP</div><div class="pageno">18 / 20</div>
+</section>
+
+<section class="slide" id="s19">
+  <div class="brand"></div>
+  <div class="inner lay-quote">
+    <div class="q-mark b">&ldquo;</div>
+    <h2 class="a" style="animation-delay:.1s">星宝拥有自己的<br><span class="hl">AI学伴、军师、预警系统</span><br>和自我说明书</h2>
+    <div class="q-sub a" style="animation-delay:.35s">别人用通用AI · 星宝用的是懂他自己的AI</div>
+    <div class="q-by a" style="animation-delay:.45s">—— 最终愿景</div>
+  </div>
+  <div class="kicker">VISION</div><div class="pageno">19 / 20</div>
+</section>
+
+<section class="slide" id="s20">
+  <div class="brand"></div>
+  <div class="inner lay-outro">
+    <div class="ot-q a">这套系统不是为了记录星宝<br>过去做了什么，<br>而是为了让星宝未来每一步成长<br>都更<span class="hl">精准、更稳、更有依据</span></div>
+    <div class="ot-bn a" style="animation-delay:.42s"></div>
+    <div class="ot-thx a" style="animation-delay:.52s">吴星宝生命图谱 · 个人成长数据资产系统</div>
+  </div>
+  <div class="kicker">END</div><div class="pageno">20 / 20</div>
+</section>
+
+</div>
+<div class="hud" id="hud" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:99;
+  font:11px/1.6 var(--mono);color:#555;letter-spacing:.12em;opacity:.55;pointer-events:none;white-space:nowrap;">
+  ← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0, editing=false, guardTimer=null;
+const hud=document.getElementById('hud');
+
+function show(n){
+  cur=(n+slides.length)%slides.length;
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.querySelectorAll('.deck-dots i').forEach((d,k)=>d.classList.toggle('on',k===cur));
+  clearTimeout(guardTimer);
+  guardTimer=setTimeout(()=>guard(slides[cur]),60);
+}
+
+async function guard(slide){
+  if(!slide) return;
+  const box=slide.querySelector(':scope > .inner, :scope > .sbody, :scope > .mg');
+  if(!box || box.dataset.guarded) return;
+  const hidden=!slide.classList.contains('active');
+  if(hidden){ slide.classList.add('measuring'); }
+  else{ try{ await Promise.allSettled(
+      (slide.getAnimations?slide.getAnimations({subtree:true}):[]).map(a=>a.finished));
+    }catch(e){} }
+  if(box.dataset.guarded){ if(hidden)slide.classList.remove('measuring'); return; }
+  box.style.transform='';
+  if(box.classList.contains('inner')){
+    const s=slide.getBoundingClientRect(), r=box.getBoundingClientRect();
+    if(r.width>0&&r.height>0){
+      const m=20*(s.width/1280);
+      const k=Math.min(1,(s.width-2*m)/r.width,(s.height-2*m)/r.height);
+      if(k<0.999){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='center center';}
+      box.dataset.guarded='1';
+    }
+  }else{
+    const cw=box.clientWidth, ch=box.clientHeight, sw=box.scrollWidth, sh=box.scrollHeight;
+    if(cw>0&&ch>0){
+      const k=Math.min(1, cw/Math.max(sw,cw), ch/Math.max(sh,ch));
+      if(k<0.992){box.style.transform=`scale(${k.toFixed(4)})`;box.style.transformOrigin='top left';}
+      box.dataset.guarded='1';
+    }
+  }
+  if(hidden) slide.classList.remove('measuring');
+}
+addEventListener('beforeprint',()=>{slides.forEach(s=>guard(s));});
+
+function fit(){const d=document.querySelector('.deck');
+  const k=Math.min(innerWidth/1280,innerHeight/720);
+  d.style.transform=`translate(-50%,-50%) scale(${k})`;}
+
+const INLINE=new Set(['SPAN','BR','B','I','EM','STRONG','A','CODE','SUB','SUP','MARK','SMALL']);
+function isEditableBlock(el){
+  if(!el.textContent||!el.textContent.trim()) return false;
+  if(['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName)) return false;
+  if(el.children.length===0) return !['BR','HR','IMG','INPUT'].includes(el.tagName);
+  return [...el.children].every(c=>INLINE.has(c.tagName));
+}
+function setEdit(on){
+  editing=on;document.body.classList.toggle('editing',on);
+  document.querySelectorAll('.slide').forEach(s=>{
+    s.querySelectorAll('*').forEach(el=>{
+      if(!isEditableBlock(el)) return;
+      if(on) el.setAttribute('contenteditable','true');
+      else el.removeAttribute('contenteditable');
+    });
+  });
+  document.querySelectorAll('.m-c,.sp-box,.ic-item,[class*="drag-me"]').forEach(el=>{
+    el.draggable=on;
+    if(on){el.addEventListener('dragstart',dragStart);el.addEventListener('dragover',dragOver);el.addEventListener('drop',dropBlock);el.addEventListener('dragend',dragEnd);}
+    else{el.removeEventListener('dragstart',dragStart);el.removeEventListener('dragover',dragOver);el.removeEventListener('drop',dropBlock);el.removeEventListener('dragend',dragEnd);el.classList.remove('drag-over','dragging');}
+  });
+  hud.textContent = on ? '编辑中:点击文字修改 · Esc 退出 · ⌘S 下载副本'
+                       : '← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF';
+  hud.style.color = on ? 'var(--accent)' : '#555';
+}
+
+let dragSrc=null;
+function dragStart(e){dragSrc=this;this.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain','');}
+function dragOver(e){e.preventDefault();if(this===dragSrc)return;this.classList.add('drag-over');e.dataTransfer.dropEffect='move';}
+function dragEnd(e){this.classList.remove('dragging');document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over'));}
+function dropBlock(e){
+  e.preventDefault();this.classList.remove('drag-over');
+  if(!dragSrc||dragSrc===this) return;
+  const parent=dragSrc.parentNode;
+  if(parent!==this.parentNode&&(!dragSrc.matches('.m-c')||!this.matches('.m-c'))&&(!dragSrc.matches('.sp-box')||!this.matches('.sp-box'))&&(!dragSrc.matches('.ic-item')||!this.matches('.ic-item'))) return;
+  const siblings=[...parent.children].filter(c=>c!==dragSrc);
+  const idx=siblings.indexOf(this);
+  if(idx===-1) parent.insertBefore(dragSrc,this);
+  else{const next=siblings[idx+1]||null;parent.insertBefore(dragSrc,next);}
+  dragSrc.classList.remove('dragging');
+}
+
+function saveCopy(){
+  const wasEdit=editing; if(wasEdit) setEdit(false);
+  document.querySelectorAll('[data-guarded]').forEach(el=>el.removeAttribute('data-guarded'));
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+  a.download=(document.title||'deck').replace(/[\/\:]/g,'-')+'.html';
+  a.click(); URL.revokeObjectURL(a.href);
+  if(wasEdit) setEdit(true);
+}
+
+async function exportPPTX(){
+  if(typeof html2canvas==='undefined'){alert('html2canvas 加载中,请稍后再试');return;}
+  hud.textContent='正在生成 PPTX (1/'+slides.length+')...';hud.style.color='var(--accent)';
+  const pptx=new PptxGenJS();pptx.defineLayout({name:'SLIDE',width:13.333,height:7.5});
+  for(let i=0;i<slides.length;i++){
+    hud.textContent='正在生成 PPTX ('+(i+1)+'/'+slides.length+')...';
+    const prev=cur;show(i);
+    const slide=slides[i];
+    slide.classList.add('measuring');
+    await new Promise(r=>setTimeout(r,400));
+    try{
+      const bg=getComputedStyle(slide).backgroundColor||'#fafafa';
+      const canvas=await html2canvas(slide,{width:1280,height:720,scale:2,backgroundColor:bg==='rgba(0,0,0,0)'?'#fafafa':bg,useCORS:true,logging:false});
+      const dataUrl=canvas.toDataURL('image/png');
+      const sld=pptx.addSlide();
+      sld.addImage({data:dataUrl,x:0,y:0,w:13.333,h:7.5});
+    }catch(e){console.error('Slide '+(i+1)+' error:',e);}
+    slide.classList.remove('measuring');
+  }
+  await pptx.writeFile({fileName:(document.title||'deck').replace(/[\/\:]/g,'-')+'.pptx'});
+  show(cur);hud.textContent='PPTX 已下载 ✓';hud.style.color='#555';
+  setTimeout(()=>{hud.textContent=editing?'编辑中:点击文字修改 · Esc 退出 · ⌘S 下载副本':'← → 翻页 · F 全屏 · E 编辑 · P PPTX · ⌘P 导出 PDF';hud.style.color=editing?'var(--accent)':'#555';},2500);
+}
+
+addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();saveCopy();return;}
+  if(editing){ if(e.key==='Escape'){setEdit(false);} return; }
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key.toLowerCase()==='e'){setEdit(true);}
+  else if(e.key.toLowerCase()==='f'){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+    else document.exitFullscreen();}
+  else if(e.key.toLowerCase()==='p'){exportPPTX();}
+});
+addEventListener('click',e=>{ if(!editing) show(cur+1); });
+
+document.querySelectorAll('.dt-grid').forEach(g=>{
+  const on=Math.max(0,Math.min(100,parseInt(g.dataset.on)||0));
+  for(let i=0;i<100;i++){const sp=document.createElement('span');
+    if(i<on){sp.className='on';sp.style.animationDelay=(0.3+i*0.012)+'s';}
+    g.appendChild(sp);}
+});
+(function(){const dk=document.querySelector('.deck'); if(!dk)return;
+  const dd=document.createElement('div'); dd.className='deck-dots';
+  slides.forEach((_,k)=>{const i=document.createElement('i');
+    i.addEventListener('click',e=>{e.stopPropagation();show(k);}); dd.appendChild(i);});
+  dk.appendChild(dd);})();
+show(0); fit(); addEventListener('resize',fit);
+window.__goto=show; window.__setEdit=setEdit;
+</script>
+</body>
+</html>
