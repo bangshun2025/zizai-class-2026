@@ -27,18 +27,19 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   background: #fff;
-  width: 100%;
-  max-width: 1080px;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
   overflow-x: hidden;
 }
 
 /* ========== 长图容器 ========== */
 .poster {
-  width: 100%;
-  max-width: 1080px;
+  width: 1080px;
   background: var(--bg);
+  transform-origin: top center;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 40px rgba(0,0,0,.08);
@@ -804,6 +805,24 @@ body {
   </section>
 
 </div><!-- /.poster -->
+
+<script>
+(function() {
+  const poster = document.querySelector('.poster');
+  const W = 1080; // 设计稿宽度
+  function scale() {
+    const vw = window.innerWidth;
+    const s = vw < W ? vw / W : 1;
+    poster.style.transform = 'scale(' + s + ')';
+    document.body.style.height = (poster.offsetHeight * s) + 'px';
+  }
+  scale();
+  window.addEventListener('resize', scale);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(scale, 100);
+  });
+})();
+</script>
 
 </body>
 </html>
