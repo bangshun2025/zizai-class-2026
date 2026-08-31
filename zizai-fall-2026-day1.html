@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第一天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  .summary .closing-line {
+    margin-top: 22px;
+    padding: 16px 20px;
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .summary .closing-line strong { color: var(--gold); font-weight: 600; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul {
+    margin: 0 0 16px 22px;
+    list-style: none;
+  }
+  .body-text ul li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+  }
+  .body-text ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* 教育价值 / 自在班随记 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">📖 2026 秋季班 · 开学第一天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「自己的事情自己做」重新捡回来</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 8 月 31 日<span class="dot">·</span>开学第一周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">2026 年秋季班开学第一天，孩子们从生活秩序到户外徒步，完整走过了新学期的第一天。</p>
+    <ol>
+      <li>
+        <span class="t">开学第一件事 · 收好自己的玩具 🧩</span>
+        <p>晨间自由活动结束后，老师发起一分钟收玩具挑战，要求乐高底板单独拆出、按大小垒放整齐。孩子们在计时里完成了归位，新学期的第一条规则，是从自己的物品开始。</p>
+      </li>
+      <li>
+        <span class="t">秩序练习 · 排队与站军姿 🎖</span>
+        <p>老师重新讲了排队方向和上下楼梯靠右的规则，孩子们练习立正、向前对正、双手放在裤缝。六一的排队让老师印象很深，站得笔直、位置也守得住；糯米的军姿到位，坚持的时间也长。</p>
+      </li>
+      <li>
+        <span class="t">开学升旗仪式 · 新学期第一束光 🇨🇳</span>
+        <p>全园升国旗唱国歌，接着升集团旗唱园歌。园长妈妈致辞欢迎老朋友和新朋友，并为孩子们发放了环球旅行护照，艾音老师带着全场做律动热身。</p>
+      </li>
+      <li>
+        <span class="t">生活自理 · 自己铺午休床铺 🛏</span>
+        <p>孩子们先搬垫子、再搬被子，分两趟完成搬运，然后自己选床位、铺好床、把不属于床上的东西放回书包。午休空间是自己整理出来的。</p>
+      </li>
+      <li>
+        <span class="t">第一次静默行走 · 把注意力放回自己身上 🌿</span>
+        <p>出门前先清点装备：帽子、水杯、防蚊液、长裤。行走途中不说话，老师不喊名字，只轻轻碰一下头，让孩子自己去觉察发生了什么。孩子们还讨论了排队时如何守住自己的位置。</p>
+      </li>
+      <li>
+        <span class="t">爱护自然与探地形 · 为明天做准备 🗺</span>
+        <p>路上遇到一只绿色蜘蛛，孩子们学着远远观察、不伸手触碰；老师也带着大家理解为什么不能随手摘花摘草。今天的任务是探公园地形，选好明天活动的大本营。</p>
+      </li>
+      <li>
+        <span class="t">餐后生活课 · 自己的桌面自己负责 🧹</span>
+        <p>回园后孩子们先在院子里跑了几圈、舒展身体，再安静下来准备午休。用餐后孩子们自己扫桌面、擦桌子、清理地面饭粒，绘本看一本拿一本、看完放回原位。</p>
+      </li>
+    </ol>
+    <div class="closing-line">新学期的第一天，他们已经把「<strong>自己的事情自己做</strong>」重新捡了回来。</div>
+  </section>
+
+  <!-- ============ 详细记录 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>详细记录</h2></div>
+    <div class="body-text">
+      <p>今天是 2026 年秋季班开学第一天，也是孩子们回到集体生活的第一天。一天下来，孩子们经历了开学升旗仪式、第一次静默行走徒步和完整的生活自理流程。</p>
+    </div>
+  </section>
+
+  <!-- 一 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧩</span><h2>一、开学第一课 · 从收好一盒玩具开始</h2></div>
+    <div class="body-text">
+      <p>晨间孩子们先在教室里自由活动。老师提醒：谁玩过玩具，待会儿要怎么样？孩子们回答「收整齐」。随后老师发起一分钟收玩具挑战，明确要求乐高底板单独拆出来、按大小垒成一沓，不能塞在玩具盒里。</p>
+      <p><strong>子旭</strong>在收纳时主动确认拆分方式，<strong>糯米</strong>和<strong>顶顶</strong>都在计时里完成了归位。老师还顺势约定了一条新学期规则：上学不带手表。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>新学期的第一条规则，不是从课本开始，而是从「自己用过的东西自己收好」开始。家庭生活课强调的习惯养成，起点就在这种极具体的动作里——玩具怎么放、底板怎么垒，都是可被看见、可被完成的标准。孩子在一分钟里体会到的是：规则是可以靠自己一次次做出来的。</p>
+    </div>
+  </section>
+
+  <!-- 二 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎖</span><h2>二、秩序练习 · 排队与站军姿</h2></div>
+    <div class="body-text">
+      <p>过了一个暑假，排队规则需要重新建立。老师告诉孩子们：老师面向哪边，队伍就往哪边排；上下楼梯一律靠右走。随后带着孩子们练习立正、一个手掌的距离、向前对正、双手放在裤缝。</p>
+      <p>一个暑假过去，<strong>六一</strong>在秩序上的成长看得很清楚，站得笔直，位置也守得住。<strong>糯米</strong>的军姿很到位，坚持的时间也长。<strong>子旭</strong>把两只手稳稳放在裤缝，调整到位。老师也预告了新学期的荣誉：班级会轮流产生升旗时的小旗手。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>军体课的价值不在于把身体绷直，而在于让孩子体验「我能让自己安静下来」。排队的方向感、身体的稳定感、与同伴之间一个手掌的距离感，都是自我管理的最小单位。今天的秩序练习，也直接服务于随后的升旗仪式和户外徒步。</p>
+    </div>
+  </section>
+
+  <!-- 三 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>三、开学升旗仪式 · 新学期第一束光</h2></div>
+    <div class="body-text">
+      <p>全园齐聚操场，主持人宣布「童心向党，国旗飘扬」新学期升旗仪式开始，小小护旗手出旗，全体肃立，升国旗唱国歌，随后升集团旗唱园歌。</p>
+      <p>园长妈妈致辞，欢迎回园的老朋友和新加入的小朋友与新老师，并特别点赞了升旗时站得笔直的哥哥姐姐，希望孩子们新学期做一个有礼貌的小朋友，快乐游戏、勇敢探索、友好相处。仪式上，幼儿园为新入园的孩子发放了新生录取通知书，并为每一位小朋友准备了「环球旅行护照」。艾音老师带着全场孩子和老师一起做 I love you 主题律动，<strong>子旭</strong>把动作跟到了最后。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>仪式感是孩子理解「新开始」最直接的方式。一纸通知书、一本护照，把「新学期开始了」这件抽象的事变成孩子手里可以拿住的东西。自在班精神内核里说「先有爱，才学得久」，开学第一天先给足归属感和期待感，后面的规则才走得进去。</p>
+    </div>
+  </section>
+
+  <!-- 四 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛏</span><h2>四、生活自理 · 自己铺午休床铺</h2></div>
+    <div class="body-text">
+      <p>仪式结束后，孩子们提前上楼铺床。老师安排先搬垫子、再搬被子，分两趟完成，避免一次抱太多、拿不稳。铺床时孩子们自己选床位，<strong>六一</strong>第一个挑，随后是<strong>子旭</strong>。</p>
+      <p><strong>顶顶</strong>把不属于床上的物品放回书包，把床铺整理得整整齐齐。<strong>糯米</strong>把水杯和帽子放到了指定位置，铺完床就去排队。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>午休空间由孩子自己整理，是家庭生活课在校内的延伸。搬两趟而不是抱一次、床上只放该放的东西、选了床位就要承担旁边是谁——这些都是把生活变成课程的具体做法。专注和分寸感，也是在这种真实场景里一点点练出来的。</p>
+    </div>
+  </section>
+
+  <!-- 五 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>五、第一次静默行走 · 把注意力放回自己身上</h2></div>
+    <div class="body-text">
+      <p>本周上午都安排公园远足徒步与静默行走。出发前老师先问：什么叫静默行走？孩子们答「不说话，只走」。老师补充：把注意力放在自己的身体上，放在观察和倾听大自然上。</p>
+      <p>接着一起清点户外装备：帽子、水杯、防蚊液、长裤，并说明为什么要穿长裤。老师还把一个问题交回给孩子：上学带齐东西是谁的责任？孩子们回答「自己」。</p>
+      <p>行走过程中老师定下规矩：老师不会大声喊人，只会轻轻碰一下你的头，你要自己去觉察——是说话了，是离队了，还是走慢了。队伍走歪时，老师提示「眼睛看着前面小朋友的后脑勺，看不到就说明你歪了」。<strong>糯米</strong>被老师点出「很认真很安静地走，边走边观察」；<strong>顶顶</strong>接到提示后主动加快脚步，回到自己的位置。</p>
+      <p>行走途中，老师也顺势上了一节社交学习课：怎么在队伍里守住自己的位置。老师带着孩子们一起想办法，最后归纳出两条：第一，自己跟紧队伍、守住自己的位置，别人就没有位置可站；第二，如果前面的同伴掉队，轻轻碰一下提醒他归队，而不是自己往前插。孩子们都表示听懂了。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>静默行走是 PBL 自然三生课与登山项目的基础功——身体在走，注意力在收。老师用「碰一下头」代替喊名字，把纠正的主动权交回孩子，练的是自我觉察；用「守住自己的位置」代替裁决对错，练的是社交里的自我负责。这两件事，和走了多少公里同样重要。</p>
+    </div>
+  </section>
+
+  <!-- 六 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗺</span><h2>六、爱护自然与探公园地形 · 为明天做准备</h2></div>
+    <div class="body-text">
+      <p>路上孩子们发现了一只绿色的蜘蛛，围着观察。有孩子想去戳，老师问：它出来散步而已，跟你们一样出来玩，被人一戳你愿意吗？孩子们随后一起说出「它也是有生命的」，学着远远看、不伸手碰。老师也讲了为什么不能随手摘花摘草：每一株植物都有生命，都被摘走，大自然就光秃秃了。</p>
+      <p>今天的户外任务是探地形，不安排高强度游玩。老师带着孩子们走了一圈，选定了明天活动的大本营，还和孩子们聊了后续可以带上玩沙工具，把大本营真正用起来。返程路上，老师又把安全规则讲了一遍：跟住队伍、过马路听指令、注意力集中。明天会更早出发，留出充足的活动时间。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>市内研学课的生活实践篇，讲的就是「先熟悉环境，再展开活动」。今天不急着玩，而是带孩子探地形、定营地，让他们看到一个项目是怎么被准备出来的。而对一只蜘蛛的态度，就是三生课里对生命的态度——欣赏而不占有，好奇而不伤害。</p>
+    </div>
+  </section>
+
+  <!-- 七 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>七、餐后生活课 · 自己的桌面自己负责</h2></div>
+    <div class="body-text">
+      <p>回园后，孩子们跟着老师在院子里跑了几圈，舒展一下身体，再安静下来准备午休。<strong>糯米</strong>和<strong>六一</strong>都跑完了约定的圈数，跑完老师还请他们自己感受一下：现在身体是不是已经准备好休息了。</p>
+      <p>用餐环节，老师说明今天统一用勺子，碟子专门装食物残渣，不能直接丢在桌面上。餐后孩子们自己动手：用墙上黄色的桌面扫把扫桌面，再用抹布擦干净，地面的饭粒用垃圾铲清理。<strong>展硕</strong>主动参与擦桌，学会了先把抹布拧干再擦。<strong>子阳</strong>完成了自己的桌面清理，然后按流程去刷牙。后续班级也会逐步引入值日生机制，让孩子轮流照顾公共区域。</p>
+      <p>睡前，老师引导孩子们把绘本看一本拿一本、看完放回原位摆整齐，区分孩子的饮用水和大人的热水，并逐一确认每个人都上过厕所、换好拖鞋、拿好水杯，再进午休室。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>吃饭、扫桌、擦地、归位、如厕，这一串动作构成了自在班的生活课主线：孩子既被照顾，也在学着照顾环境。跑一跑再休息，是帮孩子把身体状态调到能安静下来——先有身体的秩序，才有作息的秩序。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>开学第一天，孩子们没有被要求学会新知识，而是被邀请重新拿回三件事：管好自己的物品、守住自己的位置、照顾身边的生命。孩子们都完成了。新学期，我们一起慢慢来，稳稳来。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
