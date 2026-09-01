@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  .summary .closing-line {
+    margin-top: 22px;
+    padding: 16px 20px;
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .summary .closing-line strong { color: var(--gold); font-weight: 600; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* 积分表 */
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 18px;
+    font-size: 14px;
+  }
+
+  .score-table th,
+  .score-table td {
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .score-table th {
+    background: var(--navy-soft);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 13.5px;
+    letter-spacing: 1px;
+  }
+
+  .score-table td:first-child {
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">📖 2026 秋季班 · 开学第二天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「自己的事情自己做」又往前推了一格</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 1 日<span class="dot">·</span>开学第一周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li>
+        <span class="t">出门前的四样东西 🎒</span>
+        <p>书包里只留上衣、裤子、汗巾、袜子各一样，其余放回书包柜。两分钟倒计时，孩子们自己翻、自己叠、自己检查，再举手请老师过关。</p>
+      </li>
+      <li>
+        <span class="t">走去「秘密基地」 🥾</span>
+        <p>整队、立正、转身，队伍一路走了半个多小时。中途路边的爷爷主动让出位置给孩子们歇脚，孩子们说了谢谢，喝两口水润喉就继续出发。</p>
+      </li>
+      <li>
+        <span class="t">下坡要慢慢走 ⛰</span>
+        <p>老师把登山课的安全意识重新讲了一遍：下坡不跑，靠自己控制速度。孩子们答得整齐——慢慢走。这条规则不只用在山上，日常遇到下坡路都算。</p>
+      </li>
+      <li>
+        <span class="t">跨过那条溪 💪</span>
+        <p>有孩子站在石头前迟迟不敢过。老师陪着一步一步教：先跨右腿、蹲下来慢慢伸脚、用手把自己撑起来。同伴在对岸齐声喊加油，孩子最后靠自己走了过去。</p>
+      </li>
+      <li>
+        <span class="t">一把水枪，轮流玩 💦</span>
+        <p>水枪是向路边奶奶借的，只有一把。老师带着孩子们排队报名、轮流玩，规定只能朝没有人的方向打。玩完，孩子们把水枪还给奶奶，说了谢谢。</p>
+      </li>
+      <li>
+        <span class="t">换衣服这件小事 👕</span>
+        <p>上岸后自己用汗巾擦干、自己分辨内裤的正反面、把湿衣服一件件放进脏衣袋，帽子、袜子、水杯自己清点。这一段没有大人代劳。</p>
+      </li>
+      <li>
+        <span class="t">下午的规则课 📚</span>
+        <p>教室是我们共同的家。绘本按内容和大小归位，桌椅对齐地上的蓝点，值日生分三组轮着来。积分从今天开始记：按时到校、自己收拾书包、喝够水、吃完自己收桌、自主入睡，月底拿积分去拍卖会换东西。</p>
+      </li>
+    </ol>
+    <div class="closing-line">开学第二天，孩子们把「<strong>自己的事情自己做</strong>」又往前推了一格。</div>
+  </section>
+
+  <!-- ============ 详细记录 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>详细记录</h2></div>
+    <div class="body-text">
+      <p>今天是秋季班开学第二天。孩子们走了很远的路，跨过了一条溪，又自己换回干爽的衣服。下午回到教室，把规则一件件落到了具体动作上。</p>
+    </div>
+  </section>
+
+  <!-- 一 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>一、出门前的四样东西 · 指令是怎么被执行的</h2></div>
+    <div class="body-text">
+      <p>出发去溪边之前，老师给了一个很具体的清单：书包里只留一件上衣、一条裤子、一条汗巾、一双袜子，另外带上脏衣袋，水杯打满水，其余的东西全部放回自己编号的书包柜。</p>
+      <p>然后是两分钟倒计时。</p>
+      <p>剩一分四十秒、剩一分二十秒、剩三十秒、剩十三秒——老师报着时间，孩子们在地上摊开书包翻找。有孩子一边收一边念：「一件衣服，一件裤子，一条汗巾，一双袜子。」也有孩子发现书包里的裤子多带了，自己判断「带一条就行了」，把多的放回柜子。</p>
+      <p>收完举手，老师逐个过关。这一轮里老师把流程讲清楚了：<strong>第一，接收指令；第二，执行指令；第三，自己检查；第四，老师过关。</strong></p>
+      <p>有孩子问「穿拖鞋是不是就不用带袜子」，老师答：拖鞋照穿，袜子还是要带，因为那是备用的——万一需要穿呢？</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>出门前这两分钟，其实是一堂完整的执行力课。四样东西不难，难的是听清、做到、再自己核一遍。上小学之后，一天要接收几十条这样的指令，今天练的就是这个。</p>
+    </div>
+  </section>
+
+  <!-- 二 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🥾</span><h2>二、走去「秘密基地」 · 队伍与下坡</h2></div>
+    <div class="body-text">
+      <p>出发前先整队。糯米当小队长，喊立正、转身、站立。老师提醒大家：不管是老师的指令还是小队长的指令，小耳朵都要听到。老师请<strong>六一</strong>和<strong>展硕</strong>当参照——他们两个站得稳，大家跟着他们调整站姿。</p>
+      <p>队伍走了半个多小时才停下来休息。路边长椅上的爷爷看见孩子们，主动把位置让了出来，孩子们齐声说谢谢。老师提醒：喝两口润一下喉就走，别一次喝光，后面还要走很远。</p>
+      <p>路上孩子们问了一串问题——小蚂蚁有毒吗？溪里有水蛇吗？老师一个个答：小蚂蚁不咬人；这里天天有人散步，蛇怕人，不会来。有孩子接了一句「人怕蛇是怕蛇伤害自己」，老师顺着说：那蛇怕人，也是怕人伤害它呀。</p>
+      <p>下坡是今天反复讲的一段。老师停下队伍，把爬山的安全意识重新讲了一遍：下坡不能跑，身体有惯性，跑起来刹不住车。她问「下坡要怎么走」，孩子们答「慢慢走」。老师又补一句：这条规则不只在山上用，日常任何一段下坡路都算。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>安全意识不是讲一次就长在身上的，它需要在同一个坡上被重复。今天孩子们答得很齐，明天遇到同一段坡才是真正的检验。</p>
+    </div>
+  </section>
+
+  <!-- 三 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💪</span><h2>三、跨过那条溪 · 「我可以的」</h2></div>
+    <div class="body-text">
+      <p>到了溪边，要踩着石头跨过一段浅水。有孩子站在原地不动，脚一直不敢往前伸。</p>
+      <p>老师没有把孩子抱过去，而是站在对岸讲步骤：先跨右腿，踩到那块小石头上；觉得站得太高，就蹲下来慢慢伸脚；手撑一下地，把自己撑起来。她一遍遍说：「这个水那么浅，你的腿那么长，你完全可以做到。」</p>
+      <p>同伴们在对岸齐声喊加油。孩子最后一步一步走了过来。</p>
+      <p>老师蹲下来跟他确认了一遍：「虽然我们花了一点点时间，但是我们自己想办法解决了，对不对？」孩子点头，还回答说再走一次会更稳。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>孩子怕的往往不是水，是「我不行」这句话。今天这个孩子没有被抱过来，是自己蹲下、伸脚、撑起来的——身体记住的东西，比听懂的道理留得久。</p>
+    </div>
+  </section>
+
+  <!-- 四 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💦</span><h2>四、溪水里的一把水枪 · 轮流与分享</h2></div>
+    <div class="body-text">
+      <p>溪边的水枪是向路边的奶奶借的，只有一把，孩子们都想玩。</p>
+      <p>老师没有直接排顺序，而是问：「只有一个，我们要怎么做到轮流玩？」然后带着孩子们报名、排队，一个玩完交给下一个。规则很清楚：只能朝没有人的方向打，不能对着人，也不能把水泼向岸边坐着的爷爷奶奶。</p>
+      <p>中间老师点出了几个画面：<strong>糯米</strong>主动把水枪递出去分享；<strong>子旭</strong>玩完之后把水枪交给了下一个人，同伴向他道了谢；<strong>子阳</strong>接过水枪，玩了一轮；<strong>顶顶</strong>主动把规则复述了一遍——「玩水枪不能对着人，要往没有人的地方打」；<strong>六一</strong>排在队伍里，一直等到了自己那一轮。老师把这些都当场说了出来，让所有孩子都听见。</p>
+      <p>玩水结束前，老师提醒还有五分钟，水凉，不能久泡，头发也别弄湿——户外没有吹风筒。上岸后，孩子们把水枪还给奶奶，说了谢谢。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「借来的东西」是最好的社交教具。它不属于任何一个孩子，所以必须协商、必须轮流、必须归还。分享不是被要求出来的，是在一把水枪面前被看见、被说出来的。</p>
+    </div>
+  </section>
+
+  <!-- 五 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👕</span><h2>五、换衣服这件小事 · 自己的身体自己管</h2></div>
+    <div class="body-text">
+      <p>上岸后是十五分钟换衣时间。</p>
+      <p>孩子们用汗巾把身体擦干，先穿上衣再脱湿衣服，湿掉的衣裤袜子一件件放进脏衣袋。<strong>妍语</strong>从头到尾自己换完，湿衣服自己装进了袋子。老师在旁边提醒的多是细节：内裤哪边是正面，哪边是反面，自己看一眼；鞋子已经湿透的，袜子就先收回书包，光脚穿鞋走回去更稳；帽子、水杯、袋子自己清点，别落在草地上。</p>
+      <p>有孩子的袋子系得太紧解不开，老师没有伸手，而是问：「解不开的时候怎么办？想办法怎么办？」</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>换衣服看起来是小事，里面装着三件大事：分辨正反的观察力、收纳湿衣的秩序感、还有解不开时先想办法的习惯。大人少伸一次手，孩子就多长一次本事。</p>
+    </div>
+  </section>
+
+  <!-- 六 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎽</span><h2>六、书包排成一条线 · 以老师的包为基准</h2></div>
+    <div class="body-text">
+      <p>到了大草坪，老师先把自己的背包放在地上，然后立了一条通用规则：<strong>不管我们去到哪里，老师的包放下之后，你们就接在它后面把书包排整齐，水杯放在书包前面。</strong></p>
+      <p>她问孩子们：哪边是我的包的后面？左边是前面，右边是后面。有孩子跟着旁边的同伴摆，老师提醒：不要看别人的，别人也不一定想清楚了，你自己想。</p>
+      <p><strong>六一</strong>不只把书包排整齐了，还把正面转了过来，老师当场说了出来。</p>
+      <p>放好书包，孩子们在草坪的小圈里跑圈，暖身子。老师在旁边计数、鼓励，提醒大家离招牌远一点、跑的时候不要拉扯同伴。<strong>展硕</strong>一圈也没停，一直跑到了最后。也有孩子跑完喊累，老师蹲下来跟孩子说：「你远比你自己想象的更有力量，累的时候告诉自己再坚持一下，我可以的。」</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>以老师的包为基准，而不是以旁边同伴为基准——这是一个很小的判断训练。孩子们最容易的是抄，最难的是自己看清参照物，然后自己决定。</p>
+    </div>
+  </section>
+
+  <!-- 七 -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📚</span><h2>七、下午的规则课 · 家、绘本与积分</h2></div>
+    <div class="body-text">
+      <p>下午回到教室，先讲的是「家」。</p>
+      <p>老师把教室定义成孩子们共同的家：这里的干净整洁靠谁？孩子们答：靠每一个人。包括两位老师，也包括在座的每一位。</p>
+      <p>接着是绘本。老师把书架上的书一本本拿出来，讲两条归位原则：一是按内容归类，走迷宫、西游记、科学系列各自放在一起；二是不同内容的按大小排，大书放后面，小书露在前面，这样才找得到。她请孩子们轮流上前试摆，问「这样整齐吗」「这本放这里会不会挡住后面的小书」。孩子们答对了就调，答错了再看一次。整理完，老师问：现在整齐了没有？孩子们说整齐了。</p>
+      <p>然后是积分。今天开始，每天有五件事可以攒积分：</p>
+      <table class="score-table">
+        <thead>
+          <tr><th>项目</th><th>怎么算</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>按时到校</td><td>八点及八点之前到，加 2 分</td></tr>
+          <tr><td>自己收拾书包</td><td>自己收、东西齐全加 2 分；自己收但漏了一样，也能拿 1 分鼓励</td></tr>
+          <tr><td>喝够水</td><td>一天喝完两壶温水，换雪花片再换积分</td></tr>
+          <tr><td>用餐</td><td>自己吃完、自己收桌面和餐具，值日生检查过关，每餐 1 分</td></tr>
+          <tr><td>午睡</td><td>自主入睡、不需要老师陪，加 2 分</td></tr>
+        </tbody>
+      </table>
+      <p>五项加起来，认真一天最多能攒十分。老师还告诉孩子们：积分不能用钱买，只能靠日常表现攒；每个月月底有一场拍卖会，玩具和零食都要用积分去换。孩子们当场就报出了想要的东西——机械恐龙、机械老鹰、机械狗狗。</p>
+      <p>值日生的规则也定了下来：孩子们分成三组，大哥大姐搭配弟弟妹妹，从第一组开始每天轮一组。值日生负责拿餐送餐、检查同伴座位的卫生、饭后把公共区域的地板扫干净。有孩子提出还要检查同伴的书包，老师顺着他自己的话答：<strong>先做好自己，你才有权利去管别人。</strong></p>
+      <p>最后是两件小事。桌椅前面的地上贴着两个蓝色定位点，桌子不能超过这个点，孩子们一起走到前面看了一遍。衣物收纳老师现场演示了卷叠法——卷好的衣服装进袋子里，怎么抖都不会散。孩子们轮流试了一遍，<strong>糯米</strong>卷得很扎实，一次就过了关。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>开学第一周，规则要一次一次落到具体动作上：书放哪里、桌子对哪个点、衣服怎么卷、积分怎么来。抽象的「要爱护教室」记不住，「大书放后面、小书露前面」才记得住。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天孩子们走了很远的路，玩了一段凉水，又自己换回干爽的衣服走回来。下午我们坐下来，把绘本、桌椅、积分、值日一件件说清楚。玩和规则并不矛盾——正因为规则清楚，他们才敢放开了玩。新学期，我们一起慢慢来、稳稳来。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
