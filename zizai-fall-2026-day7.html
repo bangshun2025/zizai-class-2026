@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第七天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">📖 2026 秋季班 · 开学第七天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「等人提醒」，换成「自己先想」</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 8 日<span class="dot">·</span>开学第二周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li>
+        <span class="t">出门前的七块钱 · 车费和零花钱分开放 💰</span>
+        <p>每人带七块钱：两块公交车费加五块零花钱，分开放两个口袋；带多了要当场收回去，能多带的只有帮家里长辈买东西的钱。</p>
+      </li>
+      <li>
+        <span class="t">准备是自己的事 · 这次留给孩子自己想 🛍️</span>
+        <p>袋子这件事老师这次没提醒，留给孩子们自己想「我需要准备什么」；忘了带就要自己花钱买，一个袋子五毛。</p>
+      </li>
+      <li>
+        <span class="t">哭解决不了问题 · 要开口说出来 🗣️</span>
+        <p>有孩子遇到问题只哭不说，老师把全班停下来讲清楚：在集体里要学着用嘴巴说，主动求助、主动表达，问题才能解决。</p>
+      </li>
+      <li>
+        <span class="t">路上的小虫与被砍倒的树 🐛</span>
+        <p>路上遇到小虫，老师讲了为什么不能碰；有孩子问虫子的家是不是被毁了，老师就着树讲下去：砍倒的树晒干后会切成片做木工材料。</p>
+      </li>
+      <li>
+        <span class="t">坐公交 · 小朋友自己投一块钱 🚌</span>
+        <p>去超市坐公交三站路，小朋友半价，每人提前把一块钱拿在手上，到了自己投；钱不能拿在手上走，也不能放进嘴里。</p>
+      </li>
+      <li>
+        <span class="t">进店前的任务 · 今天是来看分区的 🔍</span>
+        <p>进店前反复确认任务：今天来看超市分了哪些区、每区摆了什么，不是来购物；分区就像数学里的分类，把同类的东西放在一起。</p>
+      </li>
+      <li>
+        <span class="t">个人护理区与婴童中心 · 抬头看大字 🧴</span>
+        <p>认区的第一步是抬头看头顶的大字；在婴童中心做了推理题：漱口杯会跟牙刷放在一起，所以它是漱口杯。</p>
+      </li>
+      <li>
+        <span class="t">服饰、玩具与文具区 · 眼看手不动 🧸</span>
+        <p>眼看手不动，不买的商品不许碰，碰坏了就要买；想要的东西先记下来，回家跟爸爸妈妈商量，或者长大自己赚钱买。</p>
+      </li>
+      <li>
+        <span class="t">零食、烘焙与生鲜区 · 什么时候不能吃薯片 🍪</span>
+        <p>老师问的不是「能不能吃」，而是「什么时候不能吃」；坚果选生的不上火，烘焙是火字旁，水果要自己挑过再买。</p>
+      </li>
+      <li>
+        <span class="t">结账与算账 · 花了多少、还剩多少 🧮</span>
+        <p>买完东西一项一项算：花了多少、还有没有钱、还能不能买，孩子自己数手指头答出了答案；没扫码没付钱的商品不能拿走。</p>
+      </li>
+      <li>
+        <span class="t">下午第一节数学课 · 波浪线不是「和」 🔢</span>
+        <p>0~5 的认识：0 到 5 中间还藏着 1、2、3、4；老师把「组成」和「分解」分得很清楚，分解不能分出 0。</p>
+      </li>
+      <li>
+        <span class="t">数棒实操 · 每人一道题，做对了才下课 🧱</span>
+        <p>数棒是学习工具不是玩具；每个人的题不一样，不用看别人；多余数棒推到边上、分成左右两份，摆好举手等老师检查，对了加一分。</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ 正文 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💰</span><h2>一、出门前的七块钱 · 车费和零花钱分开放</h2></div>
+    <div class="body-text">
+      <p>今天出门前的第一件事，是清点每个人身上的钱。</p>
+      <p>老师定的标准很清楚：两块钱公交车费 + 五块钱零花钱，一共七块。两块钱要单独放一个口袋，五块钱放另一个口袋，不能混在一起。理由老师也讲了：混在一起，等你要投币的时候就分不清哪张是车费。</p>
+      <p>有孩子带多了，掏出一张二十、一张五、又一张十块。老师一个一个问：「两块钱坐公交，五块钱买东西，一共是多少钱？」问到能答出「七块」为止。带得多的孩子，多出来的钱当场收好放回去——只有帮家里长辈买指定东西的，才可以多带对应的那份钱。<strong>糯米</strong>今天要帮奶奶买番茄，所以多带了买番茄的钱，其余的照旧。</p>
+      <p><strong>子阳</strong>被问到公交车费怎么算，老师引导他：「去要一块，回来要一块，1 加 1 等于几？」老师带他算了一遍，他自己得出了 2，然后按两块钱备好了车费。</p>
+      <p>老师还提醒了钱的收纳：钱要叠好放进口袋、把拉链拉上，不要拿在手上。有一笔钱掉在地上，老师就着这件事讲了收纳：自己的钱要自己收好，衣服上特意做了四个口袋，就是给你们分开放东西用的。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>七块钱不多，但它是一堂完整的数学课：认识面额、分类存放、加法计算、还有「不能超支」。今天的重点不是买到什么，是让钱这件事从「妈妈给我」变成「我自己算得清」。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🛍️</span><h2>二、准备是自己的事 · 这次留给孩子自己想</h2></div>
+    <div class="body-text">
+      <p>出发前有孩子问：「老师，有购物袋吗？」</p>
+      <p>老师说，去超市不带购物袋，买了东西要自己买袋子，一个袋子五毛。这时候好几个孩子才发现自己没带袋子、也没留出买袋子的钱。</p>
+      <p>老师也说明了原因：这一次是特意留给孩子自己想的。</p>
+      <blockquote>
+        <p>你们做每一件事情都要去想：我做这件事情，我需要准备什么东西。每一件事情都是一样的，不是所有事情都靠别人提醒你的。</p>
+      </blockquote>
+      <p>这句话背后有一个很具体的观察：一个孩子如果所有东西都是家长头天晚上装好、第二天照单拿走，他就不需要在脑子里过一遍「我要去哪、我要做什么、我需要什么」。今天这一趟，就是让他们在真实的场景里吃一次小亏。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>忘记带袋子，代价是五毛钱和一点点尴尬。这个代价越早付越好。请家长们试着把「明天要带什么」这道题还给孩子，你可以在旁边看着，但先别替他说出答案。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🗣️</span><h2>三、哭解决不了问题 · 要开口说出来</h2></div>
+    <div class="body-text">
+      <p>出发前有一段小插曲：一个孩子遇到问题，站在原地一直哭，不说话。</p>
+      <p>老师没有直接过去帮忙，而是把全班停下来，问了大家一个问题：「遇到问题不想办法、不主动，就在那里哭，你们觉得能解决问题吗？」孩子们回答「不能」。</p>
+      <p>然后老师讲了今天最重要的一段话：在集体里，老师没办法只看着一个人，所以你要学着用嘴巴告诉老师。你要主动地去寻求帮助，主动地表达你的问题。</p>
+      <p>老师给了他一点时间平静下来，也告诉他：想解决问题，就把话说出来。等其他孩子排好队，老师又回过头去问了一次——最后这个孩子自己归了队，跟着队伍出发了。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>哭不是错，哭是这个年纪最本能的表达。我们要教的是第二步：哭完之后，用一句话说清楚「我遇到了什么、我需要什么」。这一步练会了，孩子在陌生环境里就不会束手无策。在家里也可以这样接：先抱一抱，然后问「你现在能不能用一句话告诉妈妈，你要什么」。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🐛</span><h2>四、路上的小虫与被砍倒的树</h2></div>
+    <div class="body-text">
+      <p>出门走了一段路，有孩子在路边发现了一条虫，围了一小圈人。</p>
+      <p>老师第一时间提醒：不要用手去碰。理由讲得很具体——这类虫子身上有细毛，沾到皮肤上会痒。有孩子问是不是蜈蚣，老师说不是，就是普通的虫子；有孩子说要回教室拿纸巾来包，老师也拦住了。</p>
+      <p><strong>糯米</strong>顺势问了一个很好的问题：昨天不是一直在砍树吗，那这些虫子的家是不是被毁掉了？老师就着这个问题讲了下去：砍倒的树会先晒干，之后拉回来切成片，用来做木工的材料。孩子自己接了一句：「可能砍到它了，所以它跑出来了。」</p>
+      <p>路上老师还盯了一路队形：跟上、不要脱队、不要跑到马路那一侧去。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>一条虫子能牵出三件事：安全（不能碰）、常识（树砍下来做什么）、还有共情（虫子的家去哪了）。孩子在路上冒出来的问题，往往比我们准备的教案更有价值——只要有人愿意停下来接住它。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🚌</span><h2>五、坐公交 · 小朋友自己投一块钱</h2></div>
+    <div class="body-text">
+      <p>今天去超市坐公交，一共三个站，是几条线里最快的一条。</p>
+      <p>上车前老师把规则又说了一遍：提前把一块钱拿在手上，到了自己投。小朋友是半价，投一块就够了，不要投两块——有孩子一开始拿了四个一块硬币，老师带着他重新算了一遍：去一块、回一块，两块就够了。</p>
+      <p>路上还有两件小事。一是钱不要拿在手上——老师提醒了一个拿着钱走路的孩子，钱一旦掉了，回程就没有车费。二是钱不要放到嘴里，这个提醒往返各说了一次：钱币经过很多人的手，不干净。</p>
+      <p>下车的时候司机提醒大家携带好随身物品从后门下，老师先下，孩子们再一个个下。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>自己投币这件事看着小，它是孩子第一次以「乘客」的身份出现在公共场所，而不是「被带着的小孩」。周末带孩子出门，不妨把投币、拉铃、看站牌这些事交给他。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>六、进店前的任务 · 今天是来看分区的</h2></div>
+    <div class="body-text">
+      <p>到了超市门口，老师没有直接进去，而是把队伍停在外面，把今天的任务说清楚。</p>
+      <p>任务只有一个：看。看超市里一共分了哪些区，每个区里面摆了什么东西。每个人至少要记住一个区里的一样东西，下午回教室一起分享，看谁观察得多。</p>
+      <p>老师把这件事和课本接上了：</p>
+      <blockquote>
+        <p>分区就像分类一样，把同一类的东西放在同一个区，这个就是分区，跟你们数学里面的分类是一样的。</p>
+      </blockquote>
+      <p>一开始大家的答案各不相同：有人说「来买东西」，有人说「来看日用品」。老师不急，一个一个问过去，直到孩子能把任务完整地复述出来：看超市分了哪些区，每个区里有什么东西。老师反复强调的那句话是：老师带你们来是学习的，不是带你们来买东西的；买东西周末跟爸爸妈妈来就好了。</p>
+      <p>进店前还有一条规矩：水杯背好，队伍排好，跟紧前面的人。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>一件事开始之前，先问一句「我们为什么要做这件事」，是今天最值得带回家的一个动作。孩子说不出目的不要紧，多问几遍、多复述几遍，他就会开始习惯带着目标去做事，而不是被事情推着走。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧴</span><h2>七、个人护理区与婴童中心 · 抬头看大字</h2></div>
+    <div class="body-text">
+      <p>进店的第一个区是个人护理区。</p>
+      <p>老师教的第一个方法，不是看货架，是抬头看头顶上的大字：「所有的大字，就是分区。」这个年纪认的字还不多，老师就一个一个念给他们听，再让他们看区里摆的东西对不对得上。</p>
+      <p>个人护理区里，孩子们自己数出了洗发水、护发素、沐浴露、身体乳、牙膏，还有人发现了染发和剃须用的。老师顺带讲了牙膏的区别：小朋友的牙膏主要是防蛀牙，再加上你们喜欢的味道；大人的牙膏更看重功效，不那么在意味道。</p>
+      <p>往前走就是婴童中心。这一区孩子们兴致最高——因为里面的东西他们都用过。老师介绍了两种纸尿裤的差别、奶瓶清洗剂、婴儿米糊和辅食。其中最好的一个互动是推理题：老师拿起一个杯子问——我怎么知道它是喝水杯而不是漱口杯？因为它跟勺子放在一起。那如果是漱口杯，它会跟什么放在一起？有孩子马上答出了「牙刷」，老师当场说了一句「太棒了」。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「漱口杯会跟牙刷放在一起」——这就是推理。孩子不需要认字也能完成，靠的是观察和关联。这正是我们想在超市里练的东西：不是认出商品名字，而是看懂东西为什么被放在一起。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧸</span><h2>八、服饰、玩具与文具区 · 眼看手不动</h2></div>
+    <div class="body-text">
+      <p>接下来是服饰区和玩具文具区。</p>
+      <p>服饰区里，孩子们自己数出了拖鞋、帽子、袜子、小内裤、防晒帽。老师又问了一句「文具是什么」，并把它和玩具分开：文具是写字的东西、是学习用品，和玩具不在一个区。</p>
+      <p>玩具区是今天最考验人的一段。老师在这里反复说了同一句话：</p>
+      <blockquote>
+        <p>眼看手不动。这些商品你们如果不买都不许碰，因为你碰坏了，你就要买。</p>
+      </blockquote>
+      <p>有孩子看中了东西，说「回去叫妈妈买」。老师接了一句：想要的东西可以先记下来，回家跟爸爸妈妈商量；也可以等长大了自己赚钱买。有孩子接着问：「那等我六岁了可以买吗？」这一段孩子们笑了很久。</p>
+      <p>这一区还有一个反复提醒的行为：不要把手放进嘴里，不要大声喊——这是公共场所，别人都听得到。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「眼看手不动」养的不只是规矩，是对别人的东西的尊重。至于「想要就买」，在超市里说一次很容易，难的是回家之后。如果家里和园里口径一致，孩子慢慢就会学着先商量、再决定。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🍪</span><h2>九、零食、烘焙与生鲜区 · 什么时候不能吃薯片</h2></div>
+    <div class="body-text">
+      <p>零食区是孩子们最熟悉的一区，也是老师问题最多的一区。</p>
+      <p>老师没有直接说「薯片不能多吃」，而是问：薯片在什么时候是不可以吃的？孩子们自己答出了「上火的时候」「生病的时候」「咳嗽的时候」，还有孩子补了一句「会流鼻血」。老师接着讲了原因：它本来就是很热气的食物。</p>
+      <p>坚果区讲得最细。老师带着孩子们认了腰果、开心果、夏威夷果、碧根果，还拿起包装讲了夏威夷果壳上的那条缝——要用专门的开果器撬才能吃到里面的果仁。还讲了一个孩子们听得进去的知识点：坚果是健康食品，但炒过、烘焙过的也会热气，不想上火可以选生的；适量吃对大脑有好处。</p>
+      <p>烘焙区老师只教了一件事：什么叫烘焙。现做的糕点和面包叫烘焙，并且带着孩子看「烘」字是什么旁——火字旁。还顺带回忆了一下之前做麻薯的活动，孩子们齐声说今年还要做。</p>
+      <p>生鲜区学的是「怎么挑」。有孩子要买番茄，老师没有直接帮忙拿，而是说：你要去挑，看有没有烂的、有没有不新鲜的，挑过了再买。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>同样是讲零食，「不能吃」和「什么时候不能吃」是两回事。前者是禁令，后者是判断力。我们希望孩子长大之后不是「不敢吃」，而是「知道什么时候不适合吃」。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>十、结账与算账 · 花了多少、还剩多少</h2></div>
+    <div class="body-text">
+      <p>买完东西不是结束，是另一道题的开始。</p>
+      <p>老师带着孩子一项一项算：前面花了十二，又买了一件七块六毛九的，先按八块算，伸出八个手指头，从十三一直数到二十。然后问：你现在花掉了多少钱？还有钱吗？还能买吗？孩子自己答出了「二十」「没有了」「不能买了」。</p>
+      <p>自助收银台那里也有一堂课。有孩子问：老师，为什么它不把东西给我？老师的回答很直接：因为你没扫码、没付钱。没有付钱的商品不能拿走——这句话今天说了不止一遍。</p>
+      <p>回程前老师把队排好，让每个人提前拿出回程的一块钱。还有一件事要如实告诉各位家长：孩子们买好的东西在回程途中遗失了，没能带回园里，这是我们的疏忽，先向大家说一声抱歉。老师们已经和孩子们一起复盘了这件事，后续的外出活动也会把物品清点这一步做实。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>东西没能带回来，责任在我们，后续流程会补上。同时也想跟家长说一句：如果孩子回家提起这件事，请不要责备他，可以陪他一起想一想——下次怎么把自己的东西看好。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>十一、下午第一节数学课 · 波浪线不是「和」</h2></div>
+    <div class="body-text">
+      <p>下午回到教室，上了本学期第一节数学课：0~5 的认识。</p>
+      <p>课从标题开始。孩子们把「0~5」念成了「0 和 5」，老师停在这里问了很久：中间那个符号叫什么？波浪线。它表示的是 0 和 5 吗？不是——它代表 0 到 5，中间还藏着 1、2、3、4，只是没写出来。</p>
+      <p>接下来是一段动画故事：咕咚爷爷的院子里种了很多蔬菜水果，数一数。一个西瓜是 1，一像铅笔直又长；两个南瓜是 2，二像小鸭水中游；三根胡萝卜是 3，三像耳朵听声音；四个西红柿是 4，四像小旗迎风飘；五个茄子是 5，五像秤钩称东西。最后花丛里三只蝴蝶都飞走了，一只都没有了，这就是 0，0 像鸡蛋圆又圆。</p>
+      <p>然后是今天的重头戏：数的组成与分解。老师把两个词分得很清楚——两个数合起来等于下面那个数，叫组成；一个数拆成左右两份，叫分解。并且反复强调：分解不能分出 0，因为那就意味着有一边什么都没分到。</p>
+      <p>抽问环节七个孩子都被叫到了。<strong>展硕</strong>是第一个被点名起立回答的，老师让其他孩子先安静，给他时间自己想。<strong>子旭</strong>在老师的引导下把思路说完整了：一共三个果，分给老师一个，自己还剩两个，所以 3 可以分解成 1 和 2；接着回答 4 的时候，他先说了 2 和 2，老师问「还有另一种分法吗」，他自己想出了 3 和 1。<strong>六一</strong>被叫起来分 3，老师换了一个他熟悉的场景：妈妈给你三个果，你要分给弟弟，你分几个？他想了一会儿，自己把答案说了出来。也有孩子这一块已经掌握了，老师就让他们先自己往下练。</p>
+      <p>老师最后教了一个通用方法：分解一个数，先从 1 开始——先分一个出去，剩下的就是右边的数；然后再分两个、三个，一步一步往上加。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>很多家长会觉得 5 以内的分解太简单。但孩子卡住的从来不是算术，而是「分解」这个概念本身——他们需要先看到真的有东西被分成了两份。所以今天老师一直在用果子、苹果、手指头举例。在家里也一样：先拿真东西分，再回到纸上。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧱</span><h2>十二、数棒实操 · 每人一道题，做对了才下课</h2></div>
+    <div class="body-text">
+      <p>课的后半段，老师发下了数棒。</p>
+      <p>发下来的第一件事不是做题，是讲规矩：数棒是拿来学习用的，不是玩具，不能当积木搭；暂时用不到的放到桌面的左上角或右上角。</p>
+      <p>然后是今天最重要的一个设计：每个人的题不一样。老师把学号写在白板上，一号到七号各对应一道题，要求用数棒把分解的结果摆出来，摆好了举手，老师过来检查，对了加一分。老师反复强调的一句是：不用看别人，每个人的题都不一样，看也看不来。</p>
+      <p>实操里最常见的两个问题，老师一个一个纠：一是多余的数棒没拿走，摆在中间分不清哪些是答案——要分解几，就只拿几根出来，其余的推到边上；二是只摆了一边，忘了分解要分成左右两份。</p>
+      <p><strong>展硕</strong>在这一环做得很稳：他把四辆小汽车按左右两份分开摆好，摆完就放在桌面上、不拿在手里，等老师过来看。<strong>子阳</strong>一开始有点犹豫，老师提醒了一句「别人一定是对的吗」，他就回到了自己的题上，后来按「二和二」摆了出来。<strong>子旭</strong>的题是 5 的分解，一开始桌上摆了五根又拿混了，老师带他重新看了一遍题目，他改正后分出了 2 和 3。最后一道题是「做对了就可以下课」，陆续有孩子举手过关，每人加了一分；其余孩子由老师陪着继续摆。过关的孩子把数棒收回盒子里，收完才离开。</p>
+      <p>今天还有三道书面习题。看图写数时，老师纠了数字 4 的笔顺（要从上往下写，不是从右往上）；按顺序填数时，老师先问「这一题是顺数还是倒数」，先判断再下笔。有孩子觉得这题很简单，写的时候还是出了小差错，老师只说了一句：简单不代表一定会写对，不要粗心大意。倒数那一题卡住时，是<strong>糯米</strong>先答出了「倒数」这个词，被老师当场表扬。还有一个小插曲：有孩子说台上同学的 5 写反了，老师把两个 5 放在一起比了比，证明人家写对了——并且提醒大家：说别人错之前，自己先看清楚。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「每个人的题不一样」是一个很小但很有用的设计：它把「看别人的」这条路堵掉了，孩子只能回到自己的题上。一开始会慢，但慢出来的那一步，才是他自己走的。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天一整天，上午在超市、下午在教室，其实只练了一件事：自己先想一想。</p>
+      <p>带多少钱自己算；要不要带袋子自己想；有问题自己开口说；分区自己抬头看；水果自己挑；花了多少自己数手指；数棒自己摆，摆完自己检查一遍再举手。</p>
+      <p>这些事分开看都很小，方向却是同一个：少靠一次别人提醒，多靠一次自己。</p>
+      <p>今天也有不顺的地方：有孩子忘了带袋子，有孩子说不出今天的任务，有孩子遇到事先哭了一场，买好的东西也没能带回园里。但这些都不要紧——现在吃的小亏，往后都会变成孩子自己的本事。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
