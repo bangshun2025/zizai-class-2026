@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第八天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">📖 2026 秋季班 · 开学第八天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「等人来扛」，换成「自己往上走」</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 9 日<span class="dot">·</span>开学第二周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>晨间值日的消毒任务，老师把「哪张桌子归谁」重新讲了一遍，分工清楚之后孩子们都把自己的活做完了。</p></li>
+      <li><p>早餐老师教了个小方法：吃东西时用碗接住嘴巴，桌面就不会掉一片。</p></li>
+      <li><p>积分核算老师直接上成了一节加法课，孩子们自己算自己的分，算错的重新数一遍。</p></li>
+      <li><p>从今天起，积分既记录做得好的地方，也记录还没做到的地方。</p></li>
+      <li><p>晨读换了新内容——《当我安静下来》，一首讲「听见」的诗，老师带着跟读了三遍。</p></li>
+      <li><p>认字环节里，<strong>子阳</strong>认出了白板上的字，读得很清楚。</p></li>
+      <li><p>老师给孩子们介绍了新的自然基地：黑羊、小狗米粒、木工房、感统山坡，还有一座要建半年的小木屋。</p></li>
+      <li><p>和小动物相处的规矩老师讲得很细：不能粗暴对待米粒，也不能碰它刚出生的小宝宝。</p></li>
+      <li><p>生活技能课学穿鞋带，第一步是把两根鞋带拉齐——大部分孩子都是在这一步出错。</p></li>
+      <li><p>打结今天只教活结；有孩子打成了死结，老师没有代劳，让他自己慢慢解开。</p></li>
+      <li><p>课间操学了四个动作，<strong>糯米</strong>当领操员，<strong>顶顶</strong>的动作老师当场说了很标准。</p></li>
+      <li><p>下午写字课继续练数字「一」和日期，重点是坐姿、笔顺和橡皮的用法。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 正文 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧴</span><h2>一、晨间值日 · 自己的活自己记得</h2></div>
+    <div class="body-text">
+      <p>今天值日是第三组。老师站在餐桌旁把任务重新分了一遍：哪张桌子归谁、谁拿消毒壶，说清楚之后孩子们都动手做完了。这几天老师也在反复做同一件事：把「你是值日生」落到具体的人和具体的桌子上。</p>
+      <p>动手之后老师补了两个细节：抹布和喷壶都要拧干一点，手放低一些，不要喷到旁边的人身上。另外从今天起，靠里的那张餐桌也要一起消毒，不能只擦自己常坐的那一张。</p>
+      <p>擦桌子这件事老师今天也提了一句：擦完要带着再看一遍边角，四个角和中间都擦到才算做完。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>值日的活，不应该是「被叫到才做」的事。孩子这个阶段还分不清「我的任务」和「老师安排的任务」，老师需要一次次把「你是值日生」和「这张桌子归你」对应起来。今天点名之后大家都做完了，这就是起点。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🥣</span><h2>二、早餐桌上的小事 · 碗要接住嘴巴</h2></div>
+    <div class="body-text">
+      <p>早餐前老师让所有孩子先洗手。餐具规则老师又说了一遍：只有午饭需要用筷子，其他时段自己选勺子就行。</p>
+      <p>有孩子吃粉时掉了一桌，老师没有直接帮他擦，而是教了个方法：吃的时候把碗端起来接住嘴巴，东西就不会掉到桌上。掉在碗边的菜，也可以用勺子刮回去，不用上手抓——手一抓，甩一甩，就甩到桌子和别人身上了。</p>
+      <p>有孩子想吃盘子里的菜又捞不到，老师帮他捞了过来，也跟他说：捞不到叫老师帮忙就好。洗手这一环老师会在门口再确认一次，确保每个孩子都洗过再回到餐桌。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>吃饭这件事，老师讲一百次「注意点」都不如给孩子一个具体动作：碗接住嘴巴。他们能照着做，桌面立刻就干净了。家里也可以用同一句话，孩子会更容易对上。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>三、积分核算 · 大数记心里，小数伸手指</h2></div>
+    <div class="body-text">
+      <p>昨天的积分今天统一核算，老师把加分项写在白板上，让孩子们自己算自己的分。这一环节最后实际上成了一节加法课。</p>
+      <p>有孩子的分是 2+1+2+2+2，报出 9 分，全班一起验算，跟得很稳。有孩子先报 11，又改口 12，重新数了一遍之后算出 13。有孩子报 8 分，还自己给出了验证过程：「我有两个二，还有两个二，四加四等于八。」也有孩子一时报不准，老师让他把手指伸出来一根一根数，从 4+2 数到 6，再加两根，最后他自己数出了 8。</p>
+      <p>老师顺势教了个更快的算法：把大的数记在心里，把小的数伸手指出来，然后往上数。比如 9+2，不用两只手都伸出来，只伸两根，从 9 往上数「十、十一」就够了；7+3 也一样，伸三根手指，从 7 往上数到 10。</p>
+      <p><strong>展硕</strong>是自己收书包的，老师前几天见到就是他自己在收，这一项直接给他加了分。老师也跟孩子们说明了判断标准：能马上答上来的，是真的自己收的；要想很久才答的，其实没有。另外，有孩子的小红花已经攒到二三十朵，老师给了一分钟贴到本子上，然后统一收上来。</p>
+      <p>最后老师把规则跟孩子们说清楚了：<strong>从今天开始，积分既记录做得好的地方，也记录还没做到的地方。</strong>目的是让孩子看得见自己的变化，而不是为了比高低。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师把积分核算放到台上算，不是为了比分数，而是为了让孩子自己算一遍自己的事。算错不要紧，数错了就重新数；怕的是随口报一个数字。具体的积分规则老师会在群里单独跟各位家长说明。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>四、晨读新课 ·《当我安静下来》</h2></div>
+    <div class="body-text">
+      <p>晨读今天换了内容，不再读千字文，改成一首叫《当我安静下来》的诗。选它的原因很直白：一是里面「我能听见」这几个字反复出现，孩子容易把字认熟；二是这首诗本身是让人慢下来、静下来的。</p>
+      <p>读之前老师先说了坐姿：端身正坐，腰背挺直，声音打开，眼睛看字。老师带着跟读了三遍，一遍比一遍快。中间也提醒了几次坐姿，有孩子趴在桌面上，有的翘起二郎腿。</p>
+      <p>认字环节里有个小插曲：老师指着白板上六个大字问怎么念，<strong>子阳</strong>读出了其中两个字，声音很清楚，随后大家一起跟着念了一遍。</p>
+      <p>读完三遍，老师把屏幕遮住随机提问，答对的可以先下课：</p>
+      <ul>
+        <li><strong>糯米</strong>答的是游泳的时候——听见双脚划开水面，基本全对。</li>
+        <li><strong>子阳</strong>答的是冬天——听见雪花漫天飞舞。</li>
+        <li><strong>六一</strong>举手说叶子轻轻飘落，老师提醒他这是秋天不是夏天，并带着大家想了想：现在出门就能看到路边的落叶。</li>
+        <li><strong>展硕</strong>把「走路的时候，我听见轻轻的脚步声」这一句说完整了。</li>
+      </ul>
+      <p>这首诗后面老师会打印出来放到阅读区，以后孩子早上到校放好书包、活动完身体，就可以自己去读一遍。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这首诗里重复的字很多，孩子不是在背，是在一遍一遍里把字认熟。回忆环节老师也特意不要求一字不差，能把意思说出来就算过。家里晚上可以问孩子一句：「你安静下来的时候，能听见什么？」</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🐑</span><h2>五、新的自然基地 · 黑羊、米粒和小木屋</h2></div>
+    <div class="body-text">
+      <p>上午老师给孩子们介绍了新考察的自然基地，并把图投屏出来给大家看。</p>
+      <p>那里有黑羊、鸭子、小鸡、小羊，还有一只叫米粒的小狗。米粒很聪明，会帮老师把跑上来的鸡赶回去。除了主基地，后山还有一块感统训练的山坡，以后每次去都是先到山坡上做自然感统训练，再回到基地上课。</p>
+      <p>基地里有三位擅长不同领域的男老师，木工课跟孩子们之前在青秀山做木剑、木桶那次是一个路子：先在木头上画形状，再切割、打磨，最后做成东西。足球场旁的山坡上还要建一座「七个小矮人」那种小木屋，预计要建半年，会和周末班的小学生哥哥姐姐一起动手，班里的孩子做自己能做的那一部分就好。建房子的专业部分由基地的木工老师带，孩子们参与自己能做的那一段。</p>
+      <p>孩子们最感兴趣的是那个圆形水池。目前池子还需要清理，后续如何使用会另行安排；老师当场就把规矩跟孩子们说清楚了：<strong>没有老师在场不靠近水边，任何涉水活动都必须全程穿救生衣</strong>。</p>
+      <p>介绍完之后，老师让孩子们举手表决，并且强调不要看别人举自己就举。绝大多数孩子都愿意去。老师同时告诉他们：孩子同意只是第一步，最后一关是爸爸妈妈同意。相关的安排老师会单独跟各位家长说明。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>现在的基地已经去了一年，场地比较平整，除了游乐设施，能给孩子练的东西不多了。新基地地形复杂，周边还能徒步，光是走路就是很好的感统训练。老师想换环境不是为了新鲜，是为了让孩子多动手、多走路。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🐶</span><h2>六、和小狗相处的规矩 · 不碰刚出生的小宝宝</h2></div>
+    <div class="body-text">
+      <p>米粒刚生下四只小狗，还没睁眼。老师把规矩说得很清楚：第一，不能粗暴对待米粒，它虽然性子温和，但不要拉扯它、不要惹它；第二，在还没有彻底熟起来之前，不要去碰它刚出生的小宝宝。</p>
+      <p>老师也把原因讲了：动物妈妈会非常警惕地保护自己的宝宝，你一靠近，它可能会以为你有威胁，就会变得很凶。想和米粒交朋友，可以每次去带一点小点心喂它；等小狗长大了、彼此熟了，自然就能一起玩。</p>
+      <p>有孩子问小狗什么时候会走路，老师说大概一两个星期，就像你们小时候一样，从只会睡、只会哭，到会坐、会爬，再到站起来。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>和动物相处是很好的边界课：它不会因为你是小孩子就让着你。老师想把孩子的「想碰」变成「先问、先等、先熟」，这个分寸感以后用在人身上也一样。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">👟</span><h2>七、穿鞋带 · 第一步是把两头拉齐</h2></div>
+    <div class="body-text">
+      <p>今天的生活技能课是穿鞋带。老师先跟孩子们说了为什么要学：你们的脚越来越大，以后会穿到带鞋带的运动鞋；更重要的是，手越灵活，脑袋越灵活，以后写字也会写得更好。</p>
+      <p>每两个孩子一套教具，先把原来的鞋带拆下来。老师提醒他们，拆之前先观察它是怎么穿的，而且要一个扣一个扣地拉，不能一把扯。</p>
+      <p>穿的方法老师拆成了几步：</p>
+      <ol>
+        <li>从鞋头（脚趾那一端）开始穿。</li>
+        <li>穿进去之后把两根鞋带拉齐，两边一样长——这一步不做，后面一长一短就打不了结。</li>
+        <li>然后交叉穿：右二、左三、右四，中间隔一个洞，中心会形成一个交叉点。</li>
+        <li>全程保持从里往外穿，不能一会儿里一会儿外。</li>
+      </ol>
+      <p>实操里出错最多的就是第二步。老师反复问的也是同一句：「穿进去之后第一件事要做什么？」——拉齐。穿错的孩子要全部拆开重新穿，老师不代劳。<strong>子阳</strong>是较早把第一步做对的孩子之一，老师当场跟他说了声「对了」，后面的交叉穿法他也是一步一步跟下来的。</p>
+      <p>已经学会的孩子，老师安排他们去教还没学会的同伴，并且跟他们说：自己会穿是一回事，能不能教会别人又是一回事。练完的孩子可以去洗手、拿钢杯喝一杯南瓜汁。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>穿鞋带看着简单，其实是典型的「第一步错，步步错」。老师觉得这个体验很宝贵：不是孩子笨，是开头那一下没做对。以后遇到做不下去的事，可以先回头看看第一步。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🪢</span><h2>八、活结与死结 · 越用力扯它越紧</h2></div>
+    <div class="body-text">
+      <p>穿完之后学打结。今天老师只教活结：把两个「耳朵」收短一点、靠近一点，绕一圈拉紧，一扯就能解开。</p>
+      <p>练的过程中有孩子不小心打成了死结，叫老师帮忙。老师没有代劳，只问了一句：「你觉得你这样拉，它是会越来越紧，还是越来越松？」提醒了两遍之后，他停下了用力扯的动作，开始一点点往外拨。</p>
+      <p>下课前老师告诉大家，这套教具课间可以随时拿来练，等基础的交叉穿法熟了，下次再教其他花式。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「越用力扯越紧」这件事，老师讲道理不如让孩子自己扯一次。他们记住的不是道理，是那双扯不开的手。急的时候停下来想一想，比使劲更管用。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>九、课间操 · 四个动作，一个领操员</h2></div>
+    <div class="body-text">
+      <p>上午户外课的目标很明确：学会韵律操。这个阶段老师想让孩子的手、脚、脑协调起来，所以跟他们说：眼睛看会了，身体还要学会。</p>
+      <p>领操的安排老师今天特意解释了一句：领操和当队长没有关系，谁动作熟谁上。今天由<strong>糯米</strong>领操，他同时也是今天的小队长。站位要求是手臂张开后彼此不碰到手指。</p>
+      <p>今天学了四个动作：</p>
+      <ul>
+        <li><strong>双手交叉摸膝盖</strong>：膝盖像高抬腿一样抬起来，另一只手往上打，动作要明显，还要踩到节奏。</li>
+        <li><strong>大风车</strong>：双腿打开，手臂像风车扇叶一样用力转，膝盖全程不弯。老师问了一句：「你见过哪个风车的扇叶是软软的？」<strong>子旭</strong>的动作老师拿来做过示范，录视频时又提醒了他手臂要伸直。</li>
+        <li><strong>踢毽子</strong>：腰保持挺直，是把脚踢高去碰手，不是弯腰去够脚，还要配上小跳。这个动作练的时间最长。</li>
+        <li><strong>单侧脚配合抬手</strong>：先左脚站、右手抬高，熟了再换另一边，中途不能随意换脚。</li>
+      </ul>
+      <p>练的过程里，<strong>顶顶</strong>的动作老师当场说了非常标准，节奏也跟得对；<strong>糯米</strong>的节奏全程稳定，老师反复让大家看一眼领操员；<strong>六一</strong>学得很认真，动作已经对了，就差跳起来那一下；<strong>子阳</strong>的交叉动作在老师一句一句带着调之后就对上了；<strong>妍语</strong>从自己埋头做，到会抬头看一眼领操员；<strong>展硕</strong>很快找准了自己的站位。</p>
+      <p>最后老师把动作串起来配音乐完整做了一遍，并且录了视频发到班级群，让各位家长也看看目前的掌握程度。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>韵律操真正难的不是动作，是「看一眼别人」。孩子容易自己埋头苦干，做错了也不知道。这一点需要时间，也需要先有一个可以参照的人。今天领操员的节奏很稳，这个参照就立起来了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🚰</span><h2>十、跑步与午间 · 小口慢喝，不要猛灌</h2></div>
+    <div class="body-text">
+      <p>课间操之前和之后都有跑步：放好水杯先跑五圈热身，练完再跑五圈，跑完还能有二十分钟自由活动时间。</p>
+      <p>中间休息时老师给了一分钟喝水，并且反复强调：刚运动完不要一口气灌，要小口慢慢润喉，否则容易岔气。早上老师也说过同一件事：水要平均着喝，每次喝一点，不要等到下午起床才灌一大杯。</p>
+      <p>户外回来后是一段很密集的生活环节：探索园的石头不能带回教室；回来先换衣换裤，因为玩一上午裤子容易脏；换完洗手排队打餐。有孩子提出想像上周一样轮流当小队长，老师答应了，但也说了前提：小队长自己动作要快，打餐也要第一个打完，才能去检查和提醒别人。</p>
+      <p>餐后的事情老师也列得很清楚：吃饭不弄脏地板，吃完擦桌子、刷牙、上厕所，休息时坐凳子不坐地上。有孩子主动说要帮老师洗碗，老师谢过他，请他先把自己的餐具照顾好；也跟大家说明了厨房里的清洁工具属于老师使用，孩子不要去拿。</p>
+      <p>放学前整理时，教室里剩下一本蓝色的书和一个蓝色的杯子，问了一圈没人认领。老师把它们收了起来，也跟孩子们说：东西拿出来了，就要记得把它带回去。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>午间这段时间看起来只是吃饭休息，其实是孩子一天里自理动作最密集的时段：换衣、洗手、打餐、擦桌、收东西。每一步都不难，难的是不用人提醒。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>十一、下午写字课 · 一个拳头的距离</h2></div>
+    <div class="body-text">
+      <p>下午继续练数字「一」，翻到练习册第 4 页，老师给了 25 分钟，到三点半长针指到 6 就收作业。</p>
+      <p>开写之前先调坐姿，老师把标准拆成了几个能看得见的动作：</p>
+      <ul>
+        <li>胸口距离桌面保持一个拳头的距离，不能整个人趴上去。</li>
+        <li>左手只放一半在桌上，手肘露在桌子外面。</li>
+        <li>脚放好不勾着，凳子正一正，看不清本子就把凳子往前挪一点，而不是把头低下去。</li>
+      </ul>
+      <p>今天坐姿保持得最好的是<strong>顶顶</strong>，老师当场说了出来，只提醒了一句头不要歪。<strong>子旭</strong>、<strong>子阳</strong>、<strong>六一</strong>、<strong>糯米</strong>的坐姿老师都逐个调整过，调完都保持住了。</p>
+      <p>具体到笔下，老师反复强调三件事：一是笔顺，数字和汉字都有笔顺，不能从中间起笔；二是描红只能描在红色的字迹上，手慢一点线才稳；三是橡皮的用法——一只手压住本子，另一只手把橡皮立起来对准错的那一个擦，不要把旁边写好的一并擦掉。握笔时要露出铅笔削过的木头部分，大拇指不要用力，不然手关节会酸。</p>
+      <p>写完之后的流程也固定下来了：先把文具收好，自己检查一遍，看看每一个「一」是不是直的，改完错再交给老师。今天还多了一项作业：补写日期「9 月 9 日星期三」，不会写的可以对照白板上的范本。有孩子不知道「9」怎么写，老师教了一个办法：先写一个小小的 c，再从上面拉下来。不知道写在哪里的，老师也不直接指，而是问他「另一个九写在日的前面，那日在哪里？」让他自己找位置。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>刚开始写字，写得快不重要，坐姿和笔顺重要。现在形成的习惯，以后要花好几倍的力气去改。家里如果看到孩子写得歪，不必急着说字，先看一下他的胸口和手肘在哪里。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🪞</span><h2>十二、在集体里 · 仪容和吃相都是自己的事</h2></div>
+    <div class="body-text">
+      <p>写字课中间，老师停下来跟孩子们讲了一段关于形象的话。</p>
+      <p>起点是一个很朴素的道理：人是群居的，大家生活在一起，就要顾及一下自己在别人面前的样子。把自己收拾得干干净净、衣服裤子穿整齐，不是为了好看给谁看，而是一个人日常习惯的体现。上完厕所把衣服裤子整理好、坐着时注意一下姿势，这些都属于同一件事。</p>
+      <p>吃饭也一样。老师跟他们说，吃得太急、没嚼碎就吞下去，其实尝不到味道；好吃才更要慢慢吃。下午点心时老师又补了一条：先洗手、把手擦干，再拿勺子，不要直接用手拿着吃。老师也跟他们说，吃饭的样子自己看不见，但坐在旁边的人看得见，所以慢一点、稳一点，既是对自己好，也是对同桌的尊重。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这一段老师不是在说「要好看」，而是在说「你开始被别人看见了」。孩子快上小学，会进入一个更大的集体，对自己的样子有一点意识，是很早就可以开始的。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>十三、有压力是好事 · 从爬山讲到团结</h2></div>
+    <div class="body-text">
+      <p>下午还有一段很长的谈话。本周才真正开始系统地学写字、学数学，有孩子开始觉得累、觉得难，老师觉得这很正常。</p>
+      <p>老师把这件事跟他们解释得很正面：你觉得有压力，是因为你开始看重这件事了，想把它做好才会觉得有压力；如果根本不在乎，反而不会有。接着老师用爬山打了个比方：爬到半山腰累了，停在那里等，是等不来人把你扛上去的；想看山顶的风景，只能自己往上走。</p>
+      <p>老师也跟他们讲了大脑是怎么回事：脑袋里像树根一样有很多枝枝丫丫，越用它，枝丫越多，人就越聪明；长期不用，枝丫就会慢慢退化。所以多做事、多想办法，本身就是在练脑子。自己收书包、自己系鞋带这类小事做多了，会变成身体的记忆，不用想就能做完。</p>
+      <p>之后老师放了一段爱国主义教育短片，并且边看边讲：当年的条件很艰苦，能一步步走过来，靠的是全国人民团结一致、不怕困难的意志。老师用了一个孩子听得懂的例子：一个家庭里兄弟姐妹如果总是各拉各的，就很难拧成一股绳；班里也一样，要一起维护班集体，同学之间互相护着点。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这一段老师想传递给孩子的只有两件事：一是现在的日子不是凭空来的，二是遇到难的事不要等。他们未必能全部听懂，但「自己往上走」这句话，已经能跟着接下来了。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，看上去学了很多东西：一首诗、一套操、一根鞋带、一个数字。但它们指向的其实是同一件事——自己的事自己做，做不好就再来一遍。</p>
+      <p>孩子们今天都有做得好的地方：有人把鞋带的第一步做对了，有人带着全班做操，有人把自己的分一步步算清楚，有人把诗里的句子完整地说了出来。也都有被老师反复提醒的地方，这很正常。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
