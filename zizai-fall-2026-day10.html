@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「我不敢」，换成「我走过去了」</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 11 日<span class="dot">·</span>开学第二周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>到基地第一件事是整理物品：水杯竖着放才装得下，草帽人人一顶。</p></li>
+      <li><p>基地的集合暗号是笛声，笛声一响就要马上回到集合点。</p></li>
+      <li><p>手工教室的锯子、锉刀、手电钻，必须经过沙滩老师允许才能碰。</p></li>
+      <li><p>恐龙窑要「吃木头」才肯工作，孩子们一趟趟去大富老师那里搬柴火，大的木头两个人一起扛。</p></li>
+      <li><p>揉面团的要领是掌根往前推、再像折被子一样折回来，站着揉才有力气。</p></li>
+      <li><p><strong>妍语</strong>最早把面团揉出弹性，光滑发亮，老师让全班看了一眼。</p></li>
+      <li><p>坐转运车进山，帽子的带子要拉紧，手脚不能伸出车外。</p></li>
+      <li><p>滑车由老师按轮次统一安排，起点终点全程陪护，每个孩子都轮到。</p></li>
+      <li><p>徒步三条规则：最快不能超过沙滩老师和米粒，最慢不能落后大树老师，塑料垃圾不能留在山里。</p></li>
+      <li><p>认识了两种植物：鬼针草是山里「相生相克」的例子，草金兰有毒、只看不碰。</p></li>
+      <li><p>拉绳爬土坡，坡底坡顶各有一位老师定点保护，孩子一个接一个通过；独木桥全班都自己走过去了。</p></li>
+      <li><p>秘密基地玩秋千，<strong>糯米</strong>自己喊出了那句「爱的魔力转圈圈」。</p></li>
+      <li><p>回到基地捏面包造型，出来了爱心、蛇、牛角包、毛毛虫，刷了蜂蜜，外酥里嫩。</p></li>
+      <li><p>餐前一起背《悯农》，说五句感谢；吃完自己洗手、洗碗、擦桌、扫地。</p></li>
+      <li><p>下午的木工课做香樟木名牌：拉锯要保持直线、匀速，最后用砂纸磨到不刺手。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 正文 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>一、抵达基地 · 水杯竖着放，笛声就是集合令</h2></div>
+    <div class="body-text">
+      <p>车一停下，第一件事不是玩，是整理自己的东西。老师让孩子们把水杯从书包里拿出来竖着放——横着放太占地方，本来刚刚够放的书包就挤不下了。草帽人人一顶，为后面一整天的户外做准备。</p>
+      <p>接着老师说了基地最重要的一条规则：集合的暗号是笛声。山上的笛声一响，所有人立刻回到指定位置集合。今天全程由沙滩老师、大树老师等多位老师分工带队，这条规则就是我们一整天的安全底线——今天笛声一响，七个孩子都到位了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🪚</span><h2>二、场地初览 · 没有允许，工具一样都不能碰</h2></div>
+    <div class="body-text">
+      <p>沙滩老师带着孩子们把场地走了一圈。基地今年新做了围栏和各类设施，比去年更完整、也更好看。</p>
+      <p>最认真讲的是手工教室。沙滩老师把贝壳、海螺、大饼豆这些自然收集物摆出来给孩子们看，也展示了青蛙、猫头鹰造型的手作乐器，约定以后带孩子们自己收集材料来做。然后就是工具：锯子、锉刀、手电钻，一件一件介绍，每介绍一件都问一句「可以去摸吗」，孩子们齐声答「不可以」。老师把话说死了：<strong>这里所有的东西，没有经过沙滩老师允许，都不能动手去碰。</strong></p>
+      <p>教室的使用规矩也一起讲了：做完木工要把工具放回原处、地面清理干净，恢复成原来的样子；教室里不能跑、不能打闹。路过瞭望塔时老师又补了一条：没有老师或家长在旁边，不可以自己爬塔。</p>
+      <p>基地的小狗米粒刚生了宝宝，正在喂奶。老师跟孩子们解释了为什么现在不能靠近：动物妈妈会以为你要伤害它的宝宝，就像你们的妈妈保护你们一样。这一段和上周在班里讲过的完全对得上，今天是在现场又过了一遍。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔥</span><h2>三、给恐龙窑喂早餐 · 大木头两个人一起扛</h2></div>
+    <div class="body-text">
+      <p>烤鸡、烤面包都要靠恐龙窑，而恐龙窑「吃木头」。老师把任务派下去：去大富老师那里搬柴火。</p>
+      <p>孩子们一趟一趟地搬，小的木头自己抱，遇到一根特别大的，老师没有代劳，只说了一句「你们两个想想办法，看能不能搞」，让两个男孩自己商量着抬过去。搬柴的路上老师提醒了两件事：弯腰轻放，不要甩；经过米粒的时候绕开一点，它在喂奶。</p>
+      <p>搬完最后一趟，窑口开始冒烟，孩子们发现了那个排气孔，一路喊着「冒烟了」。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🍞</span><h2>四、揉面团 · 掌根往前推，再像折被子一样折回来</h2></div>
+    <div class="body-text">
+      <p>洗完手坐好，沙滩老师把食材一样样摆出来问孩子们认不认识：花生油、盐、面粉、牛奶、奶粉、黄油、酵母，最后还有基地自养土鸡下的土鸡蛋。孩子们一样一样都答了出来。</p>
+      <p>揉面的动作老师拆得很细：</p>
+      <ol>
+        <li>用手掌根部发力往前推，不是用手指——手指负责抓，掌根负责推。</li>
+        <li>推出去之后像折被子一样折回来，反复循环。</li>
+        <li>一只手揉，另一只手扶住盆，不然盆会一直跑。</li>
+        <li>站起来揉，坐着使不上劲。</li>
+      </ol>
+      <p><strong>妍语</strong>最早把面团揉出了弹性，表面光滑发亮，老师让全班都看了一眼她的面团。<strong>子旭</strong>的动作也被单独点了出来——推出去、再折叠回来，这一步他做对了。<strong>六一</strong>换成掌根发力之后一下就顺了，后面一直保持着这个动作。动作快的孩子面团不粘盆，慢一点的老师就让撒一点干面粉，最后七个人都把自己的那份揉完了，装起来发酵，留到下午做造型。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🚜</span><h2>五、坐转运车进山 · 帽子带子要拉紧</h2></div>
+    <div class="body-text">
+      <p>去活动点要坐两台转运车，每台车两位老师带四到五个孩子，人数严格控制。上车前老师反复提醒：把帽子的系带拉紧，不然风一吹就飞了；扶稳坐好，身体任何部位都不能探出车外。</p>
+      <p>路上还上了一堂顺手的植物课：路边的柚子树上有刺，老师让孩子们轻轻碰一下，自己感受一下有多扎。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🛷</span><h2>六、滑车 · 每个孩子都轮到</h2></div>
+    <div class="body-text">
+      <p>滑车是今天孩子们最兴奋的环节。规则是分两组排队，老师在起点和终点全程陪护，教孩子用脚的动作调整方向、控制速度。</p>
+      <p>轮次由老师统一安排，保证每个孩子都滑到。<strong>子阳</strong>完整地滑完了属于自己的两轮，排队等待的时候一直站在自己的位置上。</p>
+      <p><strong>糯米</strong>很快掌握了「抓住车头调整方向」的要领，第二趟就找到了手感。今天所有孩子都完成了至少一轮滑行，全程没有碰撞摔倒。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🥾</span><h2>七、徒步三条规则 · 快不过沙滩老师，慢不过大树老师</h2></div>
+    <div class="body-text">
+      <p>进山前沙滩老师把规则立在前面，一共三条：</p>
+      <ol>
+        <li>最快的速度不能超过走在最前面的沙滩老师和小狗米粒。</li>
+        <li>最慢的速度不能落后走在最后的大树老师。</li>
+        <li>塑料垃圾不能丢在户外；果皮这类能降解的可以留在自然里，会变成肥料。</li>
+      </ol>
+      <p>这三条一整天都在被用到。<strong>展硕</strong>今天和大树老师同行，按自己的节奏走完了整段山路，一步没落。老师跟队伍里的孩子说的是同一句话：「不着急，都会等你们的。」</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>八、鬼针草与草金兰 · 认识山里的相生相克</h2></div>
+    <div class="body-text">
+      <p>山路上沙滩老师讲了今天最重要的两种植物。</p>
+      <p>一种是鬼针草。沙滩老师用它讲了一个山里的规律：<strong>大自然是相生相克的，有红蚂蚁的地方，附近往往就长着能对付它的鬼针草。</strong>孩子们认了叶子的形状，知道它是山里的「帮手」。也说清楚了实际做法：真被蚊虫叮咬，要第一时间告诉老师，由老师用随身带的药膏处理，不自己在山里采东西往身上抹。</p>
+      <p>另一种是草金兰，兰花科，整株都有毒。老师的要求只有一条：不采、不碰，看清楚长什么样就够了。</p>
+      <p>路上还认了捻子果。老师确认可食之后，带孩子们少量尝了一颗，同时把规矩说在前面：<strong>没有经过老师允许，山里任何陌生的野果都不能往嘴里放。</strong>返程的时候老师又带着孩子们把这两种植物复盘了一遍：一种是朋友，一种只远远看着。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧗</span><h2>九、绳索爬坡 · 双手交替，抓稳再走</h2></div>
+    <div class="body-text">
+      <p>山里有一段土坡要拉着绳子爬上去。老师先示范动作：双手一前一后交替抓绳，脚用力蹬地，身体微微往后靠，<strong>手要始终握在绳子上，抓稳了再迈下一步。</strong></p>
+      <p>保护的站位是提前排好的：大树老师定点在坡底、沙滩老师定点在坡顶，孩子们一个接一个上，前一个到顶了下一个才出发。今天七个孩子全部自己爬了上去。基地的老师说，这个班的孩子爬山经验不少，体能底子看得出来。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌉</span><h2>十、独木桥 · 一前一后，大胆跨过去</h2></div>
+    <div class="body-text">
+      <p>独木桥是今天最考验胆量的一段。要领是双手张开保持平衡，双脚一前一后往前跨，不要小步挪，也不要停在桥中间。</p>
+      <p><strong>妍语</strong>过桥前跟老师说她不敢，老师没有劝，只是陪着她一步一步走。走完之后老师跟她说：你其实一直在往前走，只是自己还没发现。<strong>子阳</strong>刚上桥时一直低头看脚，老师在旁边喊「子阳加油，看前面」，他抬起头，后半段走得很稳。老师全程在两侧伸手护着，但只在真的需要时才扶——好几个孩子自己说的是「不用扶我，我可以」。</p>
+      <p>今天所有孩子都独立通过了独木桥，没有一个落水或摔倒。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌳</span><h2>十一、秘密基地 · 爱的魔力转圈圈</h2></div>
+    <div class="body-text">
+      <p>走到秘密基地，孩子们排队玩秋千。老师的要求是坐稳、抓牢绳索、中途不松手。</p>
+      <p>最热闹的一段是大家一起念「爱的魔力转圈圈」，秋千跟着慢慢转起来。轮到<strong>糯米</strong>的时候，老师让他自己把这句咒语喊出来，他喊完全场都在笑。<strong>糯米</strong>今天也是攀爬区第一个上去的，老师指着他跟别的孩子说「你看糯米在爬那边，那边也可以玩」。</p>
+      <p><strong>顶顶</strong>在这一段玩得很投入，秋千和攀爬都参与了，老师说明活动范围之后，他一直在划定的区域里玩。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🏖️</span><h2>十二、沙池 · 不扬沙、不戳人</h2></div>
+    <div class="body-text">
+      <p>沙池的规则只有两条：不能扬沙子，会吹到别人眼睛里；手里拿着树枝、木棍的时候要看清周围，不能朝着人。</p>
+      <p>规则说完就是自由发挥的时间。孩子们在沙池里搭起了金字塔、小庙，还自己开发了「挖宝藏」的游戏，谁挖到就喊一声，一群人围过去。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🥖</span><h2>十三、面包出炉 · 面团不能分太小</h2></div>
+    <div class="body-text">
+      <p>坐车回到基地，每个孩子先自己拿好小凳子摆到指定位置，水杯、帽子放回收纳区，然后领一份发酵好的面团做造型。</p>
+      <p>老师提醒了一个要点：不要把面团分得太小。小面团会先烤糊，大面团还没熟，一盘里大小差太多就不好烤。孩子们捏出了爱心、蛇、牛角包、毛毛虫，还有各种只有自己认得出来的造型。</p>
+      <p>烤好出炉，表面刷了蜂蜜，外酥里嫩。老师说下次可以按孩子们的口味再调整糖和盐的用量。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🍚</span><h2>十四、餐前感恩 · 粒粒皆辛苦</h2></div>
+    <div class="body-text">
+      <p>开饭前是基地固定的仪式。沙滩老师带着孩子们齐声背《悯农》，然后一句一句说下去：谢谢大自然、谢谢辛勤劳动的人们、谢谢爸爸妈妈、谢谢我们自己、谢谢大家，最后一起说「请慢用」。</p>
+      <p>今天的午饭是基地自己养的土鸡烤的烤鸡，加上孩子们自己做的面包、粥、青菜、番茄炒蛋。老师在饭桌上反复说的是同一件事：<strong>拿了的食物就要吃完，粒粒皆辛苦。</strong>今天<strong>展硕</strong>拿了一份肉和一个面包，吃得不快，但把自己拿的全部吃完了。<strong>糯米</strong>吃得香，老师提醒他慢一点、不着急，他就放慢了速度。</p>
+      <p>吃完之后的事情孩子们自己做：洗手、洗碗、擦桌面、清理自己位置下的地板。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🪵</span><h2>十五、香樟木名牌 · 直线拉锯，反而最快</h2></div>
+    <div class="body-text">
+      <p>下午的木工课是今天的重头戏：给自己做一块香樟木名牌。</p>
+      <p>沙滩老师先摆出五种锯子讲用途——细齿尖锯可以转弯，能锯出特殊造型；扁锯适合直线切割。然后讲香樟木：做成小木板带回家，晾干后放在衣柜里可以防蛀驱虫，但不能拿到太阳底下暴晒，木头暴晒容易开裂。</p>
+      <p>实操分成三步：</p>
+      <ol>
+        <li>用台钳把木头固定住，双脚打开站稳。</li>
+        <li>拉锯时锯片保持一条直线，匀速有节奏地前后拉，不要左右晃——晃了锯片容易断。老师说了一句今天很值得记的话：<strong>有节奏地慢慢拉，反而是最快的方式。</strong></li>
+        <li>锯好之后用砂纸打磨边缘，磨到像皮肤一样光滑、不刺手才算完成。砂纸磨过的香樟木，香味会更浓。</li>
+      </ol>
+      <p>打孔这一步用到手电钻，全程由老师一对一握扶着钻身、把钻头对准位置，孩子只负责按下去的那一下，一个一个轮着来。老师纠的是同一个动作要领：手臂前后伸缩，身子不要动；不用使劲往下压，放松着来就行。孩子们一开始都想用蛮力，被提醒几次之后动作就松下来了。最后每个人都带回了一块自己锯、自己磨的名牌。</p>
+      <p>做完木工，全班回到木工教室收工具、扫地面，把教室恢复原状之后才去自由活动。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>今天最值得记下来的，是独木桥前那一句「我不敢」和走完之后的那张脸。孩子说不敢，其实是已经站在桥头了——他没有退回去。老师今天做的只是陪着走完，没有抱过去。</p>
+      <p>另一件事是那根大木头。老师本来可以两只手就搬走，但今天选择了退一步，让两个孩子自己商量怎么抬。搬得慢、搬得歪都没关系，他们最后是自己搬到窑边的。</p>
+      <p>还有一句沙滩老师说的话，老师想留给孩子们记很久：有节奏地慢慢拉，反而是最快的方式。这句话讲的是锯子，也不只是锯子。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>第一次去新基地，七个孩子全部到齐，也全部自己爬上了那个坡、走过了那座桥、锯出了自己的名牌。这一天里他们听到的规则很多：工具不能随便碰、野果不能随便吃、垃圾不能随便丢、绳子不能随便松。这些规则不是用来限制他们的，是为了让他们以后在山里、在更大的世界里，能走得更远一点。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
