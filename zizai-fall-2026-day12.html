@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十二天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十二天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把「我知道」，换成「我算得出来」</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 15 日<span class="dot">·</span>开学第三周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>晨间体能是香肠滚和前滚翻，动作要求手脚全程绷直、用臀部的力量带动身体往前、落地时用肚子的力量把脚收住。</p></li>
+      <li><p>阅读区继续点读《当我安静下来》，字卡要分成「认识」和「不认识」两堆，识字目标是最少 10 个。</p></li>
+      <li><p>出门前先上课：5 的分解（花 1 剩 4、花 2 剩 3……）、元角分（小数点左边是元，右边第一位角、第二位分）、凑整法（后面有一位不是 0 就往大的整数凑）。</p></li>
+      <li><p>老师今天说得最重的一句是：我们不是去买东西而买东西，是把课堂搬到了超市。</p></li>
+      <li><p>出发前两份钱要分开放：公交车的钱一边，买东西的钱一边。<strong>子阳</strong>自己核对出妈妈交代的是白糖和巧克力两样。</p></li>
+      <li><p>去超市的路上要走在路边灰色的安全线里，不能超出老师的视野范围。</p></li>
+      <li><p>每人自己买东西的额度是 5 元，帮爸爸妈妈代买的不占这 5 元；超市按区走，过了的区不回头。</p></li>
+      <li><p><strong>展硕</strong>买 2.99 元的橡皮，自己算出凑整要 3 元、5 元花掉 3 元还剩 2 元。</p></li>
+      <li><p><strong>子旭</strong>帮妈妈买 6.99 元的薯片，凑整 7 元，全程自己看价格、自己凑钱，是今天独立完成全部任务的孩子。</p></li>
+      <li><p><strong>子阳</strong>看到 16.99 元很快反应出要 17 元；<strong>顶顶</strong>答对了 16.99 元要 17 元才能买；<strong>六一</strong>今天听懂了凑整法，自己买下了 4.99 元的橡皮。</p></li>
+      <li><p><strong>糯米</strong>买了 8 元的山楂条，加上 3 元的橡皮，自己算出一共 11 元。</p></li>
+      <li><p>收银台环节学看小票：合计 27 元 3 角 8 分，给 30 元，要找回 2.7 元；小票折好放进口袋。</p></li>
+      <li><p>下午写数字「2」：在田字格里只占左半边，不能超过竖中线，起笔先弯一点再下来。<strong>六一</strong>今天自己写出了「2」，老师拍下来发给了家长。</p></li>
+      <li><p>复盘超市研学：这次能买到东西，是因为自己把价格看清楚了、也算对了。</p></li>
+      <li><p>5 以内的分解与组成全部梳理了一遍，老师反复强调保持独立思考，不要别人说什么就跟着说什么。</p></li>
+      <li><p>生活自理立了新标准：书包自己收（请家长随手拍张照片发群打卡）、叠衣服按「糯米标准」先铺平再对折再卷。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 正文 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>一、晨间体能 · 手脚绷直的香肠滚</h2></div>
+    <div class="body-text">
+      <p>早上第一件事是体能。会前滚翻的继续翻跟头，还不会的先做香肠滚，每人 30 个，自己数。</p>
+      <p>动作要领讲得很细：手要伸直、脚要用力绷直，用屁股的力量带着身体往前走，滚的时候要走直线，正反方向各八拍。翻跟头也有要求——先把手撑下去，头轻轻点地，脚一蹬；<strong>妍语</strong>今天也试了翻跟头，老师提醒她落地不要发出很大的声响，要用肚子的力量把脚收住。</p>
+      <p><strong>六一</strong>今天跟着老师的节奏把速度提了上来。老师也说了一句今天很有分量的话：既然来了，就认认真真去做，每一次练习都算在自己身上。收垫子的时候老师也提醒了大家：一个人搬不动两个垫子，别的孩子要主动过去帮忙。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>晨间运动放在所有课程前面，练的不只是身体，还有注意力——滚过一轮再坐下来读书，状态明显不一样。而「手脚绷直」这个要求，本身就是一次小小的自我控制练习：知道动作标准长什么样，并且愿意为了标准多使一点力。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>二、早读 · 会的放一边，不会的放另一边</h2></div>
+    <div class="body-text">
+      <p>收完垫子，孩子自觉去阅读区，不用老师催。规则是小声点读、但一定要读出声，老师才知道进度到哪里。</p>
+      <p>《当我安静下来》今天继续点读：我能听见铅笔在纸上沙沙响、听见轻轻的脚步声、听见咀嚼的声音——原来身边藏着这么多美妙的声音。<strong>糯米</strong>已经读得很熟，老师让还不熟的孩子跟着糯米念。</p>
+      <p>字卡今天重申了一条方法：认识的放一边，不认识的放另一边，不能都堆在一起。老师也提醒大家要跟自己讲实话——如果把还不认识的也放到「认识」那一堆，就不知道自己还差哪几个字了。识字的目标是最少 10 个，有孩子数到 9 个，还差最后一个。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把字卡分成两堆，表面上是整理，实际上是教孩子对自己诚实。承认「这个我还不会」，是学会它的第一步；而每天看着「认识」那一堆慢慢变厚，孩子对自己的进度是有感觉的，这份感觉比多认几个字更重要。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">💰</span><h2>三、出门前的数学课 · 元角分与凑整法</h2></div>
+    <div class="body-text">
+      <p>去超市之前先上了一节课。老师把今天的规则讲清楚：帮爸爸妈妈代买东西，用的是爸爸妈妈给的钱，这是完成家庭任务，很好；自己买自己的东西，先从 5 元开始——这个金额算熟了，以后再往上加。</p>
+      <p>第一段复习 5 的分解：5 元花 1 元剩 4 元，1 加 4 等于 5；花 2 元剩 3 元；花 3 元剩 2 元；花 4 元剩 1 元。老师提醒可以用一只手的五根手指帮忙算，一只手五个，两只手十个。</p>
+      <p>第二段是元角分：以小数点为分界线，左边是元，右边第一位是角、第二位是分。16.99 读作十六元九角九分，7.80 读作七元八角。<strong>展硕</strong>起立回答，把 7.80 准确读了出来。</p>
+      <p>第三段是今天的核心——凑整法。超市里的价格很少是整数，2.99 元不是 2 元，是两元九角九分，只给 2 元人家不会卖；所以只要小数点后面有一位不是 0，就要往大的那个整数去凑：2.99 凑 3 元，3.89 凑 4 元，6.90 凑 7 元；只有后面两位都是 0（比如 3.00）才可以直接按 3 元付。<strong>顶顶</strong>答对了 16.99 元要 17 元才能买，老师说「我就知道他肯定会」；<strong>六一</strong>今天也跟上来了，答出 7.80 元要 8 元，老师当场说：只要你认真并且开动脑筋，肯定能学会。</p>
+      <p>最后老师讲了分区：想买零食去零食区，想买玩具去玩具文具区，帮家里买白糖要去粮油调料区，碗和纸巾这类全家一起用的在生活用品区，牙膏、沐浴露这类自己用的在个人护理区。并且说明：走过的区不再折返，到了那个区就要赶紧选。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师今天说了一句话：我们不是去买东西而买东西，我们是把课堂搬到了超市。这正是这节课的意义——分解、元角分、凑整、分类，四样知识在同一个场景里同时被用到。孩子在教室里学会的是规则，在超市里学会的才是本事。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>四、出发前的准备 · 两份钱分开放</h2></div>
+    <div class="body-text">
+      <p>出门前有一串准备动作：把公交车的钱放一边、买东西的钱放另一边——免得拿车费的时候把购物的钱一起掏出去；提前打水、洗漱；钥匙清点归还；书包检查好。</p>
+      <p><strong>子阳</strong>早上一进教室就把钱掏出来了，老师先让他把钱放回书包、拿出水杯，再跟他核对妈妈交代的采购清单。他一开始说三样，随后自己纠正过来：是白糖和巧克力，一共两样。老师叮嘱他一定要记住，不然到了超市就想不起来要买什么。</p>
+      <p>有孩子的马甲拉链坏了，老师说后面给他换一个能拉的。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「两份钱分开放」是一个很小的动作，但它教的是分类和预算的雏形：这笔钱有这笔钱的用处，不能混。而让孩子自己复述采购清单，是把「妈妈的任务」真正交到他手上——记住任务、带齐东西、买对物品，这一整条链子都是他自己的责任。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🚌</span><h2>五、去超市的路上 · 走在灰色的线里</h2></div>
+    <div class="body-text">
+      <p>整队出发，步行到站台等 W34 路公交车。路上老师反复提醒：注意来往车辆，走在路边灰色的安全线里面，不能超出老师的视野范围。等车时有孩子发现一位叔叔骑车带着一只小狗，大家看得很开心。公交车报站「前方到站民族会展路口」，老师提醒坐稳扶好。</p>
+      <p>下车后过通道、走台阶，老师一路提醒看脚下。全程孩子紧跟队伍，没有掉队。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>每一次外出，安全和规则都排在知识前面。「不超出老师的视野范围」这句话，孩子一开始听的是纪律，慢慢听懂的是信任——你在我看得见的地方，我才能保护你。这也是集体出行能一次次继续下去的前提。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>六、超市选购 · 先看价签，再决定买不买</h2></div>
+    <div class="body-text">
+      <p>进了超市，老师推车，孩子排队跟着走。第一站是零食区，随后按分区依次往前。</p>
+      <p>今天每个人的选购都是一次小考试：</p>
+      <ul>
+        <li><strong>展硕</strong>挑中一块橡皮，老师带他蹲下来看价签：2.99 元，小数点左边是元、右边是角和分，所以凑整要 3 元。接着问他 5 元花掉 3 元还剩多少，他答「还剩 2 元」，老师说他反应非常快。</li>
+        <li><strong>子旭</strong>帮妈妈选了牛肉味的薯片，6.99 元凑整 7 元，刚好是爸爸交给他的 7 元；他今天从看价格到凑钱，全程都是自己完成的。</li>
+        <li><strong>子阳</strong>看到一盒 16.99 元的巧克力，先念出「十六点」，马上就反应出十七元；老师又拿了一盒 19 元的问他要往多少凑，他答出 20 元。他手里有一张十元和一张二十元，一共三十元，够付。</li>
+        <li><strong>糯米</strong>选了 8 元的山楂条，加上先前 3 元的橡皮，老师带他算 3 加 8，他算出一共 11 元，钱是够的。</li>
+        <li><strong>六一</strong>最初想买玩具，5 元的额度还买不到，玩具区也已经走过了。老师建议他挑一块用得上的橡皮，带他去看价格——4.99 元，凑整正好 5 元。他今天把这块橡皮买到了。</li>
+        <li><strong>顶顶</strong>和<strong>妍语</strong>也各自挑好了自己的东西，在收银台前排队完成了付款。</li>
+      </ul>
+      <p>老师在选购过程中反复讲两件事。一是「需要」：你要真的用得到它再买，不要看见就拿。二是「记住价格」：价格标签都在货架上，商品上没有，所以你拿的时候就要把价格记住，不然到了收银台怎么算总价？看到有孩子要买一包白糖，老师还提醒想一想家里用糖的速度，别买回去久了用不完。</p>
+      <p>公共场合的规矩也讲得很细：交流要小声，老师用了一个很具体的标准——两个人交流，就不要让第三个人听见；还让孩子回头看看后面同样在挑东西的几位阿姨，她们也是四五个人，为什么听不见她们说话。此外，站在通道中间要给前来补货的阿姨让路，不要挡住工作人员；冰冻的东西要放在冷柜附近，免得融化。选多了、超出预算的商品，老师带着孩子一起放回原处，等下次再买。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>今天最有价值的一句是「会算就可以买，不会算就不能买」。它把「想要」和「能要」之间那条线，用一道算术题画了出来——孩子不是被大人拒绝，而是自己算出来钱不够。这种拒绝孩子是能接受的，因为答案在他自己手里。而「过了的区不回头」，练的是另一件事：在有限的时间里做决定，机会是有窗口的。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧾</span><h2>七、收银台 · 小票上的「合计」在哪里</h2></div>
+    <div class="body-text">
+      <p>所有人在收银台前排队，不插队，按顺序付款。付完钱，老师把小票摊开来教孩子看。</p>
+      <p>先找「数量」那一栏：下面对应的是多少件？孩子数出四件，那就是买了四样东西。再找「合计」：合计的金额在这里，二十七元三角八分。老师接着带他算：二十七元三角八分，凑整算二十八元；给了三十元，三十减二十八等于二……不过因为后面还有小数点，收银员实际找回的是 2.7 元。老师说了一句很实在的话：你要自己会算数，不然以后买东西都不知道花了多少钱。</p>
+      <p>最后是小票收纳——折起来放进口袋，妥善保管。找零的钱也一起放好，不要随手丢。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这一段把「购物」这件事收了个尾：不只是拿到东西，还要知道自己花了多少、该找回多少、凭证放在哪里。看懂一张小票，其实就是人生中第一次对账。数量栏、合计栏、找零，这三个位置认熟了，以后不管金额多大，看法都是一样的。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>八、返程与跑步 · 过马路要走快</h2></div>
+    <div class="body-text">
+      <p>回程路上老师讲的都是安全：过马路要加快脚步，不能慢悠悠地走；不要用手去爬楼梯，那是不分场合的危险动作；买的东西折好放进口袋，不要一直拿在手上影响走路；队伍不能超出老师的视野。经过地铁站时，有孩子一眼认出了地铁站的标识。</p>
+      <p>回到园区，先把东西放下，然后跑步。要求是脱掉马甲轻装上阵，跑的时候做好摆臂动作，认真跑、不要边跑边玩，名次由老师判定、不自己说。回到集合点，老师第一时间提醒的是洗手——超市是公共区域，手上的东西不能进嘴。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>一上午在外面，回来先跑步再洗手，看着像两件不相干的事，其实都是「收」：把在外面松掉的节奏收回来，把外面带回来的灰尘洗掉。孩子在这样固定的收尾动作里，慢慢知道每件事都有开始，也都要有干净的结束。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🍚</span><h2>九、午餐与收尾 · 碗的边缘也要洗干净</h2></div>
+    <div class="body-text">
+      <p>换衣服环节老师交代了几条：买的东西放到自己书包柜下面，和松果那些放一起；外裤要换，因为坐了公交车和候车的椅子；剩下的钱要带回家交还给爸爸妈妈，钱花完了的也要跟家长说清楚花在哪里；小橡皮放进自己的橡皮袋，免得弄丢。</p>
+      <p>午餐时孩子表现得很好，老师当场表扬：就是要这样吃饭，安安静静的，安静得好像这个教室没人一样。餐后检查了碗，<strong>六一</strong>今天的碗洗得最干净，老师特意拿出来给大家看标准在哪里，并顺势讲了一层——碗边缘没洗到，多半不是不认真，而是手上的力量还不够、不够灵活，把控不好工具，所以要回家多练手。吃完饭还要自己把桌面擦干净、凳子收整齐，不能离开位置就留下一片脏乱。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>洗碗这件事背后有一个真实的原因：孩子不是不愿意做好，而是手的力量和灵活度还不够。这件事只能靠日常一点点练——擦桌子、洗碗、叠衣服、拧抹布。在家里多给孩子一双手的机会，他在学校里的动作就会越来越利索。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🃏</span><h2>十、识字游戏 · 一个字一个词地纠</h2></div>
+    <div class="body-text">
+      <p>下午第一节是识字游戏。今天过手的字有参、生、服、鸡、觉、放、亮、花、穿、年、话、知、正、画、香、睡、看、礼等几十个。老师一个一个带着认，也一个一个纠组词——有孩子把「香」组成「很香的香」，老师纠正为「香味的香」「清香的香」。</p>
+      <p>字卡的摆放老师又说了一遍：你们要像<strong>糯米</strong>这样，会的放一边，不会的放另外一边，堆在一起就统计不出自己认识多少个字。游戏结束提醒大家把字卡本收好。</p>
+      <p>上课铃响的时候，<strong>展硕</strong>和<strong>子旭</strong>安静坐好、坐姿端正，老师点名表扬；随后全班先静坐两分钟，把椅子摆正，只用耳朵听。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>认字这件事，认得出「字」还不够，要能说出它用在哪个词里，字才算真正进到语言里。所以老师一直在纠组词，而不只是纠读音。至于上课前的两分钟静坐，是给身体一个换挡的时间——从玩的状态到学的状态，中间需要一个明确的分界。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>十一、数字书写课 · 「2」只占左半边</h2></div>
+    <div class="body-text">
+      <p>今天写的是第六页的数字「2」，明天才写「3」。老师先给孩子建立信心：会写 1 到 9 以后，不管是七十九还是八十九都会写了，因为多位数都是由这几个数字组成的；写到 100、1000、10000 也一样。</p>
+      <p>书写标准讲得很细：「2」在田字格里只占左半边，不能超过竖中线；起笔先弯一点点，再下来，再写到这里。超线的要全部擦掉重写。老师也教了正确的擦法——先压住作业本，对准那个字上下来回用力擦，不能用力按住橡皮不动，否则本子会被擦破。</p>
+      <p>握笔和坐姿逐个纠正：大拇指和食指捏住笔杆，中指托在下面，其余三根手指并排在笔杆下方，不能三根手指一起握笔；捏笔要轻，捏太用力关节会变形、手也会酸。坐姿方面：凳子往后退、不要贴到胸口，手肘往外放，脚平放踩地不翘二郎腿，不耸肩、头不要贴桌面也不要往左右歪。老师还给还不会握笔的孩子发了握笔器。</p>
+      <p>今天最值得写的是<strong>六一</strong>。他一开始说「我不会写」，老师告诉他：写错了也不要紧，但要尝试去写，不能一直说「我不会」就结束；不会才要学，会了还用学吗？后来他自己写出了一页「2」，老师拿起来连着夸了好几声「这个写得非常好」，还特意拍下来发给了爸爸妈妈看，并跟他约定：明天我们就写 3。</p>
+      <p>交作业的规矩也定下来了：写完先自己检查，检查完再交给老师批改；本来能得 100 分的，如果没有自己检查，就按 90 分算。写得快的孩子一小时内就能写完，剩下的时间可以自由安排。<strong>子旭</strong>今天写得很认真，老师说他的作业可以拿到 100 分。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师今天说了一句很关键的话：要跟自己做对比，不能跟别人比。六一从「我不会写」到自己写满一页，中间差的不是能力，是敢不敢落笔。而「没自己检查就扣十分」这条规则，教的是另一件事——做完不等于做对，回头看一遍，是要养成的习惯。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔁</span><h2>十二、超市研学复盘 · 这次为什么能买到</h2></div>
+    <div class="body-text">
+      <p>下午老师带孩子复盘了上午的超市研学，第一个问题是：这次跟上次相比，有哪些进步？</p>
+      <p><strong>展硕</strong>起立回答，说自己有进步、很开心。老师追问：上次你也带了钱，为什么没买到？他自己说出了原因——上次不懂。老师顺势点明：上次是因为还没学会看价格、算钱；这次你把想买的东西的价格看清楚了，也算对了，所以就买到了。</p>
+      <p><strong>子旭</strong>今天得到了一次公开表扬和奖励，理由是他完整而且独立地完成了全部超市任务——看价格、凑整、判断钱够不够，都是自己做的。老师还借这件事讲了一层：不懂的东西，把它学会就行了，没什么可怕的。</p>
+      <p><strong>六一</strong>这次也答出了文具玩具区在哪里，并且读出了自己买的橡皮是 4.99 元；老师问他 4 元够不够、要多少才够，他答出 5 元，老师说「太棒了」。</p>
+      <p>复盘最后是下一步安排：下节课的目标是学会读价格，不管多大的金额都要会读；下周的超市研学任务升级为带 5 元买两样东西，配合 5 以内的加减法。老师也跟家长提了一句建议：平时带孩子逛超市，不要只是买买买，可以引导孩子看价格、算一算花了多少、还剩多少。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>复盘的价值在于，把「我今天很开心」翻译成「我今天因为学会了什么，所以做到了什么」。孩子说不出这句话，老师就一步步问出来。当他能把成果和自己的努力挂上钩，下一次面对没学过的东西，他的反应就不再是躲，而是学。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">➗</span><h2>十三、5 以内的分解与组成 · 保持独立思考</h2></div>
+    <div class="body-text">
+      <p>这节课把 5 以内的分解全部梳理了一遍：5 可以分成 1 和 4、2 和 3、3 和 2、4 和 1、5 和 0；4、3、2 也依次分完。老师提醒孩子看规律——这一边是从小到大排下来的，排整齐就知道有没有漏。反过来的组成也一样成立：1 和 4 组成 5，2 和 3 组成 5，3 和 1 组成 4。</p>
+      <p>今天老师最在意的不是答案，而是答案从哪里来。她反复讲：不要跟着别人喊，他也并不是每次都对；保持自己独立的思考，别人不可能永远是对的，你也不可能永远是错的，要对自己有信心。谁能在别人答错的时候还算对，就单独加分。</p>
+      <p>课上<strong>顶顶</strong>被点名表扬——他没有跟着别人的答案走，坚持了自己算出来的结果。老师还给孩子科普了一个说法：脑袋里有很多像竖竖叉叉一样的神经连接，经常动脑思考，连接就会越来越多，人就会越来越聪明；平时不用，它就会慢慢消失。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「不要人云亦云」这件事，对五六岁的孩子来说是很高的要求——跟着大家一起喊，既安全又省力。但今天老师宁可慢一点，也要把每个孩子的答案从他自己嘴里等出来。想清楚再开口，比答对一道题重要得多，这也是后面所有学科都要靠的底子。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">👕</span><h2>十四、生活自理 · 糯米标准</h2></div>
+    <div class="body-text">
+      <p>今天班里立了几条关于自己动手的新规矩。</p>
+      <p>第一条是书包自己收。老师说得很明确：书包要自己收，这是自己的事，家长可以在旁边看着、把机会留给孩子。为了不在课堂上反复口头核对，老师定下了一个新办法——在家自己收拾了书包的，请爸爸妈妈随手拍一张照片发到群里当作打卡，拍照只要两秒钟，大家都不用把时间花在互相确认上。</p>
+      <p>第二条是叠衣服要达到「糯米标准」。老师把<strong>糯米</strong>的衣服拿出来给全班看什么叫整齐：先把衣服铺平、两边对齐，对折之后再一边卷一边拉，卷出来一点褶皱都没有。步骤也讲清楚了：没铺平就一定叠不整齐；对折要一只手抓前、一只手抓后，不平的先展平再卷。今天糯米还当了小检查员，等所有人收拾完，一件一件检查，不整齐的重新叠到整齐为止——老师也交代他：要具体说出哪一件没叠好，不能只说一句「叠好为止」。</p>
+      <p>第三条是回家多参与家务。老师顺势把家务和数学连起来：家里的餐具、衣服、玩具都可以分类，收玩具、叠衣服的时候就是在练分类，这正是后面数学要用到的思维。还提醒了一句安全——班里运动量大，在园期间不适合佩戴饰品，摔倒时碎裂容易划伤自己。</p>
+      <p>另外，今天的积分也一起核算了：小宠物满 7 分可以升一级，<strong>糯米</strong>的宠物到了 4 级，<strong>六一</strong>升到了 3 级；小红花要排队领取，不能挤到桌子上。有孩子不会算自己的小红花，老师手把手用手指教他算 2 加 2 加 2 等于 6。也有孩子因为怕说错而声音很小，老师专门安慰了他：不要怕错，我们一直都在学习的过程当中，大声表达出来，错了改正就好；老师说你不是批评你，是想帮你改正。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这一节看起来全是生活琐事，其实是今天最有分量的部分。「自己收书包」「自己叠衣服」「自己算积分」，三件事的共同点是：把原本大人代劳的部分交回孩子手上。老师说孩子现在欠的就是这双手——手灵活了，脑子才跟着灵活。而让糯米当检查员、让孩子自己算分，是在把标准交给孩子自己拿。</p>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，知识其实只有两样：5 以内的分解组成，和小数点后面那两位数字。但它们被放进了一个真实的场景里——手里只有 5 元，货架上只有一个价签，没有人替你算。</p>
+      <p>于是孩子第一次体会到，算得出和算不出，结果是不一样的：算得出的人把想要的东西带回了家，算不出的人只能再等一次机会。这比任何一次讲解都更有说服力。下午的写字课也是同一件事的另一面——一直说「我不会」，那一页就永远是空的；愿意落一笔，它就开始有了。</p>
+      <p>孩子们今天都有做得好的地方：有人独立完成了全部任务，有人第一次读懂了价签，有人写出了自己说不会写的那个数字，有人把碗洗成了全班的示范。也都有被老师反复提醒的地方，这很正常。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+</body>
+</html>
