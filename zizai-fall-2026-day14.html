@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十四天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十四天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">不是运气，是攒出来的</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 17 日<span class="dot">·</span>开学第三周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>今天全员出勤，上午从晨读《当我安静下来》开始，流程是老师领读一遍、全班跟读一遍、第三遍开始接龙。</p></li>
+      <li><p>领读时发现一处念错的地方：「游泳的时候，我能听见我的双腿划开水面」，大家都念成了「双脚」，老师现场讲了「腿」和「脚」两个字的区别。</p></li>
+      <li><p>齐读强调「只有一个声音」，不抢读、不赶快；也提醒要看着屏幕上的字读，不能凭记忆念。</p></li>
+      <li><p>接龙读时「树叶」和「叶子」还是容易混，老师指出诗里这一句写的是「树叶」，看字就不会错。</p></li>
+      <li><p>老师重申了早上到校后的常规：自己翻椅子、拉窗帘、开空调或风扇，然后拿垫子完成 30 个前滚翻或滚香肠。</p></li>
+      <li><p>今天特别提了一件事：老师叫名字要答应，听到指令要回应，这是这个阶段最需要补的一课。</p></li>
+      <li><p>洗手洗碗的姿势也纠正了：弯下腰，手和碗都不要高过水槽，身体不要贴着洗手台。</p></li>
+      <li><p>专注力课第一个项目是两分钟静坐挑战，除了眨眼，从头到脚都不能动，多位小朋友挑战成功。</p></li>
+      <li><p>第二个项目是听指令做动作：起立、摸头、摸眼睛、摸耳朵、摸嘴巴、转身，动作先统一规范，转身一律从右边转。</p></li>
+      <li><p><strong>糯米</strong>在听指令环节反应最快、动作正确率最高。</p></li>
+      <li><p>第三个项目是手指算数：听到数字或算式直接伸出对应根数的手指，5+3 就在 5 的基础上接着加，不用从头数。</p></li>
+      <li><p>课前的生字组词练习讲了组词规范：不能用叠词和人名组词，「羊」要组「山羊」「白羊」，「熊」要组「熊猫」。</p></li>
+      <li><p>老师说明了组词的意义——不组词，同音字就容易全都认成同一个字。</p></li>
+      <li><p>收拾书包继续每天做：衣服翻过来展平、捋平褶皱再卷，昨晚交上来的成品都很整齐，卷得平、捋得细；以后请家长把收拾好的成品拍张照片发到群里就行。</p></li>
+      <li><p>本学期加木工课的原因也讲了：练意志力、细心和耐心，后面会用凿刀把木块凿成能盛东西的碗。</p></li>
+      <li><p>思维课把分类升级成「双标准分类」：要同时满足两个条件，比如「既是水果又是红色」「既是动物又会飞」。</p></li>
+      <li><p>老师顺带讲清了一个标准：能飞到空中才算会飞，鸡扑腾一下翅膀不算。</p></li>
+      <li><p>这个关系有个名字叫「维恩图」，两个圈交叉的重叠部分就是同时满足两个条件的部分，今天只要求理解重叠，不要求会算。</p></li>
+      <li><p>乐高实操：按「既是 X 色又是 X 体」找积木，找到安静举手，没有就说没有——「不是就不是，是就是，这就是数学的思维」。</p></li>
+      <li><p>课间练金龙拍拍操，今天还没有人能一次全部做对，这很正常——它考的是耳朵听到之后身体跟上的速度，老师建议回家和爸爸妈妈比赛着练。</p></li>
+      <li><p>体能课新游戏「毛毛虫运球」：双手抱球、臀部抬高，先把球放到前面的格子再双脚并拢跳过去；下一阶段会升级成手脚各夹一个球。</p></li>
+      <li><p>下午数学学 0~5 的加减法，认识加号、减号、等于号，用汉堡和青蛙的图理解「变多用加、变少用减」。</p></li>
+      <li><p>随堂小考每人一张不同的试卷，不许用数棒，要用之前学的分解与组成来算；<strong>糯米</strong>全部做对，桌面也收拾得很整洁。</p></li>
+      <li><p>老师反复说的一句话是「做完要检查，不要急着交卷」。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>一、晨读：《当我安静下来》领读与一个容易念错的字</h2></div>
+    <div class="body-text">
+      <p>晨读的流程今天说得很清楚：老师先领读一遍，全班跟读一遍，第三遍开始接龙。坐姿要求是头正肩平、腰背挺直、脚踏实地。</p>
+      <p>领读到「游泳的时候」这一句时，老师发现「我能听见我的双腿划开水面」大家都念成了「双脚」。于是停下来讲了这两个字的区别——一个是月字旁的「腿」，一个是「脚」，看清楚偏旁就分得开。纠正完从这一句重新念了一遍。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>一首诗念了很多遍，错字反而不容易被发现，因为孩子是跟着节奏走的。今天停下来专门讲「腿」和「脚」，不是为了纠一个字，而是提醒孩子：读的时候眼睛要落在字上。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗣️</span><h2>二、齐读：只有一个声音</h2></div>
+    <div class="body-text">
+      <p>齐读的要求是所有小朋友一起发声，只能有一个统一的声音，不抢读、不赶进度。今天有小朋友念快了，老师停下来说明了什么叫齐读。</p>
+      <p>另一个提醒是「看着屏幕上的字读」。有小朋友把「我听见轻轻的脚步声」念成了「我听见自己轻轻的脚步声」——诗里这一句并没有「自己」两个字。老师带着大家回到屏幕上找这两个字在哪里。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>凭记忆念和看着字念，是两种完全不同的能力。前者靠熟练，后者才是认字。孩子念顺了以后特别容易「脑子跑在眼睛前面」，所以我们会不断把他们拉回到字上。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔗</span><h2>三、接龙读：树叶还是叶子</h2></div>
+    <div class="body-text">
+      <p>接龙的规则和上周一样，以标点符号为分界线，一人一句。「树叶」和「叶子」这两个词今天还是容易混——夏天那一句是「我能听见树叶沙沙摇晃」，秋天那一句才是「叶子轻轻飘落」。老师把两句放在一起对照，让大家自己找字。</p>
+      <p>读到中段时老师换了个方式，让全班起立站着念一段，站姿要求身体不靠着桌子，精神起来之后再坐下继续。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>同一个词反复念混，多半不是记不住，而是这两个词在孩子脑子里还没有分开。把两句放在一起对照着看，比单独纠正一次更有用。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪑</span><h2>四、课前常规：到校之后自己做的几件事</h2></div>
+    <div class="body-text">
+      <p>老师重申了早上到教室后的固定流程：椅子没翻下来的自己翻下来，把窗帘拉开，能开空调就自己开，能开风扇就自己开，然后拿垫子完成 30 个前滚翻或者滚香肠，再进入晨读。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>这套流程看着琐碎，但它的作用是让孩子一进教室就知道「我该干什么」，不用等老师安排。自主感就是从这种小事上一天天长出来的。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📣</span><h2>五、听到了要回应</h2></div>
+    <div class="body-text">
+      <p>今天老师专门提了一件事：叫名字要答应，听到指令要有回应。比如中午问谁还要上厕所——要就说要，不要就说不要，出声回应一句就可以。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>回应是沟通的第一步。孩子不是不愿意答，而是还没有意识到「别人在等我的回答」。这件事在家也可以练：叫他的时候等他答一声，再继续说下一句。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧼</span><h2>六、洗手洗碗的姿势</h2></div>
+    <div class="body-text">
+      <p>生活环节今天纠正的是洗手洗碗：要弯下腰，手和碗都不要高过水槽，身体不要贴着洗手台。姿势对了，水就不会溅到身上和地上。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>很多「弄得一身湿」的问题，根源都是姿势不对而不是不小心。把手放低、腰弯下去，这一个动作能解决一大半。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧘</span><h2>七、专注力课：两分钟静坐挑战</h2></div>
+    <div class="body-text">
+      <p>休息之后是专注力课。老师先带大家认了「专注力」这三个字，然后进入第一个项目：两分钟静坐挑战。规则很严格——除了眨眼睛，从头到脚都不能动，动了就算挑战失败。三秒准备后开始计时。</p>
+      <p>两分钟结束后，多位小朋友挑战成功，各加 1 分。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>静坐不是为了「坐得住」这件事本身，而是让孩子第一次清楚地感觉到自己的身体在动。能觉察，才谈得上控制。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👂</span><h2>八、听指令做动作</h2></div>
+    <div class="body-text">
+      <p>第二个项目是听指令做动作。开始前先统一规范：起立是站直、双手贴紧裤缝、身体不靠桌子和椅子、头正目视前方；摸头、摸眼睛、摸耳朵、摸嘴巴各有各的固定动作；转身则统一从右边转，转到后面或右边都可以。</p>
+      <p>规则确认完才开始随机喊口令，看谁反应快、动作对。今天<strong>糯米</strong>的反应最快，正确率也最高。老师也提醒大家：手要快，但更要先听清是哪一个指令，听清了再动。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>先统一动作、再开始游戏，是为了把「听错」和「做错」分开。动作标准一致，孩子做错了自己也能看出来是哪一步没跟上。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🖐️</span><h2>九、手指算数</h2></div>
+    <div class="body-text">
+      <p>第三个项目是手指算数。先确认基础认知：一个手掌 5 根手指，两只手 10 根，一只脚 5 个脚趾，两只脚 10 根，手脚加起来一共 20 根。</p>
+      <p>然后开始听指令出手指：老师报一个数字或者一道算式，孩子直接伸出对应根数。重点是「不用从头数」——比如 5+3，就在 5 的基础上接着数 6、7、8，不需要把手指重新数一遍。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>「不用从头数」这一步很关键，它是从「点数」走向「计算」的分水岭。孩子一旦能接着往下数，加法就快起来了。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📝</span><h2>十、生字组词：怎样才算组对</h2></div>
+    <div class="body-text">
+      <p>上午课前还做了单字认读和组词练习，认读的字包括足、森、目、四、五、九、七、正、二、口、耳、冷、三、羊、里、高、见、熊、去、六、灭、青、看、八、床、拔、丽、艳、暖等。</p>
+      <p>组词有规范：不能用叠词组词，「羊咩咩」不算，要组「山羊」「白羊」；也不能用人名组词，「熊」要组「熊猫」。有小朋友问为什么一定要组词，老师的回答是：不组词，遇到同音字就会全都认成同一个字。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>组词是认字的检验方式。孩子能给一个字配上常用词，才说明他知道这个字是什么意思，而不是记住了一个读音。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪵</span><h2>十一、收拾书包与木工课：做了跟做好是两回事</h2></div>
+    <div class="body-text">
+      <p>今天老师把「收拾书包」和「精益求精」放在一起讲。标准还是那几步：衣服翻过来展平，展平之后再卷，卷的过程中发现皱了就停下来捋平，再继续卷。</p>
+      <p>昨晚交上来的成品都很整齐，卷得平、捋得细。老师也把要求简化了：以后不用录视频，家长把孩子收拾好的成品拍一张照片发到群里就行。</p>
+      <p>这一段还解释了本学期为什么要加木工课：上周打磨竹子时，有小朋友说「我磨好了」，但一摸还硌手。木工练的就是意志力、细心和耐心，后面会用到凿刀，把一块方木凿成碗，再打磨到光滑能盛东西。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>「做了跟做好是两回事」，这句话今天在收拾书包、木工、写字三个地方都出现了。孩子先要有「好」的标准，才知道自己离好还差多远。这件事在家配合的方式很简单：让孩子自己收，收完看一眼，拍张照片。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧠</span><h2>十二、思维课：从一个标准到两个标准</h2></div>
+    <div class="body-text">
+      <p>思维课先复习了之前学的三件事——找不同、找相同、单一标准分类，然后宣布今天把分类升级。</p>
+      <p>热身是反应游戏：听到水果就拍一下手。老师连报大象、梅花、橘子、葡萄、苹果、土豆等词，有小朋友「手比脑快」，脑袋还没想清楚手就拍下去了。换成听到蔬菜拍手之后，全班在「哈密瓜」上集体拍了手——哈密瓜是水果。</p>
+      <p>接着进入正题：双标准分类，要同时满足两个条件。第一个题目是「既是水果又是红色」，孩子们说出了苹果、樱桃、圣女果、草莓、西瓜、水蜜桃、石榴、荔枝。第二个题目是「既是动物又会飞」，说出了小鸟、老鹰、飞鼠、蝙蝠、乌鸦、天鹅、鹦鹉、海鸥。老师顺带定了一个标准：能飞到空中才算会飞，鸡只是扑腾一下翅膀，不算。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>从一个标准到两个标准，是思维上的一次跳跃。孩子最容易犯的错是只盯住其中一个条件，比如只看颜色、不看形状。多举例子，比多讲道理有用。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧩</span><h2>十三、维恩图与乐高实操</h2></div>
+    <div class="body-text">
+      <p>老师告诉大家，这个「两个圈交叉」的图有个名字，叫维恩图。两个圈分别代表一个条件，中间重叠的部分就是同时满足两个条件的部分。今天只要求理解重叠，不要求会算——老师也说了，听不明白可以直接说不明白。</p>
+      <p>然后是乐高实操：按「绿色的正方体」「红色的长方体」这样的双重条件找积木，找到就安静举起来，没有就说没有，不要拿别的凑。老师说了一句：「不是就不是，是就是，这就是数学的思维。」</p>
+      <p>最后是逐个考核。考核有个小设计：同一个要求会换两种说法——「红色的长方体」和「既是红色又是长方体」，孩子要听得懂两种句式才算过关。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>换个句式就听不懂，说明孩子记住的是句子而不是意思。所以考核时我们故意换说法，也故意报一些他手里没有的组合——敢说「我没有」，和能找对一样重要。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐉</span><h2>十四、金龙拍拍操</h2></div>
+    <div class="body-text">
+      <p>课间整队后先做金龙拍拍操，完整练了三遍：头头拍拍、肩肩拍拍、大拇指小拇指、儿子儿媳、左右扭扭。</p>
+      <p>今天还没有人能一次全部做对，这很正常。老师也说明了原因：口令都听清楚了，难点在于耳朵听到之后身体要立刻跟上，这段距离需要多练几遍。建议回家多练，也可以和爸爸妈妈比赛，顺便把上周的「切土豆」手指操一起练。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>听得清和做得对之间隔着一段「身体反应」的距离，这段距离只能靠练缩短。在家当成游戏玩就好，不用当成任务。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐛</span><h2>十五、体能新游戏：毛毛虫运球</h2></div>
+    <div class="body-text">
+      <p>今天的体能新项目叫「毛毛虫运球」，分两队接力。第一阶段只用手：双手抱球，臀部抬高，先把球放到前面的格子里，再双脚并拢跳过去，一步一步往前挪。</p>
+      <p>两个常见错误老师现场纠正了：一是没有先把球伸出去就跳，前面没有空格自然跳不动；二是双脚没有并拢，变成走过去。老师强调的是动作标准，不是速度。</p>
+      <p>第二阶段会升级成手脚都夹球——手里抱一个、两脚夹一个，球都不能离开身体。今天部分小朋友先试了脚夹球，要点是跳起来的瞬间双脚一定要夹紧。下节课的目标是全体夹球。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>这个游戏练的是手部和腿部力量，还有全身的协调。先把手的动作做标准，再加脚，顺序不能反——脚一加上去，动作不标准的地方立刻就藏不住了。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">➕</span><h2>十六、数学：0~5 的加减法</h2></div>
+    <div class="body-text">
+      <p>下午数学课先回顾上周学的 0~5 的分解与组成，再进入今天的新内容：0~5 的加减法。</p>
+      <p>教学视频讲了三个符号——加号、减号、等于号，以及两个概念：加法是把两个数合起来，减法是从整体里去掉一部分。示例用的是汉堡和青蛙：一个汉堡加一个汉堡是 1+1=2；荷叶上两只青蛙跳走一只是 2-1=1；一直演示到 3+2=5、5-2=3。计算的依据就是上周学的分解与组成。</p>
+      <p>视频看完老师点名提问，孩子们各自举了例子：树枝上原本一只小鸟又飞来一只，一共两只，这是加法；五个汉堡被吃掉两个还剩三个、三只青蛙跳进水里一只还剩两只、三个披萨被吃掉一个还剩两个，这些都是减法。结论很清楚：数量变多用加法，变少用减法。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>让孩子自己举例子，比让他背「变多用加、变少用减」有用得多。能把生活场景和算式对上，加减法才真的学进去了。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✅</span><h2>十七、随堂小考与「检查」这件事</h2></div>
+    <div class="body-text">
+      <p>课程最后是随堂小考，每人一张不同的试卷，题型有连续加法、连续减法和加减混合，都在 0~5 范围内。今天不给数棒，要求用分解与组成来算。</p>
+      <p><strong>糯米</strong>全部做对，桌面也保持得非常整洁干净，老师当场表扬了。老师反复提醒的一句话是：做完要检查，不要急着写完就交上来。另外还提醒了几个细节——写名字要从左往右，每道题都要看清是加还是减，答案不要漏写，试卷也不要弄破。</p>
+      <div class="aside">
+        <span class="tag">💡 老师随记</span>
+        <p>这个年龄的孩子做题，错误大多不是不会，而是急。「先检查一遍再交」这个习惯现在养成，以后能省下很多分。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天一整天，其实都指向同一句话：做了跟做好是两回事。晨读的「看字读」，是要把「念顺了」变成「真的认得」；收拾书包的「捋平再卷」，是要把「装进去了」变成「收整齐了」；数学小考的「先检查再交」，是要把「写完了」变成「写对了」。这三件事看起来毫不相干，练的却是同一个东西。</p>
+      <p>每个孩子今天都有自己做得特别好的地方——有人在一堆积木里第一个找出符合两个条件的那一块，有人听指令的反应比谁都快，有人静坐两分钟一动不动，有人把试卷和桌面都收拾得干干净净。这些都不是运气，是这三个星期一点点攒出来的。</p>
+      <p>当然，他们也都有被老师反复提醒的地方，这很正常。拍拍操慢了半拍、字念混了、球没先伸出去就跳——这些提醒都是在告诉孩子「往哪里再走一步」。在家不用额外加练，晚上让孩子自己把书包收好、拍张照片，再和他玩两遍拍拍操，就已经在做今天课上练的那件事了。</p>
+    </div>
+  </section>
+
+  <div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</div>
+
+
+</body>
+</html>
