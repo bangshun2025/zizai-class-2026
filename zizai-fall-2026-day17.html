@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十七天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十七天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把方法握在手里</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 21 日<span class="dot">·</span>开学第四周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>今天全园升国旗，老师提前讲了礼仪要求：面向朝阳站好，阳光刺眼可以轻轻闭眼，全程保持安静。</p></li>
+      <li><p>国旗下讲话由大班一位小朋友带来，主题正是即将到来的中秋节。</p></li>
+      <li><p>讲话后各班留在操场，观摩了周二幼儿园中秋节活动的流程彩排。</p></li>
+      <li><p>老师预告：本班中秋活动安排在星期四，去自然基地用窑烤传统月饼、做自然材料花灯；明天是超市研学。</p></li>
+      <li><p>中秋假期从星期五开始，共三天，下周一返园。</p></li>
+      <li><p>换衣服环节做了两分钟计时挑战，<strong>子阳</strong>和<strong>子旭</strong>动作最快，很快就换好了。</p></li>
+      <li><p>晨读课文是《用心聆听》，全篇二十多句，老师领读、孩子跟读，一共读了三遍。</p></li>
+      <li><p>第一遍时老师故意把一句话的顺序念反，<strong>糯米</strong>发现了没有盲目跟读，被老师当场表扬。</p></li>
+      <li><p>第二遍老师换了方式，请几位小朋友站起来领读，全班声音明显提上来了。</p></li>
+      <li><p>老师讲了「为什么读书要看着字」：就像认识同学要看着人，认字也必须看着字。</p></li>
+      <li><p>第三遍跟读时，<strong>展硕</strong>读到「夏天」那几句声音一下子大了起来，老师说终于听到了他好听的声音。</p></li>
+      <li><p>跟读结束后是点字认读考核：老师在黑板写单字，点名认读并组词，认对两个就可以下课。</p></li>
+      <li><p><strong>子阳</strong>连续认对「跑步的步」「奔跑的奔」，是第一个两个字全对的小朋友。</p></li>
+      <li><p><strong>子旭</strong>认出了「沙子的沙」，又用「我能去那里玩吗」造句说明了「能」字，顺利通过。</p></li>
+      <li><p><strong>糯米</strong>认出了「漫」和「摇晃的晃」，老师顺势把「慢」和「漫」的偏旁区别讲了一遍。</p></li>
+      <li><p>老师鼓励没认出来的小朋友：现在学不会不代表永远学不会，愿意认真就一直有机会。</p></li>
+      <li><p><strong>六一</strong>下课后主动跟老师汇报，今天学会了「听声音的听」和「慢吞吞的慢」。</p></li>
+      <li><p>中秋节知识课上，孩子们看了两段科普短片，知道了团圆节的由来、嫦娥奔月和玉兔捣药。</p></li>
+      <li><p>老师还纠正了一个常见误会：划龙舟是端午节的习俗，不是中秋节的。</p></li>
+      <li><p>讲到「陪伴父母」时，老师专门讲了「父母」这个词：父是爸爸，母是妈妈。</p></li>
+      <li><p>老师和大家约定了一条课堂礼仪：同学答错时不取笑，因为每个人都有答不出来的时候。</p></li>
+      <li><p>户外体能依次完成跑步、交叉跳、踢毽子、金龙拍拍操和双脚夹球跳十趟。</p></li>
+      <li><p>夹球跳里老师表扬了进步大、动作稳的小朋友，强调要用大腿发力夹紧球。</p></li>
+      <li><p>老师借着今天的活动讲了规则和机会：遵守规则才有自由，机会要自己把握。</p></li>
+      <li><p>下午写数字「3」，限时 25 分钟，老师用「七个定位点」的方法在白板上重新示范了一遍。</p></li>
+      <li><p><strong>子阳</strong>的点位连得非常好，被老师当作范例；老师也提醒他不要写太快、注意别出格。</p></li>
+      <li><p>写完后要求整理桌面，橡皮屑不能扫到地上，<strong>子旭</strong>的桌面整理得很干净，被老师当场表扬。</p></li>
+      <li><p>老师讲了一节行为习惯课：坐姿、吃相、东西用完要收好，小习惯会变成做事的习惯。</p></li>
+      <li><p>为明天的超市研学做预习：以小数点为界，左边是元，右边第一位是角、第二位是分。</p></li>
+      <li><p><strong>子阳</strong>准确读出 11.60 元＝十一元六角；<strong>顶顶</strong>读对 79.99 元，还额外拿到一分。</p></li>
+      <li><p>最后是多位数读数：个、十、百、千、万从右往左数，几位数就从哪一位开始读。</p></li>
+      <li><p><strong>顶顶</strong>在老师没有写出数位提示的情况下读对了 1729，老师说他是真的懂了。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚩</span><h2>一、晨间升旗：把庄严两个字讲给孩子听</h2></div>
+    <div class="body-text">
+      <p>出发前老师先整队，把升旗的礼仪一条条说清楚：面向朝阳站好，如果阳光刺眼可以把眼睛轻轻闭上避光，但身体要站正，不随意乱动。老师告诉孩子们，升国旗是一件非常庄严庄重的事情，请用认真的态度对待。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>仪式感是教出来的。孩子这个年纪还不懂什么叫庄严，但他们能记住「这一刻要安静、要站好」。先有行为，再慢慢有理解。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎤</span><h2>二、国旗下讲话：一位大班小朋友讲中秋</h2></div>
+    <div class="body-text">
+      <p>今天的国旗下讲话由大班一位小朋友完成，主题正好是马上要到的中秋节。她介绍了中秋节又叫月亮节、团圆节，时间是每年农历八月十五，是中国四大传统节日之一，这一天的月亮最圆；核心习俗是和最亲爱的家人一起吃月饼、赏月。最后她祝大家中秋节快乐。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>看着比自己大几岁的哥哥姐姐在台上讲话，是很好的榜样示范。孩子们今天听得很安静，这一分钟的示范，胜过我们讲十遍。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📅</span><h2>三、中秋活动彩排与本班安排</h2></div>
+    <div class="body-text">
+      <p>讲话结束后，各班留在操场观摩了周二幼儿园中秋节活动的流程彩排，包括开场、打卡环节和集章兑换规则（集齐印章可以兑换小礼物）。老师随后告诉孩子们，本班的中秋活动不在周二，而是安排在星期四去自然基地：用窑烤制传统的芝麻馅、豆沙馅月饼，还要用松果、木头这些大自然的材料做一盏独一无二的花灯；明天则是超市研学。老师也提前告诉孩子们，中秋假期从星期五开始放三天，下周一返园。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>我希望孩子们做每一件事都能从头到尾认真完成，而不是走个形式。传统月饼要揉面、要进窑、要等，这个过程本身就是课程。麻烦一点，但值得。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⏱️</span><h2>四、两分钟换衣服计时挑战</h2></div>
+    <div class="body-text">
+      <p>上午的换衣服环节做成了一个两分钟的计时挑战，老师全程报时：还有 1 分 40 秒、还有 1 分钟、还有 50 秒。<strong>子阳</strong>和<strong>子旭</strong>动作最快，很早就换好并自己收拾了衣服。计时结束时大部分小朋友都换好了，个别还差一点，老师提醒下次动作再紧凑一些。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把生活自理变成游戏，孩子就愿意配合。速度不是目的，「知道时间在走、手上要有节奏」才是我们想练的东西。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>五、晨读《用心聆听》：第一遍带读</h2></div>
+    <div class="body-text">
+      <p>今天的晨读课文是《用心聆听》，讲的是安静下来之后能听见的各种声音：浪花的欢笑、风儿和风筝玩闹、早晨鸟儿的歌唱、夜晚星星的悄悄话，还有四季里蜜蜂、树叶、落叶和雪花的声音。全篇二十多句，老师逐句领读，孩子们跟读。</p>
+      <p>第一遍时老师故意把「星星说悄悄话」念成了「星星悄悄说话」，<strong>糯米</strong>发现了，没有跟着念，老师当场表扬她听得非常认真。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>能发现老师念错，说明她不是在跟着声音走，而是在跟着文字走。这正是我们做晨读最想看到的状态。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📢</span><h2>六、第二遍跟读：把声音送出去</h2></div>
+    <div class="body-text">
+      <p>第一遍读完，为了让声音更整齐，老师换了个方式，请几位小朋友站起来领读，站姿要求身体不靠着桌面。这一遍全班声音明显提上来了。老师也纠正了拖长音的问题，提醒大家读得整齐一点。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>换个姿势往往比多说十句有用。站起来读，人一下子就精神了，声音也出来了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👀</span><h2>七、为什么读书一定要看着字</h2></div>
+    <div class="body-text">
+      <p>在第三遍之前，老师专门讲了一个道理：为什么念书的时候眼睛一定要盯着字？老师打了个比方——大家第一天来上学谁也不认识谁，我要是不看着这位小朋友，我怎么知道他是谁呢？说话要看着对方，读书也要看着字，不看字就记不住这个字。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>识字不是背课文。很多孩子能把整篇背下来，可单独拎出一个字就不认得，原因就是眼睛没有落在字上。这个习惯要从现在开始练。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗣️</span><h2>八、第三遍完整跟读与点评</h2></div>
+    <div class="body-text">
+      <p>第三遍要求全程盯着大屏幕上的文字跟读，为后面的认字考核做准备。读到「夏天」那一段时，<strong>展硕</strong>的声音一下子大了起来，老师忍不住停下来表扬他，说终于听到了他好听的声音。老师也提醒全班注意坐姿，把腰背挺直。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>能大声一段，就说明他做得到。接下来要做的，是把这「一段」慢慢延长到「一整篇」。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>九、随堂识字考核：点字认读</h2></div>
+    <div class="body-text">
+      <p>跟读结束后，老师在黑板上写下单个汉字，逐个点名认读：念对读音并且组词正确，这个字就擦掉，认对两个字就可以下课。</p>
+      <ul>
+        <li><strong>子阳</strong>连续认对「跑步的步」和「奔跑的奔」，是第一个两个字全对的小朋友。</li>
+        <li><strong>展硕</strong>认出了「哈哈大笑的笑」。</li>
+        <li><strong>糯米</strong>认出了「漫」的读音和「摇晃的晃」；她把「漫」组成了「很慢的慢」，老师顺势把竖心旁的「慢」和三点水的「漫」写在一起做了对比，帮全班区分这两个形近字。</li>
+        <li><strong>子旭</strong>认出了「沙子的沙」；遇到「能」字时组词一时想不出来，老师提示可以用造句代替，他说出了「我能去那里玩吗」，老师确认他会用这个字，顺利通过。</li>
+      </ul>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>允许用造句代替组词，是因为我要确认的是「会不会用」，而不是「背没背过词语」。形近字也一样，当场对比一次，比事后讲十遍管用。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>十、学习态度：认真加动脑</h2></div>
+    <div class="body-text">
+      <p>考核结束后，老师和全班聊了聊学习态度：不管上什么课，想要进步只有认真加动脑，字不会自己跑进脑袋里。老师说得很清楚——现在学不会不代表永远学不会，只要愿意学、想学，永远有机会，愿意从今天开始练，就来得及。下课后<strong>六一</strong>主动跑来跟老师汇报，说自己今天学会了「听声音的听」和「慢吞吞的慢」，老师夸他是认真学习又爱思考的小朋友。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>最让我高兴的不是他认出了两个字，而是他愿意主动跑过来告诉我。有了这份主动，学习就有了自己的发动机。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌕</span><h2>十一、中秋节知识课：团圆的由来</h2></div>
+    <div class="body-text">
+      <p>回到教室，老师带着孩子们回顾了升旗时听到的中秋节主题，一起说了中秋的习俗：吃月饼、赏月、放灯笼。老师补充讲了拜月神——把家里最大最好的月饼先献给月神，祈求一家人平平安安、团团圆圆；也讲了中国两个主要的团圆节日是中秋和春节，都会放假让在外地的人回家陪伴家人。</p>
+      <p>随后播放了两段科普短片：中秋节在农历八月十五，因为处在秋季中期得名；八月十五的月亮最圆最亮，古人把圆月比作团圆；月饼最初是祭月的供品，后来成了团圆的象征；还有嫦娥奔月和玉兔捣药两个传说，以及祭月、赏月、吃月饼、看花灯、赏桂花等传统习俗。看完后有小朋友说中秋节要划龙舟，老师带着大家一起纠正：划龙舟是端午节的习俗。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把节日讲透，孩子过节时才会有感觉。今天讲的这些，周四做月饼、做花灯的时候还会再用到一遍。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👪</span><h2>十二、「父母」这个词</h2></div>
+    <div class="body-text">
+      <p>讲到「回家陪伴父母」时，有小朋友问「父母是谁」，还有人以为父母指的只是妈妈。老师就把这个词拆开讲了一遍：父代表爸爸，母代表妈妈，父母合起来就是爸爸妈妈；也可以说父亲、母亲，这是古时候的叫法，现在我们叫爸爸妈妈。老师反复问了两遍，确认孩子们记住了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>课堂上冒出来的问题往往最值得停下来讲。词语背后是理解，理解到了，以后在书上再看到「父母」两个字就不会陌生。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤝</span><h2>十三、课堂礼仪：不取笑同伴</h2></div>
+    <div class="body-text">
+      <p>老师和大家约定了一条课堂礼仪：同学答错的时候不可以取笑，因为每个人都有答不出来的时候。老师请孩子们记住这一条，互相尊重。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>一个班的安全感，就建立在「我答错了也不会被笑」这件事上。孩子敢开口，课堂才有效。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>十四、户外体能：跑步、交叉跳与踢毽子</h2></div>
+    <div class="body-text">
+      <p>上午十点半左右开始户外活动。老师先说明流程：跑步 → 交叉跳 → 踢毽子 → 金龙拍拍操 → 双脚夹球跳，全部完成之后才是自由探索时间。跑步要求跑在旁边的草地上，不挤占主跑道。</p>
+      <p>交叉跳要求每次换一只脚在前，踢毽子强调抬脚的同时另一只脚要轻轻跳一下，老师逐个纠正动作，提醒把握节奏、不要弯腰。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这些动作看起来简单，其实练的是手脚协调。动作标准比做得多更重要，所以我今天一个一个去调。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⚽</span><h2>十五、金龙拍拍操与双脚夹球跳</h2></div>
+    <div class="body-text">
+      <p>金龙拍拍操跟着口令做：头头拍拍、肩肩拍拍、大臂小臂、左右扭扭，全班跟着节奏走了几遍。</p>
+      <p>随后是双脚夹球跳，两人一组，每人完成十趟。要领是用大腿发力把球夹紧，跳的时候要跳得高一点、远一点，不能让球掉下来。老师一边示范一边鼓励，表扬了今天进步很大、动作越来越稳的小朋友，也讲了要领：腿上用力夹紧，球就不容易掉。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>夹球跳最能看出坚持。有的孩子前两趟总掉球，练到第七八趟就稳了——这种「练着练着就会了」的体验，比一次成功更珍贵。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⚖️</span><h2>十六、规则与机会</h2></div>
+    <div class="body-text">
+      <p>活动收尾时，老师和孩子们聊了规则：学校是讲规则的地方，遵守规则的前提下才会有自由；机会不是常常有的，给到你的时候要自己把握住。老师也和大家说，以后班里会减少提醒，希望孩子们学会自己对自己的行为负责；对表现优秀的小朋友，老师提醒不要骄傲自满，到了小学还有很长的路要走。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>马上要上小学了，一个班几十个孩子，不会有人时时刻刻在旁边提醒。从现在开始少提醒一点，是为了让他们把「自觉」这两个字长到自己身上。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>十七、下午书写课：数字「3」的七个点</h2></div>
+    <div class="body-text">
+      <p>下午第一节是书写课，限时 25 分钟写数字「3」。老师先在白板上把常见问题写出来：起笔位置偏、上下两个圈大小不对称、超线、写得太小。随后用红笔画了一个大大的田字格，标出七个定位点，把点依次连起来，一个饱满工整的「3」就出来了。</p>
+      <p>老师逐个巡查：提醒有的小朋友不要趴在桌面上写，要占满左半格；<strong>子阳</strong>的点位连得非常好，被当作范例展示，老师也提醒他不要贪快、注意别出格；还统一纠正了耸肩、勾脚、驼背、头贴着桌面等姿势问题，要求头和虚线保持平行。老师还提到，第一节写数字课全班用了五十多分钟，今天缩短到 25 分钟，练的就是书写效率。写完后大家补写了日期「9 月 21 日 星期二」，老师顺带纠正了「21」和「12」写反、星期写错的问题。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>点位法是我最常用的办法——把抽象的「写好看」变成七个看得见的点。孩子照着连，写出来就是对的，然后手感慢慢就有了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>十八、桌面整理与行为习惯课</h2></div>
+    <div class="body-text">
+      <p>写完字要求每人整理自己的桌面，橡皮屑不能扫到地上。老师说今天<strong>子旭</strong>的桌面整理得很干净，当场做了表扬。</p>
+      <p>接着老师上了一节行为习惯课，说到坐姿（翘二郎腿会影响骨骼发育）、吃相（在外面吃饭的样子也是一种礼仪）、东西用完要收好。老师讲了一个自家的例子：家里的哥哥以前用完东西随手一放，有一次把电话手表落在球场上找不回来了。老师说，乱丢东西看起来是小事，其实是「做完事情没有收尾」的思维习惯，长大以后会影响学习和工作。老师也特别对孩子们说：老师纠正你的习惯，不是觉得你这个小朋友不好，而是在帮你把好习惯养起来；遇到困难可以直接向老师求助，老师很乐意帮忙。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>习惯这件事，越早花力气越省力。现在提醒一百次，是为了将来不用提醒。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>十九、超市研学预习：元角分怎么读</h2></div>
+    <div class="body-text">
+      <p>明天要去超市研学，核心任务是认识商品价格。老师拿出上次在超市实拍的价格标签，讲了规则：以小数点为分界，左边是元，右边第一位是角、第二位是分；末尾的零不用读出来，中间的零要读出来。</p>
+      <p>练习环节逐个点名：9.99 元读作九元九角九分，4.99 元读作四元九角九分，6.50 元读作六元五角。<strong>子阳</strong>准确读出 11.60 元＝十一元六角，被老师表扬「认真听就是能听得懂」。<strong>六一</strong>读 13.99 元时，老师带着他一步一步读，最后完整读出十三元九角九分。<strong>顶顶</strong>读 79.99 元一次读对，额外得了一分。<strong>糯米</strong>读出了 149 元。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把数学放进超市里，孩子马上就懂它有什么用。明天他们要自己看着标签念价格，今天这一节就是提前把工具交到他们手上。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>二十、多位数读数与逐个考核</h2></div>
+    <div class="body-text">
+      <p>最后一节讲数位：从右往左依次是个位、十位、百位、千位、万位，现阶段掌握到千位就可以。规律是几位数就从哪一位开始读——一位数直接读，两位数从十位读（19 读十九、23 读二十三），三位数从百位读（124 读一百二十四），四位数从千位读（2144 读两千一百四十四）。</p>
+      <p>随后逐个考核，读对就可以下课去吃下午点。<strong>顶顶</strong>表现突出：老师没有在下面写出数位提示，他仍然准确读出了 1729，老师说这说明他是真的把规则弄懂了。对还不太熟的小朋友，老师教了一个办法：在心里从右往左给每一位标上「个、十、百」，标完再读；遇到带 0 的数字要注意中间的 0 不能漏掉。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>读数就是一个口诀，套进去就能读。所以我一定要求他们自己在心里标数位——把方法握在手里，换成任何数字都不怕。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card">
+    <div class="aside closing">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天的一天里，有两件事特别值得说。一件是晨读里那句「读书要看着字」——它看起来只是个小要求，却是认字和背课文的分界线。孩子愿意把眼睛落到字上，识字量就会自己涨起来。另一件是下午的读数课，老师教的不是「这个数字念什么」，而是「遇到任何数字该怎么判断」。掌握方法的孩子，换一个题也能读出来。</p>
+      <p>今天的课里也有不少「慢一点」的时刻：有孩子字认不出来，有孩子数读不准。这很正常。老师今天反复跟孩子们说的一句话，也想转给家长：现在学不会，不代表永远学不会。只要愿意一步一步练，机会一直都在。</p>
+      <p>明天是超市研学，孩子们要自己看标签、读价格；星期四去自然基地烤传统月饼、做自然花灯。如果今晚在家里有空，可以让孩子给您读一两个商品价格，或者讲一下他今天听到的嫦娥奔月。</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</body>
+</html>
