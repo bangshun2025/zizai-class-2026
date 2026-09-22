@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十八天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十八天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先看清，再动手</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 22 日<span class="dot">·</span>开学第四周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>出发前清点人民币，<strong>子旭</strong>点出三张十元共 30 元，<strong>子阳</strong>把手里的 32 元数清后，只带上购物需要的部分。</p></li>
+      <li><p>老师带着大家把「购物的钱」和「坐公交的钱」分开放好，并约定小票全部保留，下节课专门学看小票。</p></li>
+      <li><p>路上借着公交车和警车的车牌认读数字，213、218、518、1784，<strong>子旭</strong>反应最快。</p></li>
+      <li><p>走在路上只走区域中间不靠车道，老师还讲清了喷泉的水不干净、也不安全，不能进去玩。</p></li>
+      <li><p>超市里学会了价格牌的读法：小数点左边是元、右边第一位是角、第二位是分，末尾的零不读、中间的零要读。</p></li>
+      <li><p>抽读 69.99、49.99、149.90、129.90、99.99、169 等价格，孩子们从磕磕巴巴到越读越顺。</p></li>
+      <li><p><strong>子阳</strong>用 8.99 元给姐姐买了一支铅笔，剩下的 1 元说要还给妈妈或存进存钱罐。</p></li>
+      <li><p>3 元和 5 元的橡皮摆在一起，孩子们算出差 2 元，再自己决定买哪一块。</p></li>
+      <li><p>有小朋友带着 20 元算账：玉米粉 12.99 元凑整付 13 元，金针菇 1 元，剩下 6 元刚好够买白萝卜。</p></li>
+      <li><p>带壳生核桃 9.99 元、免开壳有机核桃仁 19.96 元，<strong>子阳</strong>发现了后者，大家一起改选，凑整付 20 元。</p></li>
+      <li><p>调料区调整了布局找不到食盐，孩子们礼貌询问工作人员后顺利找到，每人买了一包。</p></li>
+      <li><p>结账时排队、提前把零钱准备好、自带袋子自己装袋，找回的零钱交还家长。</p></li>
+      <li><p>返程在站台排队候车，上车后不把脚伸到过道；回到园里完成了跑道体能训练。</p></li>
+      <li><p>下午硬笔写字课先观察田字格里的点位，再按正确笔顺书写，要求字顶格占满格。</p></li>
+      <li><p>书写时间从昨天的 25 分钟缩短到 20 分钟，3:15 开始、3:35 收作业，专门练效率。</p></li>
+      <li><p>老师逐个纠正坐姿、握笔位置和本子摆放，并提醒擦字要看准、轻轻擦。</p></li>
+      <li><p><strong>子阳</strong>最先完成，还主动自己检查修改了一遍。</p></li>
+      <li><p><strong>糯米</strong>在老师的个别辅导下，把数字 2 的斜度、数字 3 的三笔长短一点点调对。</p></li>
+      <li><p>观看《长津湖之水门桥》片段，零下 40 度的志愿军啃冻土豆，七连受命炸桥切断美军退路。</p></li>
+      <li><p>老师讲解抗美援朝与水门桥的意义，并科普国庆节由来——距 9 月 22 日还有 8 天。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💰</span><h2>一、出发前：把钱数清楚，把自己收拾好</h2></div>
+    <div class="body-text">
+      <p>上午的课从「数钱」开始。老师把人民币交到孩子手上，让他们自己点算。<strong>子旭</strong>数出三张十元，报出「30 元」，这笔钱是为生核桃仁和食盐准备的；<strong>子阳</strong>把手里的钱一张张数完，得出 32 元，老师让他只带上今天购物需要的部分。</p>
+      <p>老师还特别说明：硬币也是钱，也能坐公交。为了不混淆，大家把「购物的钱」和「坐公交的钱」分开放。临出门前，孩子们按自己的编号取衣物、把衣架拆下来放好、归还老师代为保管的随身物品、把长头发绑起来、购物袋叠好装进口袋，再一起完成出行前的如厕准备。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>出门前的这十几分钟，其实是整节课最关键的部分。钱要自己数、衣服要自己找、袋子要自己叠，这些动作看着琐碎，却是「我为自己负责」的第一层练习。孩子一旦习惯了出门前先把东西理清楚，后面在超市里就不会手忙脚乱。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚌</span><h2>二、路上：车牌是现成的数字卡片</h2></div>
+    <div class="body-text">
+      <p>走到公交站的一路上，老师把路边的车牌变成了教具。公交车、警车的车牌号一个个读过去：213、218、518、1784。<strong>子旭</strong>反应最快，几乎是车一停就报出数字。</p>
+      <p>安全教育也在路上完成。老师要求大家走在区域中间，不靠近车道；路过喷泉时，讲清了两点理由——喷泉的水并不干净，也不安全，所以再热也不能进去玩。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>数字不只在书本和卡片上，路牌、车牌、价签都是数字。把认读放回真实场景里，孩子记得更牢。安全提醒也一样，给出「为什么」，孩子才会真的记住，而不是只记住「不许」。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏷️</span><h2>三、超市：元角分的读法</h2></div>
+    <div class="body-text">
+      <p>进了超市，第一件事是学看价格牌。老师给了一套清清楚楚的规则：小数点左边是元，右边第一位是角，第二位是分；末尾的零不读，中间的零要读。</p>
+      <p>然后就是实战抽读——69.99、49.99、149.90、129.90、99.99、169。前几个还要想一想，读到后面，孩子们已经能自己判断哪个零要读、哪个零省掉。老师还补了一条实用规则：付钱时不够整数要凑整，往上进一元。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>价格牌是最好的小数入门材料，因为它带着「元角分」这个孩子能理解的实物单位。今天不求写得出、算得快，只求看见一个价格牌，能读对、能判断大概要给多少钱。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>四、自主购物：每一次选择都是一次计算</h2></div>
+    <div class="body-text">
+      <p>采买环节，老师把决定权交给孩子，全程由老师陪同在侧。</p>
+      <p><strong>子阳</strong>选了一支 8.99 元的铅笔，是给姐姐买的；结完账剩下 1 元，他说要还给妈妈，或者存进存钱罐——老师当场表扬了他这份心意。</p>
+      <p>橡皮区摆着 3 元和 5 元两款，孩子们算出差 2 元，再自己决定买哪一块（老师提醒他们注意两款橡皮的实际使用效果）。有小朋友带着 20 元，一路算账：玉米粉 12.99 元，凑整付 13 元；金针菇 1 元；算下来还剩 6 元，刚好够买一根白萝卜。</p>
+      <p>核桃是今天最有意思的一次改主意。原本看好的带壳生核桃 9.99 元，凑整付 10 元；后来<strong>子阳</strong>发现旁边有免开壳的有机核桃仁，19.96 元，凑整付 20 元。大家一起比较后改买了这一款，子阳因为这个发现得到了表扬。</p>
+      <p>最后是食盐。调料区改了布局，孩子们绕了一圈没找到，于是礼貌地向工作人员询问，顺利找到货架，每人买了一包。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把「买什么」的权力交出去，数学才真正开始。比价、凑整、算余额，都是因为要做决定才必须算。子阳给姐姐买铅笔、发现更合适的核桃仁，都不是我们布置的任务，而是他自己想到的——这种主动性比算得对更值得记下来。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧾</span><h2>五、结账、返程与课后体能</h2></div>
+    <div class="body-text">
+      <p>结账时，孩子们自己排队、提前把零钱准备好、用自带的袋子把商品装好，找回的零钱交还给家长。老师再次强调：小票全部留着，下节课要专门学怎么看小票。</p>
+      <p>返程在站台排队候车，上车后坐好，不把脚伸到过道里。回到园里，大家一起完成了跑道体能训练，把一上午攒着的劲儿放了出来。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>结账这几分钟其实很考验人——要排队、要算钱、要装袋，还要顾着别挡住后面的人。孩子们今天做得比上一次从容多了。回园后的体能活动，是把研学的兴奋收回到身体里，跑完再吃饭、休息，下午的状态会稳很多。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>六、下午硬笔写字课：先看清，再下笔</h2></div>
+    <div class="body-text">
+      <p>下午在小学的写字课上，老师带着孩子们先观察田字格里的点位——每一笔从哪里起、到哪里停，看清楚了再按正确笔顺写。</p>
+      <p>书写要求很具体：字要顶格、占满整个格子；横要与横中线平行，竖可以略微倾斜。老师也给了反例——字写得太小，只占了左上角一小块，格子就空掉了。</p>
+      <p>今天的书写时间压缩到 20 分钟（前一天是 25 分钟），3:15 开始，3:35 准时收作业，专门练书写效率。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>写字的第一步不是「写」，而是「看」。观察点位这一步省掉，后面再怎么练都只是重复错误。限时是有意为之——从 25 分钟到 20 分钟，是让孩子慢慢建立「要在规定时间里完成」的节奏感，为上小学做准备。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📐</span><h2>七、逐一纠正：坐姿、握笔与本子</h2></div>
+    <div class="body-text">
+      <p>书写过程中老师一直在巡视，看到的问题一个个纠正：头歪了扶正、驼背了坐直、手勾着的放平、胸口贴到桌子的往后坐、手肘全压在桌上的调整位置；握笔太低的往上挪一挪，笔太粗的换一支，本子歪了要摆正、靠近自己。</p>
+      <p>擦字也有讲究——要看准了轻轻擦，别把旁边写对的字一起擦掉。起笔位置找不准的，老师会先画个小圈定位，同时说明清楚：圈只是辅助，平常写字不用画。</p>
+      <p><strong>子阳</strong>虽然不是写得最好的那一个，但老师说他「写得很认真」——他最先完成，还自己检查修改了一遍。</p>
+      <p>日期也集中纠正了一次：今天是 9 月 22 日，写成「9 月 4 日」「9 月 2 日」的小朋友，擦掉重写两个「二」。</p>
+      <p><strong>糯米</strong>得到了单独辅导：数字 2 的斜度太大，其实只需要轻微的左低右高；数字 3 的第一笔和第二笔长度要接近，第三笔最长；横画必须在指定位置停笔，要分笔写，不能一笔连下去。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>坐姿和握笔是要反复提醒很多次的事，今天说过明天还要说，这很正常。真正让人欣慰的是子阳写完主动检查——「自己再看一遍」这个习惯，比任何一次写得好看都重要。糯米的数字 3 今天进步明显，分笔写的意识已经建立起来了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎬</span><h2>八、《长津湖之水门桥》：零下四十度的那一口冻土豆</h2></div>
+    <div class="body-text">
+      <p>写字课后，孩子们一起看了《长津湖之水门桥》的片段。画面里，零下 40 度的志愿军战士啃着冻得梆硬的土豆，而对面的美军喝着热咖啡、吃着火鸡。七连接到命令——炸毁水门桥，切断美军的退路。今天看到这一段就暂停了，后面的内容留到下次续看。</p>
+      <p>老师把历史背景讲给孩子听：抗美援朝，是我们去帮助邻国朝鲜抵抗侵略、保卫自己的家园；水门桥是美军从陆路撤退的必经之路，所以必须炸掉。志愿军的装备和后勤远远比不上对手，但意志像钢铁一样，是用巨大的牺牲换来了今天的和平。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>给这个年龄的孩子讲战争，不需要讲复杂的国际局势，讲清「为什么要炸这座桥」和「他们当时有多冷、多难」就够了。孩子记住的是那一口冻土豆和一杯热咖啡的对比——具体的画面，比抽象的道理更能留下来。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎂</span><h2>九、还有 8 天，就是祖国的生日</h2></div>
+    <div class="body-text">
+      <p>顺着影片，老师讲到了国庆节：1949 年 10 月 1 日新中国成立，从那以后，每年的 10 月 1 日就是国庆节，也就是祖国的生日。老师和孩子们一起算了算——距离 9 月 22 日还有 8 天；假期有 7 天；那一天天安门广场会有盛大的阅兵。</p>
+      <p>最后老师把话收回到当下：今天能安安稳稳地上课、开开心心地放假，是革命先辈用付出换来的。假期出去走走，看看祖国的大好河山，也记得心里存一份感恩。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「还有 8 天」这个算法，把节日从日历上拉进了孩子的生活里。爱国这件事对孩子来说太大，但「祖国的生日快到了」「我们的好日子是别人换来的」这两句，他们是听得懂的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card">
+    <div class="aside closing">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天上午和下午，孩子们其实在学同一件事：先看清，再动手。在超市，是先把价格牌看明白、把钱数清楚，再决定买什么；在写字课上，是先把田字格里的点位看准，再落笔。这个顺序一旦养成，孩子做事就会从「凭感觉」慢慢转向「有依据」。</p>
+      <p>也想和您分享一个小细节。今天有孩子改主意了——原本要买带壳的生核桃，后来发现旁边有免开壳的核桃仁，比较之后换了选择。我们没有替他们判断对错，只是让他们把两个价格、两种方便程度摆在一起看。这种「我可以重新考虑」的经验，比一次买对更有价值。</p>
+      <p>下午的《长津湖之水门桥》只看了一半，后面的内容我们会接着看。回家如果孩子提起「冻土豆」「炸桥」，或者问起国庆节，欢迎您陪他多聊几句——这份感受，在家里被认真回应过一次，才会真正留下来。</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">自在班 · 每日成长记录 · 2026 秋季学期</div>
+
+</body>
+</html>
