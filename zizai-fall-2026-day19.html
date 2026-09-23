@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第十九天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第十九天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">慢一点，稳一点，认真一点</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 23 日<span class="dot">·</span>开学第四周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>晨读课学习儿童诗《当我安静下来》，老师领读三遍后请小朋友上台当小老师领读。</p></li>
+      <li><p>认字消字考核开始，规则是每人至少认对并消去 3 个字，<strong>六一</strong>认出「画、飞、风」顺利过关。</p></li>
+      <li><p><strong>子阳</strong>一口气认出「星、话、摇、铅、夜」五个字，还自己把「顽皮的顽」纠正成「玩具的玩」。</p></li>
+      <li><p><strong>糯米</strong>在集体带读环节认出了「浪花的浪」，剩下的难字大家一起读了一遍。</p></li>
+      <li><p>阅读表达课进入第三站「做实干家」，读的是绘本《蚂蚁和西瓜》。</p></li>
+      <li><p><strong>六一</strong>每一轮都坚持举手，答出「蚂蚁看到了一块超大的西瓜」，量词用得很准。</p></li>
+      <li><p>孩子们跟着故事一路推理：一只蚂蚁推不动，叫来蚂蚁大军，又试了杠杆，最后想出切块搬运、分工接力。</p></li>
+      <li><p><strong>子阳</strong>把蚂蚁搬西瓜皮的队伍形容成「像红军一样整整齐齐」，比喻被老师当场表扬。</p></li>
+      <li><p>大家从「西瓜皮做滑滑梯」延伸聊到物尽其用，空矿泉水瓶可以做手工、做存钱罐。</p></li>
+      <li><p>体能课先复习摸膝盖、交叉摸膝盖和大风车，再学新的「金龙拍拍操」。</p></li>
+      <li><p><strong>糯米</strong>动作标准、脚尖落地几乎没声音，被老师请出来做示范。</p></li>
+      <li><p>头顶沙包走直线，老师反复提醒「越慢越好」，<strong>六一</strong>一步一步走，坚持完成了大半。</p></li>
+      <li><p><strong>子旭</strong>在拍拍操和沙包练习中都很专注，老师说他「越走越好啦」。</p></li>
+      <li><p>数字书写课复盘昨天的作业，全班笔画顺序全部正确，没有一个反着写。</p></li>
+      <li><p>今天写数字「4」，重点是开口不能封住、起笔要对准田字格的点、收笔压到底边。</p></li>
+      <li><p><strong>六一</strong>采用分三笔的写法，反复练习后把边角写方正。</p></li>
+      <li><p>老师逐个检查坐姿与握笔，整页都符合规范才算过关。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌞</span><h2>一、晨读识字：《当我安静下来》</h2></div>
+    <div class="body-text">
+      <p>今天的晨读诗是《当我安静下来》。老师先完整领读三遍，再请小朋友上台当一回小老师带全班读。有孩子领读时偶尔跳了一行，但跳过之后仍然读得准，老师当场加了 2 分——这说明他其实认识很多字，只是眼睛跑得比嘴快。</p>
+      <p>晨读的坐姿要求是「单声正坐」：腰背挺直、声音整齐。老师说，如果读着读着没精神了，就站起来读，站着人就醒了。</p>
+      <p>读完进入认字消字考核。规则很清楚：每人至少认对并消去 3 个字，才能提前下课。<strong>六一</strong>认出了「画画的画」「飞机的飞」「大风的风」，三个字过关；另一位小朋友认出「吃饭的吃」「咚咚跳动的心」「浪花的花」；<strong>子阳</strong>最猛，认出「星星的星」「讲话的话」「摇晃的摇」「铅笔的铅」「夜晚的夜」，中间还把「顽皮的顽」自己改口成「玩具的玩」。</p>
+      <p>剩下的「浪、春、夏、秋、冬、游、纸」由大家一起带读，<strong>糯米</strong>认出了「浪花的浪」。今天的作业是认会「春夏秋冬」四个字，放学前还要再考一次。</p>
+      <p>整节课老师反复强调的只有一件事：眼睛要盯着字看。随机点到哪个字都能读对，才算真的会。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>认字最怕「背下来」而不是「认出来」。所以我会打乱顺序随机点字，只有眼睛真的落在字上，才是自己的本事。孩子上台领读跳了行还能读对，恰恰说明他认的字比我以为的多，这样的表现值得加分。今天定「至少消去 3 个字」的规则，是让每个孩子都有一个够得着的目标，而不是比谁更快。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐜</span><h2>二、阅读理解与表达：《蚂蚁和西瓜》</h2></div>
+    <div class="body-text">
+      <p>艾音老师先带大家复习了这门课在做什么：理解，是把东西往脑子里输入；表达，是把想法输出给别人。前两次我们「做梦想家」（想象会飞的猪）、「做小侦探」（追查被偷的老鼠苹果），今天换个身份——<strong>做实干家</strong>。</p>
+      <p>听课三个要求：眼睛看图、耳朵听、边听边看边思考。</p>
+      <p>故事从蚂蚁发现西瓜开始。孩子们最初说「一个西瓜」，老师带着改成「一块西瓜」；又从西瓜推出季节——炎热的夏天。<strong>六一</strong>每一轮都举手，答出「蚂蚁看到了一块超大的西瓜」。孩子们最初以为蚂蚁是上去喝水，老师说明：它是先爬上去尝了一口，觉得好吃，才想搬回家。</p>
+      <p>接下来是一连串「怎么办」：一只蚂蚁推不动 → 几只一起推还是不动 → 回去叫来蚂蚁大军。中间蚂蚁们还试过杠杆，用木棍加石头当支点，老师顺势讲了那句名言「给我一个支点，我能翘起整个地球」——结果西瓜还是纹丝不动。</p>
+      <p>最后的办法是分块搬运：用铲子把西瓜切成小块，再分工合作，上面的铲、中间的传送、下面的接住搬回蚁穴。老师还顺带介绍了蚂蚁窝：外表只是个小土包，里面却有居住的房间和存粮的仓库——这就是蚂蚁的智慧。课上还顺势区分了「结结实实」和「满满当当」的用法，形容仓库装满该用「满满当当」。</p>
+      <p>仓库装满以后，剩下的果肉蚂蚁们干脆吃掉了，肚子撑得像大皮球；西瓜皮还没浪费，被做成了滑滑梯。搬西瓜皮那一段，<strong>子阳</strong>形容它们「像红军一样整整齐齐」，老师当场表扬了这个比喻。</p>
+      <p>最后是感悟分享：坚持就是胜利；人多团结力量大；遇到问题要动脑筋（<strong>六一</strong>说的）；东西要物尽其用。老师又把「物尽其用」拉回生活里——喝完的矿泉水瓶可以卖掉、可以做手工、可以做存钱罐和储物盒，多观察生活，说不定还能发现新的商机。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这节课我最想让孩子记住的一句话是「问题总能解决，如果你解决不了，那就是你没用对方法」。蚂蚁推、抬、撬都失败了，最后靠切块和分工成功——失败的尝试不是白费，它们是在筛选方法。今天所有小朋友都在积极思考、主动表达，这比答案本身更珍贵。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>三、体能训练：金龙拍拍操 + 头顶沙包</h2></div>
+    <div class="body-text">
+      <p>上课先站位：打开双手找距离，互相不碰到才算站好。热身复习了三个老动作——摸膝盖（抬脚时顺便跳一跳）、交叉摸膝盖（口令 three two one go）、大风车（膝盖不能弯，弯腰去碰脚），老师还专门讲清了「胯」在身体的位置。</p>
+      <p>新内容是「金龙拍拍操」：跟着口令拍头、拍肩、拍大拇指、拍小拇指、拍胯、拍脚、拍肚子、拍手，再加上左右扭扭拍拍。今天纠正最多的是腰胯扭动的动作——是左右扭，不是往后撅。<strong>六一</strong>、<strong>子旭</strong>、<strong>糯米</strong>做得认真；老师也提醒大家拍打的力度要适中，不用过猛。</p>
+      <p>然后是头顶沙包走直线。要领有四条：一脚前一脚后、脚尖与脚跟相接、双手张开保持平衡、全程踩着线走。沙包掉了就捡起来接着走，不用从头再来。分组时每组 3 人走不同的直线，老师要求大家灵活找空位，不要都挤在一条线上。</p>
+      <p>升级动作是头顶沙包侧跳：双手叉腰稳住上半身、双脚并拢沿 S 线跳、不能转身、始终面朝同一个方向、一步跳到位不在中间挪步。老师全程只重复一句话：越慢越好，越快越急就越容易掉。</p>
+      <p>个别指导上，<strong>糯米</strong>的动作最标准——脚尖跳几乎没有声音、速度慢而稳，被请出来做示范；<strong>六一</strong>一步一步走得很认真，老师鼓励他「一步一步来，已经坚持一大半了」；<strong>子旭</strong>被夸「越走越好啦」；老师逐个巡视，帮大家调整脚步的衔接和方向。</p>
+      <p>最后练脚尖跳：整个脚掌落地会有声音，脚尖跳则几乎无声。还不熟练的孩子在原地做 100 下脚尖跳，边跳边数——已经有孩子能一口气从 1 数到 100，老师特别肯定了这个进步。课后大家去探索园跑步和自由活动。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>头顶沙包看起来是平衡训练，其实练的是「慢下来」的能力。孩子们天然想快，一快就乱，一乱沙包就掉。如果能一步就跳到位，说明他对自己的身体是有感知的——这种身体感知力，会慢慢迁移到写字、坐姿、做事的稳定性上。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>四、数字书写：认真写好一个「4」</h2></div>
+    <div class="body-text">
+      <p>上课前先玩专注力游戏：静坐不动，坚持到最后的可以加分。</p>
+      <p>接着复盘昨天的作业，结果让人高兴——全班笔画顺序都正确，从上往下、从左往右，没有一个孩子反着写。</p>
+      <p>今天写第十页，数字「4」。要点有四个：开口必须打开，不能封成一个圈；起笔位置要对准田字格上的点，起笔太靠右整个字就会往右倾；收笔要压到底边；把 5 个点连起来，字就好看了。</p>
+      <p><strong>六一</strong>采用分三笔的写法：先竖下来停笔，再横过来，最后收尾那一竖，反复练习后把边角写方正。老师常说：认真写，一遍就能写好。</p>
+      <p>写字的姿势今天也逐条过了一遍。坐姿：头正肩平、腰背挺直、脚踏平放、小腿与膝盖成 90 度、手肘只有三分之一在桌面上（否则容易前倾耸肩）。握笔：下面三根手指弯曲排好队、无名指收在底下、大拇指不能压到食指上面。另外，写字太用力会让纸面凸起甚至戳破，本子要放正放平，写着写着滑远了要挪回来。</p>
+      <p>过关规则是整页都符合规范才算过：不达标的部分会按写得最好的那一排重写，坐姿也计入评分。老师要求每个人写完先自己检查一遍，再交上来。<strong>子阳</strong>今天也被老师点名鼓励：「子阳加油。」</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>我常跟孩子说，眼睛就像一把尺子，一眼就能看出你写高了还是写歪了。今天还提醒了「虎头蛇尾」——前半页工整、后半页潦草，别人会以为是两个人写的。写字练的从来不只是字，而是从第一笔到最后一笔都保持同一个标准的那份耐心。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这四节课，其实在讲同一件事：<strong>慢一点，稳一点，认真一点</strong>。晨读时老师说「你不看它，你以为你会认识它？你得盯着它看才行」；体能课上说「越快越急就越容易掉」；写字课上说「你认真，一遍就能写好」。快，是本能；慢下来把一件事做对，才是需要练习的能力。</p>
+      <p>《蚂蚁和西瓜》里那群蚂蚁，推过、抬过、撬过，都失败了，最后靠切块和分工把西瓜搬回了家。孩子们从中读出「坚持就是胜利」「人多力量大」「遇到问题要动脑筋」——这些道理他们不是被告知的，是自己一步步推出来的。</p>
+      <p>今天七位小朋友全勤。有人多认了五个字，有人第一次把沙包顶稳走过一大半，有人把一个「4」改了又改终于写正。进步从来不是整齐划一的，但每一个小小的「今天比昨天好一点」，都值得被看见。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
