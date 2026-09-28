@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十二天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十二天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先听清楚，再开始做</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 28 日<span class="dot">·</span>开学第五周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>晨间自主核算积分，七位小朋友逐个上台对账，重点练习「看清加号减号再计算」。</p></li>
+      <li><p>晨读《当我安静下来》，<strong>三位小朋友</strong>先后上台领读，全班齐读做到「只有一个声音」。</p></li>
+      <li><p>专注力课「视觉分辨 · 精准专注」，<strong>顶顶</strong>和<strong>展硕</strong>第一轮就完整听懂了按颜色分堆的指令。</p></li>
+      <li><p>第二轮按形状分堆，多位小朋友分类正确，最多的一人找出约 15 个。</p></li>
+      <li><p>快速反应复习：听指令转身、摸头摸耳朵摸鼻子，统一约定「转身一律往右转」。</p></li>
+      <li><p>数学课认识 6~10，用形态口诀记住数字长相，学会「从 1 开始依次分，分完反过来写又是一种」。</p></li>
+      <li><p>课堂练习覆盖数一数、数序、匹配、排序、连线，<strong>顶顶</strong>连线反应最快，<strong>子阳</strong>和<strong>子旭</strong>先后答对关键题。</p></li>
+      <li><p>0~5 加减进阶到混合加减与连加连减，明确「从左往右，先算前面再算后面」。</p></li>
+      <li><p>爱国主义教育：讲国旗不落地、听到国歌要停下站立摘帽，孩子们齐喊「中国加油」。</p></li>
+      <li><p>观看开国大典史料与影片片段，了解 1949 年阅兵背后的故事。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>一、晨间自主核算积分</h2></div>
+    <div class="body-text">
+      <p>上课前的第一件事，是孩子们自己算今天的积分。七位小朋友按编号逐个上台，把当天得到的加分一项项对出来。</p>
+      <p>这个环节真正在练的不是算术，而是「看清楚再动笔」。不少孩子习惯一看到数字就全部加起来，不管前面是加号还是减号。老师专门放慢速度，带着大家一个符号一个符号地确认，并用「还差几分」的说法把负数讲得很具体——原本还差 5 分，今天得了 4 分，就只差 1 分了。</p>
+      <p>另外也带孩子分辨容易混淆的加号和数字「1」：四个「1」相加是 4，不是别的。</p>
+      <p>今天的加分项里，有小朋友因为<strong>前一晚自己收拾好了书包</strong>而获得加分，也有按时到校的加分。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子自己算积分，是把「评价」变成「自我管理」的一小步。他们会为了多一分而认真核对，也会在对账中真实地面对「今天哪里做得不够」。符号的辨认看起来简单，其实是一年级最容易失分的地方，值得反复练。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>二、晨读《当我安静下来》</h2></div>
+    <div class="body-text">
+      <p>晨读仍是这首《当我安静下来》。第一遍全班齐读，之后三遍分别由三位小朋友上台领读。</p>
+      <p>齐读的要求很明确：坐姿端正，眼睛看着字，全班「只有一个声音」。孩子们在两处最容易读串——把「夏天树叶沙沙摇晃」和「秋天叶子轻轻飘落」混在一起，把「轻轻的脚步声」读成「缓缓的脚步声」。老师逐句带读纠正，反复提醒「睁大眼睛看字好吗？」。</p>
+      <p>三位领读的小朋友表现各有亮点：有的把大部分段落都念了下来，有的整篇都能读出来、节奏稳稳的，还有的几乎全篇读对。三位领读者都获得了加分。</p>
+      <p>跟读环节，孩子们都在跟着努力，其中有小朋友从头到尾坚持出声跟读，非常难得。</p>
+      <p>明天的安排：老师会从课文里抽出一些字让孩子抄写，检验这段时间的认字成果。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子上台领读，比老师带读有效得多。站在前面的那几分钟，他们会突然对每一个字负责。跟读看似被动，其实最考验持续注意力，能全程出声跟下来的孩子，课堂效率通常也最高。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎯</span><h2>三、专注力课：视觉分辨 · 精准专注</h2></div>
+    <div class="body-text">
+      <p>上课前先静坐三分钟，让身体和心都安定下来。</p>
+      <p>今天的规则有一处升级：从下一次课开始，能坚持安坐、不乱动的小朋友可以获得额外加分。今天先把规则讲清楚，不加也不减。</p>
+      <p>训练的核心是三步法：<strong>先用耳朵听指令 → 再用眼睛看 → 再去分辨、去找</strong>。每轮限时两分钟，老师喊「开始」才能动手，喊「停」必须立刻停手。</p>
+      <p><strong>第一轮：按颜色分堆。</strong> 要求把红色和黄色分别归到两堆。这一轮完整听懂指令的是<strong>顶顶</strong>和<strong>展硕</strong>。这个年龄段常见的情况是：先动手、后听指令，于是东西找了不少，却没有按要求分开——这正好说明「听清指令」和「做得努力」是两件事。</p>
+      <p><strong>第二轮：按形状分堆。</strong> 要求分出正方形和长方形。这一轮明显好转，多位小朋友分类正确，找得最多的一位约 15 个，也有找到 10 个的。分类正确的小朋友都获得了加分。</p>
+      <p><strong>快速反应复习。</strong> 全体起立，听指令转身、摸头、摸耳朵、摸鼻子。今天统一了一个约定：<strong>转身一律从右边转</strong>，避免大家转向不一。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子做错，很多时候不是不会，而是指令还没听完就开始动手。「先听、再看、再找」这三步会贯穿整个学期。第二轮明显比第一轮好，说明规则一旦被真正听进去，效果立刻能看见。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>四、数学课：认识 6~10</h2></div>
+    <div class="body-text">
+      <p>周一下午第一节固定是数理课。</p>
+      <p><strong>先复习符号。</strong> 加法算式必须同时有加号和等于号，减法必须有减号和等于号，少了等于号，算式就不成立。</p>
+      <p><strong>记住数字的长相。</strong> 用口诀帮孩子把字形记牢：6 像哨子嘟嘟响、7 像镰刀割青草、8 像葫芦两头圆、9 像气球空中飘、10 像香肠加鸡蛋。配合实物图数一数：甜甜圈 6 个、奶油蛋糕 7 个、曲奇 8 块、巧克力饼干 9 块、夹心饼干 10 块。</p>
+      <p><strong>数的分解与组成。</strong> 6 有 5 种分法，7 有 6 种，一直到 10 有 9 种。方法是固定的：<strong>从 1 开始依次分，分完之后反过来写又是一种</strong>。老师特别强调两边都要有数字，就像把东西分给两个小朋友，不能让一个人一个都没有；下面两个数相加，一定等于上面那个数。</p>
+      <p><strong>课堂练习。</strong></p>
+      <ul>
+        <li>数一数写一写：桃子 7 个、樱桃 9 个，<strong>子阳</strong>答对。</li>
+        <li>数序题：7 的前面是 6，4 和 6 之间是 5，和 8 相邻的是 7 和 9。老师讲清了「左边是前面、右边是后面」。</li>
+        <li>匹配题：8 个小朋友需要 8 双手套，<strong>子旭</strong>答对。</li>
+        <li>排序题：7 张卡片从大到小排，就是倒着数 7、6、5、4、3、2、1。</li>
+        <li>连线题：<strong>顶顶</strong>反应最快，多次率先给出答案。</li>
+        <li>快速反应数数，全班一起完成。</li>
+      </ul>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>数的分解是后面加减法的地基。孩子一旦掌握「从 1 开始依次分」这个固定方法，就不会靠猜、靠背，而是有章可循。家里可以用水果、积木随手玩一玩：7 个苹果分给两个人，有几种分法？</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">➕</span><h2>五、0~5 加减法进阶</h2></div>
+    <div class="body-text">
+      <p>在熟悉基础加减之后，今天进入了三种新题型：<strong>混合加减</strong>（一道题里既有加又有减）、<strong>连减</strong>、<strong>连加</strong>。</p>
+      <p>规则只有一条：<strong>从左往右，先算前面再算后面</strong>。比如 2+2−3，先算 2+2 得 4，再用 4 减 3 得 1。老师把它类比成孩子们每天自己算积分的过程，一步一步来，不跳步。</p>
+      <p>练习要求也根据各自的基础做了区分：有的小朋友以口算为主，有的可以先借助工具，但都要尝试独立算出来。共同的要求是——看清符号，别把加看成减；答案整齐地写在等号后面，保持卷面干净；心里算，不出声。</p>
+      <p>对暂时卡住的小朋友，老师给了很具体的方法：忘了就摆小棒或者用手指，<strong>先摆出原来的数量，再拿掉要减的，剩下几个就是答案</strong>。同时反复强化一个判断：减法是越减越少的，不可能越减越多——如果算出来变大了，那一定是哪里看错了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>从单步到多步，难的不是计算本身，而是「按顺序来」这件事。允许低年级孩子借助小棒和手指，是为了让抽象的数量变得看得见；等到熟练了，工具自然就放下了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>六、爱国主义教育：国旗、国歌与阅兵</h2></div>
+    <div class="body-text">
+      <p>今天早上的升旗仪式，太阳很晒，但全班孩子都端端正正地站好了，手里的小国旗一面都没有落地。老师在课上专门表扬了这一点，并由此讲开去。</p>
+      <p><strong>国旗礼仪。</strong> 国旗是不落地的。国旗落地有非常沉重的含义，所以每个人都要好好护着手中的旗。国丧的时候，国旗也只降半旗，而不落地。</p>
+      <p><strong>国歌礼仪。</strong> 在外面听到国歌响起，在保证安全的前提下要停下手中的事、摘下帽子、面向国旗的方向站好，直到国歌结束。只有护旗手和军人升旗时是戴帽的，普通人要摘帽；也不需要特意跑到旗杆下面去，站在原地面向国旗即可。</p>
+      <p><strong>关于阅兵。</strong> 一般是五周年、十周年这样的大庆才举行。今年是 76 周年，没有阅兵；上一次是 70 周年，下一次大约在 2029 年。老师讲了受阅士兵的样子：身高形象都有标准，更重要的是能吃苦——训练非常辛苦，但军姿始终挺拔、眼神炯炯有神。</p>
+      <p><strong>阅兵的意义。</strong> 对外，是让别的国家看到我们的强大，不敢来侵犯；对内，是让每一个中国人心里升起自豪感。老师和孩子们说：正因为有军队守卫，我们才能安安稳稳地坐在教室里读书。说到这里，孩子们自发地一起喊了「中国加油」。</p>
+      <p><strong>开国大典的故事。</strong> 通过史料视频，孩子们看到 1949 年 10 月 1 日、30 万军民参加的开国大典。当时条件非常艰苦，空军力量还很薄弱，飞机数量不够，只能让飞机飞过两遍来撑起场面。今天的强大，正是从那样的起点一步步走过来的。</p>
+      <p>课后，孩子们一起擦桌子、消毒、收好书包方便阿姨拖地，老师也提醒大家用完水龙头要关紧。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>爱国不是一个抽象的词。它可以是晒得很热时也站得笔直，是不让手里的小旗落地，是听到国歌时停下脚步的那几十秒。孩子们今天喊出的那句「中国加油」，是自己喊出来的，不是被教出来的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天有一条线索贯穿了一整天：<strong>先听清楚，再开始做</strong>。算积分时要先看清符号，专注力训练要先听完指令，做加减混合题要先确认顺序。孩子们错的题，大多不是不会，而是急着动手。这个习惯的养成需要时间，我们会在每天的课堂里持续练。</p>
+      <p>下午的国旗课，孩子们特别安静。当他们知道国旗为什么不能落地、当年的飞机为什么要飞两遍时，眼睛是亮的。这样的内容不需要讲大道理，事实本身就有力量。</p>
+      <p>明天我们会从晨读课文中抽字让孩子抄写，检验这段时间的认字成果，明天见。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
