@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十三天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十三天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先看懂结构，再动手做</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 29 日<span class="dot">·</span>开学第五周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <ol>
+      <li><p>晨读前孩子们自己核算积分，老师带着一起算「2+2-1」「4+1-1-2」，算清楚了才能领分给小宠物升级。</p></li>
+      <li><p>《当我安静下来》领读两遍后进入接龙挑战，<strong>六一</strong>、<strong>顶顶</strong>跟读时眼睛看字、声音清亮，得到老师点名表扬。</p></li>
+      <li><p>接龙用了三次机会，第三次全班基本完整地接完了整篇课文。</p></li>
+      <li><p>识字消字环节消对 4 个字就能过关，多位小朋友达标过关，<strong>展硕</strong>挑的是全黑板最难的字，老师当场公开表扬。</p></li>
+      <li><p>手工课先认日期和节日：今天是重阳节，大后天 10 月 1 日是国庆节、是祖国的生日。</p></li>
+      <li><p>老师教了「对折再画一半」的对称剪法，孩子们剪出左右对称的飞机，再拼贴红旗、五角星和 7 架飞机印画。</p></li>
+      <li><p>午后静坐挑战升级，全程稳住的小朋友可以获得额外奖励积分，<strong>糯米</strong>、<strong>妍语</strong>都坐得端正，<strong>展硕</strong>把背挺得很直。</p></li>
+      <li><p>写字课学数字「5」，老师给手部力量还在长的小朋友拆成了三笔写法，<strong>子阳</strong>写得最快也最饱满。</p></li>
+      <li><p>数学复习 6~10 的分解与组合，以 8 为例排出 1和7、2和6、3和5、4和4。</p></li>
+      <li><p>明天超市研学：请带 10 元购物经费 + 2 元公交车费，共 12 元。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>一、晨读前：自己的积分自己算</h2></div>
+    <div class="body-text">
+      <p>上课铃响前，孩子们按学号逐个报出自己的积分。老师定了一条规矩：自己报的分要自己算对，算错了就要重新算过。于是黑板前出现了一串小算式——「2+2-1 等于几？」「4+1-1-2 呢？」孩子们掰着手指、看着数字，一个个把自己的分算清楚。</p>
+      <p>积分在下课时统一发放，可以用来给自己的「小宠物」升级，今天累计最高的小朋友已经攒到了 18 分。把积分和数学算式绑在一起，孩子算得格外认真——因为这是「自己的分」。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子算自己的积分，是最自然的计算练习。数字从课本走进了他们真实的生活，加减法就不再是抽象符号，而是「我今天能不能给小宠物升级」。算错了重算，也是在练一件事：结果要经得起检查。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>二、晨读《当我安静下来》：从跟读到全文接龙</h2></div>
+    <div class="body-text">
+      <p>今天仍然读《当我安静下来》。开课前老师先把姿势立好：脚踏实地、眼睛看字、嘴巴张开、坐姿端正——「眼睛不看字，嘴上再响也读不进心里。」</p>
+      <p>老师领读两遍，第一遍读完就表扬了几位跟读特别认真的小朋友，<strong>六一</strong>和<strong>顶顶</strong>都在其中：他们不但跟得上，眼睛一直落在字上。</p>
+      <p>第三遍换成接龙：以标点符号为分界线，老师读一句、孩子接一句，全班共有三次挑战机会。</p>
+      <ul>
+        <li>第一次，接到「安安静静不动的时候」断掉了；</li>
+        <li>第二次，在中段接岔了；</li>
+        <li>第三次，全班基本完整地接完了整篇课文，只在最后一句多读了一个「能」字。</li>
+      </ul>
+      <p>三次之后，孩子们自己也发现了规律：接得上的时候，眼睛都在字上。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>接龙比齐读难得多，因为它不允许「跟着别人的声音混过去」。三次机会给的是重来的空间，也给了孩子一个可贵的体验——第一次没成、第二次更近、第三次成了。这种「越接近越有劲」的感觉，比一次成功更值得。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔤</span><h2>三、识字消字：消对 4 个就能过关</h2></div>
+    <div class="body-text">
+      <p>晨读之后是消字挑战：黑板上留着这几天学过的字，消对 4 个就可以先下课。老师特意说明，叫谁上来看的是课堂表现，不是谁举手快。</p>
+      <p>今天多位小朋友上台挑战：<strong>子旭</strong>顺利达标过关；<strong>子阳</strong>和<strong>展硕</strong>都消掉了好几个字，其中<strong>展硕</strong>挑的是全黑板最难的一个字，老师当场表扬了他这份「专挑硬骨头」的劲；<strong>六一</strong>也上台挑了字，把有把握的先消掉了。</p>
+      <p>越消到后面越难，这是必然的。老师顺势说了一句今天的名言：「简单的消掉，剩下的难的就是你的了。」剩下的三个难字是聆听的「聆」、游泳的「泳」、白纸的「纸」。「纸」字大家卡住时，老师把它放回整句里——「铅笔在纸上沙沙响」——孩子们立刻认了出来。明天放学前，老师会再把这三个字拿出来提问。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>单个字认不出来，放回句子里却认得出，说明孩子的识字正处在「靠语境理解」的阶段，这是很正常也很健康的一步。我们不急着抽离语境去硬记，而是先让他在句子里遇见这个字很多次，熟了自然就认得了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✂️</span><h2>四、国庆主题手工：对折一次，剪出一架对称的飞机</h2></div>
+    <div class="body-text">
+      <p>上午第二节是手工课。老师先带着认日期：今天是 9 月 29 日，也是重阳节；九月只有 30 天，所以大后天就是 10 月 1 日国庆节，是祖国的生日。</p>
+      <p>今天的作品是一幅国庆主题拼贴画：一面红旗（1 张红色旗纸 + 1 颗大五角星 + 4 颗小五角星）加上 7 架飞机印画，上面要写的字留到下午自己写。五角星老师提前剪好了，今天的重点在飞机。</p>
+      <p><strong>核心教学点——对称剪法</strong>：老师先示范了一次「不对折直接画」，剪出来只有半架飞机；然后把纸对折，在对折后的一侧画「一半飞机」，沿线剪开、展开——一架左右对称的完整飞机出现了。孩子们看得很专注。老师还提醒：一半飞机要尽量画满整张纸，画太小就剪不出来；画好要经老师检查过才能领剪刀。</p>
+      <p><strong>粘贴顺序</strong>：先贴红旗旗面，再贴五角星（大星在中间，四颗小星在右侧环绕），最后贴飞机印画；边缘要涂满胶水才粘得稳。</p>
+      <p><strong>飞机排列</strong>：7 架飞机，中间一架最高，左右各 3 架依次往下排，对称起来最好看。印画时要把模具压稳再涂色，一挪动图案就变形了；多余的颜料用尺子刮平。完成的作品统一放到指定区域晾干。</p>
+      <p><strong>剪刀安全</strong>：正确握持、刀头朝下、不举着剪刀走动、不抢别人的剪刀，用完及时归还。</p>
+      <p>收尾时，尺子、剪刀、笔、抹布洗干净归位，固体胶和颜料盒盖好，每个人清扫自己座位的桌面和地面，垃圾丢进垃圾桶。今天只扫不拖——颜料还没干。收拾完大家下楼喝水、跑步。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>今天最想教的其实不是剪飞机，而是「观察结构」。对折之后画一半，展开就是完整的——这是孩子第一次亲手验证「对称」。老师课上说了一句：能力可以慢慢来，认真的态度我们会坚持要求。会不会是能力问题，认不认真是态度问题，我们只在后者上有要求。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧘</span><h2>五、午后静坐：把「不动」变成一件有奖励的事</h2></div>
+    <div class="body-text">
+      <p>下午第一件事是静坐挑战，规则是昨天就预告过的升级版：全程一动不动的小朋友，可以获得额外的奖励积分。今天有四位小朋友稳稳地坐到了最后，拿到了这份奖励。</p>
+      <p>坐姿要求也说得很细：不靠椅背、先把椅子调整到合适的位置、背挺直。<strong>糯米</strong>和<strong>妍语</strong>全程坐得很端正，<strong>展硕</strong>中途被提醒了一次「背挺起来」，立刻就调整好了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>静坐练的不是「忍」，而是对自己身体的觉察——什么时候松了、什么时候歪了，能自己发现并调整回来。把安静也纳入奖励，是想让孩子看见：安静本身是有价值的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>六、写字课：田字格里的数字「5」</h2></div>
+    <div class="body-text">
+      <p>上周学的是数字 4，本周学 5。位置要求写在田字格的左半格，不能越过竖中线。</p>
+      <p>常规写法两笔完成。考虑到有些小朋友手部力量还在长，老师给了一个三笔写法：</p>
+      <ol>
+        <li>先写一竖，起笔在左半格上方靠近顶边的位置，写到横中线停笔；</li>
+        <li>从停笔处往右画一个圆润的小半圆，可以稍微超过横中线；</li>
+        <li>最后在半圆上方写一横，横不要顶到最左上角，要留一点空隙。</li>
+      </ol>
+      <p>整体要写得饱满，但不能超线。<strong>子阳</strong>今天写得最快也最好，横画经老师指点后立刻改了过来；<strong>六一</strong>用三笔写法，一笔一笔写得很稳。</p>
+      <p><strong>坐姿与握笔</strong>也一并纠了一遍：脚踏实地、小腿和膝盖成 90 度、手肘不要全压在桌面上、胸口离桌子一拳、不耸肩、头要正不歪；握笔时大拇指和食指不要并拢在一起。</p>
+      <p><strong>作业要求</strong>：写完要填日期。纸上已经印好了「月」「日」，只需要在横线上写 9、29 和「星期二」的二。描红没描准、点没连上的地方，要擦干净重写——擦也要有耐心。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把 5 拆成三笔，不是降低标准，而是给手部力量还在发育的孩子一条走得通的路。写字这件事，先让他写得成，才谈得上写得好。请家长在家看到孩子分笔写时不必纠正，等手劲上来了，自然会连成两笔。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>七、数学回顾与明日超市研学</h2></div>
+    <div class="body-text">
+      <p>本周数学学的是 6~10 的认识，重点在分解与组合。老师帮孩子们理清了一件事：分解就是减法，组合就是加法。以 8 为例，孩子们把所有搭配都排了出来——1 和 7、7 和 1、2 和 6、6 和 2、3 和 5、5 和 3、4 和 4，再用 1+7=8 逐一验证。</p>
+      <p>明天的超市研学正是这部分内容的实践。<strong>请家长准备：10 元购物经费 + 2 元公交车费，共 12 元</strong>。老师在课上逐个提问确认过「10+2 等于几」，孩子们都答得上来。如果需要孩子代买东西，请另外给钱，并让孩子记住要买什么——购物清单我们希望由孩子自己写。</p>
+      <p>最后老师交代：先把书包收拾好，再继续昨天的观影课。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>明天带 12 元不是形式。孩子要自己算清楚 10 元能买什么、还剩多少、车费不能动——这比在纸上做十道分解题更接近数学的本来面目。请家长把钱交给孩子自己保管，让他体验一次「这笔钱由我负责」。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天有两个瞬间特别值得记下来。一个是晨读接龙的第三次——前两次都断在半路，第三次全班几乎完整地接完了整篇课文。孩子们自己也感觉到了，那种「差一点、再差一点、成了」的过程，比一次成功更能让他们相信努力是有用的。</p>
+      <p>另一个是手工课上纸展开的那一刻。对折、画一半、剪开、展开——一架完整的飞机出现在手里。老师说「一定要学会观察结构」，而孩子是通过自己的手明白这句话的。这样的理解，不容易忘。</p>
+      <p>明天是超市研学，请记得让孩子带上 12 元（10 元购物 + 2 元车费），并由他自己保管。这笔钱会变成一堂真实的数学课。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
