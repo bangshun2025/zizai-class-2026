@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十四天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十四天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">每一步，都是自己完成的</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 9 月 30 日<span class="dot">·</span>开学第五周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天是 9 月的最后一天，也是国庆节前的最后一个上课日：上午是一次完整的超市购物实践，下午是练字、生活数学和一堂国庆前的历史课。</p>
+    <ol>
+      <li><p>出发前老师请每个孩子先说出自己的购物计划：买什么、大概多少钱、够不够。</p></li>
+      <li><p>1 元公交车费自己握在手上，队伍站整齐了才出发。</p></li>
+      <li><p>公交车上复习了乘车礼仪：扶稳、不站高处、主动给需要的乘客让座。</p></li>
+      <li><p>有孩子发现街边挂满了国旗，老师顺势讲了国庆节快到了。</p></li>
+      <li><p>超市里孩子们带着各自的任务采买，有的是家里交代的东西，有的是自己想买的小食。</p></li>
+      <li><p>10 元的预算让孩子真正练习了取舍，有孩子在货架前反复比较后换成了更需要的那一样。</p></li>
+      <li><p>结账时每个孩子自己排队、自己付钱、自己接找零，有孩子完成了第一次完全独立的购买。</p></li>
+      <li><p>返园后大家按顺序收尾：清空口袋、钱放回钱包、小票交到办公桌、水杯归位。</p></li>
+      <li><p>户外时间跑圈后自由探索，有孩子捡到三角形的石头，也和老师一起辨认了一小块反光的碎片。</p></li>
+      <li><p>午后静坐老师问的是「你能不能察觉到自己动没动」，能诚实举手的孩子都得到了肯定。</p></li>
+      <li><p>钟表复习：一大格是 5 分钟、一小格是 1 分钟，孩子们读出了 3 点 06 分。</p></li>
+      <li><p>写字课练数字「5」，三条标准是写得快、写得好、坐姿与握笔正确。</p></li>
+      <li><p>学了两步小票核对法：看商品名称、看数量重量，还不认字也能对着实物比。</p></li>
+      <li><p>元角分以小数点为分界，课堂练习了 9.99、4.90、19.99、69.85 等几组价格。</p></li>
+      <li><p>数学练习十以内减法，用 10 的分成算出 10−3=7、10−5=5、10−4=6。</p></li>
+      <li><p>国庆前的历史课落在四句话上：记住历史、感恩先烈、珍惜和平、自强不息。</p></li>
+      <li><p>明天 10 月 1 日国庆节放假，请带孩子注意出行安全、作息规律。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚌</span><h2>一、出发前与路上：先想清楚，再出门</h2></div>
+    <div class="body-text">
+      <p>出门前老师先做了三件事。第一件是排队：队伍不整齐时大家一起重新调整，直到每个人都站到位。第二件是车费：每人准备好 1 元公交车费，自己握在手上，不随手塞进口袋。第三件也是最重要的一件：请每个孩子当场说出自己的购物计划——要买什么、大概多少钱、手上的钱够不够。</p>
+      <p>路上的规矩也说得很具体：过马路跟紧队伍；上车后扶稳，不站到台阶高处；听到车载广播提醒，主动给需要的乘客让座。车开到半路，有孩子意外发现街边挂满了国旗，老师顺势接了一句：快到国庆节了，所以街上到处都挂着国旗。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子在出门前先把计划说出口，是今天整个活动的前提。小孩子并不是不会做决定，而是习惯了到了现场再凭感觉拿。先想、再看、后买，这个顺序本身就是一次自我管理的练习。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>二、超市里：10 元怎么花，自己决定</h2></div>
+    <div class="body-text">
+      <p>孩子们带着各自的任务进超市。有的是家里交代的采买——番茄酱、核桃仁、大杏仁、电池、黑芝麻糊、牛奶；有的是自己想买的面包和小零食。</p>
+      <p>这一环节真正在练的是取舍。手上只有 10 元，就得想清楚「一次花完了，后面就没有了」。有孩子记得妈妈的约定，把已经拿在手里的巧克力又放了回去；有孩子在货架前反复比较，最后换成了更需要的那一样。也有孩子把预算花得很快，老师并没有马上阻止，只提醒了一句：你确定这是你最想买的吗？</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>预算有限，是这堂课最宝贵的设计。孩子只有在「买了这个就买不了那个」的时候，才能真实地感受到选择的重量。今天我们不替孩子做判断，也不帮他避开遗憾——花得太快也是一种学习，下一次他自己就会想得更久一点。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💵</span><h2>三、结账与返园：第一次自己把钱交出去</h2></div>
+    <div class="body-text">
+      <p>结账是今天最安静也最紧张的一段。每个孩子排队、自己把商品递给收银员、自己付钱。老师在旁边把金额报出来（8.9 元、11.9 元……），带着孩子一起核对找零，并反复交代一件事：小票要收好，回园交给艾老师。</p>
+      <p>今天有孩子完成了第一次完全独立的购买，从挑东西到付款全程没靠老师代办，走出收银台时特别开心地说：「今天终于买到东西了！」</p>
+      <p>回到园里，收尾也有固定顺序：清空口袋 → 把剩下的钱放回钱包（回家交还给家长）→ 小票交到办公桌 → 水杯放回原位。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>对这个年龄的孩子来说，当着陌生人把钱递出去、再把零钱和小票接回来，是一件真正需要勇气的事。我们故意不代付、不代拿，只站在旁边。一个孩子能独立完成一笔交易，那种「我行」的感觉，比买到的东西重要得多。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪨</span><h2>四、户外时间：跑圈与探索园里的发现</h2></div>
+    <div class="body-text">
+      <p>返园后先跑圈。孩子们根据自己的体能定了不同的目标，要求只有一条：定了多少就跑完多少。</p>
+      <p>接着是探索园的自由时间。有孩子捡到一块三角形的石头，又捡到一块小到几乎看不见的石头，特意拿来给老师看；有孩子兴奋地说自己找到了宝石，老师和他一起辨认后发现是一小块反光的碎片，于是顺着这个发现聊了为什么有些东西要绕开、不随手拿。还有孩子在荡秋千和爬高上反复尝试，一次没成功就换个姿势再来，老师在下面说了一句：办法总比困难多。</p>
+      <p>安全约定今天反复说了几遍：不确定的东西先问老师、不随手拿；不往高处抛石头；爬高时双手抓稳；先保护好自己。收尾时老师提前 5 分钟打了招呼，并和孩子们聊了说到做到的契约精神——约定了几分钟，就在几分钟内完成。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把「以为是宝石、其实是一块反光碎片」这个小插曲认真对待，比直接说「不要拿」有用得多。孩子自己发现的事情，他会愿意听完整个解释。户外的安全教育也是这样——在真实情境里讲一次，比在教室里说十次都管用。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⏰</span><h2>五、午后静坐与钟表：觉察自己，读出时间</h2></div>
+    <div class="body-text">
+      <p>下午第一件事是课前静坐。结束后老师问的不是「谁动了」，而是「你能不能察觉到自己动没动」。能诚实举手说出自己状态的孩子，都得到了肯定。</p>
+      <p>接着复习钟表：一大格是 5 分钟，一大格里的一小格是 1 分钟。长针走到「1」后面第 6 个小格，孩子们读出了 3 点 06 分。老师又带着算了一步：25 + 5 = 30，所以今天练字到 3 点 30 分。时间是孩子自己算出来的，不是老师定的。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>静坐练的不是「忍」，而是对自己身体的觉察——什么时候松了、歪了，能自己发现并调整回来。而把「练字到几点」交给孩子自己算，是让钟表从知识变成工具。孩子一旦发现时间可以被自己算出来，就不再总是问「还有多久」。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>六、写字课：数字「5」的三条标准</h2></div>
+    <div class="body-text">
+      <p>今天写作业本第 12 页的数字「5」，评分有三条标准：写得快、写得好、坐姿与握笔正确。</p>
+      <p>书写上老师逐一拆了细节：下方的小半圆要圆润饱满；弯钩不要向上翘得太多，几乎封口就过了；每一个描红点都要连到，不留断点；写不顺的小朋友可以分三笔完成。</p>
+      <p>姿势也一并纠了一遍：握在铅笔没削的位置，不要捏得太靠近笔尖；腰背挺直、头正肩平、脚踏实地；膝盖与小腿约成 90 度；手肘不要整个压在桌面上；头不要低得太近本子。三条标准同时做到才能拿满分，今天大家都在往这个标准靠近。</p>
+      <p>日期填写时老师顺带讲了一个常识：本子上已经印好了「月」「日」「星期」，只需要在横线上写 9、30、三；而 9 月只有 30 天，所以今天正好是 9 月的最后一天。卷面要求也说清楚了：不乱涂乱画，弄脏了先擦干净再交给老师批改。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把「5」拆成三笔，和昨天一样，不是降低标准，而是给手部力量还在发育的孩子一条走得通的路。家长在家看到孩子分笔写不必纠正，手劲上来了自然会连成两笔。至于坐姿和握笔，反而是要从一开始就盯住的——它们改起来比字形难得多。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>七、生活数学：小票、元角分与 10 的分成</h2></div>
+    <div class="body-text">
+      <p>下午的数学课直接接上了上午的超市。</p>
+      <p><strong>先学核对小票</strong>。老师只教了两步「必须自己看」的方法：第一步看商品名称，有没有把别人的东西刷到你这里、有没有漏刷你买的；第二步看数量和重量，同一样东西有没有被重复收费。还不认字也没关系，可以对着手里的实物一样一样比。单价和总价是机器算的，一般不会错，最容易出问题的是「刷了几次」。老师也说明了，机器和人偶尔也会出错，所以要养成自己核对一遍的习惯，孩子们听得很认真。小票上的凭证号则是它的「身份证」，独一无二，万一有争议，凭它就能查到这一笔账。</p>
+      <p><strong>再学元角分</strong>。以小数点为分界：左边是元，右边第一位是角，第二位是分，末位是 0 就不读。课堂练习了 9.99、4.90、19.99、22.13、14.99、69.85。支付与找零也讲清楚了：小票上的「实付合计」就是实际付出去的钱；微信支付没有找零，用现金就一定要核对找零；比如付 20 元、实付 19.9 元，找回的 0.10 元就是一角。硬币还要看清单位是元还是角——一角是不能坐公交车的。</p>
+      <p><strong>最后是十以内减法</strong>。情景就是今天的真事：带 10 元去买 3 元的西红柿，还剩多少？10 可以分成 3 和 7，所以 10 − 3 = 7。用手指算的时候要从一只手开始依次减，今天纠正了「两只手同时减」的算法；接着巩固了 10 − 5 = 5、10 − 4 = 6。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>上午花出去的钱、手里握的小票，下午变成了数学题——这是我们把超市和课堂排在同一天的原因。元角分、减法、核对，这三件事在课本里是三个知识点，在生活里是同一件事：把自己的钱管好。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>八、国庆前的一堂历史课</h2></div>
+    <div class="body-text">
+      <p>放假前，老师和孩子们一起按时间线回顾了近代中国的一段历史：澳门曾被葡萄牙占据近 400 年，1999 年回归祖国；1840 年第一次鸦片战争后签订《南京条约》，赔款、割让香港，大量文物流失海外；1860 年圆明园被侵略者焚毁；1900 年八国联军侵华，次年签订《辛丑条约》；近代沙俄侵占我国大片领土；1931 年九一八事变，此后是十四年抗战；抗美援朝时期，长津湖和水门桥都是志愿军战斗过的地方。</p>
+      <p>讲完这些，老师把话收到了四句上：记住历史、感恩先烈、珍惜和平、自强不息。今天能坐在教室里安安静静写字、能自己拿着钱去超市买东西，都是很多人努力换来的。</p>
+      <p>放学前的收尾照旧：收拾书包、清空桌面、任务在课堂内完成。老师最后提醒了一句：明天 10 月 1 日国庆节放假。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>跟这么小的孩子讲历史，我们只讲史实和时间，不讲情绪，也不推向恨意。孩子现在未必能听懂条约和赔款，但他能记住一件事：国庆节不只是放假和玩，而是一个值得郑重对待的日子。这就够了，其余的以后慢慢长。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天最值得记下来的，是收银台前的那一排小背影。排队、递东西、付钱、接找零、把小票收进口袋——每一步都是孩子自己完成的。有孩子为此兴奋了一路，那句「今天终于买到东西了」，听得出里面的分量。</p>
+      <p>下午把上午的小票重新拿出来核对，是今天的另一个用心处。一张小票里有元角分、有减法、有核对的习惯，这比任何一页练习题都真实。</p>
+      <p>明天起就是国庆节假期了。祝各位家长和小朋友节日快乐、出行平安，我们假后再见。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
