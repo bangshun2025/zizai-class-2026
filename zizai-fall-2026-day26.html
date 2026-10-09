@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十六天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十六天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">做对，比做快更重要</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 9 日<span class="dot">·</span>开学第六周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天是「专注」和「方法」贯穿始终的一天——从指尖点字到脚尖落地，从一笔写完的「6」到遇到蛇时的 S 形跑位，每一件事我们都在教孩子：做对，比做快更重要。</p>
+    <ol>
+      <li><p>晨读《千字文》，强化「左手压书、右手指字，指尖点在字的下方不遮字」的正确姿势，有孩子从第 11 页到第 20 页全程认真出声跟读。</p></li>
+      <li><p>积分结算日：没迟到 +2 分、课堂表现优秀 +1 分，孩子们自己动手算总分，顺带学会了「正负相同的数互相抵消」。</p></li>
+      <li><p>阅读理解与表达课听《乌鸦喝水》，四道细节题人人开口，提炼出细心观察、在正确方向上坚持、就地取材、多想几种办法四点启发。</p></li>
+      <li><p>体能课完成拉伸、金龙拍拍操、S 形侧边跳、开合跳四个环节，重点练「脚尖轻盈落地」和「听指令立刻反应」。</p></li>
+      <li><p>户外自由活动玩沙、搭城堡，老师同步提醒扬沙、用水和及时补水的小规矩。</p></li>
+      <li><p>下午练习数字「6」的规范书写：只占田字格左半边、一笔写完、下方的圆越圆越好，并复习坐姿与握笔三要点。</p></li>
+      <li><p>自然基地安全培训：与狗狗「米粒」相处的三条规则、活动边界、遇到蛇和蜜蜂怎么办、红火蚁如何避让。</p></li>
+      <li><p>用「从头到脚记忆法」一起整理明天出行的物品清单，孩子们自己复述、自己记。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>一、晨读时光 · 指尖下的《千字文》</h2></div>
+    <div class="body-text">
+      <p>早读从《千字文》跟读开始。老师先统一了姿势要求：<strong>左手压住书本，右手手指指字</strong>，而且手指要点在字的<strong>下方</strong>，不能把字遮住——这样眼睛才能跟着字走，不会读串行。</p>
+      <p>晨读还有三个要求：专注、大声开口、嘴巴张开念。看似简单，但要全程做到并不容易。今天从第 11 页读到第 20 页，有孩子全程认真出声，有孩子始终保持着正确的点字动作，还有孩子坐姿端正到一次都不需要提醒。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>指字这个小动作，是在帮孩子建立「眼—手—口」的同步。读得整不整齐是次要的，手指有没有跟上、嘴巴有没有真的张开，才是我们真正在看的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>二、积分结算 · 在计算里认识正负</h2></div>
+    <div class="body-text">
+      <p>今天是积分结算的日子。规则孩子们已经很熟：没有迟到 +2 分，课堂表现优秀 +1 分，没有自己收拾书包、上课开小差会减分，而且<strong>只算当天</strong>，昨天的分不带到今天。</p>
+      <p>结算的过程就是一节小小的计算课。老师教了两步法：<strong>先把所有加号后面的数加起来，再减去减号后面的数</strong>。遇到「+2 和 −2」这种情况，老师用「欠老师的分」和「得到的分」来解释：正负相同的两个数碰到一起会互相抵消，结果就是 0。</p>
+      <p>今天大家的得分在 0 到 3 分之间，有孩子拿到了满额的 3 分。积分还会用来养「小宠物」，目前大家的小宠物在 2~4 级之间，5 级还等着有人第一个解锁——大家都在努力。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把抽象的负数放进「欠分 / 得分」的真实情境里，孩子理解得特别快。数学不一定要在数学课上发生。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐦</span><h2>三、阅读理解与表达 ·《乌鸦喝水》的四个细节</h2></div>
+    <div class="body-text">
+      <p>阅读理解与表达课的目标很清晰：<strong>听清 → 理解 → 表达</strong>，并且保证每个孩子至少回答 1~2 次问题。</p>
+      <p>今天听的是《乌鸦喝水》音频，听完回答四道细节题：</p>
+      <ol>
+        <li>乌鸦一开始喝不到水的三个原因——水太少、瓶口小、瓶颈长。这道题老师要求答得精准完整，三点缺一不可。</li>
+        <li>它想到的第一个办法——从高空猛地冲下去撞瓶子，结果瓶子太重没能撞倒。</li>
+        <li>撞不倒之后，它本想用石头把瓶子砸碎，石头却意外掉进了瓶里，它发现水位升高了一点点。</li>
+        <li>于是它叼来许多石头，一块一块投进去，水升到瓶口，终于喝到了水。</li>
+      </ol>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子回答时容易「说个大概」。我们会追问一句「还有呢」「哪三个原因」，把答案从模糊逼到清晰——这就是表达训练的核心。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✨</span><h2>四、故事之后 · 四点启发</h2></div>
+    <div class="body-text">
+      <p>故事讲完，我们一起把它「用起来」：</p>
+      <ul>
+        <li><strong>细心专注地观察</strong>。石头掉进瓶子、水面升高，这个细节别的动物可能看不见，乌鸦看见了。只有专注观察，才能发现别人发现不了的东西。</li>
+        <li><strong>耐心坚持，但方向要对</strong>。老师特别强调了一句：「坚持不一定就是胜利，在正确的方向上面坚持才能达到胜利。」撞瓶子撞一百次也没用，换对方法再坚持，才有结果。</li>
+        <li><strong>就地取材</strong>。乌鸦用的是身边现成的石头。这一点孩子们立刻联想到了中秋时我们用大自然的材料做花灯。</li>
+        <li><strong>破框思考</strong>。遇到同一个问题，先想三种以上的办法，再比一比哪个更好。老师追问：如果附近没有石头怎么办？孩子们答出了小树枝、小松果、小圆果子——办法总比困难多。</li>
+      </ul>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「想三种办法再选一种」是我们一直在练的思维习惯。它的价值不在于答案，而在于孩子不再卡在第一个念头上。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>五、体能训练 · 把一个动作练到位</h2></div>
+    <div class="body-text">
+      <p>体能课从拉伸开始：体前屈要<strong>膝盖伸直</strong>去碰脚，大风车要抬起两个「把手」碰脚，踢毽子要<strong>横着抬脚踢高</strong>，而不是弯腰去够。</p>
+      <p>接着是金龙拍拍操，做了好几轮：头头拍拍、肩肩拍拍、大拇指小拇指、左右扭扭……这套操练的是<strong>身体反应速度</strong>——听到指令要立刻做对，稍一分心就会跟不上。这个在家也可以随时练。</p>
+      <p>今天的重点是 <strong>S 形侧边跳</strong>：从左侧进场，双脚并拢用<strong>脚尖</strong>跳，不用全脚掌；脚尖始终朝着前进方向，中途不换向。老师反复提醒：落地有声音说明动作太笨重了，可以慢一点，但动作要标准，轻盈落地的习惯养成了，以后跳绳才不会脚板发麻。今天大家明显比昨天跳得好。</p>
+      <p>最后是开合跳：每个格子都要踩到，不空格、不踩线，腿打开的时候手要往上击掌；还要等前一个小朋友跳到中间再出发。看起来简单的动作，真要一个格子不漏地跳完并不容易，老师顺势和大家聊了一句——越是觉得简单的事，越要认真做完整。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>我们的训练理念是「一个动作重复练到完全标准，再换新动作」。总是变花样看着热闹，但孩子其实什么都没掌握。一遍又一遍地做同一件事，既需要专注，也需要坚持；认真把每个动作做到位，时间才没有被浪费。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏖️</span><h2>六、户外自由活动 · 沙地里的小规矩</h2></div>
+    <div class="body-text">
+      <p>训练结束后是自由活动时间。孩子们玩沙、接水搭沙城堡，玩得很尽兴。老师在旁边同步提醒了几条小规矩：沙子不要扬得太高，会扬到旁边小朋友的嘴巴、鼻子和耳朵里；接水不要装太多，别浪费。中途有孩子主动来报备手上蹭破了一点皮，老师检查后确认无大碍，已做清洁处理。玩到一半，老师招呼大家停下来喝水。</p>
+      <p>收尾时，大家一起收拾物料、各自拿好自己的水杯，整队返程。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子愿意主动报备「我擦破皮了」，比「不受伤」更让我们安心——这说明他知道有事要找大人。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>七、下午写字课 · 一笔写完的「6」</h2></div>
+    <div class="body-text">
+      <p>下午的书写课，照例是「桌面不擦干净就不发本子」。先确认日期：2026 年 10 月 9 日，星期五。</p>
+      <p>数字「6」的规范要点：</p>
+      <ul>
+        <li>一位数只占田字格的<strong>左半边</strong>，不能超过竖中线；</li>
+        <li>下方的圆不超过横中线；</li>
+        <li>起笔在竖中线的左上角（老师在本子上点的黑点只是位置标识，孩子自己写的时候不用点）；</li>
+        <li><strong>一笔写完</strong>，不能拆成两笔，下方的圆越圆越好；</li>
+        <li>不要写太小，也不要偏到右边。目标只有一个：今天要比昨天写得更好。</li>
+      </ul>
+      <p>同时复习了坐姿和握笔：腰背挺直，不驼背、不靠椅背；胸口离桌面约一个拳头；臀部只坐椅子的三分之一到三分之二；握笔不勾手腕，虎口朝上；手肘不要整个压在桌面上。</p>
+      <p>写完先自己检查再交。今天常见的几个问题：「6」拆成了两笔；写「10」时 1 和 0 粘在一起；日期横线上只需要写数字 10 和 9（「月」「日」已经印好了）；重复多写了数字；擦得不干净。写错的地方要全部擦净再重写。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>写字时孩子难免因为写不好而着急。我们常和他们说：「有情绪可以顶着情绪，我伤心、我难过，但即便伤心难过，我仍然可以把该做的事情做完，这才是进步。」情绪可以在，事情也可以继续做完——这就是了不起的进步。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐕</span><h2>八、自然基地安全课 · 明天出发前的必修课</h2></div>
+    <div class="body-text">
+      <p>明天（周六）我们去自然基地，全员参与。出发前，先上了一堂完整的安全课。基地环境我们已提前确认，全程有老师带队；今天讲这些，是让孩子知道遇到情况该怎么做，而不是让他们害怕。</p>
+      <p><strong>关于狗狗「米粒」</strong>。米粒性格温顺，徒步的时候还会跑在前面帮大家探查危险。但有三条规则必须守住：</p>
+      <ol>
+        <li>不能骑在它身上——它会难受，可能愤怒反抗；</li>
+        <li>不能碰它的幼犬——护崽的时候会攻击陌生人；</li>
+        <li>喂食要把食物<strong>丢到地上</strong>，不能拿在手上——它分不清食物和手。同样，也不要蹲在地上吃东西。</li>
+      </ol>
+      <p><strong>关于活动边界</strong>。孩子们只能在沙滩老师的门内区域活动，没有老师带领不能出门口，更不能跑到外面的农家乐。老师请大家互相提醒、互相监督。</p>
+      <p><strong>遇到蛇怎么办</strong>。蛇不会主动攻击人，只有感到威胁时才会攻击，其实蛇也怕人。第一不要惊慌，第二不要伤害它——站着不动、屏住呼吸，它感受不到活物就会自己离开。实在要跑，就跑 <strong>S 形</strong>：S 形会减慢蛇的速度，比直线逃跑成功率高。另外，进草丛之前先用棍子打一打草、弄出声音，这就是成语「打草惊蛇」的由来。</p>
+      <p><strong>关于蜜蜂</strong>。蜜蜂只有在生命受到威胁时才会蜇人，而且蜇完自己也会死，所以它不会随便蜇人。站着不动，它就飞走了。今天早上就有一只蜜蜂把老师鲜艳的帽子当成了花。</p>
+      <p><strong>关于红火蚁</strong>。不要踩它的巢穴，看到要绕道走，否则会被咬肿脚。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这堂课最想传给孩子的，是这句话——「没有绝对的安全，我们要做的是把主动权掌握在自己手上，而不是说我怕，我不做了，我再也不去了。」</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>九、尊重生命 · 和自然好好相处</h2></div>
+    <div class="body-text">
+      <p>安全课的后半段，我们聊到了更远一点的事。</p>
+      <p>老师说：「每一条生命都值得被尊重，不管是动物还是人类，都需要去尊重它。」我们不主动去伤害它们，它们一般也不会伤害我们。</p>
+      <p>也聊到了环境：这些年自然灾害和极端天气越来越多，和人类破坏环境是有关系的。如果一直这样下去，人类也可能面临很大的危机。但反过来，「如果我们能很爱护它们、跟它们和谐地相处在一起，不去做伤害它们的事情，那我们人类就可以很好地在这个星球上面生活下去。」</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>安全教育讲到最后，其实落点是「尊重」。知道边界在哪里、知道对方也会害怕，孩子自然就懂得怎么相处了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>十、出行准备 · 从头到脚的记忆法</h2></div>
+    <div class="body-text">
+      <p>最后，我们一起整理明天出行要带的物品。老师没有让孩子死记，而是教了一个方法——<strong>从头到脚</strong>，一样一样往下想：</p>
+      <ul>
+        <li>碗筷、水杯</li>
+        <li>短袖 4 件</li>
+        <li>防晒衣 1 件</li>
+        <li>裤子 2 条</li>
+        <li>内衣 1 件</li>
+        <li>袜子、鞋子</li>
+        <li>脏衣袋</li>
+      </ul>
+      <p>补充说明：汗巾不用带；帽子班里有。建议孩子穿长袖防晒衣，既防晒也防风、防蚊虫。天气预报显示明天不下雨。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>老师在课上说了一句很实在的话——「记东西是有方法的啊，不是说你就死记硬背。」从头到脚顺一遍，孩子自己就能把清单复述出来。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，看起来是几件不相干的事：读书、算分、听故事、跳格子、写数字、学安全。但串起来看，其实只有一件事——我们在教孩子「把事情做对的方法」。指字要点在字下方，是方法；先加后减、正负抵消，是方法；想三种办法再选一种，是方法；脚尖轻盈落地，是方法；遇到蛇跑 S 形，是方法；从头到脚整理行李，也是方法。方法学会了，孩子面对新问题时就不会只会着急和放弃。明天自然基地见，我们把今天学的规则，带到真实的山野里去用一用。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
