@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十七天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十七天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">做完整，比做完更重要</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 10 日<span class="dot">·</span>开学第六周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天是在山野里过的一整天。它看起来是玩，其实每一个环节都有同一个要求——从头到尾，把一件事做完整。</p>
+    <ol>
+      <li><p>完整走完一轮农事：松土开垦 → 撒有机底肥 → 播撒白菜籽 → 铺稻草 → 浇水，每一步老师都先讲清楚「为什么这么做」再动手。</p></li>
+      <li><p>挖地时孩子们挖到了螺丝钉、石头、野生花生和去年种下的小姜，也看到稻谷已经出穗，自然课本就在脚下。</p></li>
+      <li><p>铺稻草的两个作用孩子们记住了：保暖、保湿锁水，还能防止小鸟把菜籽吃掉。</p></li>
+      <li><p>徒步途中练的是行走的方法：双手不拿多余的东西、跟上队伍、下坡怕滑就横着走。</p></li>
+      <li><p>绳网攀爬和平衡木挑战，有孩子第一次爬就爬到了高处，也有胆子小的孩子在鼓励下坚持完成。</p></li>
+      <li><p>自然科普两则：铁线蕨为什么叫「铁线」，以及红火蚁为什么要绕着走。</p></li>
+      <li><p>沙地自由创作、秋千、拔河，玩的时候规矩也清楚：一人一个秋千、不扬沙、不拿棍子。</p></li>
+      <li><p>营地午餐孩子们一起参与准备，知道了冬瓜的营养大半在皮上。</p></li>
+      <li><p>下午手工课做竹制弓箭：锯竹、打磨、上绳，没磨光滑不许上绳，不能对着人——没做完的下次接着做。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>一、开垦松土 · 农事的第一步</h2></div>
+    <div class="body-text">
+      <p>到基地放下东西，第一件事是下地。老师先讲清楚顺序：<strong>先松土挖地，再撒底肥，然后撒菜籽，铺一层稻草，最后浇水</strong>。为什么第一步是松土？因为要让氧气进到植物根部，种子才长得起来。</p>
+      <p>每个孩子分到一块地，要求是<strong>沿着一条路往前连续挖，不要零散地到处挖坑</strong>。安全要求也说在前面，老师全程示范并看护握锄姿势：握稳锄头、不要挥得太高，蹲下来干活更稳当。</p>
+      <p>挖地的过程比想象中有意思：有孩子挖到了螺丝钉，有孩子挖到了大石头和河蚌，还挖出了野生花生和之前种下的小姜。抬头看一眼，旁边的稻谷已经出穗，长势很好，年前还能再收一茬。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>挖地是个「慢活」，也是个累活。我们没有缩短这一步，是因为孩子需要知道：地里长出来的东西，前面有这么多看不见的功夫。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌾</span><h2>二、撒底肥 · 弯下腰才撒得匀</h2></div>
+    <div class="body-text">
+      <p>肥料是牛粪混合草木灰的有机肥，装在桶里。力气小的孩子两人一组抬，按顺序轮流搬到自己的地块。</p>
+      <p>撒肥的要领只有两句：<strong>弯腰、手放低，一边走一边撒匀</strong>。手抬得太高，肥料会扬到旁边小朋友身上；撒得太集中，有的地方厚有的地方没有。老师现场纠正了几次动作，要求每一片土都要盖到。撒完用锄头轻轻刮匀就可以了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「撒均匀」这件事，说起来简单，做起来要眼睛看、手控制、脚步配合。这类需要身体协调的活，是最好的专注力训练。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>三、播种与铺草 · 给种子盖一层被子</h2></div>
+    <div class="body-text">
+      <p>今天种的是小白菜。老师给每个孩子手里分一点种子，方法是<strong>单手抓少量，边走边撒</strong>，不能一把全倒在一个位置——撒得太密，苗挤在一起反而长不好。</p>
+      <p>播完种铺稻草。老师问孩子们：为什么要铺草？然后把答案讲明白：一是<strong>保暖</strong>，二是<strong>保湿锁水</strong>，帮助种子发芽，还能防止小鸟把菜籽啄走。操作上不用一根一根摆，把稻草撕开铺平、薄薄一层、铺均匀就行。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>每一步动手之前先讲清楚「为什么」，孩子做的就不是任务，而是明白了道理的一件事。这是研学和「走流程」最大的区别。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💧</span><h2>四、浇水收尾 · 把一块地交付完整</h2></div>
+    <div class="body-text">
+      <p>最后一步是浇水。孩子们排队轮流，一个浇完换下一个，其他人退到后面等。要求是<strong>浇透整块地</strong>，不能只对着一个地方淋。</p>
+      <p>收尾时老师提醒了两件事：小锄头要放回原来的位置；<strong>不要踩已经播好种的地块</strong>，土被踩实了，芽就顶不出来。从松土到浇水，一块地终于交付完整。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「做完」和「收好」是两件事。工具归位、不破坏已完成的成果，这些收尾动作，才是一件事真正做完的标志。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🥾</span><h2>五、徒步路上 · 走路也有方法</h2></div>
+    <div class="body-text">
+      <p>农活结束，整队徒步。出发前先整理随身物品：帽子、防晒衣、水杯，自己检查、自己背好。</p>
+      <p>路上的要求很具体：<strong>双手不拿多余的东西</strong>，这样摔倒时才能撑得住；跟住队伍不掉队；<strong>下坡怕滑就横着走</strong>，比直着冲下去稳得多。老师在每一个下坡处逐个提醒要领，后面孩子们下坡都走得很稳。</p>
+      <p>老师也一路关注孩子的状态：提醒出汗的孩子穿好防晒衣防蚊虫，提醒还没喝水的孩子及时补水。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>山路不平、鞋子不防滑，这些「不完美的条件」本身就是课程。孩子滑一次、调整一次，身体就记住了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧗</span><h2>六、绳网与平衡木 · 敢上去，也要稳下来</h2></div>
+    <div class="body-text">
+      <p>到了拓展区，先是<strong>绳网攀爬</strong>。规则是一个一个来：手抓稳绳子、脚用力蹬、身体往前靠，不要拉前面小朋友的绳子。有孩子一口气爬到了高处，也有从来没爬过、一开始有点怕的孩子，在旁边的鼓励下一点一点往上，最后也完成了。</p>
+      <p>接着是<strong>平衡木</strong>。老师给的方法是：一脚前一脚后、张开双手保持平衡、<strong>抬头看前方不要盯着脚</strong>。有孩子走到一半停住了，但没有下来，调整了一下重心又继续走完。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这两个项目练的不只是身体。「怕，但还是上去了」这件事，孩子自己会记很久，比我们夸十句都管用。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>七、山野小课堂 · 铁线蕨与红火蚁</h2></div>
+    <div class="body-text">
+      <p>路上遇到<strong>铁线蕨</strong>，老师停下来讲了一段：这是地球上非常古老的蕨类植物，它的茎又细又硬，像铁丝一样，所以叫「铁线蕨」。孩子们折下茎来互相对拼，看谁的先断，玩得很起劲。</p>
+      <p>也讲了<strong>红火蚁</strong>：它是外来入侵物种，个头小不容易发现，被咬了会又痛又肿；普通的黑蚂蚁不咬人，不用怕。看到蚁巢要绕开走，不要踩、不要去草丛里乱钻。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>昨天在教室里讲过红火蚁，今天在山路上真的遇到了。知识在真实场景里被用上一次，才算真的学会。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏖️</span><h2>八、沙地、秋千与拔河 · 玩的时候也有规矩</h2></div>
+    <div class="body-text">
+      <p>沙地是今天最自由的一段：孩子们建城堡、画画、写字，老师在旁边帮忙抹平沙面、递工具。规矩只有两条：<strong>不扬沙子</strong>（会进到旁边小朋友的眼睛、鼻子里），<strong>不拿棍子玩</strong>。</p>
+      <p>秋千是<strong>一人一个，不能两个人同时上去</strong>，要抓紧绳子，小心被甩出去。拔河分组进行，规则是拉住对方的腰、不拉衣服，听口令一起往后退，看哪一组坚持得更久。</p>
+      <p>玩的过程中，老师也提了一句和小动物相处的事：基地的狗狗不要乱喂、不要弄脏它，喂食要把东西放到地上。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>自由不是没有边界。先把边界讲清楚，孩子反而玩得更放松——因为他知道什么是安全的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🍲</span><h2>九、营地午餐 · 一顿自己参与的饭</h2></div>
+    <div class="body-text">
+      <p>中午回到营地厨房。汤是提前用高压锅煲上的，孩子们帮着打水、洗菜、传递食材。</p>
+      <p>处理冬瓜的时候有个小插曲：冬瓜皮被削掉了，老师顺势讲了一句——<strong>冬瓜的营养大半在皮上</strong>，洗干净直接煮就好，不用削皮。饭菜陆续上桌，一群人在山里吃上了热饭。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>上午刚把菜籽种下去，中午就在厨房里洗菜切菜。从土地到餐桌这条线，孩子今天用一天走了一遍。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏹</span><h2>十、下午手工课 · 亲手做一把竹弓箭</h2></div>
+    <div class="body-text">
+      <p>下午是手工课，目标是做一把<strong>竹制弓箭</strong>。</p>
+      <p>第一步锯竹子。老师要求站起来操作，用力才稳；锯好的竹筒要用木头敲击辅助分开，旁边有同伴帮忙扶住。过程中遇到了千足虫、毛毛虫，老师借机讲了哪些虫碰不得、为什么。砍下来的树皮散出香气，孩子们才知道这是<strong>香樟木</strong>，互相传着闻，还有孩子特意挑了最香的一块送给同伴。</p>
+      <p>第二步打磨。竹子侧边有毛刺，很容易割手，必须用砂纸把边缘磨光滑——老师打了个比方：<strong>就像剪完指甲还要再磨一磨</strong>。规则也说得很明白：<strong>没磨合格就不能上绳，也不能带回家</strong>；弓箭只能对着没有人的方向，绝不能对着人。没做完的，下次接着做。</p>
+      <p>老师还讲了一段做弓箭的讲究：竹子要先阴干、再蒸过杀虫、然后自然干燥，这样处理过的竹子韧性好、拉力足。所以我们今天先做简易版，等下一次再做更深入的版本。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>我们特意把弓箭分成几次做完。手工课的价值不在于当天能带回一个成品，而在于孩子愿意为一件事反复打磨、下次还惦记着把它做完——现在的孩子，最缺的就是沉下心把一件事从头做到尾的那股劲。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天很长：一块地从松土到浇水，一条山路从出发到返回，一把弓箭从一根竹子到打磨光滑。孩子们没有被催着赶进度，每一步都讲清楚了「为什么」，然后自己动手做完。慢一点，但完整——这是我们带孩子来山里的原因。弓箭还没做完，菜籽也才刚种下去，下一次来，我们继续。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
