@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第二十八天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第二十八天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先看清楚，再动手</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 12 日<span class="dot">·</span>开学第七周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">周末之后的第一天，今天的课排得满，节奏也不算慢。不过贯穿一整天的是同一件事：先看清楚、找到规律，再动手。</p>
+    <ol>
+      <li><p>晨读开始学新诗《万物都在好好生长》，逐句带读、齐读三遍，重点纠了量词「每一扇窗」，也讲清楚了「花苞」是什么。</p></li>
+      <li><p>专注力课做交叉迷宫视觉追踪连线，规矩是先用眼睛找到终点再下笔、一笔走完不抬笔、不用手指辅助。</p></li>
+      <li><p>第二张训练纸加了难度：起点序号是几，连到的终点就要标相同的数字。</p></li>
+      <li><p>课堂礼仪专门练了几遍：班长一人喊起立，其他小朋友听到指令再起身，一起喊「老师好」。</p></li>
+      <li><p>思维力课找规律：从彩旗、气球的重复排列，到数量逐步增长的递增型，再到数字的递增与递减。</p></li>
+      <li><p>下午数学课复习 8、9、10 的分解与组成，核心是「按顺序分」和「妈妈减宝宝就是另一个宝宝」。</p></li>
+      <li><p>学了一个重要的新方法——数线法：大数不动，加几往后数几个，减几往前倒数几个，不再依赖手指。</p></li>
+      <li><p>还讲了填未知数的三种解法和 0 的运算规律，孩子先掌握一种就行。</p></li>
+      <li><p>生活功课不落：值日小组倒垃圾、擦桌子、打扫地板，老师还示范了把扫把里的残渣刮干净的方法。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌼</span><h2>一、晨读时光 · 新诗《万物都在好好生长》</h2></div>
+    <div class="body-text">
+      <p>本周晨读换了新诗。老师逐句带读，然后带孩子们连着齐读三遍。</p>
+      <p>今天纠得最多的是<strong>量词</strong>：「把温柔洒向每一扇窗」，不能读成「每一个窗」或「每一束窗」。老师也把「<strong>花苞</strong>」讲清楚了：那是花朵还没有开放时的样子，有圆的有椭圆的，过一阵才慢慢绽开。</p>
+      <p>诗里有一句话我们特地和孩子们说了：「原来万物都有自己的节奏，不必追赶别人的光，我也可以慢慢来。」</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>晨读不是背课文。量词读对、词语含义讲清楚，孩子才是真的「读懂了」。而这首诗的内容，恰好是我们一直想对孩子说的话。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👁️</span><h2>二、专注力课 · 先用眼睛走一遍</h2></div>
+    <div class="body-text">
+      <p>专注力课的第一个环节始终是<strong>静坐</strong>。静坐结束才发训练纸。</p>
+      <p>今天的训练是<strong>交叉迷宫视觉追踪连线</strong>，要求说得很细：</p>
+      <ul>
+        <li>第一步先找到起点；</li>
+        <li><strong>用眼睛沿着线追到终点</strong>，路线确定了再下笔；</li>
+        <li><strong>一笔走完不抬笔</strong>，笔迹要落在原线上；</li>
+        <li>不能用另一只手指着线辅助。</li>
+      </ul>
+      <p>好的完成效果是什么样？老师当场给了标准：<strong>基本一笔画完、线条都在原线之上、接口顺畅没有疙瘩</strong>。</p>
+      <p>第二张训练纸加了一层要求：<strong>起点序号是几，连到的终点就标相同的数字</strong>。这一步信息量较大，老师重新给全班拆解了两遍，大家理解后再接着做。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这张纸的重点不在连对连错，而在<strong>走线的过程</strong>——眼睛能不能一直跟着线走、不被旁边的线带跑。让孩子先看再动笔，练的正是「先想清楚再动手」这个习惯。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🙌</span><h2>三、课堂礼仪 · 起立这一下，也要练</h2></div>
+    <div class="body-text">
+      <p>思维力课之前，我们专门练了起立礼仪。规则很清楚：<strong>只有班长一个人喊起立</strong>，其他小朋友听到指令再起身，然后一起喊「老师好」。</p>
+      <p>这一条连着练了好几遍才整齐。老师也说清了班长是<strong>轮换制</strong>：按月轮换，每个孩子都有机会。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>起立看起来是小事，其实练的是「听清指令、等信号、一起行动」。这是进小学后最日常的课堂能力。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔴🔵</span><h2>四、思维力课 · 找规律的三种形状</h2></div>
+    <div class="body-text">
+      <p>这节课从联欢会布置开头：彩旗、气球、小花该怎么排？</p>
+      <p><strong>第一种是重复排列</strong>。两色重复、三色重复、两蓝一黄重复……方法只有一个：<strong>先找到重复的那一组（重复单元）</strong>，再推下一个是什么。</p>
+      <p><strong>第二种是递增型</strong>。比如「1 个圆 1 个方」「2 个圆 1 个方」「3 个圆 1 个方」——圆越来越多，方始终是一个。这一点孩子们很快就看明白了：<strong>规律不一定是重复，也可以是数量逐步长大</strong>。</p>
+      <p><strong>第三种是数字规律</strong>。老师带大家用手指一步步验算：</p>
+      <ul>
+        <li><strong>2、4、6、8、10</strong> —— 每次加 2，后面是 <strong>12、14、16、18</strong>；</li>
+        <li><strong>3、6、9、12</strong> —— 每次加 3，后面是 <strong>15、18</strong>；</li>
+        <li><strong>11、9、7、5</strong> —— 每次减 2，后面是 <strong>3、1</strong>。</li>
+      </ul>
+      <p>结论归成一句话：<strong>数字越来越大叫递增，用加法；越来越小叫递减，用减法</strong>。</p>
+      <p>课堂作业是小鸟、小花按规律填序号，和数字对应颜色的连线题。到下课时间还有小朋友没完成，我们改到下午午点后继续做完，不赶进度。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>找规律是数学思维的底层能力。它不要求孩子算得快，而是要求他先观察、再归纳、然后推断。这与上午专注力课的「先看清再下笔」，是同一个能力的两个面。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>五、生活功课 · 值日里的细节</h2></div>
+    <div class="body-text">
+      <p>课间是值日时间：喝完奶的小朋友分头倒垃圾、擦桌子、打扫地板。</p>
+      <p>下午课前还有一个小示范：扫把里的垃圾抖不掉怎么办？<strong>把扫把伸进垃圾桶，用桶边把残渣刮下来</strong>。垃圾铲里剩下的那一点残渣，正是最该清干净的地方。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>做卫生最容易停在「大致干净」。我们愿意花三分钟演示怎么把最后一点渣清干净，是因为孩子要看到「做完」和「做好」的差别。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>六、数学课（上）· 8、9、10 的分解与组成</h2></div>
+    <div class="body-text">
+      <p>下午数学课先回头复习上周的分解与组成。</p>
+      <p>格式上，<strong>分解号像一座小山，尖尖朝上、对准要分解的数字</strong>。</p>
+      <p>方法上，<strong>必须按顺序分</strong>：分 8 就从 1 开始—— 1 和 7、7 和 1、2 和 6、6 和 2、3 和 5、5 和 3，最后 4 和 4。按顺序分的好处是不会漏。</p>
+      <p>遇到忘记的时候怎么办？老师给了一个很好记的说法：<strong>被分解的数字是「妈妈」，两个分出来的数是「宝宝」；知道妈妈和一个宝宝，妈妈减宝宝就是另一个宝宝</strong>。</p>
+      <p>这也点出了一个关键关系：<strong>分解就是减法，组成就是加法</strong>。所以 10 可以分成 1 和 9，那 10−9 就不用重新算，直接就知道是 1。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>分解组成练熟了，10 以内加减法就是「想起来」而不是「算出来」。这是进入小学数学最划算的一笔投入，我们会坚持每天一练。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">➕➖</span><h2>七、数学课（下）· 不再数手指的数线法</h2></div>
+    <div class="body-text">
+      <p>今天最重要的一个新方法，是<strong>数线法</strong>。孩子们已经熟悉 10 以内的加减，今天借数线把范围自然延伸到了 10 以上。</p>
+      <p><strong>加法</strong>：大的那个数不动，往后（往右）数出第二个数那么多个。</p>
+      <ul>
+        <li>4+5：4 不动，往后数 5、6、7、8、9 → <strong>9</strong></li>
+        <li>9+3：9 不动，往后数 10、11、12 → <strong>12</strong></li>
+        <li>7+5：7 不动，往后数 8、9、10、11、12 → <strong>12</strong></li>
+      </ul>
+      <p><strong>减法</strong>：被减数不动，往前（往左）倒数。</p>
+      <ul>
+        <li>8−2：8 不动，往前倒数 7、6 → <strong>6</strong></li>
+        <li>9−5 → <strong>4</strong>；10−3 → <strong>7</strong></li>
+      </ul>
+      <p>方向怎么记？<strong>加法数字变大往右走，减法数字变小往左走</strong>。还有一个最容易踩的坑，老师反复演示了几遍：<strong>要从原数字的下一个数开始数，不能把原数字也算进去</strong>。</p>
+      <p>还讲了两个延伸：</p>
+      <ul>
+        <li><strong>填未知数</strong>（4+？=7）有三种解法：数线上从 4 数到 7，数了 3 个；接着画图形数出要画几个；或者直接用 7−4=3。孩子先掌握一种就行。</li>
+        <li><strong>0 的规律</strong>：任何数加 0、减 0 都等于原数；相同的两个数相减等于 0。</li>
+      </ul>
+      <p>练习用的是可重复使用的数线工具，规矩是只能用手点、不在上面写画，做题从上往下按顺序做、不跳题。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>数线法要解决的是一个真实问题——手指只有十根，数再大一点的数就不够用了。新方法第一天理解、第二天还会忘，这很正常，要靠每天一练慢慢变成本能。我们会把练习排到每天，不赶、不跳。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，表面上是四件不相干的事：读诗、连线、找规律、算加减。但四件事的内核是同一个：<strong>先看清楚，再动手</strong>。连线要先用眼睛追到终点，找规律要先找到重复单元，算加减要先判断往左还是往右。这个习惯比任何一道题的对错都重要。正如今天诗里那句话：万物都有自己的节奏，我也可以慢慢来。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
