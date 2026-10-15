@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第三十一天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第三十一天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">你的不一样，就是你的本事</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 15 日<span class="dot">·</span>开学第七周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天的主线很清楚：认识自己。阅读课在问「我是谁、我的特点是什么」，书写课和体能课则在练「我能把一件事做到什么程度」。一个向内看，一个向外练。</p>
+    <ol>
+      <li><p>晨读《万物都在好好生长》进入第三天，跟读规则升级：老师念完一整句，孩子再跟读整句，练的是听长句子的能力。</p></li>
+      <li><p>齐读环节强调「一起开口、一起结束」，有孩子已经能完整读下全诗，明天由这位孩子担任领读。</p></li>
+      <li><p>早读三要求又复习了一遍：第一专注，第二眼睛看字，第三嘴巴打开跟读。</p></li>
+      <li><p>专注力游戏「眼球蛋蛋」：记住泡泡里物品的颜色、形状、名称，举手才能回答；老师还教了「排除法」。</p></li>
+      <li><p>情绪课：生气的时候先转过头做三个深呼吸，平静下来再想办法；不小心碰到别人也要主动说对不起。</p></li>
+      <li><p>阅读表达课讲绘本《我不知道我是谁》，主角是不知道自己是谁的兔子达利碧，最后用一双大脚赶走了黄鼠狼。</p></li>
+      <li><p>孩子们轮流分享自己的特点和本领：有的会收拾玩具、拖地、洗碗，有的会收拾书包、擦桌子、洗衣服。</p></li>
+      <li><p>老师反复讲了一句话：特点不分好坏，每个人都是独一无二的。</p></li>
+      <li><p>体能课从律动热身开始，练了 S 形跳、开合跳和连续向前跳，要求双脚并拢、双手叉腰、前脚掌发力、不踩线。</p></li>
+      <li><p>书写课学新数字「8」：只占田字格左半边、一笔走 S 形、交叉点落在横中线上，写错要擦掉重写不补笔；还学了「千」字的三笔。</p></li>
+      <li><p>下午是 10 分钟限时算术练习，书写上再次强调「10」的 1 和 0 要分开写。</p></li>
+      <li><p>生活功课：教室清洁分工合作，还有一条重要约定——自己的书包要自己收拾。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌼</span><h2>一、晨读时光 · 跟读规则升级了</h2></div>
+    <div class="body-text">
+      <p>《万物都在好好生长》进入第三天，今天跟读规则升了一级：<strong>老师念完一整句，孩子们再跟读整句</strong>，而不是跟着一个词一个词地读。</p>
+      <p>为什么要这样改？因为跟一个词很容易，跟一整句就必须<strong>先把句子记住</strong>。这是在练听力的容量。</p>
+      <p>齐读环节老师强调的是节奏：<strong>一起开口、一起结束</strong>，不抢读。今天有孩子已经能完整读下整首诗，老师当场宣布，明天由这位孩子担任领读。</p>
+      <p>早读的三个要求也又复习了一遍：第一专注，第二眼睛看字，第三嘴巴打开认真跟读。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>齐读看起来是语文课的事，其实练的是「等别人一起」。一个人读得快不算好，全班读得整齐才算好——这是集体课堂最基本的默契。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👀</span><h2>二、专注力游戏 · 眼球蛋蛋</h2></div>
+    <div class="body-text">
+      <p>今天的专注力训练用了游戏的形式。规则是：每一轮出现四个带着物品的云朵泡泡，大炮打中泡泡后，要记住里面物品的<strong>颜色、形状、名称</strong>，然后<strong>举手</strong>回答老师的提问。</p>
+      <p>老师还教了一个很实用的思路——<strong>排除法</strong>：就算不认识正确答案，把明显错的几个排掉，剩下的那个就是对的。</p>
+      <p>题目里还藏着生活常识，比如「矿泉水和可乐打开，哪个会冒气」，顺带让孩子去留意日常生活中的现象。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这个游戏同时练三样东西——观察力、专注力和自控力。最难的其实是最后一样：知道答案也要举手等老师点名。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤝</span><h2>三、相处这一课 · 生气的时候怎么办</h2></div>
+    <div class="body-text">
+      <p>今天专门花时间讲了情绪和相处的方法，三条很具体：</p>
+      <ul>
+        <li><strong>感到生气的时候</strong>，先转过头做三个深呼吸，等情绪平下来再动脑筋想办法；</li>
+        <li><strong>别人让你不舒服</strong>，可以直接告诉对方自己的感受，也可以请老师帮忙；</li>
+        <li><strong>自己不小心碰到、伤到别人</strong>，就算不是故意的，也要主动说对不起。</li>
+      </ul>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子之间有摩擦是正常的，关键是给他们可操作的办法。深呼吸是为了争取几秒钟，这几秒钟能让他从情绪里退出来，换成说话。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐰</span><h2>四、阅读表达课 ·《我不知道我是谁》</h2></div>
+    <div class="body-text">
+      <p>今天的阅读理解与表达课，先从起立礼仪练起：<strong>喊完「起立」停一到两秒，全班再一起喊「老师好」</strong>，要干脆有力。今天有孩子的节奏喊得特别好，老师请他做了示范。</p>
+      <p>然后老师抛出两个问题：<strong>你知道你自己是谁吗？你知道自己的特点是什么吗？</strong></p>
+      <p>什么叫特点？老师的解释是：<strong>和别人不一样的地方、自己特别擅长的地方，特点不分好坏</strong>。这节课也没有标准答案，不用跟着前面的同学说。</p>
+      <p>孩子们轮流分享。<strong>六一</strong>说自己的特点是开心、有礼貌；有孩子说自己喜欢坐车、会收拾玩具、爱做家务。</p>
+      <p>接着是故事：兔子达利碧不知道自己是谁，不知道该住哪里、吃什么，还一直疑惑自己的脚为什么这么大。它跟着松鼠住到树上、学着吃橡果。直到黄鼠狼杰西迪闯进森林，别的兔子都躲了起来，达利碧用那双特别大的脚把黄鼠狼踢飞，成了大家眼里的英雄。</p>
+      <p>听完故事，老师带孩子们总结达利碧是一只什么样的兔子——<strong>勇敢、善良、爱思考、爱探索</strong>。</p>
+      <p>最后一个环节是分享「我独一无二的本领」：有孩子说自己洗碗、收拾玩具、拖地都很快；<strong>六一</strong>说自己会收拾书包、擦桌子、洗衣服；<strong>糯米</strong>说自己学会了用说话的方式解决问题。老师也肯定了几位孩子的进步：有孩子现在能自己收拾书包、按时到校；还有孩子已经会自己洗澡、自己洗小件衣物。</p>
+      <p>课的最后，全班一起念了一句话：<strong>我是独一无二的自己</strong>。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>达利碧那双「多余」的大脚，最后成了它最厉害的地方。我们想让孩子记住的就是这一点——你身上那个和别人不一样的地方，不是缺点，可能正是你的本事。所以这节课不只是听故事，更重要的是让每个孩子都开口说一说自己。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>五、体能课 · 三个跳跃动作</h2></div>
+    <div class="body-text">
+      <p>体能课从律动热身开始：头拍、肩拍的拍手操，还有踢腿——要求<strong>膝盖伸直、踢到位</strong>。</p>
+      <p>接着是三个跳跃动作：</p>
+      <ul>
+        <li><strong>S 形跳</strong>：双脚并拢、双手叉腰、前脚掌发力，每人完成 10 遍标准动作；</li>
+        <li><strong>开合跳</strong>：身体拉直，前脚掌发力，手脚要同步；</li>
+        <li><strong>连续向前跳</strong>：双脚并拢、脚尖朝前、不踩线，不用跳高，重点是控制住节奏。</li>
+      </ul>
+      <p>老师反复讲的一句话是：<strong>可以慢，但动作要对</strong>。今天有孩子的动作完成得特别认真，也有孩子的向前跳控制得很稳。动作达标后进入跑圈环节，最后喝水放松、自由活动。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这几个动作都是跳绳的前置基础。重点始终是「控制」——能跳起来不难，能稳稳落下、随时停住才难。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>六、书写课 · 新数字「8」</h2></div>
+    <div class="body-text">
+      <p>今天学的新数字是「8」，难度比前几个都高。要点有四条：</p>
+      <ul>
+        <li><strong>占格</strong>：只占田字格的左半边，不超过中间那条竖线；</li>
+        <li><strong>笔顺</strong>：从上往下、从左往右，一笔走完一个 S 形；</li>
+        <li><strong>交叉点</strong>：正好落在横中线上；</li>
+        <li><strong>不补笔</strong>：写错了要擦掉重写，不能描补，也不能拆成上下两个 0 来写。</li>
+      </ul>
+      <p>老师说得很明白：<strong>这次先要求写对，不强求写得特别漂亮</strong>。想写得饱满一点的，可以顶到上边线、走到横中线再往下转弯。全班练习了 25 分钟，巡查时有孩子的笔顺完全正确，其中包括 <strong>糯米</strong>。</p>
+      <p>同时还学了「千」字：一共三笔，第一笔撇、第二笔横、第三笔竖，横要从横中线上方起笔。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>为什么不让补笔？因为补出来的笔画会断、会毛，更重要的是——补笔是在掩盖问题。擦掉重写虽然慢，但孩子记住的是正确的那一次。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>七、算术练习 · 十分钟限时</h2></div>
+    <div class="body-text">
+      <p>下午是 10 分钟限时算术练习。规则是：发卷后等老师说开始才能动笔，时间到统一收卷。</p>
+      <p>书写上再次强调了一个细节：<strong>「10」的 1 和 0 要分开写，中间留出间隔</strong>，不能粘在一起。</p>
+      <p>交卷后孩子们依次上台批改、订正，算得慢的孩子可以先用自己熟悉的方法一步步算。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>限时不是为了比谁快，是为了让孩子习惯「在规定时间内完成一件事」。订正环节同样重要——错题改对了，这十分钟才真正算数。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>八、生活功课 · 自己的事自己做</h2></div>
+    <div class="body-text">
+      <p>课后是教室清洁，这次是分工合作：一人喷消毒水、一人冲厕所，老师特别提醒<strong>消毒水不能对着人喷</strong>。拖地的方法昨天刚学过，今天老师又给还不熟的孩子重新示范了一遍。</p>
+      <p>今天还定下一条重要约定：<strong>自己的书包要自己收拾</strong>。老师让孩子回家后告诉家里的大人，不用帮忙收拾书包——因为这是自己的事。</p>
+      <p>吃点心时也讲了礼仪：<strong>慢慢吃、细细尝味道</strong>，不要狼吞虎咽，大人说话时不要随便插话。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「自己的书包自己收拾」这条，需要家里配合着一起守。大人代劳一次，孩子就少一次练习——而且他会很快发现，忘带东西的后果是自己承担的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，孩子们既在向内认识自己，也在向外练本事。绘本里的达利碧因为一双与众不同的大脚成了英雄，而教室里，有的孩子的本领是读完了整首诗，有的是写对了一个「8」，有的是学会了好好把话说出来。这些都值得记下来。愿每个孩子都慢慢看清自己的那双「大脚」。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
