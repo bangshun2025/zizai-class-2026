@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第三十二天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第三十二天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">看不见的地方，才吃得住力</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 16 日<span class="dot">·</span>开学第七周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这把梯子，是从一根原木、一把锯子和一次次试踩里慢慢长出来的。孩子们要自己量、自己锯、自己选料、自己开槽，再把它们拼在一起。</p>
+    <ol>
+      <li><p>出发前先上安全课：离坡边至少退一步，手不靠近锯口，刀不对着人。</p></li>
+      <li><p>量立柱长度 210 厘米，下端特意多留一节，插进土里把梯子固定住。</p></li>
+      <li><p>锯木头的关键不在使劲，而在「看木屑有没有一直被推出来」。</p></li>
+      <li><p>横杆间距不是老师定的，是孩子们一脚一脚试踩出来的 25 厘米，一共 6 根。</p></li>
+      <li><p>一堂现场选材课：竹子容易腐、空心朽木不能用，最后一致选了香樟木。</p></li>
+      <li><p>两人一组锯横杆，一人扶稳、一人推拉，配合比力气更重要。</p></li>
+      <li><p>下雨前回屋，自由削木皮做木剑、木片，闻到木头的清香。</p></li>
+      <li><p>基地午餐：大火快炒的两素一荚，碗里吃干净才能再添，「粒粒皆辛苦」。</p></li>
+      <li><p>下午讲榫卯：藤条会腐、铁丝会锈、螺钉割手，榫卯不用连接件，中国古建一颗钉子都不用。</p></li>
+      <li><p>现代加固讲了内六角沉头螺丝、封口木块，以及「为什么要打两颗」。</p></li>
+      <li><p>从摩擦生热讲到钻木取火，也认识了电钻正反转、凿刀与锤子的配合。</p></li>
+      <li><p>实操分 5 组，各做一级阶梯部件：画线、开槽到一半深、凿平槽底、试装。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧭</span><h2>一、出发前的安全课 · 坡边一步的距离</h2></div>
+    <div class="body-text">
+      <p>到了新路线的坡口，老师没有急着发工具，先让孩子们站定看坡度：这条路是新开的，下坡比想象中陡，所以才需要一把梯子。</p>
+      <p>接着是今天的三条规矩：站立时离坡边至少退一步；用锯子时手不靠近锯口；拿刀、拿工具时刀尖不对着人，走动要先看身后有没有人。老师也提醒，加工中的木头和刚用过的工具会发热，不能随手去摸。</p>
+      <p>孩子们一边听一边自己往后退了半步，老师就顺势说：你们看，退这一步，<strong>安全感是自己给自己的</strong>。</p>
+      <p>整个过程老师都在旁边看护，砍伐、削形这类费力又危险的环节由老师来做，孩子只在指导下做能安全完成的部分，工具也是用完一件收好一件。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>工具课的第一课从来不是技法，而是边界感。孩子愿意主动后退一步、主动看一眼身后，这件事比今天锯得直不直更重要。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📏</span><h2>二、量出梯子的长度 · 210 厘米的讲究</h2></div>
+    <div class="body-text">
+      <p>主立柱是从一旁搬过来的，<strong>展硕</strong>、<strong>子旭</strong>几个孩子一起抬，走走停停，终于把长长的原木挪到了平地上。</p>
+      <p>量长度时老师把卷尺交给孩子们拉，量出 210 厘米。有孩子问：梯子有这么长吗？老师解释——下面要特意多留一节，插进土里，这样梯子站在坡上才不会滑、不会晃。孩子们恍然大悟：原来有一段是「埋起来干活」的。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>一个数字背后往往藏着一个道理。孩子追问「为什么是 210」，恰好是把「量」变成「想」的契机。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪚</span><h2>三、锯木头的方法 · 木屑飞出来才算用对力</h2></div>
+    <div class="body-text">
+      <p>轮到锯切，一开始容易使蛮力，锯条歪着走，一歪就卡住。</p>
+      <p>老师蹲下来示范，说了今天最被反复引用的一句话：「你要看到那个木屑一直被锯出来、推出来，说明你用的力才有用。」然后补了三点：锯子要走直线，歪了就会卡；来回要轻、要长，不用急；眼睛盯着锯缝，不要盯着手。</p>
+      <p>孩子们一个个试过去，木屑真的开始簌簌往外冒的时候，几乎每个人都抬头看了一眼老师。<strong>糯米</strong>、<strong>子旭</strong>把手里的木头锯到了底，<strong>子阳</strong>、<strong>六一</strong>、<strong>顶顶</strong>、<strong>展硕</strong>也都按着自己的节奏完成了那一锯，手上越来越稳。<strong>吉祥</strong>今天是第一次跟着上木工课，轮到自己之前一直看着同伴怎么做，上手后很快就找到了来回拉锯的感觉。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「看木屑」是一个可以自己检查的标准。孩子一旦有了这种自检的办法，就不需要老师在旁边一直纠正了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👣</span><h2>四、横杆间距 · 试踩出来的 25 厘米</h2></div>
+    <div class="body-text">
+      <p>横杆隔多远合适？老师没有直接给答案，而是让孩子们站上坡面，抬腿试踩：太宽，小一点的孩子迈不上去；太窄，一把梯子又装不下几级。</p>
+      <p>一轮轮试下来，大家定在 <strong>25 厘米</strong>，算出一共要做 <strong>6 根</strong>横杆。确定的那一刻，孩子们自己点了点数：一、二、三……六根，刚刚好。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>尺寸是「量」出来的，也可以是「踩」出来的。让孩子用自己的身体去校准答案，他们才会相信这把梯子是为自己做的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌳</span><h2>五、选材课 · 竹子、朽木与香樟木</h2></div>
+    <div class="body-text">
+      <p>做横杆用什么材料？老师把几种备选摊在地上，让孩子们一样样上手摸、上手掀。</p>
+      <p>竹子轻、好拿，但放在室外容易受潮腐坏，过不了多久就不结实了；有一根看着粗壮的木头，敲上去声音发虚，翻过来一看里面已经空了，孩子们自己得出结论：这根不行，一踩就断。最后大家一致选了<strong>香樟木</strong>——结实、结构密，刮开一点木皮还能闻到味道。</p>
+      <p>路边的东西也成了课：甘蔗还没长大，现在不能砍来吃，要等它长熟；木头里的白蚁靠吃木头为生，所以朽木才会被蛀空；蚂蚁也分很多种，老师提醒孩子们看见了观察就好，不去翻动。<strong>妍语</strong>蹲在一旁看了好一会儿，还问老师白蚁住在木头的哪一层。老师顺着这些说了一句：大自然里的生命都有它们的活法，我们尊重它们，也保护好自己。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>选材是一次很好的判断训练——不看好不好拿，而看能不能承重、能用多久。孩子能自己敲一敲、翻一翻再下结论，就是在学着用依据说话。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤝</span><h2>六、两人一组锯横杆 · 配合比力气更重要</h2></div>
+    <div class="body-text">
+      <p>6 根横杆，老师安排两人一组：一人按住木料扶稳，一人负责推拉，锯到一半再换手。</p>
+      <p>刚开始两人节奏对不上，木料一晃锯就卡，老师提醒：扶的人要把木头压实，锯的人要按自己的节奏数「一、二」。几个回合之后，小组里开始出现自己的口令，换手也越来越自然。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>两人一组的设计，考的是让位和配合。能为同伴扶稳木头、能主动说「换你」，这些都是工作里的真本事。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗡️</span><h2>七、自由削木 · 木剑、木片与木头的清香</h2></div>
+    <div class="body-text">
+      <p>主体部件做得差不多时，老师留了一段自由时间：用裁刀轻轻削木皮。<strong>展硕</strong>把一段木条削成了木剑，<strong>子阳</strong>耐心削出一片片薄木片，边削边说「这个很解压」。</p>
+      <p>削到新木质的时候，有孩子把鼻子凑上去：木头是有香味的。老师顺势讲了持刀的姿势：刀口向外、远离身体，一次削一点，不贪快。后来天下起雨，孩子们收好工具转回屋内。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>自由削木看似「没任务」，其实是手感的积累。孩子愿意为一片木片耐心十几分钟，专注力就是这样一点点长出来的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🍚</span><h2>八、基地午餐 · 粒粒皆辛苦</h2></div>
+    <div class="body-text">
+      <p>午餐是基地大火快炒的两素一荚：黄瓜炒蛋、西兰花，还有一人一个鸡腿。干了一上午活，孩子们吃得很香。</p>
+      <p>打饭的规矩很清楚：先盛自己能吃完的分量，碗里吃干净了才能再添。老师和孩子们一起念了那句「谁知盘中餐，粒粒皆辛苦」，也说起今天手里的木头——长成这么粗要好多年，饭菜和材料一样，都不容易。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「先少盛、吃完再添」是个很具体的约定，比讲道理有用。在劳动过的地方谈珍惜，孩子特别容易听进去。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏯</span><h2>九、下午讲榫卯 · 一颗钉子都不用</h2></div>
+    <div class="body-text">
+      <p>下午回到木工房，老师先抛出一个问题：横杆和立柱怎么固定？</p>
+      <p>孩子们给出了好几个点子，老师带着一个个试错：用藤条捆？放在山上会腐。用铁丝？淋雨久了会生锈。用螺钉？头部露在外面容易割手。那怎么办？老师拿起两根木头一套，槽对槽、肉对眼，卡得紧紧的——这就是<strong>榫卯</strong>，不靠任何连接件，靠木头自己的形状咬住对方。</p>
+      <p>老师还说了一句让孩子们很惊讶的话：中国的古建筑，很多是<strong>一颗钉子都不用</strong>，几百年还立在那里。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>先让孩子把「不行的办法」都试一遍，再拿出榫卯，他们才会真正服气。传统工艺不是背下来的知识，是对比出来的智慧。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔩</span><h2>十、现代加固 · 沉头螺丝与为什么要打两颗</h2></div>
+    <div class="body-text">
+      <p>讲完古法，老师又讲了现在的做法：用电钻打孔，再上内六角螺丝，让螺丝头沉进木头里，上面再用一小块木头封口——这样外面摸上去是平的，不割手，里面的金属也不容易淋雨生锈。</p>
+      <p>有孩子问：为什么要打两颗？老师拿木头演示给他们看：一颗螺丝时，木头还能围着它转；两颗一上，就转不动了。孩子们自己上手转了转，点头说真是这样。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「为什么要两颗」这类问题最值得花时间。能用一个小演示说清楚的道理，孩子记得比谁都牢。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔥</span><h2>十一、摩擦生热 · 从钻木取火说起</h2></div>
+    <div class="body-text">
+      <p>电钻钻过的地方有点烫，老师就把这个现象做成了一小节科普：两个东西快速摩擦就会发热。孩子们把两只手掌搓得飞快，再贴到脸上，都说真的热了。</p>
+      <p>老师顺着讲到古人的钻木取火：没有打火机的年代，就是用木棍不停地转、不停地摩擦，慢慢生热、发烟，最后引火。也因为工具和木料会发热，从头到尾都要等它凉下来再摸。</p>
+      <p>认工具也放在这一段：电钻有正转和反转，上螺丝和取螺丝方向不同；凿刀要斜面朝着要去掉的那一侧，配合锤子轻敲；裁刀用来做细活，动作要慢、要稳。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子对知识的兴趣，往往起于身体的感受。先搓热手心，再讲钻木取火，这样的顺序他们更容易记住。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪑</span><h2>十二、开槽找平与课程规划 · 为做凳子、小车打基础</h2></div>
+    <div class="body-text">
+      <p>实操分成 <strong>5 组</strong>，每组两人负责一级阶梯部件。步骤很清楚：先按原木自身的形状决定怎么摆，再画线把圆木加工成方形，然后按另一根木料的宽度画出开槽位置，<strong>锯到一半深就停</strong>——不能锯断，因为榫卯靠的正是上下两面一起受力；最后用凿刀把槽底一点点找平，再试装。</p>
+      <p>老师也说了分工：砍伐、削形这类费力又危险的环节由老师来做，孩子负责画线、开槽、凿平和组装。安全规矩再说一遍：不碰正在加工的木料，不坐在画好线的木头上，别人动工具时往后退一步。</p>
+      <p>课的最后，老师说了这条线路的打算：先用最简单的木工活把工具用熟，再一步步做凳子、做小车。不赶进度，按孩子的节奏慢慢体会、调整、适应、掌握。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>开槽「只锯一半」是今天最难的分寸感。孩子能忍住不锯过头、能耐心把槽底凿平，这份细致就是做凳子、做小车的底子。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这把梯子还没做完，但孩子们已经把一件事从头走到了大半：为什么要做、做多长、用什么材料、怎么锯、怎么连。木工课好看的不是成品，而是这个过程里孩子不断停下来问「为什么」、停下来量一量、停下来试一试。扩展的那些内容——哪种木头耐用、为什么古建筑不用钉子、摩擦为什么会生热——都是从手上的活里长出来的，所以特别结实。接下来几次课，孩子们会把剩下的阶梯部件做完并装上坡，请家长们帮孩子常备一套替换衣裤，自然课上得尽兴，也更放得开。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
