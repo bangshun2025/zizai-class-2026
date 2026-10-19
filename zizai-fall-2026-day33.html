@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第三十三天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第三十三天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">简单的事，认真做就不简单</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 19 日<span class="dot">·</span>开学第八周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天，从国旗下的站姿，到筷子尖上的一颗绿豆，再到练习本上的一个勾，孩子们练的其实是同一件事——把简单的事情认真做完。</p>
+    <ol>
+      <li><p>升旗前的队列训练：视线向前、不东张西望，持旗的孩子学习把旗面拉直、握在固定位置。</p></li>
+      <li><p>本班的<strong>六一</strong>、<strong>子旭</strong>、<strong>子阳</strong>、<strong>妍语</strong>担任今天的国旗手，全程站姿端正。</p></li>
+      <li><p>升国旗、奏国歌，全体行注目礼并齐唱国歌，随后齐唱《国旗国旗多美丽》。</p></li>
+      <li><p>国旗下的演讲主题是「致敬最可爱的人」，讲到今天的安稳生活来之不易。</p></li>
+      <li><p>离场沿着地面红线有序走回教室。</p></li>
+      <li><p>周一课程做了调整：晨读取消，第一节直接上专注力课。</p></li>
+      <li><p>专注力课的任务是用筷子夹 100 颗绿豆，从左边盘子夹到右边盘子，边夹边数。</p></li>
+      <li><p>老师逐个纠正握筷姿势：中指放在两根筷子中间，食指和中指夹住上面一根，下面一根不动。</p></li>
+      <li><p>老师讲清了练习的目的：锻炼手部精细动作、手眼协调和手腕控制力。</p></li>
+      <li><p>还在熟悉筷子的孩子，约定回家每天练，下周一再一起看看进步。</p></li>
+      <li><p>识字环节把认识的字和还不认识的字分开归类，今天认出了「狗、左、右、经、叶、越、黑」等字。</p></li>
+      <li><p>课间喝高钙鲜牛奶：先洗手、排队领取、喝完把杯子洗干净放回原位。</p></li>
+      <li><p>思维力课开启本学期新主题「找规律」，区别于上学期的「分类与整理」。</p></li>
+      <li><p>三组数字例题由易到难，从「前一个数加 2」到「加 2、加 1 循环」。</p></li>
+      <li><p>老师给出通用方法：数字越来越大用加法，越来越小用减法。</p></li>
+      <li><p>三道练习题重点训练做题格式：找相同规律打勾、按规律接着画、划掉不符合的并在括号里圈出答案。</p></li>
+      <li><p>老师反复强调：画不好图形不要紧，只要规律找对就算对；慢一点也可以全对。</p></li>
+      <li><p>收尾提醒多喝温水、整理桌面桌椅，之后整队下楼跑步。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚩</span><h2>一、升旗前的队列与持旗练习 · 视线向前，旗面拉直</h2></div>
+    <div class="body-text">
+      <p>八点四十五分左右，孩子们在操场整队。老师先把队列调整整齐，叮嘱站好之后视线向前，不要东张西望、不要回头讲话。</p>
+      <p>接着是持旗的指导。老师手把手教孩子把旗面轻轻拉直，手握在旗杆固定的位置上，不要太高也不要太低，走路时旗子保持稳定。几个孩子试了两遍就找到了感觉。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>升旗仪式的队列训练，看起来是在练站姿，其实是在练「我现在要做一件正式的事」这种意识。孩子站得直不直是一方面，更重要的是他知道此刻该安静、该看向哪里。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>二、国旗下的演讲 · 致敬最可爱的人</h2></div>
+    <div class="body-text">
+      <p>仪式开始后，升国旗、奏国歌，全体行注目礼并一起唱国歌，随后齐唱了《国旗国旗多美丽》。今天本班的<strong>六一</strong>、<strong>子旭</strong>、<strong>子阳</strong>、<strong>妍语</strong>担任国旗手，持旗、站位、走步都完成得很认真。</p>
+      <p>国旗下的演讲主题是「致敬最可爱的人」。演讲的哥哥讲到，十一月下旬有一个重要的纪念日，很多年前有一群叔叔，不怕苦也不怕累，用自己的努力守护了和平的生活。其中有一句，孩子们听得很安静——「正是因为有这些英雄叔叔的付出，我们现在才能安稳读书，开心地游戏，幸福快乐地长大。」</p>
+      <p>演讲结束后，孩子们沿着地面的红线有序离场，走回教室。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这样的内容对这个年纪的孩子来说，不需要讲得太复杂。老师在回教室的路上只补了一句落点：好好吃饭、爱惜粮食、做个勇敢懂事的孩子，就是现在能做到的「了不起」。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⏰</span><h2>三、周一的课程调整 · 晨读改为专注力课</h2></div>
+    <div class="body-text">
+      <p>回到教室已经九点一刻。孩子们先把书包放好，水杯放到指定的位置，再把桌椅调正，然后进入静坐环节。</p>
+      <p>考虑到整理完成的时间，老师把今天的晨读取消，原本的第二节课提前，第一节直接上专注力课。调整在课前就跟孩子们说明了，大家知道接下来做什么，衔接得很顺。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>课程临时调整时，老师会先把「为什么变」和「接下来做什么」讲清楚。孩子对变化本身并不敏感，但对「说不清楚的变化」会不安。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🥢</span><h2>四、专注力课 · 100 颗绿豆的约定</h2></div>
+    <div class="body-text">
+      <p>今天的专注力任务很具体：每人一双教室公用的筷子，面前两个盘子，把左边盘子里的绿豆一颗一颗夹到右边盘子里，总共 100 颗，时间 15 分钟，而且要边夹边数。</p>
+      <p>规则老师也讲得很清楚：掉到盘子外面的不算数，掉在桌面上的要放回去重新夹；整个过程保持安静，专心数自己的那一份。</p>
+      <p>开始之后，教室里只剩下筷子碰到盘子的轻响。<strong>子旭</strong>的节奏很稳，一颗一颗往前推进；<strong>妍语</strong>夹掉了几次也没有着急，捡回来重新开始；<strong>顶顶</strong>一边夹一边小声数数，数得很认真。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>100 颗、15 分钟、边夹边数——这三个条件叠在一起，才构成真正的专注力训练。它要求孩子同时管住手、管住眼睛、管住嘴里的数，难度远比看上去高。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✋</span><h2>五、握筷教学 · 中指在中间，下面一根不动</h2></div>
+    <div class="body-text">
+      <p>夹到一半，老师停下来集体讲了一次握筷的方法，因为姿势不对，再用力也夹不起来。</p>
+      <p>老师把握筷和握笔放在一起对比：两者的手型很像，中指放在两根筷子的中间，食指和中指一起夹住上面那一根，下面那一根始终不动，只靠上面一根开合。</p>
+      <p>老师逐个走过去纠正了几种常见情况：手握得太靠上、两根筷子一长一短、反过来夹、两只手一起拿筷子。调整之后，很多孩子的速度明显快了一截。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>筷子和铅笔的手型几乎是一套动作。把筷子用好的孩子，往往握笔也更稳、写字更持久。这也是老师愿意花一节课来练它的原因。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎯</span><h2>六、为什么要夹豆子 · 精细动作与手眼协调</h2></div>
+    <div class="body-text">
+      <p>老师把这件事的意义跟孩子们说清楚了：夹豆子练的是手部的精细动作、手眼协调、手腕的控制力，还有手部的力量和持续专注的能力。</p>
+      <p>有孩子说「这个很简单」，老师回了一句今天被重复最多的话：「简单的事情认真做，其实并不简单。」真正开始做了才知道，要夹满 100 颗并不轻松。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子知道「我为什么要做这件事」，比单纯要求他做完更有效。知道是在练手、为了写字更稳，他们坚持的时间就明显更长。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💪</span><h2>七、「要靠多练习」 · 回家每天练，下周一再看</h2></div>
+    <div class="body-text">
+      <p>还在熟悉筷子的孩子，老师和他们做了一个约定：回家吃饭时每天用筷子练一练，下周一在课上再一起看看进步。</p>
+      <p>老师还讲了自家孩子的例子：一岁多的时候也完全不会，就是每天让他自己拿筷子吃，掉了再夹，慢慢就用成了习惯。「要靠多练习」这句话，孩子们今天听了好几遍。</p>
+      <p>课上老师也顺口提醒了一句：「最近天气变化太快了，记得多穿点衣服。」</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>用筷子这件事，在学校练一节课的效果，远不如在家里每天吃饭时用一点。恰恰是饭桌上这几分钟，最容易产生积累。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔤</span><h2>八、识字练习 · 会的和不会的分开放</h2></div>
+    <div class="body-text">
+      <p>夹豆子之后是识字环节。今天的做法是分类：认识的字放一边，还不认识的字放另一边，这样一眼就能看出哪些需要再练。</p>
+      <p>孩子们今天认出来的字有「狗、左、右、经、叶、越、黑」等。<strong>子阳</strong>对左右两个字分得很清楚，<strong>糯米</strong>把不认识的字一个个挑了出来，敢于说「这个我还不认识」。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「把不会的找出来」本身就是一种能力。孩子肯说「这个我不认识」，学习效率反而更高，因为接下来练什么一目了然。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🥛</span><h2>九、课间鲜牛奶 · 洗手、排队、洗杯归位</h2></div>
+    <div class="body-text">
+      <p>课间是高钙鲜牛奶。流程固定：先去洗手，回来排队领取，坐好再喝，喝完把杯子洗干净放回原位。</p>
+      <p>地上有一点牛奶，老师提醒大家绕开走，随后就擦干净了。整个过程孩子们配合得很好。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>喝牛奶这件小事，包含了洗手、排队、等待、收拾四个环节。每天重复一遍，生活自理就是这样一点点长出来的。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧩</span><h2>十、思维力课 · 这学期学「找规律」</h2></div>
+    <div class="body-text">
+      <p>上午十点过后是思维力课。课前先做了一次礼仪训练：由班长喊「起立—预备起—老师好」，其他孩子跟着口令一起做；老师也提醒大家坐稳、把与学习无关的东西先收起来。</p>
+      <p>进入正题，老师宣布了本学期思维力课的新主题——找规律，和上学期学过的「分类与整理」不同。老师先问孩子们：什么东西可以有规律？孩子们依次说出了形状、颜色、数字。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>新主题开场，老师不急着讲题，而是先让孩子自己举例。当他们能说出「颜色也有规律」的时候，这个概念已经落地一半了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>十一、三组数字例题 · 越来越大就用加法</h2></div>
+    <div class="body-text">
+      <p>老师在黑板上写了三组数字，难度一步步升高：</p>
+      <ol>
+        <li>第一组是 2、4、6、8……孩子们很快发现是「前面一个数加 2」。</li>
+        <li>第二组同样是加上一个固定的数，孩子们算出 10 + 3 = 13。</li>
+        <li>第三组难度升级，规律是「加 2、加 1」循环，轮到加 2 时是 7 + 2 = 9。</li>
+      </ol>
+      <p>讲完三组，老师给了一句通用的判断方法：「数字越来越大，说明它用的是加法；数字越来越小，说明它用的是减法。」</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这句话是今天最值得记住的一句。孩子一旦掌握「看趋势判加减」，就不必每次从头猜，这是从「猜答案」转向「找方法」的关键一步。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>十二、三道练习题 · 做题格式也要练</h2></div>
+    <div class="body-text">
+      <p>然后是课堂练习，题型和上周的五角星那一页相同，只是换成了圆形：</p>
+      <ol>
+        <li>第一题：三行图形里，找出规律相同的两行，各打一个勾。</li>
+        <li>第二题：按照已有的规律接着往下画。</li>
+        <li>第三题：把不符合规律的图形或文字划掉，再在括号里圈出正确的答案。</li>
+      </ol>
+      <p>第三题的格式是今天的难点——这类题一共要求做两件事，容易漏掉其中一步。老师反复示范了几遍，并用「爱学习 爱学习」、「笑脸 爱心 星星」、「两个正方形一个圆形」这几组循环做例子说明。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>规律本身孩子大多找对了，扣分的是格式。「题目要求我做几件事」这种审题习惯，需要用很多道题慢慢养，急不得。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🐢</span><h2>十三、慢一点也可以全对 · 只要规律找对就行</h2></div>
+    <div class="body-text">
+      <p>孩子们做题时，老师一个一个走过去辅导：有的在练 5 个 5 个往下减（65 减 5 是 60，55 减 5 是 50）；有的在做数字对应颜色的连线，老师提醒线要连完整、不能断开；有的在数图形个数，老师提醒数完再落笔。</p>
+      <p>今天老师说得最多的是这几句：「你如果不会画五角星，你就画个三角形，我也算你对。」「只要你把规律找对了就行。」走到一个做得慢、但题题正确的孩子身边时，老师说：「你虽然做得慢，但是你全对哦。」</p>
+      <p><strong>展硕</strong>和<strong>六一</strong>把循环规律讲得很清楚，<strong>吉祥</strong>这节思维力课全程跟上了节奏，第二道接着画的题做得很完整。有一部分孩子上午没有做完，下午继续。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把评价标准扣在「规律是否找对」上，而不是「图画得漂不漂亮」，是为了让孩子把注意力放在思考上。慢不是问题，慢而全对，说明他真的想明白了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>十四、收尾 · 喝温水、整理桌椅、下楼跑步</h2></div>
+    <div class="body-text">
+      <p>下课前，老师提醒孩子们多喝温水，把桌面收拾干净、椅子推回原位，夹豆子的盘子和绿豆也统一回收。想继续练筷子的孩子，老师留了小碟子和位置。</p>
+      <p>最后由班长整队，孩子们一起下楼跑步。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>每节课的最后五分钟，老师都留给收拾。孩子们现在已经不需要一步步地讲，听到「整理」两个字就知道该做什么，这是开学一个多月最明显的变化之一。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天的主线，其实藏在老师反复说的那句话里——「简单的事情认真做」。升旗时站直、把旗面拉平是简单的事，用筷子夹一颗绿豆是简单的事，把勾打在正确的位置也是简单的事，但要连续 15 分钟做对、连续三道题做对，就不再简单。这正是专注力和习惯要解决的问题。</p>
+      <p>家长在家里能做的配合也很具体：一是每天吃饭让孩子自己用筷子，掉了再夹、不代劳，这是对握笔和写字最直接的帮助；二是生活中多问一句「这里面有没有规律」，楼梯的台阶、衣服的条纹、日历的数字都是现成的材料；三是孩子做得慢的时候多给一点时间，先看对不对，再看快不快。天气变化快，也请按温度给孩子备好衣物，提醒他们多喝温水。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
