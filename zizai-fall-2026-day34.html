@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第三十四天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第三十四天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">用一次，才算真的学会</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 20 日<span class="dot">·</span>开学第八周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天，孩子们带着钱走进超市，看价格、算总数、排队结账，把课本上的加减法第一次用在了真实的生活里——算错了，想要的东西就真的买不到。</p>
+    <ol>
+      <li><p>上午是超市数学实践课，孩子们步行前往沃尔玛，带着自己的钱和家里交代的采购任务完成自主购物。</p></li>
+      <li><p>出发前老师讲清了三件事：先看价格、再比较金额大小、自己算钱够不够，钱和账都要自己负责。</p></li>
+      <li><p>重点教的方法是「凑整」：带角分的价格往上凑成整数元，比如 6 元 9 角 8 分当成 7 元，9.99 元当成 10 元，这样算出来的总价一定够付。</p></li>
+      <li><p>今天没有购物任务的孩子同样完成了一遍计算练习，假设自己带了 10 元，照样算一遍。</p></li>
+      <li><p>路上遇到升旗，全班停下来合唱国歌；站立分享的主题是「最可爱的人」，和抗美援朝纪念日有关。</p></li>
+      <li><p>乘车环节孩子们轮流模仿公交报站，依次报了新秀中检路口、青秀民族路口、石门森林公园等站点。</p></li>
+      <li><p>超市里按区寻找商品：零食区、调料区找盐、蔬菜区找洋葱，排队时统一排在老师购物车后面。</p></li>
+      <li><p>结账环节先尝试自助结账机，学找条码、扫码，再到人工通道排队，结完账收好零钱、保存小票。</p></li>
+      <li><p>课间体能是波比跳，两组各 30 个，要求脚伸直、腰挺住、肚子不碰地，中间休息一分钟。</p></li>
+      <li><p>下午 20 分钟书写练习写数字「8」和「牛」字，这次的要求从「写对」升级到「比上一次更好看」。</p></li>
+      <li><p>随后是 15 分钟十以内加减法限时练，老师反复强调写完要自己检查一遍。</p></li>
+      <li><p>放学前孩子们完成桌面消毒、清理橡皮屑、整理椅子，并逐一检查自己的书包。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>一、超市数学实践课 · 把算术用到真钱上</h2></div>
+    <div class="body-text">
+      <p>出发前，老师先在教室把任务讲清楚。</p>
+      <p><strong>第一件事是看价格</strong>。价格标签怎么认、元角分怎么读，昨天已经学过一遍，今天要自己看。</p>
+      <p><strong>第二件事是比较大小</strong>。老师用提问带孩子们过了一遍：东西 9 块钱、你带了 10 块钱，买得了吗？东西 12 块钱、你带 10 块钱呢？孩子们一个个回答，把「够」和「不够」想明白。</p>
+      <p><strong>第三件事是自己算</strong>。今天的规矩是账要自己算，老师只在旁边引导，不替孩子算。</p>
+      <p>难点在于价格带小数。孩子们还没学小数点，老师教的办法是<strong>凑整</strong>：把带角分的价格往上凑成最近的整数元。6 元 9 角 8 分当成 7 元，9 元 9 角 9 分当成 10 元。这样算出来的总价一定比实际要付的多一点，只要凑整后的钱够，实际就一定够。这个方法老师逐个提问确认，直到每个孩子都能自己说出凑到几。<strong>子阳</strong>在 9 元 9 角 9 分这一题上答得很快，说出要凑到 10 元。</p>
+      <p>今天没有购物任务的孩子同样有练习：假设自己带了 10 元，想好要买什么，照样算一遍。老师也说清楚了：这趟出门是为了练习，不是单纯逛一圈。</p>
+      <p>到了超市，按区域一站站找：零食区、调料区找盐、蔬菜区找洋葱。排队时所有人统一排在老师的购物车后面。付款环节分两步走，先带孩子们试了<strong>自助结账机</strong>——找商品条码、对准扫码、确认金额，再到人工通道分两队排队。老师提前提醒：钱先拿在手上准备好，不耽误后面排队的人；结完账收好零钱，小票统一交给老师。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>为什么要带孩子到真实的超市算账？因为练习册上算错了只是打个叉，超市里算错了，想要的东西就真的买不到。这种「后果是真的」的体验，比讲一百遍「要认真算」都管用。凑整法也是一样——它不是数学技巧，是生活里真实好用的办法。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚩</span><h2>二、路上的功课 · 国歌、报站和队伍</h2></div>
+    <div class="body-text">
+      <p>去超市是步行加乘车，路上也有功课。</p>
+      <p>行进时的要求是<strong>站好自己的位置、主动往前跟</strong>，不要停在原地，队伍才不会散。</p>
+      <p>路上正好遇到升旗，全班停下来一起合唱国歌。今天的站立分享主题是<strong>「最可爱的人」</strong>，和抗美援朝纪念日有关。</p>
+      <p>乘车环节是孩子们最投入的一段：轮流模仿公交车报站，新秀中检路口、青秀民族路口、石门森林公园，一站一站报下来，到站后按顺序下车。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>出门这一路，练的是「在公共场合怎么待」。队伍、国歌、报站、过马路，每一样都是小学之后要独立面对的场景。所以我们愿意多花时间在路上。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>三、体能课 · 两组波比跳</h2></div>
+    <div class="body-text">
+      <p>课间的体能内容是波比跳，分两组，每组 30 个。</p>
+      <p>动作要求很具体：<strong>脚要伸直、臀部不要翘起、腰要挺住</strong>，肚子碰到地面的那一下不算数。老师一边数一边逐个纠正，姿势不到位的就重新来过。两组之间休息一分钟。</p>
+      <p>老师也把这个动作的作用讲给孩子们听：波比跳练的是<strong>全身的力量——手、脚和肚子都要用上</strong>。并给了一个自测办法：如果明天起来手酸、脚酸、肚子酸，说明今天真的用力了；如果一点感觉都没有，说明动作没做标准。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>波比跳是个「做满容易、做对很难」的动作。我们宁可数得慢一点、纠正得多一点，也不追求数量好看。身体的事骗不了人，动作对不对，第二天自己就知道。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>四、书写练习 · 数字「8」和「牛」字</h2></div>
+    <div class="body-text">
+      <p>下午第一项是 20 分钟限时书写，写到第 18 页的数字「8」，同时练了「牛」字。</p>
+      <p>今天的要求比上一次高了一级：上次只要求<strong>笔顺正确、位置正确</strong>，这次在此基础上加了一条——<strong>要比上一次写得更好看，要有进步</strong>。老师特别说明：不是要求这节课一定写完，而是要求有进步。</p>
+      <p>具体的指导点有这些：</p>
+      <ul>
+        <li><p><strong>笔顺</strong>：「8」要按 S 形的顺序一笔写下来，起笔方向不能反；</p></li>
+        <li><p><strong>描红</strong>：必须描在印好的红线上，不能超出轮廓，也不要反复描；</p></li>
+        <li><p><strong>「牛」字</strong>：第二横要落在横中线上，撇要露得清楚；</p></li>
+        <li><p><strong>坐姿</strong>：胸口离桌面一拳，手肘不要整条趴在桌上，不靠着椅背，脚要踏实地。</p></li>
+      </ul>
+      <p>收作业前老师给了 10 秒倒计时。点评时老师提醒最多的一点是：书写最难的地方，是把开头那份认真一直保持到最后。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把要求从「写对」提到「比上次更好」，是这个阶段很关键的一步。写对是底线，进步才是目标。孩子一旦建立起「和昨天的自己比」的习惯，就不容易被别人写得快不快带着跑。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>五、口算练习 · 十五分钟十以内加减</h2></div>
+    <div class="body-text">
+      <p>书写之后是 15 分钟限时加减法练习，内容全部是十以内的加减。</p>
+      <p>老师强调的重点还是那两条：<strong>保持坐姿</strong>，以及<strong>写完一定要自己检查一遍</strong>，不检查不能交。目标也说得很清楚——准确率一天比一天高，用时一天比一天短。</p>
+      <p>算错的地方老师一个个带着重算，用的是数步数的方法，让孩子自己把正确答案数出来。订正的规矩也讲了：<strong>错的答案不用擦掉，把正确答案写在旁边</strong>，这样回头看得见自己错在哪。</p>
+      <p>今天有孩子进步很明显：题量比昨天多了七八题，用时更短，错的题数也明显减少了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>保留错题不擦掉，是故意的。擦干净了，这道题就白错了；留着，孩子下次看到同类型的题会多想一秒。这一秒就是准确率的来源。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>六、生活细节 · 点心、整理和自己的书包</h2></div>
+    <div class="body-text">
+      <p>下午点心前先洗手，作业放到桌面一旁，吃完再做别的事。点心由孩子自己夹取，拿适量就好；已经吃饱或者身体不舒服的，可以选择先不吃或者晚一点吃。</p>
+      <p>今天有孩子身体不太舒服，老师用体温计量了体温，结果 36.5 度属于正常，安排多喝水、提前休息，不勉强参加活动。</p>
+      <p>放学前是整理时间：<strong>桌面消毒、清掉橡皮屑、摆好椅子</strong>，然后逐一检查自己的书包，确认文具和本子都带齐。整理完的孩子可以自由活动，今天推荐的是认 1 到 100 数字的桌面游戏。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>自己检查书包这件事，我们从上周开始一直在坚持。孩子收拾得慢一点、漏一两样都没关系，重要的是这件事从头到尾由他自己负责。家里请继续配合，不代劳。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，孩子们带着钱走进超市，看价格、算总数、排队结账，把课本上的加减法第一次用在了真实的生活里。回到教室，又安安静静地练了一页数字和一张口算。学会一个方法不难，难的是知道什么时候用、怎么用。今天他们往这个方向走了一步。</p>
+      <p>家长在家里能做的配合也很具体：一是带孩子买东西时，把算总价这件事交给孩子，先用凑整法估一遍，再和收银台的实际金额对一对；二是尽量留一次用现金付款的机会，让孩子自己递钱、自己收零钱，别全靠手机支付；三是书包继续由孩子自己检查，家里不代劳。天气转凉，也请按温度给孩子备好衣物。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
