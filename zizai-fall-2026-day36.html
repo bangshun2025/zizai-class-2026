@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第三十六天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第三十六天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">练会，忘掉，再练会</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 22 日<span class="dot">·</span>开学第八周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天，上午在练「表达」——站出来领读、听懂一个故事、说出自己的感受；下午在练「手上的功夫」——把字写对、把题算准、把检查做完。</p>
+    <ol>
+      <li><p>晨读换了形式，孩子们一个一个上台领读《万物都在好好生长》，这件事老师昨天就预告过，给了准备时间。</p></li>
+      <li><p>领读有规则：老师说「谁来领读」之后才举手，一直喊「我要领读」反而轮不到。</p></li>
+      <li><p><strong>子阳</strong>第一个举手，完整带读了整首诗，老师当场肯定；中途跟丢时，老师教的办法是手指跟着点字。</p></li>
+      <li><p>语速也被专门讲了：太慢跟读的同学会很累，要匀速地读——领读的人要知道后面有人跟着。</p></li>
+      <li><p><strong>六一</strong>积极举手但没准备好答案，老师肯定态度，也提醒他先想一想、有答案了再举手。</p></li>
+      <li><p>齐读第一遍被叫停：读到标点要停一秒，标点就是用来换气的；纠正后第二遍全班完整读完。</p></li>
+      <li><p>绘本课读《爷爷变成了幽灵》，老师先解释「去世」：离开我们这个世界，去到另外一个世界。</p></li>
+      <li><p><strong>糯米</strong>答出幽灵爷爷和从前的区别，<strong>顶顶</strong>答出爷爷没能直接离开的原因——忘了一件事，心里还有牵挂。</p></li>
+      <li><p>孩子们说不害怕，因为一直记得爷爷对自己的好和爱；<strong>展硕</strong>分享「告别就是好好跟对方说再见」。</p></li>
+      <li><p>闭眼感受「爱在身体的哪里」：<strong>六一</strong>说在全身、是热烈的红色；<strong>子旭</strong>说在心脏、是填满心脏的黄色。</p></li>
+      <li><p>怎么记住离开的亲人：按各家习惯纪念，也可以回忆、画画、和家人讲讲他的故事。</p></li>
+      <li><p>下午练字 100 个数字，昨天用了 20 分钟，今天只给 15 分钟；<strong>子阳</strong>坐姿全程笔直，被老师当场肯定。</p></li>
+      <li><p>数字「6」拐上去要及时回到起点才圆得起来，「9」先封住小口再竖下来；「人」字的一撇一捺要像两条腿一样打开。</p></li>
+      <li><p>口算 15 分钟，<strong>展硕</strong>按时完成；老师反复讲写完要检查。日期的两种写法是「十月二十二日」或「10.22」。</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎤</span><h2>一、晨读领读训练 · 谁来领读，是有规则的</h2></div>
+    <div class="body-text">
+      <p>今天早上的晨读换了形式——不再是老师带读，而是请孩子们一个一个上来领读《万物都在好好生长》。这件事老师昨天就预告过，给了孩子们准备的时间。</p>
+      <p>上台前，老师先讲清楚了规则：要等老师问「谁来领读」，孩子们才举手；如果一直在下面喊「我要领读」，反而轮不到。这不是为难谁，而是让孩子学会等待和倾听——课堂上什么时候该说话、什么时候该等一等，是一种很重要的分寸。</p>
+      <p><strong>子阳</strong>第一个举手，拿到了今天的第一个领读机会，全班跟着他一句一句读。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>敢第一个举手，本身就值得肯定。孩子愿意站出来，就说明他对自己有一点信心了，这比读得多标准更重要。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎵</span><h2>二、领读里的两个细节 · 点字与语速</h2></div>
+    <div class="body-text">
+      <p><strong>子阳</strong>领读的时候，中间跟丢了一两次。老师没有责备，而是当场把方法点了出来：手上好好点字，眼睛就不会跟丢。读的时候手指跟着走，读到哪里心里就清楚到哪里。全诗他基本都能念下来，老师肯定了这一点。</p>
+      <p>另一个被反复讲的细节是语速。有孩子领读得很慢，老师停下来和全班说明：<strong>「你太慢了会很累的，要匀速地去读。」</strong></p>
+      <p>领读不只是自己念完，而是要带着一班人一起念——念太慢，跟读的同学一口气接不上来，就会累。知道「后面还有人跟着我」，是领读最难也最值钱的那一点意识。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>领读其实是最早的「带人」训练。要照顾到跟你一起读的人，这种意识比识字量更难得。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✋</span><h2>三、举手之前，先想一想</h2></div>
+    <div class="body-text">
+      <p><strong>六一</strong>今天很积极，老师一问谁来领读，他就举了手。上来之后，老师问他这首诗叫什么名字，他想了一会儿，没有马上接上。</p>
+      <p>老师处理得很温和，也很清楚：先肯定了他愿意参与的态度——积极是好事；同时也和他说明了一个方法：<strong>「积极就可以了，就像回答问题一样，你要用大脑去思考，思考一下怎么回答，有答案了再举手。」</strong></p>
+      <p>换句话说，不是不让举手，而是举手之前先在心里过一遍：我会不会？我要说什么？这样站出来才站得住。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「敢举手」和「有准备」是两件事，都要练。先把积极的劲头保护好，再慢慢教他怎么在心里打个草稿。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⏸️</span><h2>四、标点就是用来停顿的 · 两次齐读</h2></div>
+    <div class="body-text">
+      <p>领读之后是全班齐读。第一遍读到一半，老师就叫停了——孩子们一口气往下冲，完全没有在标点处停。</p>
+      <p>老师当场讲了标点的作用：<strong>「为什么要有标点符号给你们？就是为了让你们停顿下来。」</strong></p>
+      <p>老师还做了示范：念到逗号停一秒钟左右，再接下一句。不停顿，一整句读下来孩子根本换不上气，自然就越读越乱。</p>
+      <p>纠正之后的第二遍齐读，全班完整、整齐地读完了整首诗，节奏明显出来了。今天没轮到的孩子，明天会接着上台领读。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>标点不是写在纸上的装饰，是读出来的呼吸。孩子一旦读懂了停顿，朗读的味道一下就不一样了。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👻</span><h2>五、绘本共读《爷爷变成了幽灵》</h2></div>
+    <div class="body-text">
+      <p>上午的阅读理解表达课，读的是一本很特别的绘本——《爷爷变成了幽灵》，讲的是亲人去世这件事。</p>
+      <p>讲故事之前，老师先把<strong>「去世」</strong>这个词解释清楚了：去世就是离开我们这个世界，去到了另外的一个世界。老师也提醒孩子们，这个故事比较长、信息量也大，需要竖起耳朵、带上小脑袋一起听。</p>
+      <p>故事里，小男孩最喜欢的人是爷爷，爷爷突然离开了，他非常难过。家里人用不同的说法安慰他，可他都不太相信。当天晚上，爷爷真的回来了，坐在他房间的橱柜上，还能轻松地穿过墙壁。爷爷说自己忘记了一件事，所以走不了；于是祖孙俩一个晚上一个晚上地回忆，把从前的事一件件数过来——去游乐场、在花园里种树、一起堆沙堡、一起去钓鱼。最后爷爷想起来了：<strong>他忘记的是和孙子好好说一声再见</strong>。说完再见，爷爷安心地走了，小男孩也能正常去幼儿园了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>这类话题很多大人会回避，但孩子其实早晚会遇到。在课堂上、在故事里先碰一碰，比真正遇到时才第一次听说要好得多。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌙</span><h2>六、为什么不害怕幽灵爷爷</h2></div>
+    <div class="body-text">
+      <p>故事听完，老师带着孩子们一问一答地梳了一遍。</p>
+      <p>问到「变成幽灵之后的爷爷，跟从前有什么不一样」时，<strong>糯米</strong>答得很准：原来的爷爷穿不过墙壁，变成幽灵以后就可以轻松地穿来穿去。其他孩子还补充了不少：走路没有脚步声、样子是白白的还会发光。</p>
+      <p>老师又问：那为什么大家不害怕这个爷爷？孩子们的回答很贴心——<strong>因为一直记得爷爷对自己的好、对自己的爱</strong>，而且爷爷从来没有伤害过他。</p>
+      <p>还有一个问题是：爷爷为什么没能直接安安心心地离开？<strong>顶顶</strong>答出了关键：因为他忘记了一件事，心里还有牵挂。老师当场表扬了这个回答，因为它把整个故事的扣子解开了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子能说出「因为记得他对我的好，所以不害怕」，说明他已经明白：爱比害怕更有力量。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">👋</span><h2>七、什么是告别 · 正式地说一声再见</h2></div>
+    <div class="body-text">
+      <p>这节课最核心的两个字，是<strong>「告别」</strong>。</p>
+      <p>老师请<strong>展硕</strong>先分享了自己的理解，他说：告别就是跟他说再见。老师顺着这句话补充完整：告别是正式地、当面地好好说再见；如果是悄悄地走掉，那不叫告别。告别还分两种：暂时的告别和永远的告别。</p>
+      <p>所以故事里的爷爷才那么放不下——他是突然离开的，没来得及和最爱的孙子当面说一声再见。把这声再见说完了，心里的结就解开了。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>告别是一种要学的能力。平时出门前、放学时认真说一声再见，孩子就会明白：好好开始、好好结束，都很重要。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">❤️</span><h2>八、爱在身体的哪里</h2></div>
+    <div class="body-text">
+      <p>接下来老师问了一个很轻、但很重的问题：如果亲人和我们永远告别了，他还爱我们吗？孩子们很一致地说：还爱。</p>
+      <p>那这份爱在哪里呢？老师请孩子们闭上眼睛，像之前做情绪扫描那样，感受一下这份爱在身体的哪个部位、是什么颜色、什么形状。安静了一会儿之后，孩子们分享了自己的感受：</p>
+      <ul>
+        <li><p><strong>六一</strong>说这份爱在身体的每一个部位，是热烈的红色，感受得到力量；</p></li>
+        <li><p><strong>子旭</strong>说在心脏里，是黄色的、圆圆的，把整颗心都填满了，也感受得到力量。</p></li>
+      </ul>
+      <p>老师把这一段收在一句话上：<strong>「只要我们心中有爱，我们的身体里面有爱，我们的人就是有力量的。」</strong></p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子把抽象的「爱」找到具体的位置和颜色，他就真的感受得到了。以后心里难受的时候，这份感受就是他自己的力量。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⭐</span><h2>九、怎么记住离开的亲人</h2></div>
+    <div class="body-text">
+      <p>老师接着问：如果很想念一个已经离开的亲人，我们可以做点什么来记住他？</p>
+      <p>孩子们说到，每家都有自己纪念亲人的习惯，到了日子会去看看他、和他说说话。</p>
+      <p>老师在这基础上又补充了几种孩子自己就能做的事：</p>
+      <ul>
+        <li><p>经常想一想和他在一起的开心事；</p></li>
+        <li><p>照着照片给他画一幅画，或者把一起相处的时光画下来；</p></li>
+        <li><p>和家人聊聊他的故事，把美好的回忆留住。</p></li>
+      </ul>
+      <p>老师说明了理由：时间久了，样子可能会模糊，但画下来、讲出来的回忆会一直在。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>思念需要一个出口。画一幅画、讲一个故事，都比把难过憋在心里好。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌟</span><h2>十、死亡不代表永远消失</h2></div>
+    <div class="body-text">
+      <p>课的最后，老师请孩子们说说：听完这个故事，对亲人离开这件事有没有不一样的想法。每个孩子都试着表达了自己的感受，有的说要去纪念他，有的说会难过。</p>
+      <p>老师把这节课的核心给了孩子们：<strong>「死亡代表和亲人分开，但不代表他永远的消失了。因为他在这个世界的时候，给了我们很多很多的回忆和很多很多的爱，这些回忆和这些爱，会一直陪伴着我们。」</strong></p>
+      <p>老师还分享了一个很温柔的传说：离开的亲人会变成天上的星星，想他的时候抬头看一看，最亮的那颗就是他在看着你、在祝福你。老师也和孩子们说，正因为时间宝贵，所以要好好地活、多做好事、多为这个世界做点贡献。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>和孩子谈离别，最后落点要落在「好好活」上。明白了会失去，才更懂得珍惜身边还在的人。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍️</span><h2>十一、下午练字 · 100 个数字，15 分钟</h2></div>
+    <div class="body-text">
+      <p>下午的练字课，任务是 100 个数字。</p>
+      <p>老师今天把计时规则说得很清楚：昨天大家用了 20 分钟，今天只给 15 分钟，以后的用时会一天比一天少。不过老师也把话说在前面，标准不是「快」：<strong>「你可以写慢，但是不能不认真、不能写错。态度端正最重要，写得慢一点没关系，但是必须要写对。」</strong></p>
+      <p>开写之前的准备动作也是固定的：先调好椅子、坐姿端正、握笔拿对、本子放正，然后才下笔。翻页后本子不平整的，要先压平再写——不压平，字自然写得歪歪扭扭。写一个字可以停下来休息三到五秒，不必赶速度。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>缩短时间是为了练「专注地写」，不是为了催孩子赶工。认真写的孩子，速度自然会跟上来。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪑</span><h2>十二、坐姿与压本 · 动本子不动身体</h2></div>
+    <div class="body-text">
+      <p>这节课被反复纠的，还是姿势。</p>
+      <p>老师讲了两个很具体的要求：一是<strong>「动本子不动身体」</strong>——本子位置不合适，往前后左右挪一挪就行，不要把身子扭过去追着本子；二是<strong>只用手掌压住作业本</strong>，不要把整根手肘都放到桌面上，否则身体会跟着倾斜，时间久了影响体态。</p>
+      <p>这一点上，<strong>子阳</strong>做得很稳：写字全程腰背笔直，头没有歪、手也没有斜，老师当场点名肯定。<strong>子旭</strong>这节课在老师的提醒下也一次次把手肘收回来、把椅子摆正，调姿势调得很配合。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>姿势这件事要天天提，因为好习惯很难养，坏习惯一不注意就固定下来了。现在多纠一点，以后少费很多力。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">6️⃣</span><h2>十三、数字「6」· 起笔在右边，拐上去要回得来</h2></div>
+    <div class="body-text">
+      <p>今天的第一个重点是数字「6」。</p>
+      <p>老师把要领拆成了几句话：6 的起点在右边，先从右往上走，再往左边拐；拐上去之后要及时回到起点，回得慢了、回不来了，这个 6 就圆不起来。下面那一竖也有讲究：是斜向右边的直画，不是竖直向下，更不能是弯的。</p>
+      <p>老师没有直接告诉答案，而是指着范字问孩子们：竖下来是直直的吗？是斜向哪一边？让孩子先观察、再回答、最后才下笔。写歪了的擦掉重来一个，不算错，只是多练一遍。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「先看清楚再下笔」是写字最重要的习惯。闷头写十遍，不如看准了写两遍。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">9️⃣</span><h2>十四、数字「9」· 封住小口再竖下来</h2></div>
+    <div class="body-text">
+      <p>数字「9」是昨天学过的，今天继续练。</p>
+      <p>老师又完整地示范了一遍笔顺：起笔在田字格中间偏上的位置，先往上走到顶，再从左边拐下来，回到右边的起点把小口封住，然后才竖下来。孩子们常出的错老师也一一点了出来：把 9 写反了、给 9 多添了一个钩、圆的开口留得太大、竖没有竖直。占位上还有一个要求：起笔往上要碰到田字格的上边线，拐过来要碰到旁边的线。</p>
+      <p>老师还给了一个很体贴的办法：9 不一定要一笔写完，写完圆之后可以把笔抬起来，再单独写下面那一竖。对还不太熟练的孩子来说，分两笔写反而更容易写正。</p>
+      <p><strong>妍语</strong>、<strong>吉祥</strong>都按要求一个一个改到了位，改完再往下写。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>把一个难动作拆成两步，孩子就从「我不会」变成「我可以试试」。降低难度，不是降低标准。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧍</span><h2>十五、「人」字的一撇一捺要打开</h2></div>
+    <div class="body-text">
+      <p>写完数字，还练了汉字。老师今天重点讲的是「人」字的两条腿。</p>
+      <p>老师一边示范一边说：<strong>一撇一捺要像两条腿一样打开</strong>，不能挤在一起；捺要写得舒展一点，太短就立不住。老师还把两种写法写在一起，让孩子自己比一比：哪一个好看？孩子们一眼就看出来了，然后自己回去改。</p>
+      <p>字形上还有一个小诀窍：字上面的小口尽量写小一点，整个字就协调了；口写大了，字就显得松。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>让孩子自己比较两种写法，比直接说「写错了」有效。自己看出来的差别，才会真的改。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">➕</span><h2>十六、口算练习 · 写完了要学会检查</h2></div>
+    <div class="body-text">
+      <p>练字之后是 15 分钟的口算练习，老师倒计时之后正式开始，要求安静、专心、不看别人的答案。<strong>展硕</strong>在规定时间里完成了练习，老师点名肯定。</p>
+      <p>今天老师反复讲的是一件事——<strong>写完了要检查</strong>。有孩子九分钟就写完了，剩下的六分钟空着，没有回头核一遍，结果小地方出了错。老师和孩子们算了一笔账：一共 15 分钟，剩下的时间完全够把所有题重新过一遍。很多错不是不会做，而是没检查。</p>
+      <p>老师也和孩子们分析了常见的两类错：一是算得太快没看清符号，二是前面一题错了之后心急，后面跟着连错。停一秒、把心收回来，比往前赶更重要。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>「写完了再看一遍」是一个要练很久的习惯。孩子愿意把剩下的时间用在检查上，成绩自然会变。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📅</span><h2>十七、日期的两种写法</h2></div>
+    <div class="body-text">
+      <p>收作业的时候，老师先检查的是日期和名字有没有写。</p>
+      <p>今天老师在白板上把两种标准写法都示范了一遍：一种是<strong>「十月二十二日」</strong>，另一种是<strong>「10.22」</strong>——中间只用一个点分隔月和日就行，写在该写的那一栏。让孩子自己选一种来写。</p>
+      <p>老师也说明了为什么要这么认真：每天的作业都写上名字和日期，老师改起来清楚，孩子自己回头看也知道自己哪一天进步了。写错位置的孩子，老师都请他们改好了再交。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>写名字和日期看起来是小事，实际上是在练「为自己的东西负责」。这习惯一旦有了，做什么事都不容易落下尾巴。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 十八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔁</span><h2>十八、为什么学过了还要练</h2></div>
+    <div class="body-text">
+      <p>今天课上有孩子问了一个很真实的问题：昨天都学过了，今天为什么还要练？</p>
+      <p>老师的回答很有意思：<strong>「那为什么昨天你吃饭了，今天还要吃？你昨天都说过话了，你今天为什么还要说？」</strong></p>
+      <p>两位老师在课上也聊到，练字本来就是「练好了又忘、忘了再重新练」的过程，反复是正常的，不是孩子没学好。<strong>六一</strong>昨天把 9 写得很标准，今天老师把他昨天的字翻出来给他自己看——你看，这是你写得出来的，他很快就找回了状态。找回状态比学会新东西更容易，因为那本来就是他的。</p>
+      <div class="aside"><span class="tag">💡 老师随记</span><p>孩子一时写不好，很多时候不是退步，只是手感没找回来。把他以前写得好的那一页翻给他看，比说十句都管用。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天是很有分量的一天：早上孩子们一个一个站到前面去领读，学的不只是把诗读对，还有怎么照顾跟在后面的同学；上午的绘本课聊了一个很重的话题——告别。孩子们说得都很认真：告别是好好说一声再见，而爱不会因为告别就消失，它就在身体里，是红色的、黄色的、有力量的；下午回到纸面上，把一个 6、一个 9、一撇一捺认认真真地练，还把「写完要检查」这件事又往前推了一步。</p>
+      <p>老师特别想和家长说的是：孩子有时候昨天写得好、今天又写歪了，这不是退步，而是所有本事都要经过「练会—忘掉—再练会」的过程。家里不必着急，多给一句「你上次就写得很好」，孩子就有力气再试一遍。感谢各位家长的信任与配合，明天见。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
