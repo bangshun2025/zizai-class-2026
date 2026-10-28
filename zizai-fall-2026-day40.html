@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第四十天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第四十天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">把每一件小事做细</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 28 日<span class="dot">·</span>开学第九周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天的主线，是「把事情做细」——上午听的是两位工匠把活干到毫米级的故事，中间是自己在操场上一步一步踩高跷，下午是把一个 0 写到圆头圆尾。</p>
+    <ol>
+      <li><p>【晨读新规矩】自己收拾书包要拍一张照片或录个视频留证，从今晚开始执行；金句：<strong>这个分是你们得的，不是老师得的，为什么要我去求证呢？</strong></p></li>
+      <li><p>【齐读】复习《当我安静下来》《万物都在好好生长》；金句：<strong>齐读是整齐的一个声音，不是稀稀拉拉的</strong>——第二首比第一首整齐很多</p></li>
+      <li><p>【新诗《雨后》】作者是冰心，「作者」就是写这首诗的人；「赤脚」是光脚、不穿鞋；三遍逐句跟读，<strong>六一</strong>、<strong>展硕</strong>、<strong>子阳</strong>、<strong>妍语</strong>、<strong>顶顶</strong> 都单独读了一句</p></li>
+      <li><p>【大国工匠】大国指中国，工匠是各行各业做到顶尖的人，洗碗工、环卫工人做到顶尖一样是工匠；<strong>顶顶</strong> 答出了这一点</p></li>
+      <li><p>【卢仁峰】坦克装甲焊接工，失去一只手后自制手套、每天多练几小时、坚持五年；一年做了上百次实验，听钢板落地的声音就能判断含碳量</p></li>
+      <li><p>【爬山与坚持】爬山有两个理由：锻炼身体、亲近大自然，锻炼意志、遇到困难不退缩；站得越高才能看到越远的风景，坚持不住的时候咬咬牙再撑一下</p></li>
+      <li><p>【张东伟】0.7 毫米的殷瓦钢内胆，大约两层鸡蛋壳厚，汗滴上去就会生锈；全船焊缝长 140 公里，其中 14 公里的复杂焊缝靠人工完成</p></li>
+      <li><p>【木工课要求】金句：<strong>心不定则手不稳，手不稳则活地糙</strong>——本周起作品全部自己完成，老师只做辅助；做凳子不能带着树皮，做碗不能留木刺，上课前先深呼吸把心静下来</p></li>
+      <li><p>【热身与韵律操】慢跑三圈自己数圈数，不用来报告；大风车要膝盖绷直、高抬腿和跨下击掌要腿直；<strong>展硕</strong> 的动作跟得很整齐，<strong>子旭</strong> 也很不错</p></li>
+      <li><p>【三项任务】踩高跷、X 型 S 型跳、高高跳跃；高跷落地要收住力气不能砸地，掉下来起来接着走不用从头来；<strong>糯米</strong> 动作轻盈、今天把高高跳跃的动作做足了，<strong>子阳</strong> 跳得又标准又快</p></li>
+      <li><p>【排队也是考核】等前面的小朋友全部完成才能出发，别人考核的时候要认真看——排好队也是本事</p></li>
+      <li><p>【数字 0 与田字格】0 的三类问题：封口留头像 6、开口没合上、起笔位置错；1 在左半格、0 在右半格占满不越竖中线；横中线是左往右、竖中线是上往下</p></li>
+      <li><p>【坐姿与 12 分钟口算】双脚平放、本子放正、手往前伸、左手不盖字；口算从 15 分钟压到 12 分钟，多人只错一道；纠错不用擦，旁边写上正确答案就行</p></li>
+      <li><p>【字卡认读】节、新、张、处、学、兴 6 个新字过关；张与妆、住与助、复与助都分清楚了；1 到 10 的数字从今天起必须掌握</p></li>
+      <li><p>【每天复习】金句：<strong>每天要坚持复习啊，要不然你经常就会把这些忘了</strong>——字卡收好，认过的和没认过的分开放</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📸</span><h2>一、收拾书包，拍一张照片就算数</h2></div>
+    <div class="body-text">
+      <p>晨读课的第一件事，是把一条新规矩说清楚。</p>
+      <p>自己在家收拾书包，从今晚开始要有证据：要么录个短视频，要么拍一张照片——老师说拍照是最简单的，收好、叠好，人跟书包或者衣服站在一起，拍一张就行，花不了多少时间。有孩子当场说家里已经拍好了。</p>
+      <p>为什么要自己拿证据？老师把这件事的道理说得很直：</p>
+      <blockquote><p>这个分是你们得的，不是老师得的，为什么要我去求证呢？</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把举证的责任交回给孩子，是在教一件成年人的事——你想要的东西，要自己说得清、拿得出。</p>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗣</span><h2>二、齐读是整齐的一个声音</h2></div>
+    <div class="body-text">
+      <p>接下来是两首旧诗的复习。</p>
+      <p>第一首是《当我安静下来》。读完第一遍，老师停下来说了三件事：速度太快、逗号没有停顿、声音不整齐。然后把标准说成了一句话：</p>
+      <blockquote><p>齐读是整齐的一个声音，不是稀稀拉拉的。</p></blockquote>
+      <p>第二首《万物都在好好生长》明显比第一首好，出声的人多了很多。老师又补了一条：要喊就从头喊到尾，不能一句有声音、一句没声音。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>齐读练的不是嗓子，是「我要和大家在一起」的意识。第二首比第一首整齐，说明提醒是听进去了的。</p>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>三、新诗《雨后》：作者是冰心</h2></div>
+    <div class="body-text">
+      <p>新诗开讲之前，老师先介绍了作者是冰心，并把「作者」这个词解释清楚：就是写出这首诗的人。</p>
+      <p>诗里有个词孩子们一开始会错意：赤脚。有孩子把它往头上想，老师停下来说明白——赤脚就是光脚、不穿鞋，就像你们玩水的时候一样。</p>
+      <p>接下来是三遍逐句跟读。「他拍拍水灵灵的泥裤子」「却发射出兴奋和骄傲」这两句最难，老师反复带了多遍，第二遍明显比第一遍好。第三遍是单独读：<strong>六一</strong>、<strong>展硕</strong>、<strong>子阳</strong>、<strong>妍语</strong>、<strong>顶顶</strong> 都被点到读了那句「却发射出兴奋和骄傲」。最后老师把这首诗的意思说了出来：纯真、率真，还有同伴之间的关心。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>读诗不急着背，先把词意和画面对上。孩子自己玩过水，「赤脚」这两个字就有了温度。</p>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏅</span><h2>四、大国工匠是什么，卢仁峰是谁</h2></div>
+    <div class="body-text">
+      <p>上午的主题课从一个问题开始：大国工匠是什么？</p>
+      <p>大国指的是中国，工匠指的是在各行各业做到顶尖的人。老师特意补了一句：哪怕是洗碗工、环卫工人，只要能做到别人做不到的事，就是这一行里的顶尖。这一问点到了 <strong>顶顶</strong>，他答的正是「各行各业做到顶尖的人」。</p>
+      <p>然后是第一位工匠的复习：卢仁峰，坦克装甲焊接工。他早年因事故失去了一只手，就自己做了一双特制手套，每天比别人多练几小时，连着练了五年，最后的水平超过了他双手健全的时候。他还花了一年做了上百次实验，到后来只听钢板落地的声音，就能判断出含碳量和该用什么焊接工艺。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把「顶尖」从名校、大公司里拿出来，放回到每一行。孩子要先相信「做什么都能做到最好」，才会愿意下苦功夫。</p>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⛰</span><h2>五、爬山是为了什么</h2></div>
+    <div class="body-text">
+      <p>讲到坚持，老师自然地说到了爬山。</p>
+      <p>为什么要爬山？老师给了两个理由：一是锻炼身体、亲近大自然，二是锻炼意志——遇到困难不退缩。还有一句说得很具体：站得越高，才能看到越远的风景。</p>
+      <p>那到底怎么做？老师说得很实在：想给未来多一些可能性，就要在坚持不住的时候咬咬牙再撑一下。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>意志这东西没法用讲的，只能用腿走出来。这也是我们一直带孩子往山上走的原因。</p>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⚓</span><h2>六、张东伟与 0.7 毫米</h2></div>
+    <div class="body-text">
+      <p>下半节课放了纪录片，讲第二位工匠：张东伟。</p>
+      <p>他也是焊接工，但焊的是液化天然气运输船的殷瓦钢内胆。老师把两位工匠做了个对比：卢仁峰焊的是「让外面的东西打不进来」，张东伟焊的是「让里面的东西漏不出去」。</p>
+      <p>难在哪里？内胆壁只有 0.7 毫米厚，大约相当于两层鸡蛋壳，手指碰一下、汗滴上去就会生锈，焊接时焊缝熔深必须稳在 0.7 毫米范围内，多一点就击穿。老师还说了一组数字：一条船的殷瓦钢焊缝总长 140 公里，其中 14 公里的复杂焊缝必须靠人工完成。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>0.7 毫米这个数字比任何形容词都有力。孩子记住的不是船，是「有人把活干到了这么细」。</p>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🪵</span><h2>七、心不定则手不稳</h2></div>
+    <div class="body-text">
+      <p>纪录片里有一句话，老师把它整句搬到了木工课上：</p>
+      <blockquote><p>心不定则手不稳，手不稳则活地糙。</p></blockquote>
+      <p>落到做法上就是三条：做的时候不要边做边想别的；手要稳，锯东西往一个方向均匀用力，才能锯出平整的面；上课前先深呼吸，把心静下来，不要因为别人做得快就着急。</p>
+      <p>老师还宣布了本周木工课的新要求：所有作品必须自己完成，老师只做辅助指导，做完才能带回家。标准也说得很具体：做凳子不能带着树皮就带走，做碗不能留木刺扎嘴，得打磨光滑才算能用。慢一点没关系，要认真。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>工匠精神不是一个口号，它就是「慢一点、稳一点、自己做完」。从一个木碗开始练，刚刚好。</p>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤸</span><h2>八、热身、韵律操和拍拍操</h2></div>
+    <div class="body-text">
+      <p>到了操场，先是慢跑三圈热身。老师这次的要求是自己数清楚圈数，不用跑回来报告。</p>
+      <p>接着是韵律操。老师把几个动作的要领一个一个说清楚：大风车要膝盖绷直，高抬腿和跨下击掌要把腿伸直。为什么要跳操？为了练协调性。老师还顺口说了一句：把小腿拉开了，身体会更舒展。今天 <strong>展硕</strong> 的动作跟得很整齐，<strong>子旭</strong> 也很不错。</p>
+      <p>最后是头肩拍拍操，口令很有节奏感：头拍拍，肩肩拍拍，头拍肩拍，头肩拍拍，大拍大拍拍，小拍小拍拍，大拍小拍拍。跳完全体喝水休息一分钟。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>自己数圈数、不用报告，这是把计数的任务也交给了孩子。早上讲的「自己举证」，下午在操场上又练了一遍。</p>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>九、三项任务：高跷、S 型跳、高高跳跃</h2></div>
+    <div class="body-text">
+      <p>热身之后，老师宣布了今天的三个任务。</p>
+      <p>第一项是踩高跷。老师特意说明了用意：高跷的高度和周五要走的平衡木差不多，现在先练。动作要领是落地要收住力气，不能像自由落体一样整个人砸到地上；掉下来了也不用从头走，起来接着走就行，保持平衡最要紧。</p>
+      <p>第二项是 X 型 S 型跳，要求双脚并拢、双手叉腰；第三项是高高跳跃，两脚并拢往高处跳，不能把腿打开。这一项 <strong>糯米</strong> 今天把动作做足了，老师还说他的动作非常轻盈；<strong>子阳</strong> 则是跳得又标准又快。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>掉下来不用从头来——这条规则很重要。它告诉孩子：失误不是归零，立刻继续就行。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚶</span><h2>十、排队也是考核内容</h2></div>
+    <div class="body-text">
+      <p>三项任务练完，进入考核。老师开场就申明了一条：排队也是考核内容之一。</p>
+      <p>规则有两条：等前面的小朋友全部完成了才能出发；别人在考的时候要认真看，看别人怎么做。跳的时候要连续不停，高高跳跃要像高抬腿一样把脚收起来。</p>
+      <p>考完还剩十分钟，老师让大家去骑车，并提醒一句：要跟老师说谢谢。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把排队写进考核，是在告诉孩子：等待和秩序也是本事，不是正式开始前的那点闲工夫。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✏</span><h2>十一、数字 0 的三类问题与田字格</h2></div>
+    <div class="body-text">
+      <p>下午的第一件事，是把昨天的作业复盘一遍。</p>
+      <p>老师在黑板上画了田字格，把 0 的三类问题一个一个指出来：第一，封口的地方留了个头出来，再长一点就像 6 了；第二，开口没有合上，像嘴张着；第三，起笔位置错了，从下面起的笔。正确的写法是连过四个点，从上起笔绕一圈回到起点，写出来是个椭圆，像个鸡蛋。</p>
+      <p>位置也说清楚了：1 写在左半格，0 写在右半格，要占满右半格、但不能越过竖中线贴到 1 身上。<strong>六一</strong> 按这个标准调了一下位置，其他人的位置基本都对。老师还单独给 <strong>糯米</strong> 把两条中线讲了一遍：横着从左往右的是横中线，竖着从上往下的是竖中线，写字的时候竖画要落在竖中线上。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>昨天教的是「0 怎么写」，今天教的是「写歪了怎么改」。复盘比重新讲一遍更有用。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon"></span><h2>十二、坐姿、握笔与 12 分钟口算 ⏱</h2></div>
+    <div class="body-text">
+      <p>写字之前，老师把坐姿和握笔一个一个正过来：双脚平放在地上，本子放正不歪，握笔时手往前伸，不要把胳膊横在胸口导致身体前倾；左手压作业本的时候别盖住正在写的那个字。关于「为谁而写」，老师把话说得很清楚：</p>
+      <blockquote><p>你只要自己认认真真的去做就行了。</p></blockquote>
+      <p>书写结束后是口算。昨天是 15 分钟，今天直接压到 12 分钟。要求尽量心算，不用手指头数；<strong>子阳</strong>、<strong>六一</strong> 被提醒数字别写得太大，要和印好的格子匹配。加减法的方法也说了：先找到起始数字，再看是加是减判断数字变大还是变小，然后数过去。批改下来，好几个孩子只错一道，接近满分。</p>
+      <p>纠错还有一条规矩，老师反复说了好几遍：不用擦掉原来的答案，直接在旁边写上正确的就行，别把时间花在涂改上。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>15 分钟到 12 分钟，这是昨天预告过的。限时不是为了催，是让孩子对「一刻钟」越来越有感觉。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔤</span><h2>十三、字卡过关与每天复习</h2></div>
+    <div class="body-text">
+      <p>傍晚是字卡认读。今天的新字是节能的节、新人的新、张开的张、处理的处、学生的学、高兴的兴，一共 6 个，全部认完。</p>
+      <p>易混的几组字也当场分开了：张开的张和化妆的妆不是一个字，住房的住不是助手的助，复习的复和赞助的助也不一样。认过的字卡往边上收，没认过的先拿出来考——老师的顺序是先考原来不会的，再考新的。还有一项被单独提出来：1 到 10 这十个数字，从今天起必须掌握，这是最基础的。</p>
+      <p>还有一句话很有意思。有孩子说自己快追上前面的同伴了，老师接了一句：你再坚持三天就追上了。课的最后，老师反复强调的是同一件事：</p>
+      <blockquote><p>每天要坚持复习啊，要不然你经常就会把这些忘了。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>识字这件事没有捷径，只有每天一点点。孩子心里有个想赶上的目标是好事，重要的是那句「再坚持三天」。</p>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，孩子们听了两个把活干到毫米级的人，自己也在做同一件事：齐读要整齐到一个声音，踩高跷要落地收住力气，0 要圆头圆尾不出头，字卡上的张与妆要分得清楚。比起今天学了多少东西，老师更在意他们带走的那几句话：分是自己的，要自己拿出证据；心不定则手不稳；掉下来了起来接着走，不用从头来；每天坚持复习，哪怕只多坚持三天。感谢家长们的配合，老师和孩子们明天继续。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
