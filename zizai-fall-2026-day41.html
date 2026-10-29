@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第四十一天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第四十一天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">自己先走过去</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 10 月 29 日<span class="dot">·</span>开学第九周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天的主线，是「主动」——晨读时主动看字，表达课上主动说出自己的想法，操场上主动管住自己的身体，写完作业主动再算一遍。</p>
+    <ol>
+      <li><p>【旧诗复习】《当我安静下来》《万物都在好好生长》齐读；金句：<strong>原来万物都有自己的节奏，不必追赶别人的光，我也可以慢慢来</strong></p></li>
+      <li><p>【《雨后》与主旨】三遍跟读冰心的《雨后》；「主旨」就是一首诗、一篇故事主要讲的是什么——这首讲的是纯真、率真和同伴之间的关心</p></li>
+      <li><p>【抽字组词】一人两个字，先念字、再组一个词，不用念整句诗；<strong>子旭</strong>、<strong>顶顶</strong> 首批上台，物、长、慢、桃、溪、海全部组对</p></li>
+      <li><p>【易错字带读】<strong>糯米</strong> 上台带大家认读梦、远、滴、呼、吸、暗；「呼吸」都是口字旁，「扇」就是「把温柔洒向每一扇窗」的那个扇</p></li>
+      <li><p>【学习要主动】金句：<strong>你不主动走过去，那个知识能自己跳到你脑袋里面去吗？</strong>——自然课、研学、爬山，处处都是学习</p></li>
+      <li><p>【为什么学习】<strong>糯米</strong> 想当消防员，<strong>子阳</strong> 想当坦克兵、考国防大学；金句：<strong>用 20 年的努力来换 80 年的幸福，是赚大了的事情</strong></p></li>
+      <li><p>【交什么样的朋友】<strong>子旭</strong> 说出了自己的想法「对我友好的」，老师特别欣赏这种独立思考；<strong>六一</strong> 喜欢有礼貌的朋友，<strong>子阳</strong> 喜欢尊重自己感受的朋友</p></li>
+      <li><p>【绘本《你真好》】霸王龙掉进海里，被薄片龙救起；<strong>糯米</strong> 记得霸王龙背着薄片龙看遍陆地风光，<strong>妍语</strong> 说出薄片龙「很友好、不会伤害别人」——这就是善良</p></li>
+      <li><p>【人会改变】<strong>顶顶</strong>：一个人不是一直都是那样子的，总有一天会改变；<strong>子旭</strong>：有人帮了我，我会感谢他，给他带点果子吃</p></li>
+      <li><p>【包容与边界】包容就是允许别人和你不一样、允许别人不完美；金句：<strong>爱是流动的，相互的，你想别人对你好，你就得先对别人好</strong>——同时一定要先保护好自己</p></li>
+      <li><p>【跳跃训练】前脚掌发力，开合跳、爱心跳、单脚连续跳、S 型跑串成一组；金句：<strong>上课纯靠自觉</strong>；<strong>子阳</strong>、<strong>糯米</strong> 都被夸跳得好</p></li>
+      <li><p>【三条考核标准】每格都跳到、不踩线、跳高不掉；收腹跳以 <strong>糯米</strong> 为示范，他第一个通关去跑 15 圈，<strong>子阳</strong> 通关跑 10 圈，圈数自己数</p></li>
+      <li><p>【数字 11】两个 1 各占左右半格，要竖直；书写从 12 分钟压到 10 分钟，<strong>糯米</strong>、<strong>展硕</strong> 很快完成；金句：<strong>不需要追求快，你需要追求好</strong></p></li>
+      <li><p>【35 道口算与检查】10 分钟完成，<strong>糯米</strong> 连续三天 100 分；卷面整洁的是 <strong>妍语</strong>、<strong>顶顶</strong>、<strong>子旭</strong>；金句：<strong>检查就是要从头到尾再重新算一遍</strong></p></li>
+      <li><p>【明天要带的东西】碗筷、短袖、长裤、拖鞋（备用鞋换成拖鞋）、雨衣——明天可能下雨</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>一、两首旧诗：万物都有自己的节奏</h2></div>
+    <div class="body-text">
+      <p>晨读先复习。第一首是《当我安静下来》，老师边带边纠：诗里是「鸟儿为我歌唱」，不是「小鸟」；「我听见」前面没有「能」字。要求只有一个：睁大眼睛，认真看书上的字。</p>
+      <p>第二首是《万物都在好好生长》。桃树不急着开花，小溪不急着奔向大海，蜗牛一步一步向着远方。最后一句老师带着大家多念了一遍：</p>
+      <blockquote><p>原来万物都有自己的节奏，不必追赶别人的光，我也可以慢慢来，认真感受每一天的晴朗。</p></blockquote>
+      <p>读完老师预告：等一下会从诗里抽字出来考，因为会背不等于会认。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「会念」和「认得」是两回事。眼睛跟着字走，才是真的在读书。</p>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>二、《雨后》三遍与「主旨」</h2></div>
+    <div class="body-text">
+      <p>冰心的《雨后》今天又跟读了三遍：嫩绿的树梢闪着金光，广场上成了一片海洋，水里一群赤脚的孩子，快乐得好像神仙一样……</p>
+      <p>读完老师问：「作者」是什么意思？孩子们答得出来——写这首诗的人。那「主旨」呢？老师解释：主旨就是这一首诗、这一篇作文、这一个故事，主要讲的是什么。《雨后》的主旨是三个词：纯真、率真、同伴之间的关心。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>昨天认识了「作者」，今天认识了「主旨」。读诗不只是读声音，也在慢慢学会问一句：它想说什么？</p>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✍</span><h2>三、抽字组词：先念字，再组一个词</h2></div>
+    <div class="body-text">
+      <p>三遍读完，进入今天的重头戏：老师从诗里抽字写在白板上，一人认两个字。规则说得很清楚——上来先念出这个字，再组一个词，不用念整句诗，就和以后学校考试一样。坐姿最好的孩子先上来。</p>
+      <p><strong>子旭</strong>、<strong>顶顶</strong> 是首批上台的，物（万物的物）、长（生长的长）、慢（慢慢的慢）、桃（桃子的桃）、溪（小溪的溪）、海（大海的海），全部组对。之后包、鸡、奔、芬、立几个字也陆续被认了出来。</p>
+      <p>两组容易混的字当场分开了：「不」和「步」长得不一样，跑步的步是另一个字；「力」是力量的力。老师为什么一定要组词？</p>
+      <blockquote><p>你不会组词，以后你就不会用这个字。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>组词是在把一个字放回生活里。会用，才算真的认得。</p>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔤</span><h2>四、易错字带读：呼吸都是口字旁</h2></div>
+    <div class="body-text">
+      <p>考完，老师请 <strong>糯米</strong> 上台，带着大家把还不熟的字一个个认一遍：做梦的梦、远方的远、滴水的滴、呼吸的呼和吸、黑暗的暗、追赶的追。</p>
+      <p>记字也有方法：呼和吸都是口字旁，合在一起就是一个词「呼吸」；「扇」就是《万物都在好好生长》里「把温柔洒向每一扇窗」的那个扇，也是扇子的扇。最后老师交代：今天这些字，回家还要主动再复习。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>让孩子教孩子，教的人记得更牢，学的人也更愿意听。</p>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧠</span><h2>五、知识不会自己跳进脑袋</h2></div>
+    <div class="body-text">
+      <p>上午的思维力表达课，老师先从「主动」这两个字讲起。</p>
+      <p>什么叫主动？想要一个东西，自己走过去拿。什么叫被动？想要，但只是坐在那里等，不说话、也不请人帮忙。学习也是一样：</p>
+      <blockquote><p>你不主动走过去，那个知识能自己跳到你脑袋里面去吗？</p></blockquote>
+      <p>老师还说了班上为什么有自然课、三生课、室内研学，为什么要去爬山——就是为了告诉大家，学习不只是坐在教室里，只要用心留意，到哪里都能学。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>主动是一切学习的开关。门打开了，知识才进得来。</p>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🚒</span><h2>六、为什么要学习：梦想、自由和 20 年</h2></div>
+    <div class="body-text">
+      <p>老师问：你们为什么要上学？请说真实的想法，没有对错。</p>
+      <p><strong>糯米</strong> 说：每个人长大都有自己的梦想，想当消防员，不学知识就没法救火。<strong>子阳</strong> 说：想当坦克兵，要上学，还要考国防大学。老师顺着说下去：坦克里有一堆按键，如果连「开关」两个字都不认识，前进按成了后退可不行。</p>
+      <p>学习还有一个意义：自由。脑袋里的本事越多，以后能选的路就越多，想去旅行也有条件出发。老师还给孩子们算了一笔账：</p>
+      <blockquote><p>用 20 年的努力来换 80 年的幸福，是赚大了的事情。</p></blockquote>
+      <p>爸爸妈妈会一岁一岁变老，长大以后的路要自己走。所以约定也很简单：该玩的时候，开心、安全地玩；该学的时候，把心收回来。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>孩子的梦想很具体——消防员、坦克兵。把学习和梦想连起来，「为什么要认真」就不用再多讲了。</p>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🤝</span><h2>七、你喜欢交什么样的朋友</h2></div>
+    <div class="body-text">
+      <p>进入绘本前，老师先说了一个变化：现在还是带图的绘本，以后会慢慢过渡到纯文字，老师念完直接提问，这才是真正的阅读理解。</p>
+      <p>然后是一个问题：你喜欢交什么样的朋友？<strong>子旭</strong> 想了想，说出了自己的答案：「对我友好的。」老师特别停下来夸了他：</p>
+      <blockquote><p>每个人有自己独立的思考，不会因为别人说什么我就跟着去说什么。</p></blockquote>
+      <p><strong>六一</strong> 喜欢有礼貌、讲文明的朋友；<strong>子阳</strong> 喜欢尊重自己感受的朋友。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>思维没有对错，最怕的是没有自己的想法。敢说出和别人不一样的答案，就是独立思考的开始。</p>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🦖</span><h2>八、绘本《你真好》：霸王龙与薄片龙</h2></div>
+    <div class="body-text">
+      <p>很久以前，有一只粗暴、霸道、狡猾又任性的霸王龙。它追着小脊龙们跑到悬崖边，悬崖塌了，自己掉进了海里。不会游泳的霸王龙往下沉，以为不会有人来救它——却被薄片龙托了上来。薄片龙帮它舔后背的伤口，又潜到海里衔来海贝给它吃。</p>
+      <p>从那以后，它们每天见面。讨论时老师问：它们一起做了哪些开心的事？<strong>糯米</strong> 记得很清楚：霸王龙背着薄片龙，把陆地上的风景都看了一遍，它们还在海边一起散步，最后霸王龙去摘红果子要带给薄片龙。</p>
+      <p>薄片龙身上有什么品质？<strong>妍语</strong> 说：很友好，它不会伤害别人。老师接着总结：别人遇到困难时愿意帮忙，这就叫善良。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从故事里找出「品质」这个词，是孩子第一次学着把具体的事情说成一个概念。</p>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">💛</span><h2>九、人会改变，也要保护好自己</h2></div>
+    <div class="body-text">
+      <p>老师又问：一个很凶的小朋友，会一直那样吗？</p>
+      <p><strong>顶顶</strong> 说：一个人不是一直都是那样子的，总有一天会改变。<strong>子旭</strong> 说：如果我受伤的时候有人帮我，我会感谢他，给他带点果子吃。老师把它说成了一句话：</p>
+      <blockquote><p>爱是流动的，相互的，你想别人对你好，你就得先对别人好。</p></blockquote>
+      <p>什么是包容？老师讲了两层：第一，允许别人和你不一样，你喜欢草莓、他喜欢橙子，不影响做朋友；第二，允许别人有缺点、不完美，因为我们自己也不完美。</p>
+      <p>最后一条说得特别认真：试着对别人好，但一定要先保护好自己。如果一个人一直伤害你、不尊重你，你可以选择远离，不需要勉强自己。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>善良要有温度，也要有边界。这两件事要一起教。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>十、跳跃训练：学会控制自己的身体</h2></div>
+    <div class="body-text">
+      <p>到了操场，先对齐站好、向前对正。老师先说了今天的规矩：</p>
+      <blockquote><p>上课纯靠自觉。</p></blockquote>
+      <p>分心了就自己把注意力拉回来，不需要老师一遍遍点名。</p>
+      <p>热身是双脚并拢的前后跳、左右跳，用前脚掌发力。接着是一整套组合：开合跳、爱心跳、单脚连续跳、S 型跑。要求是轻轻跳，不要「蹦蹦蹦」砸地板。为什么要练这些？练的是对身体的控制和弹跳力，以后跳绳会快很多。</p>
+      <p>格子也要自己摆：两个格子之间留出缓冲的位置，摆整齐、不歪斜。出发也有讲究——等前一个人跳完一半再出发。今天 <strong>子阳</strong> 被夸「跳得很好」，<strong>糯米</strong> 也被夸「跳得非常好」。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>「不点名、只看表现」，把管自己的责任交回给孩子，和早上讲的「主动」是同一件事。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎯</span><h2>十一、三条考核标准与收腹跳</h2></div>
+    <div class="body-text">
+      <p>考核前，标准先讲清楚：第一，每个格子都要跳到；第二，不能踩线；第三，跳高那一项不能碰掉。三条都做到才算过关。</p>
+      <p>收腹跳是今天的难点：膝盖往肚子方向收，不撅屁股，脚也不往后踢。老师请大家看 <strong>糯米</strong>——他的脚是往前收的，这就对了。</p>
+      <p>考核一个一个来，前一个跳完下一个才出发。<strong>糯米</strong> 第一个通关，去跑 15 圈；<strong>子阳</strong> 通关后跑 10 圈。圈数自己数，每经过打卡点就加一。S 型跑的路线故意摆得很窄，考的是灵活和能不能刹得住车。老师有一句话说到了点子上：</p>
+      <blockquote><p>脑袋里面想的是一回事，你能不能做得对是另外一回事。</p></blockquote>
+      <p>老师还提醒了一句：要学会自己处理自己的情绪，能自己把自己调整好，这个就很棒。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>标准提前说清，结果才有说服力。没过的到队尾重新排，下一次再来——机会一直都在。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✏</span><h2>十二、数字 11：两个 1，都要站得直</h2></div>
+    <div class="body-text">
+      <p>下午写数字 11。写法很简单：一个 1 再一个 1，左半格一个、右半格一个，两个都要竖直，不能往左歪或往右歪；10 和 11 是分开写的，不能连在一起。</p>
+      <p>时间又缩短了：昨天 12 分钟，今天 10 分钟。<strong>糯米</strong> 和 <strong>展硕</strong> 很快就写完了。速度上来了，老师提醒的是另一件事：</p>
+      <blockquote><p>不需要追求快，你需要追求好。</p></blockquote>
+      <p>日期也练了一遍：作业上写「10月29日」，写在指定的位置，先看清要求再动笔。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>15 分钟、12 分钟、10 分钟，时间一天天缩短，但「写好」永远排在「写快」前面。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>十三、35 道口算与真正的「检查」</h2></div>
+    <div class="body-text">
+      <p>接着是 10 分钟 35 道口算，能心算就心算。老师总结这段时间的练习：好的一面是用时越来越短；还要加强的是检查。什么叫检查？</p>
+      <blockquote><p>检查就是要从头到尾再重新算一遍，这才叫检查，不是我眼睛看一遍就完了。</p></blockquote>
+      <p>眼睛扫一遍只能发现漏做的题，发现不了算错的题。比如 5+4−3，重新算一遍就知道等于 6。</p>
+      <p>今天 <strong>糯米</strong> 已经连续三天拿到 100 分。<strong>妍语</strong> 和 <strong>顶顶</strong> 的卷面很整洁，<strong>子旭</strong> 今天的字大小正合适。老师在白板上示范了得数的写法：写在紧挨等号的地方，大小和打印的字差不多。错了也不用擦，在旁边写上正确答案就行。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>会做题之后，下一步是学会对自己的答案负责。重新算一遍，就是最朴素的负责。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>十四、一首儿歌和明天的清单</h2></div>
+    <div class="body-text">
+      <p>写完作业，师生一起唱了《花园种花》：小小的花园里挖呀挖呀挖，大大的花园里挖呀挖呀挖，大大的花园里种大大的花。</p>
+      <p>下课前，老师把明天户外活动要带的东西列了出来：碗筷、短袖、长裤，平时的备用鞋换成拖鞋。明天可能下雨，每个人都要带雨衣。清单就照之前画过的样子，凭印象自己画出来再对一遍。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>自己画清单、自己对着收拾，又是一次「自己的事情自己做」。</p>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天这一天，孩子们一直在练「主动」：晨读时眼睛主动看字，表达课上主动说出和别人不一样的想法，操场上不用点名、自己管住身体，写完口算主动再算一遍。比起今天认了多少字、跳过了几关，老师更在意他们带走的那几句话：知识不会自己跳进脑袋；用 20 年的努力换 80 年的幸福；爱是流动的，想别人对你好，就先对别人好；不需要追求快，要追求好。感谢家长们的配合，明天的户外活动记得带好雨衣和拖鞋，老师和孩子们明天见。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
