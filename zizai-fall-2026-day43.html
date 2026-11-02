@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜秋季班开学第四十三天</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班 · 开学第四十三天</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先问为什么，再去找答案</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 2 日<span class="dot">·</span>开学第十周</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天这一天的主线，是「把问题变成本事」——一个「为什么不下雪」牵出了赤道和气候，一个「怎么比才准」让孩子们自己找到了办法，一次书包对比，把整齐的标准变成了自己检查的依据。</p>
+    <ol>
+      <li><p>周一升旗、认国旗：站得笔直，认国旗要看星星怎么分布</p></li>
+      <li><p>生活常识课：用小拳头数出大小月，从“南宁为什么不下雪”认识赤道；多问为什么，问 AI 也要求证</p></li>
+      <li><p>数学《测量与比较》：<strong>子旭</strong> 想到先比身高，<strong>妍语</strong>、<strong>顶顶</strong> 上台比高矮，<strong>糯米</strong> 成了“长臂仔”，<strong>六一</strong> 说出“波浪线拉直会更长”</p></li>
+      <li><p>室内体能：<strong>展硕</strong> 担任本月小班长，一路领跑，孩子们认真完成跑圈和波比跳</p></li>
+      <li><p>自理与学习：<strong>糯米</strong> 的衣服叠好再放进书包；限时口算先算对再算快，<strong>子阳</strong> 全部算对，<strong>妍语</strong> 的作业本越来越整洁</p></li>
+      <li><p>大国工匠周平红医生：先做好，再求快</p></li>
+      <li><p>早睡早修复：晚上 10 点前入睡，睡前 2 小时不再吃东西</p></li>
+    </ol>
+  </section>
+  <!-- ============ 一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🇨🇳</span><h2>一、周一升旗：站得笔直</h2></div>
+    <div class="body-text">
+      <p>新一周从升旗仪式开始，孩子们站得笔直。老师告诉孩子们，升旗时要目视国旗、端身正立、唱响国歌，看着五星红旗冉冉升起。</p>
+      <blockquote><p>升国旗它不仅仅是一个活动项目，更是爱国的体现。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>仪式感从身体开始。站直、看旗、开口唱，孩子们在一个个具体动作里，慢慢把“爱国”从一个词变成一种感受。</p>
+    </div>
+  </section>
+
+  <!-- ============ 二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🗺️</span><h2>二、认国旗：要看星星怎么分布</h2></div>
+    <div class="body-text">
+      <p>课前孩子们围着世界地图找国家：美国、墨西哥、土耳其、巴基斯坦、尼泊尔、澳大利亚……说到国旗时，有孩子把中国和越南的国旗弄混了。老师借这个机会讲：两面旗都是红底黄星，区别在星星的数量和排列。</p>
+      <blockquote><p>不是说红色有星星的就是中国，要看它这个星星是怎么分布的。</p></blockquote>
+      <p>老师还提到，<strong>子阳</strong> 平时就喜欢看介绍各个国家的书，知道它们在地球的哪个位置、气候怎么样。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>辨认的关键是找特征。看见“红色加星星”就下结论，只看了一半；再看星星的数量和位置，才算看全。这个方法用在认字、做题上一样管用。</p>
+    </div>
+  </section>
+
+  <!-- ============ 三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✊</span><h2>三、一周 7 天、一年 12 个月：拳头上的大小月</h2></div>
+    <div class="body-text">
+      <p>孩子们对日期还有不少疑问，老师干脆停下来，上了一节生活常识课：一周 7 天，周一到周五上学上班，周六周日休息，但都算在一周里；一个月 30 天或 31 天，2 月特别，只有 28 天或 29 天；一年 12 个月，365 天或 366 天。<strong>子阳</strong> 很快答出了“一周有 7 天”。</p>
+      <p>哪个月大、哪个月小怎么记？老师让孩子们伸出小拳头：从食指根部凸起的骨头开始数，凸出来是大月，凹进去是小月，1 月大、2 月小……数到 7 月，再从头数 8 月大。这么一数，11 月是小月，没有 31 号。</p>
+      <p>老师还留了探究题：为什么一周是 7 天？2 月为什么这么特别？感兴趣的可以回家和爸爸妈妈一起查一查。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>日历天天挂在墙上，孩子却不一定真的“看”过它。生活常识要在生活里留心，手指一握就能数出大小月，孩子们会记得很牢。</p>
+    </div>
+  </section>
+
+  <!-- ============ 四 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>四、做生活里的“小百科”：多问为什么</h2></div>
+    <div class="body-text">
+      <p>老师接着聊到主动学习：水是怎么流的？电从哪里来？火开大和开小，煮出来的东西有什么不一样？（可以跟着大人在厨房里看一看）带着好奇去问、去找答案，脑袋会越用越灵。</p>
+      <p>老师也提醒孩子们：不懂的可以问大人，也可以问 AI，但 AI 也会犯错，给出的答案要再问一问、查一查。老师还说到倾听：一次说两个要求，要两个都记住、都做到。</p>
+      <blockquote><p>对于 AI 给你们的答案，也要去质疑一下，去求证一下。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>主动学习就是一个个“为什么”。孩子追着问问题，正是最好的学习时刻，陪孩子一起找答案，比直接给答案更有价值。“一次记住两件事”也可以在家练，比如“先把鞋放好，再去洗手”。</p>
+    </div>
+  </section>
+
+  <!-- ============ 五 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌏</span><h2>五、立冬与赤道：南宁为什么不下雪</h2></div>
+    <div class="body-text">
+      <p>有孩子问：冬天到了，为什么我们这里不下雪？老师在地图上画出赤道：离赤道越近，太阳照得越久，越热；越往南北两极走，越冷。中国的版图像一只大雄鸡，广西、广东、海南离赤道最近，冬天也比北方暖和得多，北方这时候已经穿上羽绒服了。</p>
+      <p>顺着讲下去，孩子们知道了北极有北极熊，企鹅生活在南极。北极还有哪些动物？老师把问题留给孩子们自己去找，也建议大家多看科普片、纪录片，做个“生活小百科”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>一个“为什么不下雪”，牵出了赤道、半球、气候和动物。孩子的问题往往就是最好的课题，老师愿意停下来，顺着孩子的好奇往下讲。</p>
+    </div>
+  </section>
+
+  <!-- ============ 六 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">📏</span><h2>六、测量与比较：比手长、比高矮</h2></div>
+    <div class="body-text">
+      <p>上午的数学课学《测量与比较》。先从反义词说起：大和小、长和短、高和矮、胖和瘦。</p>
+      <p>第一个游戏：比一比谁的手最长。先不动手，只用眼睛看。孩子们推选了几位候选人，<strong>糯米</strong>、<strong>妍语</strong> 都在其中。老师顺势讲：身体是有比例的，手的长短和身高有一定关系，但也不是绝对的，和胖瘦关系不大。</p>
+      <p>怎么比更准？<strong>子旭</strong> 举手说出自己的办法：先比比谁高。于是 <strong>妍语</strong>、<strong>顶顶</strong> 等几位小朋友上台背靠背、脚跟对齐、脚掌着地不踮脚，一比就清楚了：这一组里 <strong>妍语</strong> 最高。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>先用眼睛估，再用方法验，这是测量的起点。“看起来差不多”的时候，孩子们会自己想办法让比较更准，这个想法比答案更珍贵。</p>
+    </div>
+  </section>
+
+  <!-- ============ 七 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">⚖️</span><h2>七、测量工具与参照物</h2></div>
+    <div class="body-text">
+      <p>没有尺子怎么比手长？老师找了一个参照物，先把 <strong>糯米</strong> 的手长标出来，再和另一位个子稍高一点点的小朋友比，结果两人的手一样长。老师笑称 <strong>糯米</strong> 是“长臂仔”，手这么长，以后打篮球很合适。</p>
+      <p>孩子们一起数出了生活里的测量工具：尺子、量身高的卷尺、称重的秤、教室里的天平，还有测声音大小的分贝仪。量不同的东西，要用不同的工具。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>量不同的东西用不同的工具，手边没有工具，就找一个参照物。生活里处处可以测量，孩子们会越用越熟。</p>
+    </div>
+  </section>
+
+  <!-- ============ 八 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">〰️</span><h2>八、三条线排序：波浪线拉直会更长</h2></div>
+    <div class="body-text">
+      <p>黑板上画了三条线，起点、终点都对齐，请孩子们从长到短排序。看起来差不多长，答案却是 3 号最长——为什么？<strong>六一</strong> 认真观察后，用自己的话说出了关键：3 号是波浪线。老师接着解释：弯弯曲曲的线拉直以后，会比直线更长，就像一根弯着的绳子，一拉直就长出一截。</p>
+      <p>排好序，再用符号表示。大于号、小于号怎么记？老师教了一句口诀。</p>
+      <blockquote><p>谁大，谁就把嘴巴张向谁。</p></blockquote>
+      <p>最后老师又做了一个演示：请一位小朋友脱掉鞋子站到桌子上，老师在旁边扶着、全程看护，站上去后和老师的头看起来一样高。到底谁高？孩子们讨论后明白了：比高矮要站在同一个平面上，看实际的高度。</p>
+      <blockquote><p>要看实际的高度，不能说因为看着头一样高的，他就比他高。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师希望孩子们有自己的想法、自己的答案。<strong>六一</strong> 这次相信了自己的观察，答案就出来了。思考力，就是从敢相信自己看到的东西开始的。</p>
+    </div>
+  </section>
+
+  <!-- ============ 九 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>九、小班长与室内体能：20 圈 + 波比跳</h2></div>
+    <div class="body-text">
+      <p>从今天起，<strong>展硕</strong> 担任本月的小班长，负责上下课喊“起立”。</p>
+      <p>外面下雨，大课间改在教室里进行。孩子们排成一队绕教室慢跑 20 圈热身：不插队、不边跑边玩，带队的稍快一点，后面才不会堵。教室里有桌椅教具，老师提醒大家看着路、保持距离。<strong>展硕</strong> 跑得很认真，一路带着队伍往前。</p>
+      <p>热身后做波比跳：双手打开拉开距离，两只脚一起往后蹬直，腰撑住，臀部不往上翘。<strong>妍语</strong> 在老师提醒下把腰撑起来、两只脚一起往后蹬，动作调整到位后，老师请大家看着 <strong>妍语</strong> 做，后面也较早完成了任务。<strong>六一</strong> 一组一组都做得很认真，先去换衣服休息。老师还给孩子们定了个目标：下一次去挑战第二座山。</p>
+      <blockquote><p>想登顶，就好好练体能。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>空间小，跑步更讲秩序：排好队、看着路、和前后的人保持距离。体能是一点点练出来的，下次爬山能不能登顶，就看日常的每一组。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>十、书包整理：叠好再放进去</h2></div>
+    <div class="body-text">
+      <p>老师请孩子们对比书包。<strong>糯米</strong> 的书包里，每件衣服都是叠好、整整齐齐放进去的。老师说：干净的衣服也要叠好再放，这样书包怎么都不会乱。<strong>妍语</strong> 也照着这个标准，把衣服一件件折好再放进去，再对照 <strong>糯米</strong> 的书包，自己就看出了区别。</p>
+      <p>老师告诉孩子们：以前大家还不知道整齐的标准，现在都知道了，就可以自己检查了。马上就有孩子说：“老师，我也会检查的。”</p>
+      <blockquote><p>以前你们是不知道收拾整齐的标准，现在都知道了，那就自己检查啦。</p></blockquote>
+      <blockquote><p>老师的目标，就是让你们完全可以掌握自己做的事情。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从“老师帮着收”到“自己会检查”，是自理能力的一大步。家里也可以给孩子同样的机会：衣服叠好再放进书包，收拾完自己检查一遍，家长只看，不代劳。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十一 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>十一、字卡识字与限时口算：先算对，再算快</h2></div>
+    <div class="body-text">
+      <p>下午先认字卡：怕、脸、野、救、夸、音、被、午、故、甜、鸦、福、经、疆、议、旧……认识的放进“认识”那一叠。老师特别叮嘱：考过的和没考过的字卡分开放，复习时才不会乱。还辨了几组容易混的字：“万”和“方”差一个点，“大象的象”不是“项羽的项”。</p>
+      <p>接着是 13 分钟的限时加减法。开始前先写好名字和日期，调好坐姿：胸口离桌子一拳，凳子摆正，脚踩实地面。</p>
+      <blockquote><p>先算对，再算快。</p></blockquote>
+      <p>今天 <strong>子阳</strong> 全部算对了。老师也表扬了 <strong>妍语</strong>：作业本越来越干净整洁，进步看得见。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>限时练习的目的，是在准确的基础上慢慢提速。卷面整洁也是学习的一部分：字写得和题目上的字差不多大，不乱涂乱画，自己检查起来也更清楚。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十二 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🩺</span><h2>十二、大国工匠·周平红医生：先做好，再求快</h2></div>
+    <div class="body-text">
+      <p>主题放映厅继续“大国工匠”。老师先回顾上次的两位焊接工匠，又联系到周五的木工课：很多孩子锯子越用越顺手，这就是在学工匠的耐心、细心和遇到困难不放弃。</p>
+      <p>今天认识的工匠是一位医生——周平红。老师告诉孩子们，做手术要手稳、眼准、心专，一点都不能分心。周医生用一根细长的内窥镜，从身体里自然的通道进去做手术，不用开大刀，病人少受很多罪。他在国际大会上做演示手术，半个小时就完成了，得到各国专家的认可。</p>
+      <p>周医生原本是左撇子，这种手术要两只手一起配合，他就一直苦练，练到内镜在手里“就像拿着筷子一样，随心所欲”。</p>
+      <blockquote><p>不管什么事情，一定是先做好，然后才求速度。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>“先做好，再求快”，和下午口算的“先算对，再算快”是同一个道理。锯木头、算题目的时候，孩子们都可以想一想：工匠是怎么做到的。</p>
+    </div>
+  </section>
+
+  <!-- ============ 十三 ============ -->
+  <section class="card">
+    <div class="section-title"><span class="icon">🌙</span><h2>十三、早睡早修复：身体也要“下班”</h2></div>
+    <div class="body-text">
+      <p>讲到消化道，老师顺势聊起健康作息：身体白天为我们工作了一整天，晚上也要好好休息。小朋友正在长身体，晚上 10 点前尽量睡着，一天睡够 10 个小时；睡前 2 个小时不再吃东西，让肠胃也能“下班”。</p>
+      <p>老师还给了一个小建议：睡前摸摸自己的头、摸摸自己的脚，谢谢身体今天平平安安陪自己过了一天。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>早睡和睡前不加餐，需要家里一起配合。睡前可以和孩子试试这个“谢谢身体”的小仪式，让睡觉变成一件温暖的事。</p>
+    </div>
+  </section>
+
+  <!-- ============ 写在最后 ============ -->
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>从一面国旗、一个拳头、一条波浪线，到一位医生的双手，孩子们今天一直在做同一件事：带着问题去观察，用方法去比较，再把答案用回生活里。<strong>糯米</strong> 的书包、<strong>子阳</strong> 的口算、<strong>妍语</strong> 的作业本、<strong>六一</strong> 的波浪线、<strong>展硕</strong> 的领跑、<strong>子旭</strong> 的好办法、<strong>顶顶</strong> 的上台比较，都是今天看得见的成长。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
