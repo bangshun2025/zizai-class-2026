@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先弄明白，再求快</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 4 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">今天的主线是“慢慢来、数明白、想清楚”：朗读不急，算数不慌，跳之前先想好落脚点。</p>
+    <ol>
+      <li><p>语文《雨后》：子阳、顶顶、糯米三位领读员上台，全部过关；老师和孩子们一起读出诗里的纯真、率真和同伴之间的关心。</p></li>
+      <li><p>接龙朗读：先师生一人一句，再分三组轮回接，接了三四遍，最后一遍完整接完全诗，糯米的声音撑起了整个小组。</p></li>
+      <li><p>复习旧篇：《当我安静下来》《万物都在好好生长》——“原来万物都有自己的节奏，不必追赶别人的光”。</p></li>
+      <li><p>数学方位复习：子旭答出“前后”“上下”，六一重新想一遍后说对“左边是西，右边是东”，五组方位词全部回顾。</p></li>
+      <li><p>认识 11～20：小棒、计数器、数位表，“19 再添 1 就是 20”；子旭、子阳、展硕、妍语、糯米、六一都起来答了题。</p></li>
+      <li><p>口算方法：看十位、看个位，“加 1 就是往后数一个”；子旭连对三题先下课，下课后仍有加 1 的问答。</p></li>
+      <li><p>体能跳跃四项与考核：排队也是考核，顶顶第一个领跳，糯米手撑是标准样板，大家一起找器材摆放的规律。</p></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>一、语文《雨后》：先把诗读准</h2></div>
+    <div class="body-text">
+      <p>早上第一节是语文课，读冰心的小诗《雨后》：</p>
+      <blockquote><p>嫩绿的树梢闪着金光，广场上成了一片海洋。水里一群赤脚的孩子，快乐得好像神仙一样。小哥哥使劲地踩着水，把水花溅起多高。他喊：“妹，小心滑！”说着自己就滑了一跤。他拍拍水淋淋的泥裤子，嘴里说：“糟糕——糟糕！”而他通红欢喜的脸上，却发射出兴奋和骄傲。</p></blockquote>
+      <p>老师先带读两遍，提醒孩子们读准“<strong>一群</strong>赤脚的孩子”“<strong>水淋淋</strong>的泥裤子”这几处容易漏读、读错的地方。读完后，老师和孩子们一起总结这首诗的主旨：<strong>纯真、率真，还有同伴之间的关心</strong>。小哥哥自己先滑了一跤，嘴上说“糟糕”，心里想的却是提醒妹妹。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师喜欢诗里“妹，小心滑”这一声提醒。读诗不只是读准字句，也是在体会：玩得高兴的时候，仍然记得关心身边的人。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🎤</span><h2>二、三位领读员上台：全部过关</h2></div>
+    <div class="body-text">
+      <p>接着是领读过关，每位领读员上台读一句，台下的同学跟着读一句。</p>
+      <ul>
+        <li><strong>子阳</strong>第一个上台，从题目、作者一直读到最后一句“却发射出兴奋和骄傲”。中间在“他喊妹小心滑”这一句稍微停了一下，老师轻轻一提示，子阳马上接上，读完了全诗。</li>
+        <li><strong>顶顶</strong>接着上台，带着大家完整读了一遍。</li>
+        <li><strong>糯米</strong>也上台领读，同样顺利过关。</li>
+      </ul>
+      <p>老师宣布：子阳、顶顶、糯米三位领读员都过关了，接下来就要学新内容。其他孩子继续练读，争取下次也上台领读。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>领读员既要自己读对，还要读得慢一点、清楚一点，让台下的同学跟得上。三位小领读员今天都做到了。没轮到领读的孩子也不用着急，多读几遍，下次就能上台。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔗</span><h2>三、接龙：从一人一句到分组轮回</h2></div>
+    <div class="body-text">
+      <p>接龙分两步：</p>
+      <ol>
+        <li><strong>师生接龙</strong>：老师读一句，孩子们接一句，从“雨后，作者冰心”一直接到最后。</li>
+        <li><strong>分组接龙</strong>：孩子们分成 1、2、3 三组，第一句第一组，第二句第二组，第三句第三组，第四句再轮回到第一组。</li>
+      </ol>
+      <p>分组接龙一开始，有的孩子以为自己那组读完一句就结束了。老师就一组一组地确认：“这句是第几组念？”“123 回来，第四句不就到 1 了吗？”孩子们这才明白：<strong>接龙是轮回的，要一直跟着</strong>。老师还提醒大家，朗读时眼睛跟着字走，轮到自己才接得上。</p>
+      <p>前前后后接了三四遍，最后一遍，孩子们从题目一直接到“同伴之间的关心”，中间没有断。糯米那一组声音最响亮，老师说，这一组“全靠糯米的声音”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>接龙考验的是反应力和专注力，耳朵要一直跟着别人读到哪里。最后一遍，孩子们终于不慌了。老师送给孩子们一句话：慢慢来，不能急。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>四、复习旧篇：慢慢来，不必追赶别人的光</h2></div>
+    <div class="body-text">
+      <p>接着复习了两篇以前读过的文章。</p>
+      <p>《当我安静下来》：“当我安静下来，我能听见浪花的欢笑……夜晚我能听见星星悄悄说话……睡觉的时候，我听见自己缓缓的呼吸。”</p>
+      <p>《万物都在好好生长》：“种子在泥土里慢慢地做梦……花苞一天一天鼓起，等到合适的时候，才慢慢绽放……我看见蜗牛慢慢爬行，一步一步……”最后一段，老师带着孩子们一起读：</p>
+      <blockquote><p>原来万物都有自己的节奏，不必追赶别人的光。我也可以慢慢来，认真感受每一天的晴朗，好好吃饭，好好呼吸，慢慢感受。</p></blockquote>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>这段话刚好接上《雨后》之后的接龙：快不一定好，稳才是真本事。这句话，老师也想送给每一个孩子。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧭</span><h2>五、数学·方位复习：上北下南，左西右东</h2></div>
+    <div class="body-text">
+      <p>数学老师有个习惯：<strong>每一节课都会先提问上一节课学了什么</strong>。今天先复习方位。</p>
+      <ul>
+        <li>子旭起来补充了“前后”“上下”。</li>
+        <li>最后大家一起汇总：<strong>东西南北、左右、前后、上下、里外</strong>，一共五组。</li>
+      </ul>
+      <p>接着，老师请六一说一说东西南北分别在哪里。六一重新想了一遍，答对了：“左边是西，右边是东。”老师总结口诀：<strong>上北下南，左西右东</strong>。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>方向说反是一年级孩子很常见的情况。重要的是能停下来再想一遍，然后自己说对。六一今天就是这样，第二次答得很肯定。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>六、新课：小棒、计数器和“满十进一”</h2></div>
+    <div class="body-text">
+      <p>今天的新课是《11～20各数的认识》。孩子们先看了一段教学视频：</p>
+      <ul>
+        <li><strong>小棒</strong>：一根小棒是 1 个一，10 根小棒捆成一捆，就是 1 个十。一捆加 3 根是 13，一捆加 5 根是 15，两捆是 20。</li>
+        <li><strong>计数器</strong>：从右边起，第一位是<strong>个位</strong>，表示几个一；第二位是<strong>十位</strong>，表示几个十。个位 1 颗珠、十位 1 颗珠，合起来是 11。</li>
+        <li><strong>拨数</strong>：从 11 一颗一颗拨到 19，19 再添 1，个位满了 10 颗，就换成十位上的 1 颗，变成 20。</li>
+      </ul>
+      <p>老师接着讲：0～9 都是一位数，<strong>10 是最小的两位数</strong>，下节课还会提问。老师还在黑板上写了数位表：个位、十位、百位、千位。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>“10 根捆成 1 捆”是这节课最关键的一步。孩子们一旦想明白了“10 个一就是 1 个十”，后面的两位数就都通了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>七、数位与拆数：几个十、几个一</h2></div>
+    <div class="body-text">
+      <p>看完视频，老师一题一题地问，孩子们轮流起来答：</p>
+      <ul>
+        <li><strong>子旭</strong>：十位是 1，个位是 8，读作 18。</li>
+        <li><strong>子阳</strong>：十位是 2，个位是 0，答出 20。后来又答出“17 里面有 1 个十、7 个一”，老师追问“1 个十写在哪里”，子阳答“写在十位”。</li>
+        <li><strong>展硕</strong>：十位 1、个位 2，是 12；十位 2、个位 1，是 21。两个数字顺序一换，就是两个不同的数，展硕都答对了。</li>
+        <li><strong>妍语</strong>：十位 2、个位 3，答出 23。</li>
+        <li>全班一起：十位 3、个位 2 是 32；十位 5、个位 1 是 <strong>51</strong>，不是 15。老师提醒，“要懂得看个位跟十位”。</li>
+      </ul>
+      <p>老师还讲了 15 在数位表里怎么写：15 里面有 1 个十，1 写在十位；有 5 个一，5 写在个位。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>老师今天反复问“这个数里面有几个十、几个一”，就是为了后面的口算。两位数拆得清楚，算数自然就快。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>八、练习题：数一数、画一画</h2></div>
+    <div class="body-text">
+      <p>接着做书上的练习。</p>
+      <p><strong>数一数，填一填</strong>：黄瓜 4 根；牛奶一排 5 盒、两排 10 盒；火腿肠 10 根。数到 10 的时候，老师讲了：<strong>10 个一是 1 个十</strong>。10 里的 0 写在个位，意思是“个位上一个一也没有”。</p>
+      <p><strong>照样子画一画、填一填</strong>：</p>
+      <ul>
+        <li>六一读计数器：十位 1 颗、个位 1 颗，是 11；个位 3 颗、十位 1 颗，是 13。</li>
+        <li>老师在个位画了 5 颗珠子，大家一起数清楚，是 15。老师说：“不是不会，是没数明白。”</li>
+        <li>糯米看小棒图，答出“1 个十和 1 个一”，一共 11 根。</li>
+        <li>子旭看小棒图，答出“7 个一、1 个十”，是 17。</li>
+        <li>子阳看到两捆小棒，没有一根一根地数，直接答出 20。老师特别跟大家说：子阳之所以能这么快，是因为他明白了“一圈就是一个十，两圈就是两个十”。</li>
+      </ul>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>子阳这一题答得很漂亮。从“一根一根数”到“一捆一捆看”，就是数感在长。课本上的“算一算”，孩子们下午接着完成。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">➕</span><h2>九、口算：加 1 就是往后数一个</h2></div>
+    <div class="body-text">
+      <p>下课前，老师专门讲了口算。为了让孩子们算得更快，老师教了两个方法。</p>
+      <p><strong>方法一：不进位加法看个位。</strong>15+2，15 里面有 1 个十，2 里面没有十，所以十位不变；个位 5+2=7，结果是 17。再大一点的数也一样：25 是 2 个十和 5 个一，57 拆开就是 50+7。</p>
+      <p><strong>方法二：加 1 就是往后数一个。</strong>老师带着孩子们从 1+1=2、2+1=3 一路念到 7+1=8，再换成两位数：15+1=16，19+1=20，25+1=26，35+1=36。</p>
+      <ul>
+        <li>六一答出 26+1=27。</li>
+        <li>有孩子把 29+1 答成 20，老师请大家从 29 往后数一个，是 30。紧接着 39+1=40，老师夸“非常棒”。</li>
+        <li>子旭连答 23+1=24、27+1=28，老师又出了一道“大一点的”58+1，子旭答出 59，第一个下课。</li>
+      </ul>
+      <p>老师宣布下课后，仍有关于 37+1、59+1 的问答。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从 23+1、27+1 到 58+1，数字变大了，思路没有变：往后数一个。老师希望孩子们逐步理解这个方法，而不只是记住某一道题的答案。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧍</span><h2>十、体能·排队与指令：上课的第一项考核</h2></div>
+    <div class="body-text">
+      <p>体能课一开始，老师先让大家以糯米为排头，横排站成一排。集合口令一下，糯米是最先站好的孩子之一。</p>
+      <p>老师跟孩子们讲了几句话：</p>
+      <ul>
+        <li>“排队也是上课的考核内容之一。”老师一集合，就要马上过来排队，专心站好。</li>
+        <li>“所有优秀的人，都是自己会思考、自己会想着去做事情的。”遇到事情先自己想一想，主动去做。</li>
+        <li>“听清楚、听懂老师的指令，并且执行，很重要。”</li>
+      </ul>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>体能课的第一项不是跳，而是站。站得齐、听得清，后面的练习才能顺利。这和语文课上“眼睛跟着字走”是一个道理，都需要把注意力放在当前的任务上。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>十一、跳跃四项：步伐、落点和坚持</h2></div>
+    <div class="body-text">
+      <p>老师讲完四个项目，先问孩子们听懂了没有，再请听懂的孩子第一个上来，<strong>顶顶</strong>第一个领跳。</p>
+      <ol>
+        <li><strong>并脚跳</strong>：双脚并拢、双手叉腰，用前脚掌跳，不用整个脚掌。落地要轻，落地时收一下，不踩线。老师说，这是以后跳绳最需要的步伐。</li>
+        <li><strong>S 跳</strong>：同样并脚叉腰，跳 S 形路线，脚尖始终朝向老师，不能转方向。老师说：“预判你落脚的位置很重要。下一跳连不上，是因为这一跳的落脚位置没落对。”子阳的 S 跳，中间一段老师连说了几次“非常好”，接下来再把 S 形的弧度跳顺。</li>
+        <li><strong>单脚跳换脚</strong>：一只脚连续跳 60 个，从 1 数到 60，再换另一只脚。中途脚落地，就从 1 重新数。子阳一开始一直用右脚，老师提醒他记得换脚，子阳调整后继续跳。</li>
+        <li><strong>手撑爬行</strong>：在两个圈之间，像平板支撑一样用手撑着往前走。臀部放平，脚伸直，头往前看，只动手和脚，身体不扭。</li>
+      </ol>
+      <p>讲规则时，老师还专门练了“<strong>精准表达</strong>”：请孩子说一说“停一次要换脚”是什么意思，不能用“这样、那样”，要用话讲清楚，比如“先用左脚跳，到线就换右脚”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>单脚跳 60 个，对一年级孩子来说很不容易，好几个孩子掉下来又从 1 开始数。这份“掉了再来”的耐心，比跳满 60 个更难得。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧠</span><h2>十二、手撑考核与找规律</h2></div>
+    <div class="body-text">
+      <p>最后是逐个考核，从<strong>糯米</strong>开始，一个考完再到下一个。</p>
+      <ul>
+        <li><strong>糯米</strong>：手撑时臀部的高度刚刚好，老师请大家都看过来：“这个才是合格的。”糯米考核过关，成了今天的手撑样板。</li>
+        <li><strong>妍语</strong>：认真参加考核，老师帮她调整了手撑的高度，再往上一点就更标准了。</li>
+        <li><strong>子旭</strong>：老师也帮子旭调整了手撑高度，臀部再往下一点。</li>
+        <li><strong>子阳</strong>：手撑重做了一遍，臀部放下、脚伸直、头往前看，一次比一次稳。</li>
+      </ul>
+      <p>中间还有一个“找规律”的小环节：器材需要重新摆放，老师请子旭来摆，大家一起观察摆放规律：<strong>4 个单圈，再接 1 个双圈</strong>。老师说：“这就叫找规律，这就叫解决问题的能力。”</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>手撑的标准就是“不高不低、身体不扭”。今天糯米给大家做了最好的示范，其他孩子对照着调，一轮比一轮好。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🛡️</span><h2>十三、放学安全提醒</h2></div>
+    <div class="body-text">
+      <p>放学后，孩子们可以在附近玩一会儿，但要在<strong>老师的视线范围内</strong>，不去滑梯那边，因为那里老师看不到。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>玩可以尽兴，但要在老师看得见的地方。这一条老师每天都会讲。</p>
+    </div>
+  </section>
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天三节课，其实讲的是同一件事：慢慢来，先弄明白。子阳从一根一根数到“一圈就是一个十”，S 跳中段跳得很漂亮；子旭方位、数位、口算样样都答，58+1 第一个下课；顶顶领读过关，体能课第一个领跳；糯米领读过关，接龙时声音最响，手撑还是全班的样板；妍语答出 23，认真参加手撑考核；展硕把 12 和 21 分得清清楚楚；六一重新想一遍说对了“左西右东”，计数器读数也准确。《万物都在好好生长》里说：“原来万物都有自己的节奏，不必追赶别人的光。”孩子们今天的样子，正是这句话。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
