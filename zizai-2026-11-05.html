@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先积累，再说清</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 5 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月5日，孩子们在识字、运动、生活整理和阅读分享中度过了一天。</p>
+    <ol>
+      <li><span class="t">复习字卡 · 把认识的字连起来 📖</span><p>晨读时，老师带孩子们复习字卡，巩固容易遗忘的字，再进行新字考核。六一完成了5个新字考核和旧字复习，子阳完成了21个新字的考核。</p></li>
+      <li><span class="t">调整坐姿 · 认真写好每一笔 ✏️</span><p>写字前，孩子们摆正本子和椅子，练习调整坐姿，并在20分钟计时中进行书写。老师提醒大家不必只追求快，更要静下心来把字写好，也带着大家练习书写当天日期。</p></li>
+      <li><span class="t">跑一跑、换个方向 · 运动中的反应与配合 🏃</span><p>孩子们排队跑步，子阳担任排头，带着大家数圈。老师还介绍了“角色互换”游戏：听到指令后掉头，改变追逐方向。</p></li>
+      <li><span class="t">餐后整理 · 把生活小事做好 🧹</span><p>午餐后，孩子们整理位置、刷牙，也练习洗餐具、擦桌子和扫地。老师提醒大家注意喝水，照顾好自己。</p></li>
+      <li><span class="t">读一读冬天 · 用完整的句子分享 ❄️</span><p>下午的《美丽的冬天》阅读课，孩子们先认字、跟读，再从短文里寻找答案。子旭答出“北风”，分享了冬天动物冬眠的想法；六一聊起结冰的河、堆雪人和滑雪，大家还练习用“冬天来了……”说完整的句子。</p></li>
+      <li><span class="t">今日孩子们的点滴</span><p>子阳复习识字并担任跑步排头；子旭在阅读课上认字、回答和表达；六一完成字卡考核并分享冬天见闻；顶顶说起喜欢吃冰糖葫芦；妍语积极考字，也分享了自己喜欢暖和的冬天；糯米、展硕今日请假。</p></li>
+    </ol>
+    <p class="lead">从认识一个字到说出一个完整的想法，愿孩子们在每天的小练习里慢慢积累。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月5日，星期四。今天的一条线是：把基础一点点积累起来，再把自己的想法说出来。上午复习字卡、练习书写，下午读《美丽的冬天》，孩子们把认识的字放进短文，也试着把眼里的冬天讲给大家听。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📚</span><h2>一、字卡复习 · 认识的字又多了一些</h2></div>
+    <div class="body-text">
+      <p>晨读时，老师把孩子们的字卡逐一拿出来复习，带着大家巩固容易遗忘的字，再进行当天的新字考核。</p>
+      <p>老师介绍，<strong>六一</strong>很快完成了5个新字的考核，也复习了旧字；<strong>子阳</strong>当天完成了21个新字的考核，两位都得到了表扬。</p>
+      <p><strong>妍语</strong>最近考字很积极，总想多考一些。老师说，会根据她的记忆情况安排：记得清楚，就继续往前；如果还不够熟，就先慢下来，把前面的字巩固好。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>新字往前学，旧字也要常常回来看。下午读短文时，孩子们把各自认识的字拼在一起，字卡上的积累就用上了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>二、写字之前先坐好 · 认真比赶快更重要</h2></div>
+    <div class="body-text">
+      <p>延续昨天对坐姿和书写细节的练习，今天动笔前，老师先请孩子们把椅子和本子摆正，再调整身体：胸口离桌面一拳，腰背挺直，头正肩平，双脚踏实地。准备好了，才开始握笔。</p>
+      <p>老师问孩子们，写完10个字需要多少时间。大家说出不同的想法后，课堂仍沿用平常的20分钟计时。</p>
+      <p>计时开始了，老师提醒大家：</p>
+      <blockquote><p>不着急，有的是时间给你写。</p></blockquote>
+      <p>老师说，不要求每个人一定在20分钟内完成，更希望大家静下来，把手里的练习认真做好。<strong>六一</strong>在老师指导下，从点对点连线开始练习。</p>
+      <p>写日期时，老师带着大家看清当天的“11月5日”：月份写11，日期写5；不会写星期的，可以先把日期写好。写完再拿给老师检查，让一项练习有开始，也有收尾。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>摆正本子、把脚放稳、看清日期，这些都是落笔前后能做到的小步骤。写得快不快可以慢慢来，先看清、再认真写好。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>三、排队跑步 · 听指令换方向</h2></div>
+    <div class="body-text">
+      <p>运动时间，孩子们先准备水杯、排队。老师安排<strong>子阳</strong>担任排头，带着大家数圈，并提醒跑步时留意前后顺序。</p>
+      <p>跑步之后，老师又介绍了“角色互换”游戏：跑着跑着，听到“角色互换”的指令，就掉头改变追逐方向。游戏把听信号和转换方向放到了一起。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>排队时留意前面的伙伴，听到信号再换方向，运动里的每个小规则都需要孩子边行动边留意。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>四、午餐后的整理 · 在生活里练自理</h2></div>
+    <div class="body-text">
+      <p>午餐后，老师提醒孩子们先整理自己的位置，再去刷牙。餐具需要清洗，桌面和地面也要收拾：擦桌子时，要留意桌上有没有粘住的饭粒；洗餐具时，老师提醒使用洗洁精。</p>
+      <p>天气渐凉，老师也提醒大家记得喝水、照顾好身体。一天中的这些小事，让照顾自己和整理环境都有了具体的练习机会。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>擦桌子不只是擦一圈，还要看看饭粒有没有擦掉。把一个小动作做仔细，孩子就多了一次照顾自己和环境的机会。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>五、先静下来 · 走进阅读课堂</h2></div>
+    <div class="body-text">
+      <p>下午上课前，老师带孩子们做了3分钟静坐，提醒大家调整状态，留意自己正在做的事情。随后，大家一起走进阅读理解与表达课。</p>
+      <p>这次的材料是一篇短短的文字——《美丽的冬天》。老师让孩子们先看文字，试着认出已经学过的字，再听老师读、跟着读。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>今天先不看视频和绘本，试着直接看短文。认识的字连起来，孩子们就能一步步读出一篇文章。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>六、把认识的字拼起来 · 读《美丽的冬天》</h2></div>
+    <div class="body-text">
+      <p>老师先请孩子们看文字，试着读出自己认识的字。<strong>子阳</strong>认出了“冬天悄悄来了”，大家接着读到“北风轻轻吹过树林”“树叶落下来了”；读到后面，<strong>子旭</strong>认出了“跑”字。</p>
+      <p>短文里还有蓝蓝的天空、暖暖的阳光、厚厚的棉衣和小帽子。大家你认出一个字、我接上一个词，慢慢把短文读了下来。老师说：“虽然大家学过的字不太一样，但是拼拼凑凑的，终于把这篇短文给学会了。”</p>
+      <p>接着老师先完整范读一遍，再带着孩子们看着文字跟读，提醒大家一边听、一边看，尽量把句子读完整。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>每个孩子认识的字不完全一样，大家把各自会的部分接起来，就共同读出了一篇短文。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>七、答案在哪里 · 从短文里找一找</h2></div>
+    <div class="body-text">
+      <p>读完短文，老师开始提问：讲的是哪个季节？冬天吹的是什么风？短文里的天空是什么颜色？小朋友穿什么、到哪里玩？</p>
+      <p><strong>子旭</strong>回答了“北风”。老师顺着这个答案，讲到冬天的风一般从北边吹来，也联系了“上北下南”的方向。</p>
+      <p>说到天空的颜色，老师又追问了一句：“冬天的天空一定是蓝色的吗？”大家一起看回短文：蓝色是这篇短文里的描述；如果遇上下雨，天空也可能乌云密布。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>回答问题时先回到短文找依据，再想想生活中有没有别的情况。孩子们练的不只是记答案，还有分清“文中说的”和“生活中看到的”。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">💬</span><h2>八、冬天来了 · 把想法说成完整的一句话</h2></div>
+    <div class="body-text">
+      <p>老师又提出一个新问题：冬天来了，大自然会有什么变化？</p>
+      <p>什么叫“变化”？老师举了孩子们熟悉的例子：原来小河没有结冰，天气冷了以后结了冰；原来树上挂着叶子，后来叶子变黄、落下来。接着请大家用“冬天来了……”开头，把自己的观察说完整。</p>
+      <p><strong>子旭</strong>说起冬天动物冬眠，老师接着把他的想法整理成一句话：“冬天来了，小动物们要冬眠了。”</p>
+      <p><strong>六一</strong>分享了自己见过结冰的河，还说冬天可以穿上棉衣到外面堆雪人、打雪仗；聊到喜欢的冬天活动时，他说喜欢堆雪人和滑雪。<strong>顶顶</strong>说起冬天喜欢吃冰糖葫芦；<strong>妍语</strong>分享喜欢冬天在家里吹暖空调。<strong>子阳</strong>说起想坐空中缆车、看看远处的风景。老师也分享了和家人围火烤红薯的冬日记忆。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从“结冰”“下雪”这样的词，到“冬天来了，小河结冰了”这样的一句话，孩子们练习把自己想到的事情说清楚。</p>
+    </div>
+  </section>
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天从字卡上的一个个字，走到了《美丽的冬天》里的一句话。孩子们认出“跑”，从短文里找“北风”，也说起结冰的河、雪人、冰糖葫芦和空中缆车。上午老师提醒大家不着急，把字认真写好；下午又陪着大家慢慢把想法说完整。愿这些一点一滴的积累，成为孩子们继续阅读和表达的底气。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
