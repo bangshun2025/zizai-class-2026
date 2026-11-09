@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先听清，再动手</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 9 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月9日，孩子们在倾听、测量和数学练习中开启了新的一周。</p>
+    <ol>
+      <li><span class="t">听一听、记一记 · 专注力练习 👂</span><p>老师念数字和词语，孩子们试着听清并按顺序复述，还练习听完指令再做动作。随后，大家把听到的数字依次写在纸上。</p></li>
+      <li><span class="t">尺和秤 · 把想知道的量出来 📏</span><p>思维课上，大家认识了直尺、卷尺和不同的秤，讨论量长度、称重量时可以选择什么工具。孩子们试着称小球和一桶米，也用卷尺测量桌子。</p></li>
+      <li><span class="t">物品归位 · 一起准备运动 🧹</span><p>课程结束后，老师请大家回想物品原来的位置，帮忙把东西放回去，也请伙伴帮忙搬桌子。接下来要下楼运动，老师提醒大家先上厕所、喝水。</p></li>
+      <li><span class="t">认识数位 · 学习不进位加法 🔢</span><p>下午数学课先复习11～20的数，看看数字分别在个位还是十位。老师用12＋5、15＋5等例子讲解不进位与进位的区别，孩子们也进行了课堂练习。</p></li>
+      <li><span class="t">今日孩子们的点滴</span><p>今天子阳、子旭、糯米、六一、顶顶、妍语、展硕都到班。每个人的课堂亮点，待老师进一步核对后补充。</p></li>
+    </ol>
+    <p class="lead">从认真听到动手试，愿孩子们在一件件具体的小事中慢慢积累。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月9日，星期一。新的一周，孩子们先练习把听到的信息记下来，再拿起测量工具找答案，下午又把对数的认识带进了加法练习。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">👂</span><h2>一、数字与词语 · 听清楚，再按顺序说出来</h2></div>
+    <div class="body-text">
+      <p>专注力课上，老师先念数字，请孩子们试着记住，再把听到的数字说出来。接下来换成词语：从“蝴蝶、沙发、萝卜”，到“雨伞、小狗、积木、草莓”，大家要留意每个词，还要留意它们的先后顺序。</p>
+      <p>老师提醒：先安静听，听完再回答。念过新的一组以后，还会回头问前一组是什么，孩子们需要把刚刚听到的信息留在脑海里。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>听清每一个词是一回事，按原来的顺序说出来又是另一回事。把注意力放在声音上，才有机会把信息记下来。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🙌</span><h2>二、听完再行动 · 把指令一步步做出来</h2></div>
+    <div class="body-text">
+      <p>词语之后，老师请孩子们闭上眼睛听指令，听完再做动作。先是“拿出一支铅笔，放在纸上”，接着增加步骤：“先点头，再举起右手”；后来还试着听“拍三下手掌，摸一摸鼻子，然后端身正坐”。</p>
+      <p>接下来是听写数字。老师每组念一遍，请大家从上往下依次写在纸上。472、915、1380……听到一组，写下一组，练习把听到的内容转成笔下的数字。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>先听完整、再按顺序行动，和后面选择工具、动手测量一样，都需要孩子把问题听清楚，才知道下一步做什么。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">📏</span><h2>三、想知道多长、多重 · 先选合适的工具</h2></div>
+    <div class="body-text">
+      <p>思维课从一个问题开始：想知道一件东西有多重，要用什么？想知道它有多长，又该用什么？孩子们说到秤和尺，老师拿出直尺、卷尺，以及几种称重工具让大家观察。</p>
+      <p>直尺短一些，量铅笔很方便；卷尺可以拉出来，量桌子这样较长的物品更合适。老师也对比了金属卷尺和软尺，提醒大家使用金属卷尺时要小心，收回时先抓住尺带，再打开锁扣，避免突然弹回。</p>
+      <p>电子秤能称较轻的物品，还可以先把容器的重量去掉；带钩的秤可以挂住袋子称重。老师让大家认识“克”和“公斤”，也说到1公斤等于2斤。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>上节思维课用眼睛和感觉比较长短、轻重，今天再借助工具量一量。先想清楚要解决什么问题，再选工具，数学就和生活里的实际事情连在了一起。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">⚖️</span><h2>四、称小球、量桌子 · 一种办法不合适，就换一种</h2></div>
+    <div class="body-text">
+      <p>老师拿出一个小球，请孩子选择工具上台称重：先打开电子秤、等它清零，再把球放上去。屏幕显示168克，老师顺着这个数字，带大家复习个位、十位、百位和读数。</p>
+      <p>接着，孩子们尝试用带钩的秤称一桶米。老师提醒，称的时候不要让桶靠着身体，才能看清秤上的读数。</p>
+      <p>比较黄色和玫红色的小球时，有孩子先试了天平，发现球放不进去，便换成电子秤：玫红色的球是168克，黄色的是158克。老师借这个例子说：</p>
+      <blockquote><p>这个用不了，那我就换一个，还有别的可以用。</p></blockquote>
+      <p>测量桌子时，大家先试直尺，再在老师指导下用卷尺：拉出尺带、锁住、勾住桌边，观察刻度，最后小心收回。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>找到答案不一定只有一条路。工具不合适时停下来想一想、换一种办法，孩子就在练习解决真实问题。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🧹</span><h2>五、东西放回哪里 · 整理之后准备运动</h2></div>
+    <div class="body-text">
+      <p>上完课，老师请大家回想：刚刚拿出来的东西原本放在哪里？大家一边观察，一边确认位置，把物品放回去。老师也请伙伴帮忙把桌子搬回原处，并向帮忙的人道谢。</p>
+      <p>接着老师通知大家准备下楼运动，提醒先上厕所、喝水。录音记录到这里，运动的具体内容还没有出现在这段材料中。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>整理不只是把东西收起来，还要看一看、想一想它原来的位置；有需要时开口求助，也是一起完成事情的方法。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>六、从个位和十位出发 · 认识不进位加法</h2></div>
+    <div class="body-text">
+      <p>下午数学课先复习11～20的数。老师请大家看15：1在十位，5在个位；20里则是2在十位，0在个位。把每个数字的位置看清楚，接下来的计算才有依据。</p>
+      <p>今天的新内容是20以内的不进位加法。老师用12＋5举例：个位上的2＋5＝7，没有满10，十位保持不变，所以结果是17。再用15＋5作对比：个位5＋5满10，就要向十位进1，结果是20。</p>
+      <p>孩子们还认识了算式里的“加数”和“和”，并拿起笔练习。老师巡视时，用苹果作例子解释加0：原来有15个苹果，再加0个，数量还是15个。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>上午称小球时要看清168怎么读，下午做加法又要分清个位和十位。把数的位置看明白，才能进一步理解计算的过程。</p>
+    </div>
+  </section>
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天，孩子们听过一组组词语，也拿尺和秤去寻找答案；遇到放不进天平的小球，就换一个工具再试。愿这一周，孩子们继续在听、看、想和动手的过程中，慢慢发现自己的办法。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
