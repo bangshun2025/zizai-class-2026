@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先想好，再出发</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 10 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月10日，孩子们走进超市，也把购物中的问题带回教室继续学习。</p>
+    <ol>
+      <li><span class="t">带着任务去购物 · 学习选择与结账 🛒</span><p>孩子们跟着老师来到超市，寻找需要的商品，认识金针菇和虫草花，也讨论保鲜袋的大小。结账时，老师提醒大家准备好钱、排队付款，并想一想如何保管剩余的钱。</p></li>
+      <li><span class="t">乘公交回程 · 留意身边的小事 🚌</span><p>采购后，孩子们乘公交车返回，老师提醒大家依次上车、坐稳扶好，下车时带好自己的物品。回到学校后，大家还参加了跑步和注意力练习。</p></li>
+      <li><span class="t">从1写到100 · 把数字放进格子里 ✏️</span><p>下午的控笔练习中，孩子们按顺序在格子里书写数字。老师示范了从左到右、换行和居中书写，提醒大家留意数字的形状。</p></li>
+      <li><span class="t">看小票、找日期 · 把购物经验带回课堂 🧾</span><p>老师带大家回顾购物礼仪，认识小票上的商品件数和找零，并在商品包装上寻找生产日期与保质期。展硕说自己看过购物小票；六一的商品上有一个特别的日期：6月1日。</p></li>
+    </ol>
+    <p class="lead">从选商品到看小票，愿孩子们在生活中多看一眼、多想一步，慢慢积累自己的本领。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月10日，星期二。上午的超市采购、回程与运动之后，孩子们在下午的书写和综合实践课上，继续观察生活中的数字与细节。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🛒</span><h2>一、先想好任务 · 带着钱走进超市</h2></div>
+    <div class="body-text">
+      <p>出发前，老师先和孩子们聊了聊今天的购物任务：带来的钱是爸爸妈妈交给大家完成任务的，要先想清楚家里需要买什么，再考虑自己想要的东西。</p>
+      <p>如果完成任务后还有剩余的钱，可以怎么安排？孩子们说到把钱交还给爸爸妈妈。老师也提醒，如果想用余款买自己喜欢的东西，可以先向家长提出，商量之后再决定。</p>
+      <p>走进超市，大家先看看各个区域有没有需要买的东西。经过调料区时，老师逐一询问有没有人需要购买，再带大家往蔬菜区走。</p>
+      <p>到了蔬菜区，几个孩子都在找金针菇。货架上一时没看到，老师向工作人员询问位置；找到后，大家说着“我也要买”，老师提醒一个一个来。有孩子拿起另一种食材，老师介绍那是虫草花，可以用来煲汤。看着相似的食材，大家边选边认识名字。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把“想买什么”和“今天需要完成什么”放在一起想，孩子们就有机会在真实的购物场景里练习选择和管理钱物。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🧺</span><h2>二、看看大小，再去结账 · 购物里的观察</h2></div>
+    <div class="body-text">
+      <p>在生活用品区，老师和孩子们寻找保鲜袋：选大号还是超大号呢？大家一起看包装，最后选了大号。包装上写着210个，还标明可用于微波炉和冰箱；老师也提到可以用来装葡萄和水果。</p>
+      <p>选好商品后，大家来到收银处。老师提醒排队、准备付款，也提醒孩子们把钱收好。“一毛也是钱”，购物时不仅要记得带钱，也要留意剩下的钱放在哪里。</p>
+      <p>采购过程中，老师和孩子们一边找商品，一边练习开口询问。下午回到课堂，老师又提到：在超市需要帮助时，可以有礼貌地询问工作人员；购物时先付款，再带走商品。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>认识商品、观察包装、询问和付款，都是购物任务的一部分。孩子们在真实场景里把观察和表达连在一起。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🚌</span><h2>三、坐上公交车 · 带好自己的物品</h2></div>
+    <div class="body-text">
+      <p>采购结束后，孩子们把买来的东西装进袋子，准备乘公交车返回。等车时，老师请大家想一想：如果钱丢了会是什么感受？再决定把钱放在哪里更稳妥。</p>
+      <p>车到站时，老师帮孩子们刷卡，提醒大家一个一个上车、不着急；乘车时坐好、扶稳，准备下车时再检查一下自己的随身物品。</p>
+      <p>回到学校，老师请大家把买来的东西放好，先喝水，再准备接下来的活动。临近午餐时，老师提醒第三组准备拿餐，<strong>妍语</strong>也提醒了身边的伙伴。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从上车到下车，留意安全、跟随队伍、照看好物品，都是外出时可以反复练习的生活能力。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>四、跑一跑，静一静 · 留意当下的任务</h2></div>
+    <div class="body-text">
+      <p>回校后，孩子们参加了跑步活动。老师提醒大家留意跑步的圈数，也记得适时喝水。跑步时，老师留意到<strong>顶顶</strong>跑得认真，也肯定了<strong>子阳</strong>认真跑步的表现。</p>
+      <p>随后是“一动不动”的注意力挑战。孩子们面对面站好，在规定时间里留意自己的动作。老师还用“小蜜蜂嗡嗡嗡”等声音制造干扰，看看大家能不能继续把注意力放在眼前的任务上。</p>
+      <p>跑步和安静挑战的要求不一样：一个要留意脚下和圈数，一个要注意自己的身体和周围的声音。孩子们在两种不同的活动中尝试调整状态。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从运动到安静下来，孩子们接触不同的活动要求，也有机会练习把注意力带回眼前的事情。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>五、从1到100 · 练习数字与控笔</h2></div>
+    <div class="body-text">
+      <p>下午的控笔课上，老师请孩子们在格子里按顺序书写1到100。动笔前，老师先示范：从左往右写，写到一行末尾后换到下一行，尽量把数字写在格子中间。</p>
+      <p>书写时，老师提醒大家看清格子的位置：从左往右写，写到一行末尾再换行，数字尽量放在格子中间。碰到太小的格子，就跳过去，从下一行继续。</p>
+      <p>老师还和孩子们一起观察数字的形状。比如“0”要写得清楚，和“6”区分开来；笔画太轻看不清时，也要留意落笔的力度。一次看一个格子，一笔一画地写，数字顺序和书写细节都需要留意。</p>
+      <p>老师也用钱作例子，继续解释昨天接触过的加0：原来有10元，再加0元，数量仍然是10元。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把数字写进格子，不仅要记住顺序，也要控制笔画的位置。联系生活中的钱，孩子们还可以继续理解数字之间的关系。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">🧾</span><h2>六、一张购物小票 · 里面有什么信息</h2></div>
+    <div class="body-text">
+      <p>综合实践课上，老师先请孩子们把当天买的商品摆在座位前方，其他东西暂时收好。<strong>展硕</strong>听明白了摆放的指令，得到老师的肯定。</p>
+      <p>接着，老师带大家回顾这段时间的超市研学：认识商品、看价格、按区域寻找物品，以及结账前想一想钱够不够。</p>
+      <p>说到购物小票，<strong>展硕</strong>分享自己看过小票。老师拿出当天购物的小票，请大家看看上面记录了哪些商品和数量。这次老师用微信付款，没有现金找零；如果是用现金付款，还要核对找回来的钱。</p>
+      <p>老师举了个例子：如果只买了两件东西，小票上却记了三件，可以拿着小票向工作人员说明，请对方一起核对。找零也是一样：多给了要还回去，少给了可以说清楚，请工作人员再看一看。</p>
+      <p>小票不只是记录花了多少钱，也是购物凭证。老师还解释了“退货”和“换货”的区别：退货是把商品退回去；换货是换一个合适的商品，具体处理还要看实际情况。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>一张小票把数字和生活连接起来。学着核对件数与金额，也是在练习观察细节和清楚表达问题。</p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="section-title"><span class="icon">📅</span><h2>七、商品也有日期 · 找找生产日期和保质期</h2></div>
+    <div class="body-text">
+      <p>老师请孩子们拿出买来的商品，试着在包装上寻找生产日期和保质期。老师把生产日期比作商品的“生日”：它告诉我们商品是什么时候生产的；保质期则是一段时间，比如12个月。</p>
+      <p>包装上的日期要按年、月、日读。老师还提醒，“07”前面虽然有一个0，表示的仍然是7日。判断商品是否仍在保质期内，需要结合包装标注和保存条件来看。</p>
+      <p>课堂上，老师用“2026年10月7日生产、保质期12个月”的商品作例子：12个月是一年，于是从2026年10月7日往后推一年，来到2027年10月7日。孩子们跟着老师一起看年份、月份和日期，练习把课堂里的数字用到商品包装上。</p>
+      <p><strong>六一</strong>带来的商品上也有一个特别的日期：2026年6月1日。老师把它展示给大家看，笑着说：“六一买到了六一。”大家又有了一次认读日期的机会。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从包装上找到日期，再把年、月、日读清楚，孩子们能把课堂里学过的数字用到日常观察中。</p>
+    </div>
+  </section>
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>一次采购，让孩子们有机会寻找、选择和结账；一张小票、一串日期，又把问题带回了课堂。愿孩子们在生活的每一次观察和尝试里，慢慢积累理解世界的能力。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
