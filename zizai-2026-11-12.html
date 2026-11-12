@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先看见，再欣赏</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 12 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月12日，孩子们在诗歌、阅读、运动和书写计算中度过了充实的一天。</p>
+    <ol>
+      <li><span class="t">读诗歌 · 看见彼此的闪光点 📖</span><p>大家先试读《我和小鸟和铃铛》，再跟着老师逐句朗读。糯米说，这首诗告诉我们不要跟别人比较；六一在试读时认出了几个字。大家还复习了《雨后》等诗歌。</p></li>
+      <li><span class="t">读小草 · 把观察说出来 🌱</span><p>孩子们阅读《可爱的小草》，从绿绿的、软软的、嫩嫩的样子，聊到小草不怕风雨的品质。妍语说起春天树叶变绿，子旭说小草很坚持；六一也分享了自己的想法。</p></li>
+      <li><span class="t">户外运动 · 一次次练习跳绳 🪢</span><p>孩子们在户外做开合跳、跳绳等活动，老师提醒大家找好位置、注意双脚与甩绳动作。练习中，糯米专心跳绳，老师看在眼里。</p></li>
+      <li><span class="t">书写和口算 · 看清细节再动笔 ✏️</span><p>下午练习书写数字和“毛”字，老师示范了转弯、笔画长短和间距，也提醒大家注意坐姿。随后孩子们练习十以内加减法，写完后检查，并按老师安排交换批改。</p></li>
+    </ol>
+    <p class="lead">愿每个孩子都能在自己的节奏里，发现一点新的进步。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月12日，星期四。今天的课堂从一首诗走向一篇短文，又从户外跳绳延伸到下午的书写与计算。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📖</span><h2>一、诗歌朗读 · 我们不一样，也都有闪光点</h2></div>
+    <div class="body-text">
+      <p>晨读时，老师先请大家试读《我和小鸟和铃铛》，遇到不熟悉的字，就一起认一认：伸手的“伸”、手臂的“臂”、响亮的“响”。老师注意到，<strong>六一</strong>在试读时认出了几个字。</p>
+      <p>随后，老师带着孩子们逐句读。小鸟会飞，人能在地上奔跑；铃铛能发出声响，人能唱歌。说到诗歌是什么意思，<strong>糯米</strong>回答：“我们不跟其他人比较。”老师接着和大家聊到，每个人都有自己的优点和闪光点。</p>
+      <p>孩子们还复习了《雨后》，并朗读《万物》和《当我安静下来》。老师提醒大家留意齐读的节奏，用适合朗读的声音，不必大声喊。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>晨读既是认识字、练习朗读，也是一起理解文字里的意思。听见彼此不同的长处，孩子们也有机会学习欣赏自己和伙伴。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>二、课堂里的小约定 · 先做好手边的事</h2></div>
+    <div class="body-text">
+      <p>阅读课开始前，老师和孩子们聊起如何安排学习与玩耍的时间：先把该做的事情做好，再安排自己的活动。老师肯定了<strong>展硕</strong>能听懂并执行课堂指令，也提到<strong>六一</strong>这段时间坚持完成学习任务。</p>
+      <p>课间，老师提醒大家分几次喝水；上课时，练习倾听、举手和围绕课堂内容表达。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从听清要求到安排手边的事情，孩子们在日常课堂中练习学习习惯，也慢慢积累照顾自己的经验。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>三、《可爱的小草》 · 从读文字到说发现</h2></div>
+    <div class="body-text">
+      <p>上一次阅读课，孩子们读过《美丽的冬天》，聊过冬天的变化；今天，大家跟着《可爱的小草》把目光转向春天。老师先带读短文，再请大家回到文字中找一找：小草是什么样子的？风吹过来，它会怎么样？</p>
+      <p>大家读到，小草是<strong>绿绿的、软软的、嫩嫩的</strong>，风吹过来会轻轻摇。读到“长出”，老师还带大家辨认“长”在“长短”和“长大”里的不同读音。</p>
+      <p>说起春天还有哪些变化，<strong>妍语</strong>分享树叶变绿了，老师接着说起树叶发芽、长出嫩绿的新叶。<strong>六一</strong>也说起大树生长；讨论小草时，他说到了小草不怕风雨。</p>
+      <p>老师问为什么作者喜欢小草，<strong>子旭</strong>说：“因为它很坚持。”大家又从文中找到“不怕风、不怕雨”，一起理解小草勇敢、坚强的样子。课堂上，老师也鼓励孩子们围绕短文积极思考、表达自己的想法。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从冬天读到春天，从文字里的样子找到自己的观察，阅读和表达就在一次次提问与回应中连起来了。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🪢</span><h2>四、户外运动 · 留意动作，也留意身边</h2></div>
+    <div class="body-text">
+      <p>来到户外，孩子们集合、排队，练习开合跳和跳绳。跳绳前，老师请大家找好位置，注意和身边的伙伴保持距离。</p>
+      <p>练习时，老师一边观察一边提醒：<strong>手放低一些，双脚并拢，面向前方甩绳</strong>。课堂中也安排了一分钟计时练习，让孩子们关注自己的动作和节奏。</p>
+      <p>老师看到<strong>糯米</strong>专心跳绳，给予了肯定。结束时，老师安排孩子们收好绳子，再进行跑步活动。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>跳绳课里的每一次练习，都让孩子有机会感受手脚的配合。留意动作、调整位置，比只看数字多了一份对身体和周围环境的关注。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>五、书写练习 · 看清笔画和位置</h2></div>
+    <div class="body-text">
+      <p>下午的书写练习中，老师示范数字“15”，重点讲解“5”的转弯：竖下来之后，拐弯写得圆润一些，最后补上一横。孩子们也练习写“毛”字，观察短撇和横画的长短、横画之间的间距，以及竖弯钩先竖直再转弯的写法。</p>
+      <p>老师在巡视时提醒大家调整坐姿和握笔：头正肩平、双脚踏实，胸口和桌面留出一拳左右的距离。桌椅高度不合适时，老师也安排了调整。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>控笔书写课里，看清形状、位置和笔画之间的距离，再动手练习，是一点点积累书写基本功的过程。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>六、口算与整理 · 做完再检查</h2></div>
+    <div class="body-text">
+      <p>书写之后，孩子们进行十以内加减法练习，也接触了混合加减。老师提醒大家看清题目、把答案写在框内，完成后先自己检查，再按安排交换批改。</p>
+      <p>课间有孩子分着吃香蕉；练习结束前，老师也提醒大家收好本子、整理桌面和地面。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>做完之后回头看一遍，再把用过的物品归位，让学习有开始，也有收尾。计算之外，这些小步骤同样是学习习惯的一部分。</p>
+    </div>
+  </section>
+
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>从诗歌里看见各自的闪光点，从小草身上读到坚持，再到一次次跳绳和一笔一画的练习，孩子们今天在不同的活动中留下了自己的脚印。愿大家带着好奇和耐心，继续慢慢长大。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
