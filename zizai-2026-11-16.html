@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先听清楚，再动手</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 16 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月16日，星期一，今天的课堂围绕“听清楚、想明白、再动手”展开。</p>
+    <ol>
+      <li><span class="t">数字与词语 · 听见了，也试着记下来 👂</span><p>孩子们从数字复述开始，练习在心里默念，再按要求说出或写下听到的内容。词语记忆从三个词逐步增加到四个、五个，大家既要记住词语，也要留意先后顺序。糯米在数字复述中答对了一组，老师也带着大家反复练习。</p></li>
+      <li><span class="t">听指令做动作 · 把小细节装进耳朵里 🧩</span><p>拿橡皮、拍手摸耳朵、叠放乐高、画小圆圈，都是今天的练习内容。妍语正确完成了把橡皮放在右手掌心的指令；子旭画出的小圆圈，成为老师讲解“小”这个要求的例子。大家练习听完全部要求，再按顺序行动。</p></li>
+      <li><span class="t">等量代换 · 找到中间的“传递员” 🍉</span><p>从两张5元换一张10元说起，孩子们认识了“相等的量可以相互替换”。课堂动画里，一个西瓜和两个菠萝一样重，一个菠萝又和三个苹果一样重，大家跟着推导出一个西瓜可以换六个苹果。随后通过图形、水果和小动物题，练习找到中间的“传递员”，一步步代换。</p></li>
+      <li><span class="t">个位和十位 · 看懂数字的位置 🧮</span><p>下午，老师带大家回顾上次的20以内不进位加法，再把重点放到个位和十位。借助动画中的成捆小棒、文具和计数器，孩子们认识“10个一是1个十”，并练习把32、16、25等数表示出来。大家还学习区分“写作16”和“读作十六”，把图、数量、数字和汉字联系起来。</p></li>
+      <li><span class="t">独立练习与订正 · 让思考留下痕迹 ✏️</span><p>上午的代换练习和下午的数位练习，都安排了独立动笔时间。老师示范用画圈、在图案旁标数字等方法帮助思考，并提醒写完再检查。订正时保留原答案，在旁边写出新的答案，让前后的思路都看得见。</p></li>
+    </ol>
+    <p class="lead">愿孩子们在每一次听清、想一想和再试一次中，慢慢积累属于自己的方法。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月16日，星期一。上午从专注力练习走向等量代换，下午再回到个位、十位和读数写数，今天的课堂把倾听、理解与独立练习连在了一起。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">👂</span><h2>一、听清再复述 · 从数字走向词语</h2></div>
+    <div class="body-text">
+      <p>课堂开始，老师和孩子们约定：先认真听，把内容记在心里，再根据要求复述、书写或做动作。听数字时，可以在心里默念，不必念出声音。</p>
+      <p>数字练习从三位数起步，逐渐增加长度。老师在提问后提到，<strong>糯米</strong>答对了一组数字。随后，大家练习按顺序把听到的数字写到纸上，也留意一组一行、从上往下的书写安排。</p>
+      <p>词语环节从“苹果、橘子、积木”等三个词开始，接着增加到四个、五个词。“铃铛、松鼠、画笔、石头、西瓜”这组词，不仅要记住有哪些，还要留意谁在前、谁在后。老师带大家一组一组重新听、重新说，把“记住内容”和“记住顺序”分开来看。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>上一次回顾里，孩子们练习倾听伙伴、看清要求再动笔；今天则把“听”单独拿出来练一练。从听到、记住，再到说出来或写下来，每一步都有具体的要求，也是学习习惯的一部分。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🧩</span><h2>二、把要求做出来 · 左右、位置和先后顺序</h2></div>
+    <div class="body-text">
+      <p>接下来的任务，是把听到的话变成动作。老师先讲完要求，再请孩子行动：拿起一块橡皮，放在右手掌心里；先拍两下手，摸一摸耳朵，再转身。</p>
+      <p>在橡皮指令中，<strong>妍语</strong>正确完成了要求。老师带大家一起核对“右手”和“掌心”，让每个词都对应到具体的位置。</p>
+      <p>乐高任务要先把黄色积木放在白纸上，再把绿色积木叠上去；画圈任务则要拿出铅笔、画一个小圆圈、把笔放在纸的右边，再举起左手。老师请大家看看<strong>子旭</strong>画的小圆圈，用这个例子解释：听指令时，连“小”这样的细节也需要留意。</p>
+      <p>完成之后，大家还按安排把乐高收回框里、将用过的物品归位。课间，老师提醒洗手、拿杯子，也提醒削铅笔时到垃圾桶旁边处理笔屑。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>多步指令把倾听、记忆和行动连在一起。先听完整，再按顺序做；结束后把东西放回去，这些小步骤也在为孩子独立处理课堂任务打基础。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🍉</span><h2>三、一样多才能换 · 认识等量代换</h2></div>
+    <div class="body-text">
+      <p>数学课先接回之前测量、称重量的经验：长度、重量都可以比较，那么，相等的量能不能换一种方式表示呢？</p>
+      <p>老师用换零钱举例：<strong>两张5元和一张10元金额相等</strong>，可以交换；十张1元，也可以换一张10元。随后借助天平，带孩子理解“等量”不是随意交换，而是换过之后，两边仍然相等。</p>
+      <p>动画里，一个西瓜和两个菠萝一样重，一个菠萝又和三个苹果一样重。把两个菠萝分别换成三个苹果，就得到：<strong>一个西瓜和六个苹果一样重</strong>。老师把中间连接两种关系的菠萝叫作“传递员”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从零钱和天平出发，再看水果之间的关系，数理课把抽象的“相等”放进孩子能够想象的情境。重点不只是得到六个苹果，更是看见这个结果怎样一步步得来。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🔍</span><h2>四、一个一个换 · 把解题过程画出来</h2></div>
+    <div class="body-text">
+      <p>接着，老师带大家在图形题里寻找“传递员”。一个三角形可以换成两个圆形，三个三角形又对应一个五角星，把三个三角形逐一换掉，就能看出一个五角星对应六个圆形。</p>
+      <p>课堂也练习了两种整理关系的方法：<strong>两边同时拿走同样数量的相同物品</strong>，天平仍然平衡；<strong>把两边平均分成相同的份数</strong>，就能找到其中一份的关系。例如，三个爱心对应六个三角形，两边都分成三份，就得到一个爱心对应两个三角形。</p>
+      <p>从苹果、梨、草莓，到小狗、兔子、小鸡，老师不断请孩子回到题目给出的条件：先找中间连接的对象，再一个一个代换。数量多时，可以像老师一样画圈，用简单的图形记录每一步，换完再数一数。</p>
+      <p>最后，大家还接触图案与数字的代换：先找出图案代表几，再看清加号、减号，把数字代入计算。上午的随堂练习安排了10分钟，老师提醒大家先写名字和日期，自己思考，完成后再检查。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>把过程画出来、在图案旁标上数字，都是帮助思考的方法。数理学习不必急着跳到答案，能根据条件把每一步走清楚，同样值得认真练习。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🧮</span><h2>五、十个一是一个十 · 回到数位的基础</h2></div>
+    <div class="body-text">
+      <p>下午开课时，老师先问起星期一下午的课程，<strong>顶顶</strong>的回应得到了加分。大家随后回顾上次学习的20以内不进位加法，今天则先聚焦数位，把个位和十位弄清楚。</p>
+      <p>动画用十块水果串一串、十支铅笔放一筒、十根小棒捆一捆来说明：<strong>10个一就是1个十</strong>。三捆小棒加两根，是三个十和两个一，也就是32。</p>
+      <p>放到计数器上，从右边起第一位是个位，第二位是十位。32就在十位上表示三颗珠子、个位上表示两颗珠子。老师通过54、16、17、25等数反复提问，让孩子把“几个十、几个一”与相应位置联系起来。</p>
+      <p>老师也带大家观察20：十位上有两颗珠子，个位上没有珠子，用0表示，写成20。先把个位、十位看明白，再往后认识更多数位，是今天课堂的安排。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>从上次的加法回到数字由什么组成，体现了“做透不做多”的节奏。看见一捆和一根、一个十和一个一的区别，才能让数字不只是写在纸上的符号。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>六、写作与读作 · 同一个数，两种表示</h2></div>
+    <div class="body-text">
+      <p>“写作”和“读作”说出来的数相同，落到纸上却有不同的表达方式。老师用棒棒糖图讲解：十六个棒棒糖，<strong>写作16，读作十六</strong>，由一个十和六个一组成。</p>
+      <p>大家继续看蘑菇、盆花和桃子的图，先数清数量，再写数字、写汉字，并说说其中有几个十、几个一。老师还带着孩子复习汉字一到十，示范“九”“十”等字的写法。</p>
+      <p>看计数器时，也按照同样的步骤练习19、20、15、12。数字20需要写出个位上的0；汉字“二十”则由“二”和“十”组成，不再另添一个0。老师把两种写法摆在一起，让大家对照着看。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>图里的数量、计数器上的珠子、阿拉伯数字和汉字，是表示同一个数的不同方式。把它们联系起来，既是在练数感，也是在练习看清题目要求后再表达。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🌱</span><h2>七、保留原答案 · 在订正中再想一遍</h2></div>
+    <div class="body-text">
+      <p>讲解之后，下午安排了15分钟独立练习。老师把汉字示范写在白板上，方便需要时抬头对照，再逐份查看孩子们的练习。</p>
+      <p>批改时，老师带大家重新核对个位、十位的数字，分清两位数的写法，也留意汉字的笔画和间距。课堂中有孩子完成订正后，听到老师说“过关了”，还得到一句鼓励：“你其实你会的。”</p>
+      <p>今天两次数学练习都强调了同一个订正规则：<strong>保留原来的答案，在旁边写新的正确答案</strong>。老师也提醒大家，写完先自己检查，再交给老师看。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>延续之前“做完再检查”的练习，今天又加上了“保留原答案”。订正不只是换一个结果，也让老师和孩子有机会一起回看：原来怎么想，后来又在哪里想明白了。</p>
+    </div>
+  </section>
+
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>把橡皮放进右手掌心，把一个菠萝换成三个苹果，把一捆小棒看作一个十，再在原答案旁写下新的思考——今天的学习，就藏在这些具体的小步骤里。愿孩子们带着耐心，一步步听清、看清，也越来越能把自己的想法做出来、说出来。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
