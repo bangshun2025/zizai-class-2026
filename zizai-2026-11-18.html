@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先复习，再学新</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 18 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+
+  <!-- ============ 摘要速览 ============ -->
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月18日，星期三，今天的课堂从晨间识字开始，在运动闯关和糖葫芦制作中，把观察、思考与行动连在一起。</p>
+    <ol>
+      <li><span class="t">晨间识字 · 先把老朋友认熟 📚</span><p>孩子们先复习学过的字，再逐个认读、组词，准备迎接新字。六一完成了当天的复习，进入新字学习环节；子旭的复习也接近完成。老师借“洗澡”和“红枣”、“苹果”和“平安”，带大家留意同音字之间的区别。</p></li>
+      <li><span class="t">障碍闯关 · 记住动作，也照顾伙伴 🏃</span><p>蹲跳、开合跳、单双脚交替跳、双手撑地向前移动，孩子们跟着示范练习不同的动作。单脚跳要记得换腿，较高的障碍前先蓄力、再起跳。前面有人就等一等、通过窄口留出空间，也是闯关的重要要求。</p></li>
+      <li><span class="t">算术与书写 · 做完再看一遍 ✏️</span><p>下午制作活动开始前，老师逐份查看算术练习，带孩子们核对加减法，也留意数字的书写。答案和字形都需要看清楚，完成之后再检查一次。纸上的耐心，也为接下来的动手制作做准备。</p></li>
+      <li><span class="t">糖葫芦制作 · 数量与变化都看得见 🍡</span><p>看过示范后，大家跟着老师认识糖和水的配比，现场用到250克糖、125克水。糖液从起泡到逐渐变稠，成为观察的对象；水果串的长短、大小和稳固程度，也都会影响裹糖效果。糯米在活动中有了糖葫芦装杯的任务。老师也提醒大家，盛放食物时留意卫生。</p></li>
+      <li><span class="t">拔丝与品尝 · 把尝试变成经验 ✨</span><p>拉起来的糖丝呈现出蜂窝般的纹理，现场响起一声声惊喜。大家对照不同水果串的裹糖效果，听老师总结怎样串得更稳、长度更合适。品尝时，一句“好好吃”，为今天的动手体验添上甜甜的结尾。</p></li>
+    </ol>
+    <p class="lead">愿每一次认真观察、耐心等待和动手尝试，都成为孩子们下一次更从容的起点。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月18日，星期三。晨间复习字卡，上午进行障碍闯关，下午从算术练习走向糖葫芦制作——今天，学习既在纸上，也在身体的动作和眼前的材料里。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">📚</span><h2>一、先复习再学新 · 让认识的字留下来</h2></div>
+    <div class="body-text">
+      <p>早晨，老师先和孩子们聊起“复习”：学过的字，要再拿出来看一看、读一读，然后再学习新的内容。复习时可以先自己认，遇到不确定的地方再向伙伴请教。</p>
+      <p>字卡在孩子们手里一张张翻过。“张开的张”“玩耍的耍”“放假的假”“整齐的齐”，一个个字和熟悉的词语连在一起。老师也带大家辨认“洗澡的澡”和“红枣的枣”、“苹果的苹”和“平安的平”，让孩子不只听声音，也看看字形和词义。</p>
+      <p><strong>六一</strong>完成了当天的复习，随后进入新字学习环节；老师也提到，<strong>子旭</strong>的复习接近完成。课堂里还有孩子拿字来反过来考老师，一问一答，让认字多了一点互动的趣味。</p>
+      <p>复习之后，老师提醒把不同进度的字卡分开放好、捆好，方便下一次取用。需要安静时，也示范用“请你小声一点，打扰到我了”表达自己的需要。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>之前的课堂一直在练习“做完再检查”，今天则把这份回看放到识字里。先巩固，再向前；把字放进词语里理解，也把卡片按进度整理，都是在为自主学习积累方法。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🏃</span><h2>二、身体来闯关 · 把动作与规则一起记住</h2></div>
+    <div class="body-text">
+      <p>上午的障碍闯关，先从看示范、听要求开始。起点处蹲下，双脚一起跳过障碍；遇到较高的位置，不急着连续跳，先蓄好力，再完成动作。</p>
+      <p>随后是开合跳、单双脚交替跳，以及双手撑地向前移动。单脚与双脚切换时，下一个单脚动作要换另一条腿，孩子们需要一边行动，一边记住动作顺序。</p>
+      <p>教练还反复讲到队伍之间的距离：<strong>前面有人，先等一等；通过窄口，留出空间</strong>。不追得太紧，也不挤在一起，让每个人都有完成动作的位置。</p>
+      <p>练习后段，教练通过现场示范，提醒大家留意前脚掌的发力方式，体会怎样跳得更轻松、连贯。结束前，再请孩子们感受身体的运动状态，随后拿好水杯，按安排转场。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>动作协调与规则意识在同一个场景里练习。听见“换腿”后调整动作，看见前面有人后停下来等待，都是把课堂里的倾听转化成身体能够完成的行动。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>三、算完再检查 · 也照顾数字的样子</h2></div>
+    <div class="body-text">
+      <p>下午制作活动前，老师逐份查看算术练习，带孩子核对加减法计算，也关注数字是否写得清楚。像5、6、8这样的数字，笔画与形状都需要留意。</p>
+      <p>算得对和写得清楚，是两个可以分别检查的小目标。老师在批改中带着孩子重新看题、核对结果，再看一看字形，让练习不只停在“写完了”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>延续前次回顾里的独立练习与检查，今天继续把认真落实到具体的小地方。计算时看清条件，书写时表达清楚，都是为小学学习打基础的日常练习。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🍯</span><h2>四、看糖液变化 · 生活里的称量与观察</h2></div>
+    <div class="body-text">
+      <p>今天的动手项目是制作糖葫芦。开始前，大家先看教程，再听老师讲解：水果外面那一层薄薄的糖衣，是怎样形成的？为什么不是把整串水果放进糖液里浸泡？</p>
+      <p>称量时，现场讨论了<strong>250克糖配125克水</strong>，也用到了电子秤的去皮功能。数字不再只是纸上的答案，而是和眼前的材料对应起来：需要多少，就按读数来准备多少。</p>
+      <p>加热过程中，老师带大家观察糖液的泡沫、黏稠程度和颜色变化，并讲解不同阶段对搅拌和火力的要求。裹糖的示范则强调轻轻接触表面，而不是长时间浸泡水果。</p>
+      <p>随后，现场演示了拔丝：糖丝被拉起，呈现蜂窝般的纹理，卷起来又有了新的形状。孩子们听着讲解、看着变化，现场不时传来惊喜的回应。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>称量把数学带进生活，观察则让孩子看见材料如何变化。这也是项目学习的价值：不只是照着做，还可以继续追问，用量、状态和方法会怎样影响结果。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">🍡</span><h2>五、串得稳，也要长短合适 · 在制作中调整</h2></div>
+    <div class="body-text">
+      <p>水果分到手里后，孩子们开始串出自己的作品。老师提醒大家记住各自水果串的样子，轮到时按小组排队，盛放前也要留意手和容器的卫生。活动中，<strong>糯米</strong>有了糖葫芦装杯的任务。老师也提醒大家，盛放食物时留意卫生。</p>
+      <p>真正裹糖时，水果串的设计就有了具体的检验：串得太长，锅面不容易顾及整串；两端的果块过大，中间的果块可能接触不到糖液；果块如果不稳、跟着转，也会影响裹糖。</p>
+      <p>老师带大家对照不同作品，讨论怎样调整长度和排列，让果块大小更均匀、固定得更稳。现场一串较短的作品裹得比较均匀，表面亮晶晶的，成为大家一起观察的例子。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>项目里的问题往往不能只靠听讲解决。串好、试一试，再根据效果调整，孩子才能把“长短合适”“固定稳固”这样的要求，与真实的制作结果联系起来。</p>
+    </div>
+  </section>
+
+    <section class="card">
+    <div class="section-title"><span class="icon">✨</span><h2>六、甜甜地收尾 · 让经验留到下一次</h2></div>
+    <div class="body-text">
+      <p>制作接近尾声，老师把今天的尝试重新串起来：水果串不必一味加长，数量要合适；果块要固定稳，再考虑怎样裹上均匀的糖衣。不同作品的效果，也成为下一次改进的参照。</p>
+      <p>糖丝拉起时，大家看见了新的造型；品尝时，现场传来“好好吃”的回应。老师也和孩子们聊起，以后还可以继续尝试不同的造型和样式，作品准备得更成熟后，再考虑售卖的安排。</p>
+      <p>比一串成品更值得留下的，是这次亲手尝试后，多知道了一点“怎样做会更合适”。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>糖葫芦项目把观察、称量、操作和回顾连在了一起，也与课程中“在真实场景里解决问题”的方向相呼应。成品带来快乐，过程则为下一次尝试留下了可以使用的经验。</p>
+    </div>
+  </section>
+
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>把学过的字再认一遍，把跳跃的动作再练一次，把水果串调整得更稳一点——孩子们就在这些看得见的小步骤里积累经验。愿今天字卡上的熟悉、闯关中的尝试和舌尖上的甜，都化作明天愿意继续探索的力量。</p>
+    </div>
+  </section>
+
+  <footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
