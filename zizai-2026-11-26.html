@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自在班 · 每日成长记录｜2026 秋季班</title>
+<style>
+  :root {
+    --ink: #2b3a4a;
+    --ink-soft: #5a6b7d;
+    --ink-faint: #93a1b0;
+    --navy: #1f3a5f;
+    --navy-soft: #eaf0f7;
+    --gold: #b98a2f;
+    --line: #e6e9ee;
+    --paper: #f6f7f9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 顶部细条 */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    text-align: center;
+    padding: 72px 0 44px;
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    background: var(--navy-soft);
+    border: 1px solid #d6e0ee;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 42px);
+    color: var(--navy);
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  .hero .meta .dot { margin: 0 10px; color: var(--gold); }
+
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: var(--gold);
+    margin: 34px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ============ 章节通用 ============ */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 40px;
+    margin-top: 28px;
+    box-shadow: 0 1px 3px rgba(31, 58, 95, 0.04);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title .icon { font-size: 20px; }
+  .section-title h2 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ============ 摘要速览 ============ */
+  .summary {
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .summary .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin-bottom: 22px;
+  }
+
+  .summary ol {
+    list-style: none;
+    counter-reset: sum;
+  }
+
+  .summary ol li {
+    counter-increment: sum;
+    position: relative;
+    padding: 14px 0 14px 46px;
+    border-bottom: 1px dashed #eef1f5;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .summary ol li:last-child { border-bottom: none; }
+
+  .summary ol li::before {
+    content: counter(sum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: #faf6ec;
+    border: 1px solid #eee3c8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summary ol li .t {
+    display: block;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .summary ol li p { margin: 0; }
+
+  /* ============ 正文段落 ============ */
+  .body-text {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .body-text strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .body-text ul,
+  .body-text ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .body-text ul li,
+  .body-text ol li {
+    margin-bottom: 10px;
+  }
+
+  .body-text blockquote {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    background: #faf6ec;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .body-text blockquote p { margin: 0 0 6px; }
+  .body-text blockquote p:last-child { margin-bottom: 0; }
+
+  /* 教育价值 aside */
+  .aside {
+    margin-top: 24px;
+    background: var(--navy-soft);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+  }
+
+  .aside .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .aside p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.85;
+  }
+
+  .aside p + p { margin-top: 10px; }
+
+  /* 结尾语 */
+  .closing {
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .closing .aside {
+    background: linear-gradient(180deg, #fdfbf5, #fbf7ec);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+
+  .closing .aside p { color: var(--ink); font-size: 14px; }
+
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+  }
+
+  .footer::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 18px;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 26px 22px; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="wrap">
+  <!-- ============ 头部 ============ -->
+  <header class="hero">
+    <div class="badge">🌱 2026 秋季班</div>
+    <h1>自在班 · 每日成长记录</h1>
+    <p class="sub">先学会，再分享</p>
+    <p class="meta">图文｜自在班<span class="dot">·</span>2026 年 11 月 26 日</p>
+    <div class="hero-line"></div>
+  </header>
+
+
+
+  <!-- ============ 摘要速览 ============ -->
+
+  <section class="card summary">
+    <div class="section-title"><span class="icon">📋</span><h2>摘要速览</h2></div>
+    <p class="lead">11月26日，星期四，感恩节。今天，孩子们与国际班伙伴一起前往儿童福利院，在分享、相伴与日常学习中，练习表达心意，也留意身边的人和事。</p>
+    <ol>
+      <li><span class="t">亲手准备 · 把心意做进糖葫芦里 🍡</span><p>一早来到幼儿园，孩子们亲手为福利院伙伴制作糖葫芦，把平时项目中学到的本领用在这次分享里。相见时，伙伴们高兴地挑选自己喜欢的糖葫芦，一份准备成为了彼此交流的开始。</p></li>
+      <li><span class="t">手拉手相聚 · 在陪伴中认识感恩 🤝</span><p>大家参观了福利院温馨的新家，一起跳感恩节主题韵律操，也接触了相关英文内容。老师从大自然的馈赠聊起，带孩子们看见安稳生活、家人照顾、老师支持与伙伴陪伴中的值得感谢之处。</p></li>
+      <li><span class="t">友好做客 · 尊重空间，也分享快乐 🌿</span><p>参观教室和生活空间时，孩子们做到“眼看手不动”，在老师许可后与伙伴有序、友好地游戏。离别时，大家也收到了园长分享的零食；乘车途中，孩子们聊天保持合适音量，留意不打扰他人。</p></li>
+      <li><span class="t">观察书写 · 看清数字与笔画的位置 ✏️</span><p>下午，大家练习数字“9”的起笔、转弯、连接与占格，也留意汉字笔画的长短和位置。摆好本子、调整坐姿、放松握笔，再回头检查，让书写有清楚的步骤。</p></li>
+      <li><span class="t">分步计算 · 把两步都算完整 🔢</span><p>计算练习继续关注运算顺序与中间结果。先完成第一步，再带着结果算下一步，最后核对答案，练习让每一步都有着落。</p></li>
+      <li><span class="t">整理收尾 · 照顾共同使用的环境 🎒</span><p>回到熟悉的日常，大家也参与收拾纸张、擦拭桌椅和扫地等班务。离园前再整理、检查书包，把自己的物品与共同使用的空间一并照顾好。</p></li>
+    </ol>
+    <p class="lead">亲手准备分享、参观时留意边界、乘车时调整音量，都是今天值得记录的具体表现。愿感谢不只停在一句话里，也藏在一次次愿意付出、懂得尊重的小行动中。</p>
+  </section>
+
+  <section class="card">
+    <div class="body-text">
+      <p>11月26日，星期四，感恩节。今天的学习，从一早为伙伴准备糖葫芦开始，走进一次真实的相聚，再回到下午的书写、计算和整理。分享与尊重、观察与检查，在不同场景里都有了具体的练习。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🍡</span><h2>一、用学到的本领准备一份心意 · 亲手做糖葫芦</h2></div>
+    <div class="body-text">
+      <p>一早来到幼儿园，孩子们亲手为儿童福利院的伙伴制作糖葫芦。平时做项目时积累的经验，今天有了一个清楚的用途：<strong>为即将见面的伙伴准备一份可以分享的心意。</strong></p>
+      <p>到了福利院，伙伴们看到糖葫芦很高兴，挑选自己喜欢的那一串。从制作到分享，孩子们有机会看见，自己学会的本领也可以用来为别人做些事情。</p>
+      <p>这份心意不只在于糖葫芦本身，也在于愿意花时间动手准备，把“想和你分享”变成一件实际做出来的事情。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>项目里练过的本领，走进了真实的人际交往。当孩子用自己会做的事情参与分享，付出便有了具体的方式，也让“我能为伙伴做什么”有了可尝试的答案。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🤝</span><h2>二、一起动起来，也一起感受陪伴 · 感恩节的相聚</h2></div>
+    <div class="body-text">
+      <p>上午，大家与国际班伙伴一起前往儿童福利院，参观伙伴们的新家。温馨的环境、操场和游戏设施，让孩子们对这里充满兴趣。</p>
+      <p>在老师们的带领下，孩子们与福利院伙伴手拉手，一起跳感恩节主题韵律操，也接触了感恩节相关的英文内容。<strong>一起跟随节奏、一起参与活动</strong>，让彼此有了共同的体验。</p>
+      <p>围绕感恩，老师从大自然带来的食物与生活所需聊起，再延伸到国家给予的安稳生活、父母的照顾、老师的支持和伙伴的陪伴。感谢因此与孩子们熟悉的人和生活连接起来。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>感恩可以从看见身边的支持开始。一场共同参与的活动，让孩子在相伴中认识彼此；一句感谢背后，也可以慢慢看见照顾、支持与陪伴的具体模样。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🌿</span><h2>三、做一位体贴的小客人 · 尊重边界，友好相处</h2></div>
+    <div class="body-text">
+      <p>参观教室和生活空间时，孩子们能够做到<strong>“眼看手不动”</strong>。对新环境保持好奇，同时留意这里的物品和空间属于正在生活、学习的伙伴，是做客时很重要的分寸。</p>
+      <p>到了游玩区，大家在老师许可后，与福利院伙伴、国际班小朋友一起有序、友好地玩耍。参观与游戏有不同的参与方式，孩子们也在真实情境中练习判断：什么时候先看一看，什么时候可以一起加入。</p>
+      <p>离别时，福利院园长为小朋友们分享了零食，大家带着这次相聚的体验告别、返回学校。我们带去了亲手制作的糖葫芦，也收到了热情的陪伴与分享，一起留下了愉快的相聚时光。</p>
+      <p>乘坐大巴时，孩子们聊天能够保持合适音量，留意不打扰其他乘客。<strong>把声音调整到适合公共环境的程度</strong>，也是体贴他人的一种行动。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>友好既有主动参与，也有对他人空间的尊重。参观时留意物品边界，使用前先征得同意，参与游戏时遵守共同约定，聊天时保持合适音量，让尊重成为具体的行动。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">✏️</span><h2>四、把目光落在细节上 · 数字“9”与笔画书写</h2></div>
+    <div class="body-text">
+      <p>下午回到书写练习，今天重点关注数字“9”。老师在白板上示范，带大家观察上部曲线怎样转弯、连接处怎样接合，以及整个数字在格子里的位置。</p>
+      <p>孩子们先描红，再尝试书写，写完后对照示范检查。<strong>起笔在哪里、连接是否清楚、大小和位置是否合适</strong>，都是可以逐项观察的线索。</p>
+      <p>汉字书写也从观察笔画入手：比较横画的长短，留意撇、竖的方向，以及笔画与竖中线的位置关系。看清示范，再把观察转化为手上的动作。</p>
+      <p>书写时，大家继续练习调整桌椅与坐姿，用左手扶稳本子，握笔时留意放松。工具有固定的位置，身体和本子也准备妥当，让动笔更有次序。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>延续近期对数字起笔、转弯和格子位置的练习，今天把观察落在“9”的曲线与连接上。书写既需要手部动作，也需要眼睛参与；对照与检查，帮助孩子逐步看懂自己写下的内容。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🔢</span><h2>五、带着上一步继续算 · 让计算过程完整</h2></div>
+    <div class="body-text">
+      <p>计算练习中，老师结合题目带大家核对答案。面对今天不含括号、只有加减的两步算式，大家继续练习从左往右计算，带着第一步的结果完成下一步。</p>
+      <p>例如“6－0－4”，先算6－0＝6，再用这个结果继续算6－4＝2。<strong>中间结果是下一步的起点，两步都完成后，再记录最终答案。</strong></p>
+      <p>今天的练习也关注写完之后自己检查。把目光重新放回题目，核对数字、运算符号与每一步结果，让“做完”之后多一次确认。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>近期反复练习的分步计算，重在把顺序落实到每一道题里。留下中间结果、继续完成下一步，再回头核对，让思考过程更清楚，也为独立检查积累方法。</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="icon">🎒</span><h2>六、把共同的空间照顾好 · 班务与离园整理</h2></div>
+    <div class="body-text">
+      <p>下午的日常中，还穿插着班务整理：收起桌面的纸张、擦拭桌椅、扫地，并留意角落等容易遗漏的位置。不同的事情有各自的步骤，也需要大家一起参与。</p>
+      <p>上午做客时留意伙伴的环境，回到学校后，也继续练习照顾共同使用的空间。<strong>尊重别人的物品，与整理自己身边的环境，都是对生活的认真参与。</strong></p>
+      <p>离园前，老师提醒大家收拾书包、检查物品，让一天的活动在整理与核对中收尾。</p>
+    </div>
+    <div class="aside">
+      <span class="tag">💡 老师随记</span>
+      <p>责任感可以从身边做得到的事情开始。收好一张纸、擦净一处桌面、检查一次书包，让参与集体生活与照顾自己，都有具体可做的小步骤。</p>
+    </div>
+  </section>
+
+  <section class="card closing">
+    <div class="aside">
+      <span class="tag">✨ 写在最后</span>
+      <p>今天的感恩，有亲手准备的糖葫芦，有一起跳动的节奏，也有参观时对物品的爱护、乘车时放轻的声音。愿孩子们在与人相处、为人付出的真实体验里，慢慢学会感谢，也学会用平等、尊重与行动回应身边的温暖。</p>
+    </div>
+  </section>
+
+<footer class="footer">自在班 · 每日成长记录 · 2026 秋季学期</footer>
+
+</div>
+
+</body>
+</html>
